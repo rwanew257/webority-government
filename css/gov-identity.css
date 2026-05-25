@@ -1,0 +1,140 @@
+/* ============================================================
+   Webority Government — gov identity bar + accessibility add-ons
+   Additive only. Does not override style.css tokens.
+   ============================================================ */
+
+/* Skip-nav (WCAG 2.4.1, GIGW 2.1) */
+.skip-nav-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 10000;
+    background: var(--primary, #6200ee);
+    color: #fff;
+    padding: 12px 20px;
+    font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+}
+.skip-nav-link:focus {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    outline: 3px solid #FFD600;
+    outline-offset: 2px;
+}
+
+/* Government identity top-bar (sits above .site-header) */
+.gov-topbar {
+    background: linear-gradient(90deg, #0B2545 0%, #13315C 100%);
+    color: #fff;
+    font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+    font-size: 13px;
+    line-height: 1;
+    border-bottom: 2px solid #FF9933; /* saffron accent — decorative only */
+}
+.gov-topbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 9px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.gov-topbar-left { display: flex; align-items: center; gap: 12px; }
+.gov-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FF9933;
+    color: #0B2545;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+}
+.gov-badge::before {
+    /* Decorative chakra-style mark — CSS-only, NOT the national emblem */
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #0B2545;
+    background: #fff;
+}
+.gov-topbar-tagline {
+    opacity: 0.92;
+    letter-spacing: 0.3px;
+}
+.gov-topbar-right { display: flex; align-items: center; gap: 16px; }
+.gov-topbar-links { display: flex; align-items: center; gap: 10px; }
+.gov-topbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.9;
+}
+.gov-topbar-links a:hover,
+.gov-topbar-links a:focus {
+    text-decoration: underline;
+    opacity: 1;
+}
+.gov-lang-sep {
+    opacity: 0.5;
+    color: #fff;
+    user-select: none;
+}
+.gov-lang-group { display: inline-flex; gap: 4px; }
+.gov-lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+.gov-lang-toggle:hover,
+.gov-lang-toggle:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
+    outline: none;
+}
+.gov-lang-toggle[aria-pressed="true"] {
+    background: #fff;
+    color: #0B2545;
+}
+
+/* Focus visibility — applies site-wide for keyboard users (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid #FFD600;
+    outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    .gov-topbar-inner { padding: 7px 14px; font-size: 11px; }
+    .gov-topbar-tagline { display: none; }
+    .gov-topbar-links a { font-size: 11px; }
+    .gov-topbar-links { gap: 6px; }
+    .gov-topbar-right { gap: 10px; }
+}
