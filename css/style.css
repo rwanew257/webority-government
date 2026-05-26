@@ -407,7 +407,7 @@ ul, ol { list-style: none; }
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
 }
-.nav-menu a:hover, .nav-menu a.active { background: var(--primary-10); color: var(--primary); }
+.nav-menu a:hover, .nav-menu a.active { background: transparent; color: var(--heading); font-weight: 500; }
 .nav-cta { margin-left: var(--space-3); }
 .nav-toggle {
   display: none; background: none; border: none;

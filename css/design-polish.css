@@ -118,10 +118,10 @@ section .eyebrow {
 }
 .brand-name span { color: var(--accent-80); }
 
-.nav-menu a { font-weight: 500; }
-/* Plain nav links: pale highlight on hover. Buttons (.btn) excluded â€” keep their own treatment. */
+.nav-menu a { font-weight: 400; background: transparent; }
+/* Plain nav links: text-only emphasis on hover (no pill background). Buttons (.btn) keep their own treatment. */
 .nav-menu a:not(.btn):hover,
-.nav-menu a:not(.btn).active { background: var(--primary-10); color: var(--primary); }
+.nav-menu a:not(.btn).active { background: transparent; color: var(--heading); font-weight: 500; }
 
 /* Contact Us pill — purple brand primary (vertical gradient, no shadow) */
 .nav-menu a.btn.btn-primary,
@@ -168,9 +168,7 @@ section .eyebrow {
   pointer-events: none;
   transition: transform .35s cubic-bezier(.4, 0, .2, 1), opacity .25s ease, visibility 0s linear .35s;
 }
-.megamenu.is-open,
-.has-megamenu:hover .megamenu,
-.has-megamenu:focus-within .megamenu {
+.megamenu.is-open {
   transform: translateY(0);
   opacity: 1;
   visibility: visible;
@@ -179,9 +177,7 @@ section .eyebrow {
 }
 @media (prefers-reduced-motion: reduce) {
   .megamenu { transition: opacity .15s ease, visibility 0s linear .15s; transform: none; }
-  .megamenu.is-open,
-  .has-megamenu:hover .megamenu,
-  .has-megamenu:focus-within .megamenu { transform: none; transition: opacity .15s ease; }
+  .megamenu.is-open { transform: none; transition: opacity .15s ease; }
 }
 /* Megamenu inner layout: 3 columns — 2 service columns + 1 case-study feature. */
 .megamenu-grid {
@@ -368,12 +364,12 @@ section .eyebrow {
 .hero-v2 .container { position: relative; z-index: 1; }
 .hero-v2-grid {
   display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
+  grid-template-columns: minmax(0, 1000px) minmax(0, 1fr) !important;
   gap: 0 !important;
   align-items: start;
   min-height: 0;
 }
-.hero-v2-content { padding: 0 !important; align-self: center; max-width: 560px; }
+.hero-v2-content { padding: 0 !important; align-self: center; max-width: 1000px; }
 
 /* The inline <img> stays out â€” the picture comes from ::before */
 .hero-v2-image-wrap, .hero-v2-image, .hero-v2-image-placeholder { display: none !important; }
@@ -1686,26 +1682,74 @@ section .eyebrow {
   box-shadow: 0 6px 14px -6px rgba(19,136,8,.6);
 }
 
-/* ---------- FAQ ---------- */
-.faq-wrap { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+/* ---------- FAQ — clean card-per-item, dark plus button ---------- */
+.faq-wrap {
+  max-width: 880px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 .faq-item {
-  background: #fff; border: 1px solid var(--outline); border-radius: 14px;
-  box-shadow: var(--shadow-card); overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--outline);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow .2s ease;
 }
 .faq-q {
-  width: 100%; text-align: left;
-  background: transparent; border: 0;
-  padding: 18px 22px;
-  font-family: var(--font-heading); font-weight: 600; font-size: 15.5px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 22px 22px 22px 26px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 16px;
   color: var(--heading);
   cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  line-height: 1.4;
 }
-.faq-q::after { content: "+"; color: var(--accent-80); font-size: 22px; font-weight: 700; transition: transform .25s ease; }
+.faq-q::after {
+  content: "+";
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  background: #1d1d1d;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform .25s ease, background .2s ease;
+}
+.faq-item.open .faq-q::after,
 .faq-q[aria-expanded="true"]::after { transform: rotate(45deg); }
-.faq-a { padding: 0 22px; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease; }
-.faq-item.open .faq-a, .faq-q[aria-expanded="true"] + .faq-a { padding: 0 22px 20px; max-height: 500px; }
-.faq-a p { color: var(--text-2); margin: 0; }
+.faq-q:hover::after { background: #000; }
+.faq-a {
+  padding: 0 26px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease, padding .3s ease;
+}
+.faq-item.open .faq-a,
+.faq-q[aria-expanded="true"] + .faq-a {
+  padding: 0 26px 22px;
+  max-height: 500px;
+}
+.faq-a p {
+  color: var(--text-2);
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  line-height: 1.65;
+}
 
 /* ============================================================
    CONTACT CTA â€” homepage final block (new design)
@@ -4241,13 +4285,16 @@ section .eyebrow {
 
 /* ==========================================================================
    Services mega menu — full-width dropdown opened on hover of nav "Services"
+   Injected as a child of .site-header (sibling of .nav) so position:absolute
+   with top:100% spans the full header width reliably.
    ========================================================================== */
 .has-megamenu { position: static; }
+.site-header { position: sticky; }
 .megamenu {
-  position: fixed;
+  position: absolute;
+  top: 100%;
   left: 0;
   right: 0;
-  top: 112px;
   background: #ffffff;
   border-bottom: 1px solid var(--outline);
   box-shadow: 0 24px 48px -16px rgba(7, 20, 55, 0.16);
@@ -4258,7 +4305,7 @@ section .eyebrow {
   z-index: 999;
   pointer-events: none;
 }
-.has-megamenu.megamenu-open .megamenu {
+.megamenu.is-open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
