@@ -30,7 +30,9 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li class="has-megamenu" data-megamenu="services">
+          <a href="services.html" data-i18n="nav.services" aria-haspopup="true" aria-expanded="false">Services</a>
+        </li>
         <li><a href="case-studies.html" data-i18n="nav.case-studies">Case Studies</a></li>
         <li><a href="sectors.html" data-i18n="nav.sectors">Sectors</a></li>
         <li><a href="credentials.html" data-i18n="nav.credentials">Credentials</a></li>
@@ -40,10 +42,74 @@
             <button type="button" class="gov-lang-toggle" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
             <button type="button" class="gov-lang-toggle" data-lang="hi" aria-pressed="false" aria-label="Switch to Hindi" lang="hi">&#2361;&#2367;&#2306;&#2342;&#2368;</button>
           </div>
-          <a class="btn btn-primary" href="contact.html" data-i18n="nav.contact-cta">Contact Us &rarr;</a>
+          <a class="btn btn-primary btn-glow" href="contact.html" data-i18n="nav.contact-cta"><span class="btn-glow-label">Contact Us</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
         </li>
       </ul>
     </nav>
+
+    <!-- Services megamenu: slides down from the nav on hover/click of "Services". -->
+    <div class="megamenu" id="megamenu-services" data-megamenu-panel="services" aria-hidden="true">
+      <div class="container">
+        <div class="megamenu-grid">
+          <div class="megamenu-col">
+            <span class="megamenu-eyebrow">Services</span>
+            <ul class="megamenu-list" role="list">
+              <li><a href="services.html#egov">
+                <h5>e-Governance &amp; Custom Software</h5>
+                <p>NIC-compatible platforms, G2C/G2G/G2B</p>
+              </a></li>
+              <li><a href="services.html#staff">
+                <h5>IT Staff Augmentation</h5>
+                <p>Vetted engineers for ministries &amp; PSUs</p>
+              </a></li>
+              <li class="is-active"><a href="services.html#mobile">
+                <h5>Citizen Mobile &amp; Web Apps</h5>
+                <p>High-capacity floor units</p>
+              </a></li>
+              <li><a href="services.html#consulting">
+                <h5>Digital Transformation Consulting</h5>
+                <p>Roadmaps, RFP support, PMU</p>
+              </a></li>
+            </ul>
+          </div>
+
+          <div class="megamenu-col">
+            <ul class="megamenu-list" role="list">
+              <li><a href="services.html#ai">
+                <h5>AI &amp; Data Analytics</h5>
+                <p>Dashboard, NLP, fraud detection, MLOps</p>
+              </a></li>
+              <li><a href="services.html#security">
+                <h5>Cybersecurity &amp; VAPT</h5>
+                <p>CERT-In, ISO 27001, DPDP compliance</p>
+              </a></li>
+              <li><a href="services.html#legacy">
+                <h5>Legacy System Modernisation</h5>
+                <p>Migration without disrupting operations</p>
+              </a></li>
+              <li><a href="services.html#cloud">
+                <h5>Cloud &amp; Managed Services</h5>
+                <p>MeghRaj, NIC hosting, AMC, 24x7</p>
+              </a></li>
+            </ul>
+          </div>
+
+          <div class="megamenu-col megamenu-col--feature">
+            <span class="megamenu-eyebrow">New Case Study</span>
+            <a class="megamenu-feature" href="case-studies.html">
+              <div class="megamenu-feature-img" aria-hidden="true">
+                <img src="images/case-apollo-medtech.png" alt="" loading="lazy" />
+              </div>
+              <div class="megamenu-feature-body">
+                <h5>Bee Star Label mobile app</h5>
+                <p>National appliance compliance platform &mdash; offline field inspection app for SDA officers, real-time central.</p>
+                <span class="megamenu-feature-cta">Explore Full Case Study &rsaquo;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   <a id="main-content" tabindex="-1"></a>
 
@@ -68,12 +134,19 @@
               </svg>
             </a>
           </div>
+          <!-- Iconsax "Verify" SVG symbol — referenced by each badge below -->
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+            <symbol id="ic-verify" viewBox="0 0 24 24">
+              <path fill="#22b04e" d="M21.56 10.74l-1.36-1.58c-.26-.3-.47-.86-.47-1.26V6.2c0-1.06-.87-1.93-1.93-1.93h-1.7c-.39 0-.96-.21-1.26-.46l-1.58-1.36c-.69-.59-1.82-.59-2.52 0L9.17 3.81c-.3.25-.86.46-1.26.46H6.17c-1.06 0-1.93.87-1.93 1.93v1.71c0 .39-.21.95-.46 1.25l-1.35 1.59c-.58.69-.58 1.81 0 2.5l1.35 1.59c.25.3.46.86.46 1.25v1.7c0 1.06.87 1.93 1.93 1.93h1.74c.39 0 .96.21 1.26.46l1.58 1.36c.69.59 1.82.59 2.52 0l1.58-1.36c.3-.25.86-.46 1.26-.46h1.7c1.06 0 1.93-.87 1.93-1.93v-1.7c0-.39.21-.96.46-1.26l1.36-1.58c.59-.68.59-1.81 0-2.51z"/>
+              <path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 12l2.5 2.5L15.5 9.5"/>
+            </symbol>
+          </svg>
           <ul class="trust-badges" aria-label="Credentials">
-            <li class="trust-badge"><span class="trust-badge-mark" aria-hidden="true"></span><span data-i18n="badge.startup">Startup India &middot; DPIIT</span></li>
-            <li class="trust-badge"><span class="trust-badge-mark" aria-hidden="true"></span><span data-i18n="badge.cmmi">CMMI Level 5</span></li>
-            <li class="trust-badge"><span class="trust-badge-mark" aria-hidden="true"></span><span data-i18n="badge.iso">ISO Certified</span></li>
-            <li class="trust-badge"><span class="trust-badge-mark" aria-hidden="true"></span><span data-i18n="badge.gigw">GIGW Compliant</span></li>
-            <li class="trust-badge"><span class="trust-badge-mark" aria-hidden="true"></span><span data-i18n="badge.gem">GeM Registered</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.startup">Startup India &middot; DPIIT</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.cmmi">CMMI Level 5</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.iso">ISO Certified</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.gigw">GIGW Compliant</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.gem">GeM Registered</span></li>
           </ul>
         </div>
         <div class="hero-v2-image-wrap">
@@ -102,7 +175,7 @@
   </section>
 
   <!-- Public Sector Portfolio (v2 â€” 3x3 ministry cards) -->
-  <section class="sect">
+  <section class="sect sect-white">
     <div class="container">
       <div class="sect-head">
         <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Verified Public Sector Clients</span>
@@ -188,14 +261,51 @@
     </div>
   </section>
 
-  <!-- Stats v2 -->
-  <section class="sect-tight">
+  <!-- Our Journey -->
+  <section class="sect sect-white">
     <div class="container">
+      <div class="sect-head">
+        <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Our Journey</span>
+        <h2>Our Journey</h2>
+        <p>A decade of building secure, citizen-scale technology for India&rsquo;s public sector &mdash; the numbers behind the work.</p>
+      </div>
       <div class="stats-v2">
-        <div><span class="num">10<span class="plus">+</span></span><span class="lbl">Years of Service</span></div>
-        <div><span class="num">500<span class="plus">+</span></span><span class="lbl">Projects Delivered</span></div>
-        <div><span class="num">10<span class="plus">+</span></span><span class="lbl">Ministries Served</span></div>
-        <div><span class="num">80<span class="plus">+</span></span><span class="lbl">Professionals</span></div>
+        <div>
+          <div class="stat-head">
+            <span class="num">10<span class="plus">+</span></span>
+            <span class="stat-dot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <span class="lbl">Years of Service</span>
+        </div>
+        <div>
+          <div class="stat-head">
+            <span class="num">500<span class="plus">+</span></span>
+            <span class="stat-dot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <span class="lbl">Projects Delivered</span>
+        </div>
+        <div>
+          <div class="stat-head">
+            <span class="num">10<span class="plus">+</span></span>
+            <span class="stat-dot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <span class="lbl">Ministries Served</span>
+        </div>
+        <div>
+          <div class="stat-head">
+            <span class="num">80<span class="plus">+</span></span>
+            <span class="stat-dot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+          <span class="lbl">Professionals</span>
+        </div>
       </div>
     </div>
   </section>
@@ -208,93 +318,66 @@
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">AI-Powered Solutions</span>
           <h2 class="ai-section-title">AI Built for India&rsquo;s Public Sector</h2>
           <p class="ai-section-lead">Production-grade AI for citizen service delivery, compliance automation, and public sector data intelligence &mdash; DPDP Act 2023 compliant, NIC-hosted, MeitY AI Policy aligned.</p>
-          <a href="services.html#ai" class="btn btn-primary ai-cta">Explore AI Solutions &rarr;</a>
+          <a href="services.html#ai" class="btn btn-primary btn-md ai-cta" aria-label="Explore AI Solutions">
+            <span class="ai-cta-marquee" aria-hidden="true">
+              <span class="ai-cta-marquee-line">Explore AI Solutions &rarr;</span>
+              <span class="ai-cta-marquee-line">Explore AI Solutions &rarr;</span>
+            </span>
+          </a>
         </div>
 
         <div class="ai-cards">
-          <article class="ai-card ai-card--featured">
-            <span class="ai-card-ic" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="9" y="6" width="22" height="32" rx="2"/>
-                <path d="M14 14 h 12 M14 19 h 9"/>
-                <path d="M14 26 l 3 -4 l 3 3 l 3 -6 l 3 5"/>
-                <circle cx="36" cy="33" r="6"/>
-                <path d="M40 37 l 5 5"/>
-              </svg>
-            </span>
-            <h3>Intelligent Document Processing</h3>
-            <p>AI classification, routing, and auto-response for citizen grievances. CPGRAMS integration. Every ministry has this mandate under DoPT. Very high relevance.</p>
-          </article>
+          <div class="ai-col">
+            <article class="ai-card ai-card--featured">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/document-text.svg');"></i>
+              </span>
+              <h3>Intelligent Document Processing</h3>
+              <p>AI classification, routing, and auto-response for citizen grievances. CPGRAMS integration. Every ministry has this mandate under DoPT. Very high relevance.</p>
+            </article>
 
-          <article class="ai-card">
-            <span class="ai-card-ic" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="9" width="30" height="22" rx="2"/>
-                <path d="M3 35 h 34"/>
-                <circle cx="14" cy="16" r="2"/>
-                <path d="M20 14 h 10 M20 19 h 8 M20 24 h 6"/>
-                <circle cx="38" cy="34" r="6"/>
-                <path d="M35 31 v 6 M32 34 h 6"/>
-              </svg>
-            </span>
-            <h3>Field Officer Reporting Automation</h3>
-            <p>Auto-generate district/state reports from structured field data. Removes manual report writing. High demand in NHM, education, agriculture departments.</p>
-          </article>
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/search-status.svg');"></i>
+              </span>
+              <h3>DBT Fraud Detection &amp; Scheme Intelligence</h3>
+              <p>AI-powered identification of duplicate beneficiaries, ghost entries, and irregular disbursements in welfare databases &ndash; real-time alerts with audit-trail evidence for programme officers.</p>
+            </article>
 
-          <article class="ai-card">
-            <span class="ai-card-ic" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="20" cy="20" r="11"/>
-                <path d="M28 28 l 8 8"/>
-                <path d="M16 24 l 4 -8 l 4 8 z"/>
-                <path d="M20 20 v 1.5"/>
-                <circle cx="20" cy="23" r=".8" fill="currentColor" stroke="none"/>
-              </svg>
-            </span>
-            <h3>DBT Fraud Detection &amp; Scheme Intelligence</h3>
-            <p>AI-powered identification of duplicate beneficiaries, ghost entries, and irregular disbursements in welfare databases &ndash; real-time alerts with audit-trail evidence for programme officers.</p>
-          </article>
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/document-favorite.svg');"></i>
+              </span>
+              <h3>AI-Powered Policy &amp; Regulatory Search</h3>
+              <p>LLM-powered search over circulars, notifications, and policy documents. Officers spend enormous time finding relevant orders. Emerging but fast-growing use case.</p>
+            </article>
+          </div>
 
-          <article class="ai-card">
-            <span class="ai-card-ic" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 36 l 8 -10 l 8 5 l 8 -14 l 10 4"/>
-                <circle cx="14" cy="26" r="1.6" fill="currentColor" stroke="none"/>
-                <circle cx="22" cy="31" r="1.6" fill="currentColor" stroke="none"/>
-                <circle cx="30" cy="17" r="1.6" fill="currentColor" stroke="none"/>
-                <circle cx="40" cy="21" r="1.6" fill="currentColor" stroke="none"/>
-                <path d="M14 40 q 4 4 10 4 q 6 0 10 -4"/>
-              </svg>
-            </span>
-            <h3>Predictive Analytics &amp; Decision Support</h3>
-            <p>ML models for scheme demand forecasting, resource optimisation, and anomaly detection &ndash; giving programme officers and ministry leadership proactive, data-driven decision support.</p>
-          </article>
+          <div class="ai-col ai-col--offset">
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/document-text-1.svg');"></i>
+              </span>
+              <h3>Field Officer Reporting Automation</h3>
+              <p>Auto-generate district/state reports from structured field data. Removes manual report writing. High demand in NHM, education, agriculture departments.</p>
+            </article>
 
-          <article class="ai-card">
-            <span class="ai-card-ic" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 6 h 18 l 8 8 v 28 a 2 2 0 0 1 -2 2 H 11 a 2 2 0 0 1 -2 -2 V 8 a 2 2 0 0 1 2 -2 z"/>
-                <path d="M29 6 v 8 h 8"/>
-                <path d="M15 22 h 18 M15 28 h 18 M15 34 h 12"/>
-                <path d="M33 36 l 3 3 l 6 -6"/>
-              </svg>
-            </span>
-            <h3>AI-Powered Policy &amp; Regulatory Search</h3>
-            <p>LLM-powered search over circulars, notifications, and policy documents. Officers spend enormous time finding relevant orders. Emerging but fast-growing use case.</p>
-          </article>
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/chart-2.svg');"></i>
+              </span>
+              <h3>Predictive Analytics &amp; Decision Support</h3>
+              <p>ML models for scheme demand forecasting, resource optimisation, and anomaly detection &ndash; giving programme officers and ministry leadership proactive, data-driven decision support.</p>
+            </article>
 
-          <article class="ai-card">
-            <span class="ai-card-ic" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="20" cy="16" r="5"/>
-                <path d="M10 36 c 0 -6 5 -10 10 -10 s 10 4 10 10"/>
-                <path d="M28 28 h 12 a 2 2 0 0 1 2 2 v 8 a 2 2 0 0 1 -2 2 h -7 l -4 4 v -4 h -1 a 2 2 0 0 1 -2 -2 z"/>
-                <path d="M31 33 h 8 M31 37 h 5"/>
-              </svg>
-            </span>
-            <h3>Intelligent Grievance &amp; RTI Management</h3>
-            <p>Auto-classification, routing, and draft-response generation for grievance and RTI workflows &ndash; with full audit trails compliant with DoPT RTI guidelines.</p>
-          </article>
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/message-question.svg');"></i>
+              </span>
+              <h3>Intelligent Grievance &amp; RTI Management</h3>
+              <p>Auto-classification, routing, and draft-response generation for grievance and RTI workflows &ndash; with full audit trails compliant with DoPT RTI guidelines.</p>
+            </article>
+          </div>
         </div>
       </div>
     </div>
@@ -312,12 +395,7 @@
       <div class="svc-grid svc-grid-v2">
         <article class="svc-card-v2 reveal">
           <span class="svc-card-ic-v2" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 6 L8 16 H 40 Z"/>
-              <path d="M24 6 c -2 4 -2 6 0 8 c 2 -2 2 -4 0 -8 z" fill="currentColor" stroke="none" opacity=".25"/>
-              <path d="M12 16 v 22 M20 16 v 22 M28 16 v 22 M36 16 v 22"/>
-              <path d="M6 38 h 36 M6 42 h 36"/>
-            </svg>
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/building-3.svg');"></i>
           </span>
           <h3>e-Governance &amp; Custom Software</h3>
           <p>Mission-critical platforms built for NIC standards, GIGW compliance, and citizen-scale delivery.</p>
@@ -325,14 +403,7 @@
 
         <article class="svc-card-v2 reveal">
           <span class="svc-card-ic-v2" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6" y="8" width="36" height="24" rx="2"/>
-              <path d="M11 26 l 6 -8 l 6 4 l 6 -10 l 6 6"/>
-              <circle cx="17" cy="18" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="23" cy="22" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="29" cy="12" r="1.5" fill="currentColor" stroke="none"/>
-              <path d="M24 32 v 6 M18 42 h 12"/>
-            </svg>
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/graph.svg');"></i>
           </span>
           <h3>AI &amp; Data Analytics</h3>
           <p>Intelligent decision-support, predictive dashboards, and AI automation for public administration.</p>
@@ -340,11 +411,7 @@
 
         <article class="svc-card-v2 reveal">
           <span class="svc-card-ic-v2" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M24 6 L40 12 v 12 c 0 10 -7 17 -16 20 c -9 -3 -16 -10 -16 -20 V 12 z"/>
-              <rect x="19" y="20" width="10" height="9" rx="1"/>
-              <path d="M21 20 v -3 a 3 3 0 0 1 6 0 v 3"/>
-            </svg>
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/security-safe.svg');"></i>
           </span>
           <h3>Cybersecurity &amp; VAPT</h3>
           <p>CERT-In aligned vulnerability assessments, penetration testing, and ISO 27001 security infrastructure.</p>
@@ -352,12 +419,7 @@
 
         <article class="svc-card-v2 reveal">
           <span class="svc-card-ic-v2" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M8 16 L4 24 L 8 32 H 14 V 16 z"/>
-              <path d="M40 16 L44 24 L 40 32 H 34 V 16 z"/>
-              <rect x="13" y="13" width="22" height="22" rx="2"/>
-              <text x="24" y="27" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-weight="700" font-size="6" fill="currentColor" stroke="none">LEGACY</text>
-            </svg>
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/refresh-circle.svg');"></i>
           </span>
           <h3>Legacy System Modernisation</h3>
           <p>Migration, re-engineering, and integration of outdated government systems without disrupting live operations.</p>
@@ -365,13 +427,7 @@
 
         <article class="svc-card-v2 reveal">
           <span class="svc-card-ic-v2" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="22" y="6" width="16" height="26" rx="2"/>
-              <path d="M28 10 h 4 M27 27 h 6"/>
-              <path d="M16 36 c 0 -4 3 -7 7 -8" />
-              <path d="M11 40 c 1 -6 4 -10 9 -12" />
-              <path d="M7 44 c 1 -8 5 -14 12 -16" />
-            </svg>
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/mobile-programming.svg');"></i>
           </span>
           <h3>Citizen Mobile &amp; Web Apps</h3>
           <p>Field officer apps, citizen portals, and multilingual platforms aligned with Digital India and GIGW 3.0.</p>
@@ -379,11 +435,7 @@
 
         <article class="svc-card-v2 reveal">
           <span class="svc-card-ic-v2" aria-hidden="true">
-            <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 30 a 8 8 0 0 1 0 -16 c 1 0 2 .2 3 .5 a 10 10 0 0 1 18 4 a 7 7 0 0 1 5 11.5 z"/>
-              <rect x="20" y="28" width="12" height="10" rx="1"/>
-              <path d="M22 28 v -3 a 4 4 0 0 1 8 0 v 3"/>
-            </svg>
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/cloud-connection.svg');"></i>
           </span>
           <h3>Cloud &amp; Managed Services</h3>
           <p>MeghRaj-compatible hosting, 24&times;7 application monitoring, AMC, and SLA-backed managed services.</p>
@@ -391,7 +443,7 @@
       </div>
 
       <div class="svc-cta-row">
-        <a class="btn btn-primary" href="services.html">Explore All Services <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a class="btn btn-primary btn-md" href="services.html">Explore All Services <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       </div>
     </div>
   </section>
@@ -455,7 +507,7 @@
   </section>
 
   <!-- Sectors: Built for Every Corner -->
-  <section class="sect">
+  <section class="sect sect-white">
     <div class="container">
       <div class="sect-head">
         <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Sectors we serve</span>
@@ -463,93 +515,81 @@
         <p>Sector-specific delivery teams who understand the rules of business, procurement cycles and citizen contexts each domain demands.</p>
       </div>
 
-      <div class="sect-grid-3 sect-grid-4">
-        <article class="sect-card reveal sect-card--energy">
-          <div class="sect-card-img" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-            <span class="sect-card-label">Energy &amp; Environment</span>
+      <div class="sectors-split">
+        <!-- Left: dynamic visual that swaps on hover -->
+        <div class="sectors-visual">
+          <img class="sectors-visual-img" src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+          <div class="sectors-visual-meta">
+            <h3 class="sectors-visual-title">Energy &amp; Environment</h3>
+            <p class="sectors-visual-desc">BEE, Star Labelling, SDA compliance, ECBC enforcement, pollution monitoring.</p>
           </div>
-          <div class="sect-card-body">
-            <h4>Energy &amp; Environment</h4>
-            <p>BEE, Star Labelling, SDA compliance, ECBC enforcement, pollution monitoring.</p>
-          </div>
-        </article>
-        <article class="sect-card reveal sect-card--health">
-          <div class="sect-card-img" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-            <span class="sect-card-label">Health &amp; Welfare</span>
-          </div>
-          <div class="sect-card-body">
-            <h4>Health &amp; Welfare</h4>
-            <p>NHM, Ayushman Bharat, tribal health missions, disease surveillance, ASHA tools.</p>
-          </div>
-        </article>
-        <article class="sect-card reveal sect-card--education">
-          <div class="sect-card-img" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-            <span class="sect-card-label">Education &amp; Skilling</span>
-          </div>
-          <div class="sect-card-body">
-            <h4>Education &amp; Skilling</h4>
-            <p>NEP 2020, eLearning, digital libraries, NBT, skill development tracking.</p>
-          </div>
-        </article>
-        <article class="sect-card reveal sect-card--finance">
-          <div class="sect-card-img" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-            <span class="sect-card-label">Finance, PSUs &amp; Revenue</span>
-          </div>
-          <div class="sect-card-body">
-            <h4>Finance, PSUs &amp; Revenue</h4>
-            <p>PSU billing, payment gateways, financial reporting, internal audit systems.</p>
-          </div>
-        </article>
-        <article class="sect-card reveal sect-card--parliament">
-          <div class="sect-card-img" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=800&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-            <span class="sect-card-label">Parliamentary &amp; Legislative</span>
-          </div>
-          <div class="sect-card-body">
-            <h4>Parliamentary &amp; Legislative</h4>
-            <p>Bill management, member services, committee workflows, digital chamber tooling.</p>
-          </div>
-        </article>
-        <article class="sect-card reveal sect-card--defence">
-          <div class="sect-card-img" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1577985043696-8bd54d9f093f?w=800&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-            <span class="sect-card-label">Defence &amp; Internal Security</span>
-          </div>
-          <div class="sect-card-body">
-            <h4>Defence &amp; Internal Security</h4>
-            <p>MHA, paramilitary IT, CERT-In security, classified infrastructure, VAPT.</p>
-          </div>
-        </article>
-        <article class="sect-card reveal sect-card--smartcity">
-          <div class="sect-card-img" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-            <span class="sect-card-label">Smart Cities &amp; Urban</span>
-          </div>
-          <div class="sect-card-body">
-            <h4>Smart Cities &amp; Urban</h4>
-            <p>Smart Cities Mission, command centres, citizen portals, IoT monitoring.</p>
-          </div>
-        </article>
-        <article class="sect-card reveal sect-card--standards">
-          <div class="sect-card-img" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80&auto=format&fit=crop" alt="" loading="lazy" />
-            <span class="sect-card-label">Standards &amp; Regulation</span>
-          </div>
-          <div class="sect-card-body">
-            <h4>Standards &amp; Regulation</h4>
-            <p>QCI, BIS, NABL, certification lifecycle, assessment workflows, compliance platforms.</p>
-          </div>
-        </article>
+        </div>
+
+        <!-- Right: numbered list -->
+        <ol class="sectors-list" role="list">
+          <li class="sectors-item is-active"
+              data-img="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=900&q=80&auto=format&fit=crop"
+              data-title="Energy &amp; Environment"
+              data-desc="BEE, Star Labelling, SDA compliance, ECBC enforcement, pollution monitoring.">
+            <span class="sectors-num">01.</span>
+            <span class="sectors-name">Energy &amp; Environment</span>
+          </li>
+          <li class="sectors-item"
+              data-img="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=900&q=80&auto=format&fit=crop"
+              data-title="Health &amp; Welfare"
+              data-desc="NHM, Ayushman Bharat, tribal health missions, disease surveillance, ASHA tools.">
+            <span class="sectors-num">02.</span>
+            <span class="sectors-name">Health &amp; Welfare</span>
+          </li>
+          <li class="sectors-item"
+              data-img="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=900&q=80&auto=format&fit=crop"
+              data-title="Education &amp; Skilling"
+              data-desc="NEP 2020, eLearning, digital libraries, NBT, skill development tracking.">
+            <span class="sectors-num">03.</span>
+            <span class="sectors-name">Education &amp; Skilling</span>
+          </li>
+          <li class="sectors-item"
+              data-img="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=80&auto=format&fit=crop"
+              data-title="Finance, PSUs &amp; Revenue"
+              data-desc="PSU billing, payment gateways, financial reporting, internal audit systems.">
+            <span class="sectors-num">04.</span>
+            <span class="sectors-name">Finance, PSUs &amp; Revenue</span>
+          </li>
+          <li class="sectors-item"
+              data-img="https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=900&q=80&auto=format&fit=crop"
+              data-title="Parliamentary &amp; Legislative"
+              data-desc="Bill management, member services, committee workflows, digital chamber tooling.">
+            <span class="sectors-num">05.</span>
+            <span class="sectors-name">Parliamentary &amp; Legislative</span>
+          </li>
+          <li class="sectors-item"
+              data-img="https://images.unsplash.com/photo-1577985043696-8bd54d9f093f?w=900&q=80&auto=format&fit=crop"
+              data-title="Defence &amp; Internal Security"
+              data-desc="MHA, paramilitary IT, CERT-In security, classified infrastructure, VAPT.">
+            <span class="sectors-num">06.</span>
+            <span class="sectors-name">Defence &amp; Internal Security</span>
+          </li>
+          <li class="sectors-item"
+              data-img="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=900&q=80&auto=format&fit=crop"
+              data-title="Smart Cities &amp; Urban"
+              data-desc="Smart Cities Mission, command centres, citizen portals, IoT monitoring.">
+            <span class="sectors-num">07.</span>
+            <span class="sectors-name">Smart Cities &amp; Urban</span>
+          </li>
+          <li class="sectors-item"
+              data-img="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&q=80&auto=format&fit=crop"
+              data-title="Standards &amp; Regulation"
+              data-desc="QCI, BIS, NABL, certification lifecycle, assessment workflows, compliance platforms.">
+            <span class="sectors-num">08.</span>
+            <span class="sectors-name">Standards &amp; Regulation</span>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
 
   <!-- Solutions / Our Capabilities -->
-  <section class="sect sect-tinted">
+  <section class="sect sect-white">
     <div class="container">
       <div class="sect-head">
         <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Our Capabilities</span>
@@ -859,7 +899,7 @@
   </section>
 
   <!-- FAQ -->
-  <section class="sect sect-tinted">
+  <section class="sect sect-white">
     <div class="container">
       <div class="sect-head">
         <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Common questions</span>

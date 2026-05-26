@@ -35,6 +35,42 @@
     onScroll();
   }
 
+  // Services megamenu — click toggle + click-outside-to-close.
+  // (Hover open/close is handled in CSS via :hover and :focus-within;
+  //  the JS only ensures click-tap on touch devices and ESC dismiss.)
+  document.querySelectorAll('[data-megamenu]').forEach(function (trigger) {
+    var panelId = trigger.getAttribute('data-megamenu');
+    var panel = document.querySelector('[data-megamenu-panel="' + panelId + '"]');
+    var link = trigger.querySelector('a');
+    if (!panel || !link) return;
+
+    link.addEventListener('click', function (e) {
+      // Let cmd/ctrl-click and middle-click navigate normally
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+      e.preventDefault();
+      var open = panel.classList.toggle('is-open');
+      link.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (trigger.contains(e.target) || panel.contains(e.target)) return;
+      if (!panel.classList.contains('is-open')) return;
+      panel.classList.remove('is-open');
+      link.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (!panel.classList.contains('is-open')) return;
+      panel.classList.remove('is-open');
+      link.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+      link.focus();
+    });
+  });
+
   // Reveal-on-scroll animation
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {
@@ -243,4 +279,131 @@
       btn.style.setProperty('--my', '50%');
     });
   });
+
+  // Auto-wrap every .btn so both its text and any icons slide together.
+  // On hover, the line shifts up and a duplicate enters from below — same
+  // effect as the hand-coded .ai-cta. Skips buttons that already use the
+  // .ai-cta-marquee or .btn-marquee patterns.
+  document.querySelectorAll('.btn').forEach(function (btn) {
+    if (btn.dataset.marqueed === '1') return;
+    if (btn.querySelector('.ai-cta-marquee')) return;
+    if (btn.querySelector('.btn-marquee')) return;
+
+    var ariaText = btn.textContent.replace(/\s+/g, ' ').trim();
+    var contentHTML = btn.innerHTML.trim();
+    if (!contentHTML) return;
+
+    btn.innerHTML =
+      '<span class="btn-marquee" aria-hidden="true">' +
+        '<span class="btn-marquee-line">' + contentHTML + '</span>' +
+        '<span class="btn-marquee-line">' + contentHTML + '</span>' +
+      '</span>';
+
+    if (ariaText && !btn.getAttribute('aria-label') && !btn.getAttribute('aria-labelledby')) {
+      btn.setAttribute('aria-label', ariaText);
+    }
+    btn.dataset.marqueed = '1';
+  });
+
+  // Sectors we serve — swap image + title + description on hover of list items
+  var sectorsItems = document.querySelectorAll('.sectors-item');
+  var sectorsImg = document.querySelector('.sectors-visual-img');
+  var sectorsTitle = document.querySelector('.sectors-visual-title');
+  var sectorsDesc = document.querySelector('.sectors-visual-desc');
+  if (sectorsItems.length && sectorsImg && sectorsTitle && sectorsDesc) {
+    sectorsItems.forEach(function (item) {
+      item.addEventListener('mouseenter', function () {
+        sectorsItems.forEach(function (i) { i.classList.remove('is-active'); });
+        item.classList.add('is-active');
+        var img = item.getAttribute('data-img');
+        var title = item.getAttribute('data-title');
+        var desc = item.getAttribute('data-desc');
+        if (img) sectorsImg.src = img;
+        if (title) sectorsTitle.innerHTML = title;
+        if (desc) sectorsDesc.innerHTML = desc;
+      });
+    });
+  }
+
+  // Services mega-menu — injected on every page, opens on hover of the
+  // nav "Services" link. Clicking the link still navigates to services.html.
+  var servicesLink = document.querySelector('.nav-menu a[href="services.html"]');
+  if (servicesLink && !document.querySelector('.megamenu')) {
+    var servicesLi = servicesLink.closest('li');
+    if (servicesLi) {
+      servicesLi.classList.add('has-megamenu');
+      var megaHTML =
+        '<div class="megamenu" aria-hidden="true">' +
+          '<div class="megamenu-inner">' +
+            '<div class="megamenu-col">' +
+              '<span class="megamenu-eyebrow">Services</span>' +
+              '<a class="megamenu-link" href="services.html#egov">' +
+                '<span class="megamenu-title">e-Governance &amp; Custom Software</span>' +
+                '<span class="megamenu-desc">NIC-compatible platforms, G2C / G2G / G2B</span>' +
+              '</a>' +
+              '<a class="megamenu-link" href="services.html#staffing">' +
+                '<span class="megamenu-title">IT Staff Augmentation</span>' +
+                '<span class="megamenu-desc">Vetted engineers for ministries &amp; PSUs</span>' +
+              '</a>' +
+              '<a class="megamenu-link" href="services.html#mobile">' +
+                '<span class="megamenu-title">Citizen Mobile &amp; Web Apps</span>' +
+                '<span class="megamenu-desc">Field-officer apps &amp; citizen portals</span>' +
+              '</a>' +
+              '<a class="megamenu-link" href="services.html#consulting">' +
+                '<span class="megamenu-title">Digital Transformation Consulting</span>' +
+                '<span class="megamenu-desc">Roadmaps, RFP support, PMU</span>' +
+              '</a>' +
+            '</div>' +
+            '<div class="megamenu-col">' +
+              '<a class="megamenu-link" href="services.html#ai">' +
+                '<span class="megamenu-title">AI &amp; Data Analytics</span>' +
+                '<span class="megamenu-desc">Dashboards, NLP, fraud detection, MLOps</span>' +
+              '</a>' +
+              '<a class="megamenu-link" href="services.html#security">' +
+                '<span class="megamenu-title">Cybersecurity &amp; VAPT</span>' +
+                '<span class="megamenu-desc">CERT-In, ISO 27001, DPDP compliance</span>' +
+              '</a>' +
+              '<a class="megamenu-link" href="services.html#modernization">' +
+                '<span class="megamenu-title">Legacy System Modernisation</span>' +
+                '<span class="megamenu-desc">Migration without disrupting operations</span>' +
+              '</a>' +
+              '<a class="megamenu-link" href="services.html#cloud">' +
+                '<span class="megamenu-title">Cloud &amp; Managed Services</span>' +
+                '<span class="megamenu-desc">MeghRaj, NIC hosting, AMC, 24&times;7</span>' +
+              '</a>' +
+            '</div>' +
+            '<div class="megamenu-feature">' +
+              '<span class="megamenu-eyebrow">New Case Study</span>' +
+              '<a class="megamenu-feature-card" href="case-studies.html">' +
+                '<div class="megamenu-feature-img"></div>' +
+                '<div class="megamenu-feature-meta">' +
+                  '<h4>BEE Star Label mobile app</h4>' +
+                  '<p>National appliance compliance platform &mdash; offline field inspection app for SDA officers, real-time central sync.</p>' +
+                  '<span class="megamenu-feature-cta">Explore Full Case Study &rsaquo;</span>' +
+                '</div>' +
+              '</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      servicesLi.insertAdjacentHTML('beforeend', megaHTML);
+
+      var megamenu = servicesLi.querySelector('.megamenu');
+      var closeTimer = null;
+      var open = function () {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+        servicesLi.classList.add('megamenu-open');
+        megamenu.setAttribute('aria-hidden', 'false');
+      };
+      var close = function () {
+        closeTimer = setTimeout(function () {
+          servicesLi.classList.remove('megamenu-open');
+          megamenu.setAttribute('aria-hidden', 'true');
+        }, 120);
+      };
+      servicesLi.addEventListener('mouseenter', open);
+      servicesLi.addEventListener('mouseleave', close);
+      megamenu.addEventListener('mouseenter', open);
+      megamenu.addEventListener('mouseleave', close);
+    }
+  }
 })();

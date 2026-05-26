@@ -145,7 +145,7 @@
             <button type="button" class="gov-lang-toggle" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
             <button type="button" class="gov-lang-toggle" data-lang="hi" aria-pressed="false" aria-label="Switch to Hindi" lang="hi">&#2361;&#2367;&#2306;&#2342;&#2368;</button>
           </div>
-          <a class="btn btn-primary" href="contact.html" data-i18n="nav.contact-cta">Contact Us &rarr;</a>
+          <a class="btn btn-primary btn-glow" href="contact.html" data-i18n="nav.contact-cta"><span class="btn-glow-label">Contact Us</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
         </li>
       </ul>
     </nav>
@@ -329,9 +329,9 @@
             <table class="ds-table">
               <thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
               <tbody>
-                <tr><td><code>--font-heading</code></td><td>'Josefin Sans', 'Georgia', serif</td><td>Headings, UI, navigation</td></tr>
-                <tr><td><code>--font-body</code></td><td>'Times New Roman', serif</td><td>Body paragraphs</td></tr>
-                <tr><td><code>--font-decorative</code></td><td>'Josefin Sans', 'Georgia', serif</td><td>Decorative wordmarks</td></tr>
+                <tr><td><code>--font-heading</code></td><td>'Josefin Sans', system-ui, sans-serif</td><td>All UI &mdash; headings, body, cards, navigation</td></tr>
+                <tr><td><code>--font-body</code></td><td>'Josefin Sans', system-ui, sans-serif</td><td>Body paragraphs (same as heading)</td></tr>
+                <tr><td><code>--font-decorative</code></td><td>'Josefin Sans', system-ui, sans-serif</td><td>Decorative wordmarks</td></tr>
               </tbody>
             </table>
 
@@ -621,7 +621,7 @@
             <table class="ds-table">
               <thead><tr><th>Property</th><th>Value</th><th>Token</th><th>Notes</th></tr></thead>
               <tbody>
-                <tr><td>Font family</td><td>Josefin Sans, Georgia, serif</td><td><code>--font-heading</code></td><td>UI/heading face, not body Times</td></tr>
+                <tr><td>Font family</td><td>Josefin Sans, system-ui, sans-serif</td><td><code>--font-heading</code></td><td>The single site-wide UI face</td></tr>
                 <tr><td>Font weight</td><td>600 (semi-bold)</td><td><code>--fw-600</code></td><td>Bumps to 700 inside <code>.btn-pill</code> uppercase contexts</td></tr>
                 <tr><td>Font size &mdash; mobile</td><td>~16px</td><td><code>--fs-16-mobile</code> via <code>--btn-font-size</code></td><td>Fluid via clamp()</td></tr>
                 <tr><td>Font size &mdash; tablet</td><td>~18px</td><td><code>--fs-18-tablet</code> via <code>--btn-font-size</code></td><td></td></tr>
@@ -738,16 +738,47 @@
 
             <!-- SIZES -->
             <h3>Sizes</h3>
-            <p>The system has <strong>one size</strong> that fluidly scales across three breakpoints &mdash; there is no <code>.btn-sm</code> / <code>.btn-lg</code>. Same DOM, different rendered size depending on viewport.</p>
+            <p>Three fixed sizes &mdash; <strong>large</strong>, <strong>medium</strong> and <strong>small</strong>. All three use the same 36px horizontal padding; only height and font-size change. Stack the size modifier on top of any type modifier (e.g. <code>.btn .btn-primary .btn-lg</code>).</p>
             <table class="ds-table">
-              <thead><tr><th>Breakpoint</th><th>Min-width</th><th>Padding</th><th>Font size</th><th>Approx. height</th></tr></thead>
+              <thead><tr><th>Size</th><th>Class</th><th>Height</th><th>Horizontal padding</th><th>Font size</th></tr></thead>
               <tbody>
-                <tr><td>Mobile</td><td>&lt; 768px</td><td>~6px &middot; 12px</td><td>~16px</td><td>~32px</td></tr>
-                <tr><td>Tablet</td><td>&ge; 768px</td><td>~8px &middot; 16px</td><td>~18px</td><td>~38px</td></tr>
-                <tr><td>Desktop</td><td>&ge; 1024px</td><td>~12px &middot; 20px</td><td>~18px</td><td>~46px</td></tr>
+                <tr><td>Large</td><td><code>.btn-lg</code></td><td>54px</td><td>36px each side</td><td><code>--fs-lg</code> (~18&ndash;20px)</td></tr>
+                <tr><td>Medium</td><td><code>.btn-md</code></td><td>44px</td><td>36px each side</td><td><code>--fs-base</code> (~16&ndash;18px)</td></tr>
+                <tr><td>Small</td><td><code>.btn-sm</code></td><td>34px</td><td>36px each side</td><td><code>--fs-sm</code> (~14&ndash;16px)</td></tr>
               </tbody>
             </table>
-            <div class="ds-note"><strong>Need a smaller button?</strong> Use <code>.btn-pill</code> (compact uppercase). <strong>Need a larger one?</strong> Stack <code>.btn-glow</code> on a primary &mdash; the glow modifier reads as larger by virtue of the lift and animated highlight, without breaking the size token system.</div>
+
+            <h4>Large &mdash; <code>.btn-lg</code></h4>
+            <p>Hero CTAs and primary section actions. 54px tall.</p>
+            <div class="ds-example">
+              <div class="ds-example-preview">
+                <a class="btn btn-primary btn-lg" href="#" onclick="return false;">Request a Consultation</a>
+                <a class="btn btn-outline btn-lg" href="#" onclick="return false;">Learn More</a>
+              </div>
+              <pre class="ds-example-code"><code>&lt;a class="btn btn-primary btn-lg" href="contact.html"&gt;Request a Consultation&lt;/a&gt;</code></pre>
+            </div>
+
+            <h4>Medium &mdash; <code>.btn-md</code></h4>
+            <p>Default button size. Header CTA, inline form actions, card buttons. 44px tall.</p>
+            <div class="ds-example">
+              <div class="ds-example-preview">
+                <a class="btn btn-primary btn-md" href="#" onclick="return false;">Contact Us &rarr;</a>
+                <a class="btn btn-outline btn-md" href="#" onclick="return false;">View Case Studies</a>
+              </div>
+              <pre class="ds-example-code"><code>&lt;a class="btn btn-primary btn-md" href="contact.html"&gt;Contact Us &amp;rarr;&lt;/a&gt;</code></pre>
+            </div>
+
+            <h4>Small &mdash; <code>.btn-sm</code></h4>
+            <p>Compact actions inside cards, tables, or dense toolbars. 34px tall.</p>
+            <div class="ds-example">
+              <div class="ds-example-preview">
+                <a class="btn btn-primary btn-sm" href="#" onclick="return false;">Apply Now</a>
+                <a class="btn btn-outline btn-sm" href="#" onclick="return false;">Cancel</a>
+              </div>
+              <pre class="ds-example-code"><code>&lt;button class="btn btn-primary btn-sm"&gt;Apply Now&lt;/button&gt;</code></pre>
+            </div>
+
+            <div class="ds-note"><strong>Pick a size, then pick a type.</strong> The size modifier (<code>.btn-lg</code> / <code>.btn-md</code> / <code>.btn-sm</code>) controls dimensions only. The type modifier (<code>.btn-primary</code>, <code>.btn-outline</code>, etc.) controls colour and emphasis. They are orthogonal and combine freely.</div>
 
             <!-- STATES -->
             <h3>States</h3>
