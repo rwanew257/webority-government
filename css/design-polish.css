@@ -88,8 +88,9 @@ section .eyebrow {
 .container { max-width: 1280px; }
 
 /* ---------- Header ---------- */
-.site-header { border-bottom: 1px solid transparent; background: transparent; backdrop-filter: none; }
+.site-header { border-bottom: 1px solid transparent; background: transparent; backdrop-filter: none; transition: background .2s ease, border-color .2s ease; }
 .site-header.scrolled { background: rgba(255,255,255,.92); border-bottom-color: var(--outline); backdrop-filter: saturate(140%) blur(6px); box-shadow: 0 4px 18px -8px rgba(98,0,238,.18); }
+.site-header.has-open-megamenu { background: #ffffff; border-bottom-color: var(--outline); backdrop-filter: none; box-shadow: none; }
 
 /* Nav layout — centred page links; height comes from --nav-height in style.css */
 .site-header .nav { padding-top: 0; padding-bottom: 0; }
@@ -102,6 +103,13 @@ section .eyebrow {
 .site-header .nav-menu a:not(.btn) {
   font-size: 16px;
   font-weight: 500;
+  transition: color .2s ease;
+}
+/* Services link when its mega menu is open — primary purple, 500 weight */
+.site-header .nav-menu .has-megamenu.megamenu-open > a:not(.btn),
+.site-header .nav-menu [data-megamenu] > a[aria-expanded="true"]:not(.btn) {
+  color: var(--primary) !important;
+  font-weight: 500 !important;
 }
 
 .brand-mark {
@@ -456,7 +464,7 @@ section .eyebrow {
   font-weight: 400;
   font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem);
   letter-spacing: -.01em;
-  color: var(--heading);
+  color: #000000;
   margin: 0;
   line-height: 1.2;
 }
@@ -486,7 +494,7 @@ section .eyebrow {
   font-family: var(--font-display, 'Josefin Sans', sans-serif);
   font-size: 20px;
   font-weight: 500;
-  color: var(--heading);
+  color: #000000;
   margin: 0 0 8px;
   letter-spacing: -.005em;
 }
@@ -537,6 +545,16 @@ section .eyebrow {
   border-radius: 22px;
   overflow: hidden;
   background: #0f3a23;            /* fallback while the image loads */
+}
+.case-card-visual,
+.case-card-visual:hover,
+.case-card-visual-img,
+.case-card-visual-img:hover,
+.case-card:hover .case-card-visual,
+.case-card:hover .case-card-visual-img {
+  transform: none;
+  transition: none;
+  filter: none;
 }
 .case-card-visual-img {
   width: 100%;
@@ -827,7 +845,7 @@ section .eyebrow {
    ============================================================ */
 .ai-split-v2 {
   display: grid;
-  grid-template-columns: minmax(280px, 360px) 1fr;
+  grid-template-columns: minmax(220px, 280px) 1fr;
   gap: clamp(32px, 4vw, 72px);
   align-items: start;
 }
@@ -916,7 +934,7 @@ section .eyebrow {
 
 .ai-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 300px));
   gap: 24px;
   align-items: start;
 }
@@ -1721,7 +1739,7 @@ section .eyebrow {
   flex-shrink: 0;
   display: inline-grid;
   place-items: center;
-  background: #1d1d1d;
+  background: var(--primary);
   color: #ffffff;
   border-radius: 50%;
   font-size: 20px;
@@ -1731,7 +1749,7 @@ section .eyebrow {
 }
 .faq-item.open .faq-q::after,
 .faq-q[aria-expanded="true"]::after { transform: rotate(45deg); }
-.faq-q:hover::after { background: #000; }
+.faq-q:hover::after { background: var(--primary-80); }
 .faq-a {
   padding: 0 26px;
   max-height: 0;
@@ -4205,35 +4223,50 @@ section .eyebrow {
   overflow: hidden;
   background: #f6f4ff;
   min-height: 460px;
-  display: flex;
-  flex-direction: column;
+  isolation: isolate;
 }
 .sectors-visual-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  flex: 1;
   object-fit: cover;
   display: block;
   transition: opacity .3s ease;
+  z-index: 0;
+}
+/* Bottom-up black gradient — 0% opacity at top → 100% opacity at bottom */
+.sectors-visual-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 35%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 .sectors-visual-meta {
-  padding: 20px 24px;
-  background: #ffffff;
-  border-top: 1px solid var(--outline);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px 28px 26px;
+  z-index: 2;
+  background: transparent;
+  border-top: 0;
 }
 .sectors-visual-title {
   font-family: var(--font-heading) !important;
   font-weight: 700;
-  font-size: 18px;
-  color: var(--heading);
-  margin: 0 0 4px;
+  font-size: 22px;
+  color: #ffffff !important;
+  margin: 0 0 8px;
+  line-height: 1.2;
 }
 .sectors-visual-desc {
   font-family: var(--font-heading);
   font-size: 14px;
-  color: var(--text-2);
+  color: rgba(255, 255, 255, 0.9);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 /* Right list */
 .sectors-list {
