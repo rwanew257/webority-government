@@ -187,24 +187,47 @@ section .eyebrow {
   .megamenu { transition: opacity .15s ease, visibility 0s linear .15s; transform: none; }
   .megamenu.is-open { transform: none; transition: opacity .15s ease; }
 }
-/* Megamenu inner layout: 3 columns — 2 service columns + 1 case-study feature. */
+/* Megamenu inner layout: 3 columns — 2 service columns + 1 case-study feature.
+   Vertical dividers between columns with 36px breathing room on each side. */
 .megamenu-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1.3fr;
-  gap: 48px;
+  gap: 36px;
   max-width: 1320px;
   margin: 0 auto;
-  align-items: start;
+  align-items: stretch;
+}
+.megamenu-grid > .megamenu-col:not(:last-child) {
+  position: relative;
+  padding-right: 36px;
+}
+/* Divider lines — col 1's divider starts 42px down to skip the "Services"
+   eyebrow and align with the first service item. Col 2's divider starts at
+   the top so it aligns with the "New Case Study" eyebrow in col 3. */
+.megamenu-grid > .megamenu-col:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--outline);
+}
+.megamenu-grid > .megamenu-col:nth-child(1)::after { top: 48px; }
+.megamenu-grid > .megamenu-col:nth-child(2)::after { top: 0; }
+/* Middle column has no eyebrow above its list — push its content down so its
+   first item aligns with the left column's first service item. */
+.megamenu-grid > .megamenu-col:nth-child(2) {
+  padding-top: 48px;
 }
 .megamenu-eyebrow {
   display: inline-block;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
   color: var(--primary);
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 16px;
 }
 .megamenu-list {
   list-style: none;
@@ -220,24 +243,31 @@ section .eyebrow {
   color: inherit;
   padding: 4px 0;
 }
-.megamenu-list h5 {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.25;
-  color: var(--heading);
-  margin: 0 0 4px;
-  letter-spacing: -.005em;
+.megamenu-list h5,
+.megamenu-list a h5,
+.megamenu-list li a h5 {
+  font-family: var(--font-heading) !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  color: var(--heading) !important;
+  margin: 0 0 4px !important;
+  letter-spacing: -.005em !important;
+  text-transform: none !important;
   transition: color .2s ease;
 }
-.megamenu-list p {
-  font-family: var(--font-heading);
-  font-size: 13px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-2, #2c3344);
-  margin: 0;
+.megamenu-list p,
+.megamenu-list a p,
+.megamenu-list li a p {
+  font-family: var(--font-heading) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: var(--text-2, #2c3344) !important;
+  margin: 0 !important;
 }
 .megamenu-list li.is-active h5,
 .megamenu-list a:hover h5,
@@ -246,7 +276,7 @@ section .eyebrow {
 }
 
 /* Case-study feature card on the right */
-.megamenu-col--feature .megamenu-eyebrow { margin-bottom: 12px; }
+.megamenu-col--feature .megamenu-eyebrow { margin-bottom: 24px; }
 .megamenu-feature {
   display: block;
   position: relative;
@@ -4272,7 +4302,7 @@ section .eyebrow {
 .sectors-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 32px;
+  gap: 36px 32px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -4282,8 +4312,8 @@ section .eyebrow {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 18px 4px;
-  border-bottom: 1px solid var(--outline);
+  padding: 0 4px;
+  border-bottom: 0;
   cursor: pointer;
   font-family: var(--font-heading);
   transition: color .25s ease;
@@ -4357,7 +4387,7 @@ section .eyebrow {
   display: block;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 11px;
+  font-size: 16px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--primary);
@@ -4381,8 +4411,8 @@ section .eyebrow {
 .megamenu-title {
   display: block;
   font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: 600;
+  font-style: normal;
+  font-weight: 400;
   font-size: 17px;
   color: var(--heading);
   margin-bottom: 4px;
@@ -4392,32 +4422,58 @@ section .eyebrow {
 .megamenu-desc {
   display: block;
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--text-2);
-  line-height: 1.4;
+  line-height: 1.5;
 }
-/* Feature card on the right */
-.megamenu-feature { display: flex; flex-direction: column; }
+/* Feature card on the right — separated from the services list by a vertical hairline */
+.megamenu-feature {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 32px;
+}
+.megamenu-feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: #EBEDF3;
+}
 .megamenu-feature-card {
-  display: block;
-  background: linear-gradient(135deg, #1a3a2e 0%, #2d5a3d 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  background-color: #1a3a2e;
   border-radius: 14px;
   overflow: hidden;
   text-decoration: none;
   color: #fff;
   flex: 1;
+  min-height: 280px;
+  isolation: isolate;
 }
 .megamenu-feature-img {
-  height: 140px;
-  background: linear-gradient(135deg, #2d5a3d 0%, #1a3a2e 100%);
-  background-image: url('images/case-apollo-medtech.png');
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: url('../images/case-studies/bee-star-label.png');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.55) saturate(1.15) blur(2px);
+  transform: scale(1.08);
+  z-index: 0;
 }
-.megamenu-feature-meta { padding: 16px 18px 18px; }
+.megamenu-feature-meta { padding: 20px 22px 22px; position: relative; z-index: 1; }
 .megamenu-feature-meta h4 {
   font-family: var(--font-heading) !important;
   font-size: 16px !important;
