@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Surveillance &amp; Star Label Compliance Platform &mdash; Webority Government</title>
+  <meta name="description" content="Digitised market surveillance for the Bureau of Energy Efficiency &mdash; offline-first field app + central compliance dashboard connecting 36+ State Designated Agencies across India." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/gov-identity.css" />
+  <link rel="stylesheet" href="css/design-polish.css" />
+  <style>
+    .cs-back { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-heading); font-size: 14px; text-decoration: none; margin-bottom: 16px; color: rgba(255,255,255,0.7); }
+    .cs-back:hover { color: var(--white); }
+    .cs-hero { color: var(--white); padding: 64px 0 56px; }
+    .cs-hero h1 { font-family: var(--font-heading); font-weight: 700; color: var(--white); font-size: var(--fs-42); line-height: 1.15; margin: 8px 0 12px; }
+    .cs-hero p.client { color: rgba(255,255,255,0.75); font-family: var(--font-heading); margin: 0; }
+    .cs-hero .cs-eyebrow-light { display: inline-block; color: rgba(255,255,255,0.85); font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
+    .cs-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); }
+    .cs-meta-item .v { font-family: var(--font-heading); font-weight: 700; color: var(--white); font-size: var(--fs-32); display: block; line-height: 1.1; }
+    .cs-meta-item .l { font-family: var(--font-heading); color: rgba(255,255,255,0.65); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-top: 6px; display: block; }
+    .cs-two-col { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 48px; align-items: start; }
+    @media (max-width: 880px) { .cs-two-col { grid-template-columns: 1fr; } }
+    .cs-eyebrow { display: inline-block; color: var(--primary); font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
+    .cs-h2 { font-family: var(--font-heading); font-weight: 700; color: var(--heading); font-size: var(--fs-32); margin: 8px 0 16px; }
+    .cs-p { color: var(--text-1); font-family: var(--font-heading); margin-bottom: 12px; line-height: 1.65; }
+    .cs-block { margin-bottom: 36px; }
+    .cs-scope-list { list-style: none; padding: 0; margin: 12px 0 0; counter-reset: cs-step; }
+    .cs-scope-list li { display: grid; grid-template-columns: 40px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--secondary-10); counter-increment: cs-step; }
+    .cs-scope-list li:last-child { border-bottom: none; }
+    .cs-scope-list li::before { content: counter(cs-step); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--primary-10); color: var(--primary); border-radius: 50%; font-family: var(--font-heading); font-weight: 700; font-size: 14px; }
+    .cs-scope-title { font-family: var(--font-heading); font-weight: 700; color: var(--heading); font-size: 16px; margin-bottom: 4px; }
+    .cs-scope-desc { color: var(--text-1); font-family: var(--font-heading); font-size: 14px; line-height: 1.55; }
+    .cs-tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+    .cs-outcomes { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 0 0 32px; padding: 28px 24px; background: var(--bg-light); border-radius: var(--radius-lg); }
+    .cs-outcome { text-align: center; }
+    .cs-outcome .v { font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: var(--fs-32); display: block; line-height: 1.1; }
+    .cs-outcome .v span { font-size: 0.55em; }
+    .cs-outcome .l { font-family: var(--font-heading); color: var(--text-2); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; margin-top: 6px; display: block; }
+    .cs-info-card { background: var(--secondary); color: rgba(255,255,255,0.85); padding: 28px 24px; border-radius: var(--radius-lg); position: sticky; top: 96px; font-family: var(--font-heading); font-size: 14px; }
+    .cs-info-card .cs-info-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: rgba(255,255,255,0.5); margin-top: 16px; margin-bottom: 4px; font-weight: 700; }
+    .cs-info-card .cs-info-lbl:first-child { margin-top: 0; }
+    .cs-info-card .cs-info-item { color: var(--white); margin-bottom: 4px; line-height: 1.4; }
+    .cs-info-divider { margin: 20px 0 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+    .cs-info-card a.btn { width: 100%; justify-content: center; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <a class="skip-nav-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand brand--mockup" href="index.html" aria-label="Webority Technologies - Government practice home">
+        <span class="brand-mark" aria-hidden="true">W</span>
+        <span class="brand-name"><strong>Webority</strong><span>Technologies</span></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="case-studies.html" class="active" data-i18n="nav.case-studies">Case Studies</a></li>
+        <li><a href="sectors.html" data-i18n="nav.sectors">Sectors</a></li>
+        <li><a href="credentials.html">Credentials</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+        <li class="nav-cta-group">
+          <div class="nav-lang" role="group" aria-label="Language switcher (placeholder - Hindi copy not yet wired)">
+            <button type="button" class="gov-lang-toggle" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
+            <button type="button" class="gov-lang-toggle" data-lang="hi" aria-pressed="false" aria-label="Switch to Hindi" lang="hi">&#2361;&#2367;&#2306;&#2342;&#2368;</button>
+          </div>
+          <a class="btn btn-primary" href="contact.html" data-i18n="nav.contact-cta">Contact Us &rarr;</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <a id="main-content" tabindex="-1"></a>
+
+  <section class="cs-hero" style="background: linear-gradient(135deg, #0E4D2B, #0A1628);">
+    <div class="container">
+      <a href="case-studies.html" class="cs-back">&larr; Back to Case Studies</a>
+      <span class="cs-eyebrow-light">Bureau of Energy Efficiency &middot; Ministry of Power</span>
+      <h1>Market Surveillance &amp; Star<br />Label Compliance Platform</h1>
+      <p class="client">Bureau of Energy Efficiency (BEE) &middot; Ministry of Power, Government of India</p>
+      <div class="cs-meta">
+        <div class="cs-meta-item"><span class="v">36</span><span class="l">SDAs Connected</span></div>
+        <div class="cs-meta-item"><span class="v">100%</span><span class="l">Manual &rarr; Digital</span></div>
+        <div class="cs-meta-item"><span class="v">PAN</span><span class="l">India Deployment</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect">
+    <div class="container">
+      <div class="cs-two-col">
+        <div>
+          <div class="cs-block">
+            <span class="cs-eyebrow">Project Overview</span>
+            <h2 class="cs-h2">Digitising India&rsquo;s National Appliance Compliance Programme</h2>
+            <p class="cs-p">The Bureau of Energy Efficiency&rsquo;s Market Surveillance programme monitors compliance of energy-efficient appliances across India &mdash; from refrigerators and ACs to LED lights &mdash; ensuring manufacturers meet the prescribed Star Label standards.</p>
+            <p class="cs-p">Before this platform, all inspection workflows were manual &mdash; paper-based field reports, manual aggregation, and significant delays in compliance data reaching BEE&rsquo;s central team. We replaced this entirely with a digitised, real-time platform spanning every State Designated Agency (SDA) in India.</p>
+          </div>
+
+          <div class="cs-block">
+            <span class="cs-eyebrow">Scope of Work</span>
+            <h2 class="cs-h2">What We Delivered</h2>
+            <ol class="cs-scope-list">
+              <li><div><div class="cs-scope-title">Field Officer Mobile Application</div><div class="cs-scope-desc">Android app for market surveillance officers &mdash; offline-first with local data storage, syncing inspection records when connectivity is available. Built for operation in remote retail environments.</div></div></li>
+              <li><div><div class="cs-scope-title">Central Compliance Dashboard</div><div class="cs-scope-desc">Real-time web dashboard for BEE and SDA administrators &mdash; showing inspection status, product compliance rates, geographic coverage, and officer activity across all states.</div></div></li>
+              <li><div><div class="cs-scope-title">Inspection Workflow Digitisation</div><div class="cs-scope-desc">End-to-end digitisation of the inspection process &mdash; from outlet selection and product sampling to test reports, compliance certificates, and enforcement actions.</div></div></li>
+              <li><div><div class="cs-scope-title">SDA Integration &amp; Multi-State Rollout</div><div class="cs-scope-desc">Onboarding and integration of all 36+ State Designated Agencies &mdash; each with their own user management, jurisdiction-based data views, and compliance reporting.</div></div></li>
+              <li><div><div class="cs-scope-title">Product &amp; Manufacturer Database</div><div class="cs-scope-desc">Centralised registry of all Star Labelled products and manufacturers &mdash; linked to inspection records, enabling automated compliance tracking and violation flagging.</div></div></li>
+              <li><div><div class="cs-scope-title">Automated Reporting Engine</div><div class="cs-scope-desc">Scheduled compliance reports for ministry leadership, state officials, and manufacturer communication &mdash; eliminating manual report preparation entirely.</div></div></li>
+            </ol>
+          </div>
+
+          <div class="cs-block">
+            <span class="cs-eyebrow">Technology Stack</span>
+            <div class="cs-tech-row">
+              <span class="tag">React.js</span>
+              <span class="tag">Android (Kotlin)</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Offline Sync</span>
+              <span class="tag">NIC Hosting</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">GIGW Compliant</span>
+            </div>
+          </div>
+
+          <div class="cs-outcomes">
+            <div class="cs-outcome"><span class="v">36</span><span class="l">SDAs on single platform</span></div>
+            <div class="cs-outcome"><span class="v">100<span>%</span></span><span class="l">Inspection workflow digitised</span></div>
+            <div class="cs-outcome"><span class="v">Real-<span>time</span></span><span class="l">Compliance visibility nationwide</span></div>
+          </div>
+
+          <a class="btn btn-primary" href="contact.html">Discuss a Similar Requirement &rarr;</a>
+        </div>
+
+        <aside class="cs-info-card">
+          <div class="cs-info-lbl">Client</div>
+          <div class="cs-info-item"><strong>Bureau of Energy Efficiency (BEE)</strong></div>
+          <div class="cs-info-lbl">Ministry</div>
+          <div class="cs-info-item">Ministry of Power</div>
+          <div class="cs-info-lbl">Service Type</div>
+          <div class="cs-info-item">e-Governance &middot; Compliance Platform &middot; Mobile App</div>
+          <div class="cs-info-lbl">Technology</div>
+          <div class="cs-info-item">React.js &middot; Kotlin &middot; Node.js &middot; PostgreSQL</div>
+          <div class="cs-info-divider">
+            <a class="btn btn-primary" href="contact.html">Discuss a Similar Project &rarr;</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer wg-footer wg-footer-v2" role="contentinfo">
+    <div class="wg-inner">
+
+      <div class="wg-footer-top wg-footer-top-v2">
+
+        <div class="wg-foot-brand">
+          <a class="wg-wordmark" href="index.html">
+            <strong>Webority</strong>
+            <span>Technologies</span>
+          </a>
+          <p data-i18n="footer.tagline">We specialize in three core services: Product Development, Team Augmentation, and Technology Consulting.</p>
+          <p class="follow-label" data-i18n="footer.follow">Follow Us</p>
+          <div class="wg-social">
+            <a href="https://www.linkedin.com/company/webority-technologies" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M9.1 21.5v-7.6H6.4V10.5h2.7V8.1c0-2.7 1.6-4.2 4.1-4.2 1.2 0 2.4.2 2.4.2v2.6h-1.3c-1.3 0-1.7.8-1.7 1.7v2.1h2.9l-.5 3.4h-2.4v7.6"/></svg>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="wg-foot-col">
+          <h5 data-i18n="footer.services">Core Services</h5>
+          <ul>
+            <li><a href="services.html#egov">e-Governance</a></li>
+            <li><a href="services.html#ai">AI &amp; Data Analytics</a></li>
+            <li><a href="services.html#security">Cybersecurity &amp; VAPT</a></li>
+            <li><a href="services.html#cloud">MeghRaj Cloud</a></li>
+            <li><a href="services.html#modernization">Legacy Modernisation</a></li>
+            <li><a href="services.html#consulting">Consulting</a></li>
+            <li><a href="services.html#staffing">IT Staff Augmentation</a></li>
+          </ul>
+        </div>
+
+        <div class="wg-foot-col">
+          <h5 data-i18n="footer.industries">Industries</h5>
+          <ul>
+            <li><a href="portfolio.html">Parliament of India</a></li>
+            <li><a href="portfolio.html">Bureau of Energy Efficiency</a></li>
+            <li><a href="portfolio.html">Ministry of Tribal Affairs</a></li>
+            <li><a href="portfolio.html">Sashastra Seema Bal</a></li>
+            <li><a href="portfolio.html">Quality Council of India</a></li>
+            <li><a href="portfolio.html">National Book Trust India</a></li>
+          </ul>
+        </div>
+
+        <div class="wg-foot-col wg-foot-contact">
+          <div class="contact-block">
+            <h5 data-i18n="footer.sayhello">Say Hello!</h5>
+            <a href="tel:+919599006518">(+91) 959-900-6518</a>
+            <a href="mailto:contact@webority.com">contact@webority.com</a>
+          </div>
+          <div class="contact-block">
+            <h5 data-i18n="footer.office">Office</h5>
+            <p>629 - 634, Sixth Floor, Vipul Trade Centre,<br />Sohna - Gurgaon Rd, Sector 48, Gurugram,<br />Haryana 122018</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="wg-foot-bottom">
+        <div class="wg-foot-bottom-left">
+          <div>Copyright &copy; <span id="year">2026</span> Webority Technologies Private Limited. All Rights Reserved.</div>
+          <div>CMMI Level 5 &amp; ISO 27001:2022 Certified Company</div>
+        </div>
+        <div class="wg-foot-bottom-right">
+          <a href="design-system.html">Design System</a>
+          <span class="sep">|</span>
+          <a href="#" data-todo="WG: create privacy-policy.html">Privacy Policy</a>
+          <span class="sep">|</span>
+          <a href="#" data-todo="WG: create terms-conditions.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+
+      <div class="wg-foot-mega" aria-hidden="true">Webority Technologies</div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/i18n-dict.js" defer></script>
+  <script src="js/lang-toggle.js" defer></script>
+</body>
+</html>
