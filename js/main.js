@@ -169,6 +169,11 @@
         if (item.classList.contains('is-open')) return;
         activate(item);
       });
+      // Hover anywhere on the item also swaps the image + opens it
+      item.addEventListener('mouseenter', function () {
+        if (item.classList.contains('is-open')) return;
+        activate(item);
+      });
     });
   })();
 
