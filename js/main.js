@@ -153,13 +153,9 @@
       var nextSrc = item.getAttribute('data-img');
       var nextLabel = item.getAttribute('data-label') || '';
       if (!nextSrc || nextSrc === img.getAttribute('src')) return;
-      frame.classList.add('is-swapping');
-      if (swapTimer) clearTimeout(swapTimer);
-      swapTimer = setTimeout(function () {
-        img.setAttribute('src', nextSrc);
-        if (tagLabel) tagLabel.innerHTML = nextLabel;
-        frame.classList.remove('is-swapping');
-      }, 80);
+      // Direct swap — no fade-out or scale animation
+      img.setAttribute('src', nextSrc);
+      if (tagLabel) tagLabel.innerHTML = nextLabel;
     }
 
     items.forEach(function (item) {
