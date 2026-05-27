@@ -902,25 +902,18 @@ section .eyebrow {
    First card gets a saffron-gradient ring to emphasise relevance.
    ============================================================ */
 .ai-split-v2 {
-  display: grid;
-  grid-template-columns: minmax(220px, 280px) 1fr;
-  gap: clamp(32px, 4vw, 72px);
-  align-items: start;
-}
-@media (max-width: 920px) {
-  .ai-split-v2 { grid-template-columns: 1fr; gap: 32px; }
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 .ai-split-v2 .ai-pitch {
-  display: flex; flex-direction: column;
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   align-items: flex-start;
-  position: sticky;
-  top: 96px;                 /* clears the ~72px sticky header + 24px breathing room */
-  align-self: start;          /* required for sticky inside CSS grid */
-  max-width: 400px;
-}
-@media (max-width: 920px) {
-  .ai-split-v2 .ai-pitch { position: static; max-width: none; }
+  position: static;
+  max-width: 100%;
+  width: 100%;
 }
 .ai-section-title {
   font-family: var(--font-heading);
@@ -4546,15 +4539,16 @@ html .case-card:focus-visible h4 {
   letter-spacing: -.005em;
 }
 .sectors-v2-acc-icon {
-  width: 32px; height: 32px;
+  width: 24px; height: 24px;
   flex-shrink: 0;
   display: inline-grid; place-items: center;
-  background: #1d1d1d;
-  color: #fff;
-  border-radius: 50%;
-  transition: transform .25s ease, background .2s ease;
+  background: transparent;
+  color: var(--primary);
+  border: 0;
+  border-radius: 0;
+  transition: transform .25s ease, color .2s ease;
 }
-.sectors-v2-acc-head:hover .sectors-v2-acc-icon { background: #000; }
+.sectors-v2-acc-head:hover .sectors-v2-acc-icon { color: var(--primary-80); }
 .sectors-v2-acc-item.is-open .sectors-v2-acc-icon { transform: rotate(90deg); }
 /* Body collapses by default; transitions max-height + padding on open */
 .sectors-v2-acc-body {
@@ -5018,7 +5012,8 @@ html .case-card:focus-visible h4 {
   flex-direction: column;
   gap: 20px;
   margin-bottom: 48px;
-  max-width: 1040px;
+  max-width: 100%;
+  width: 100%;
 }
 .caps-v2-head-left { width: 100%; }
 .caps-v2-head-right { width: 100%; }
@@ -5045,7 +5040,7 @@ html .case-card:focus-visible h4 {
   line-height: 1.65;
   color: var(--text-2);
   margin: 0;
-  max-width: 1040px;
+  max-width: 100%;
 }
 
 .caps-v2-body {
@@ -5054,8 +5049,14 @@ html .case-card:focus-visible h4 {
   gap: 64px;
   align-items: stretch;
 }
+/* Swap order: accordion sits on the LEFT (aligned with "Our Capabilities"
+   heading), image on the right. */
+.caps-v2-visual { order: 1; }
+.caps-v2-accordion-col { order: 2; }
 @media (max-width: 980px) {
   .caps-v2-body { grid-template-columns: 1fr; gap: 28px; }
+  .caps-v2-visual { order: 0; }
+  .caps-v2-accordion-col { order: 0; }
 }
 
 .caps-v2-visual {
@@ -5077,13 +5078,14 @@ html .case-card:focus-visible h4 {
 .caps-v2-img {
   width: 100%; height: 100%;
   object-fit: cover; display: block;
-  transition: opacity .35s ease;
+  transition: opacity .12s ease;
 }
 .caps-v2-frame.is-swapping .caps-v2-img { opacity: 0; }
 .caps-v2-tag {
+  display: none !important;
   position: absolute;
   top: 18px; left: 18px;
-  display: inline-flex; align-items: center; gap: 8px;
+  align-items: center; gap: 8px;
   padding: 8px 14px;
   background: rgba(255, 255, 255, .94);
   color: var(--heading);
@@ -5150,25 +5152,23 @@ html .case-card:focus-visible h4 {
 }
 .caps-v2-acc-title { text-decoration: none; }
 .caps-v2-acc-title {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -.005em;
 }
 .caps-v2-acc-icon {
-  width: 32px; height: 32px;
+  width: 24px; height: 24px;
   flex-shrink: 0;
   display: inline-grid; place-items: center;
   background: transparent;
-  color: var(--heading);
-  border: 1px solid var(--heading);
-  border-radius: 50%;
-  transition: transform .25s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  color: var(--primary);
+  border: 0;
+  border-radius: 0;
+  transition: transform .55s cubic-bezier(.4, 0, .2, 1), color .25s ease;
 }
 .caps-v2-acc-head:hover .caps-v2-acc-icon {
-  background: transparent;
-  color: var(--primary);
-  border-color: var(--primary);
+  color: var(--primary-80);
 }
 .caps-v2-acc-item.is-open .caps-v2-acc-icon { transform: rotate(90deg); }
 .caps-v2-acc-body {
@@ -5179,7 +5179,7 @@ html .case-card:focus-visible h4 {
   grid-template-columns: 1fr auto;
   gap: 16px;
   align-items: center;
-  transition: max-height .3s ease, padding .3s ease;
+  transition: max-height .55s cubic-bezier(.4, 0, .2, 1), padding .55s cubic-bezier(.4, 0, .2, 1);
 }
 .caps-v2-acc-item.is-open .caps-v2-acc-body {
   max-height: 320px;
@@ -5187,7 +5187,7 @@ html .case-card:focus-visible h4 {
 }
 .caps-v2-acc-body p {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.55;
   color: var(--text-2);
   margin: 0;

@@ -159,7 +159,7 @@
         img.setAttribute('src', nextSrc);
         if (tagLabel) tagLabel.innerHTML = nextLabel;
         frame.classList.remove('is-swapping');
-      }, 220);
+      }, 80);
     }
 
     items.forEach(function (item) {
