@@ -92,6 +92,86 @@
     });
   });
 
+  // Sectors v2 accordion — click a row to expand its body, close others,
+  // and fade-swap the big sticky photo + pill label on the left.
+  (function () {
+    var items = document.querySelectorAll('.sectors-v2-acc-item');
+    if (!items.length) return;
+    var frame = document.querySelector('.sectors-v2-frame');
+    var img = frame && frame.querySelector('.sectors-v2-img');
+    var tagLabel = frame && frame.querySelector('.sectors-v2-tag-label');
+
+    var swapTimer = null;
+    function activate(item) {
+      items.forEach(function (el) {
+        var head = el.querySelector('.sectors-v2-acc-head');
+        var open = el === item;
+        el.classList.toggle('is-open', open);
+        if (head) head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      if (!frame || !img) return;
+      var nextSrc = item.getAttribute('data-img');
+      var nextLabel = item.getAttribute('data-label') || '';
+      if (!nextSrc || nextSrc === img.getAttribute('src')) return;
+      frame.classList.add('is-swapping');
+      if (swapTimer) clearTimeout(swapTimer);
+      swapTimer = setTimeout(function () {
+        img.setAttribute('src', nextSrc);
+        if (tagLabel) tagLabel.innerHTML = nextLabel;
+        frame.classList.remove('is-swapping');
+      }, 220);
+    }
+
+    items.forEach(function (item) {
+      var head = item.querySelector('.sectors-v2-acc-head');
+      if (!head) return;
+      head.addEventListener('click', function () {
+        if (item.classList.contains('is-open')) return; // keep one open at all times
+        activate(item);
+      });
+    });
+  })();
+
+  // Caps v2 accordion — mirrors sectors-v2 behaviour for "Our Capabilities".
+  (function () {
+    var items = document.querySelectorAll('.caps-v2-acc-item');
+    if (!items.length) return;
+    var frame = document.querySelector('.caps-v2-frame');
+    var img = frame && frame.querySelector('.caps-v2-img');
+    var tagLabel = frame && frame.querySelector('.caps-v2-tag-label');
+
+    var swapTimer = null;
+    function activate(item) {
+      items.forEach(function (el) {
+        var head = el.querySelector('.caps-v2-acc-head');
+        var open = el === item;
+        el.classList.toggle('is-open', open);
+        if (head) head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      if (!frame || !img) return;
+      var nextSrc = item.getAttribute('data-img');
+      var nextLabel = item.getAttribute('data-label') || '';
+      if (!nextSrc || nextSrc === img.getAttribute('src')) return;
+      frame.classList.add('is-swapping');
+      if (swapTimer) clearTimeout(swapTimer);
+      swapTimer = setTimeout(function () {
+        img.setAttribute('src', nextSrc);
+        if (tagLabel) tagLabel.innerHTML = nextLabel;
+        frame.classList.remove('is-swapping');
+      }, 220);
+    }
+
+    items.forEach(function (item) {
+      var head = item.querySelector('.caps-v2-acc-head');
+      if (!head) return;
+      head.addEventListener('click', function () {
+        if (item.classList.contains('is-open')) return;
+        activate(item);
+      });
+    });
+  })();
+
   // Reveal-on-scroll animation
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && reveals.length) {

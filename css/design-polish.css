@@ -212,16 +212,16 @@ section .eyebrow {
   width: 1px;
   background: var(--outline);
 }
-.megamenu-grid > .megamenu-col:nth-child(1)::after { top: 48px; }
+.megamenu-grid > .megamenu-col:nth-child(1)::after { top: 44px; }
 .megamenu-grid > .megamenu-col:nth-child(2)::after { top: 0; }
 /* Middle column has no eyebrow above its list — push its content down so its
    first item aligns with the left column's first service item. */
 .megamenu-grid > .megamenu-col:nth-child(2) {
-  padding-top: 48px;
+  padding-top: 44px;
 }
 .megamenu-eyebrow {
   display: inline-block;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   color: var(--primary);
   font-family: var(--font-heading);
   font-weight: 700;
@@ -252,7 +252,7 @@ section .eyebrow {
   font-size: 16px !important;
   line-height: 1.25 !important;
   color: var(--heading) !important;
-  margin: 0 0 4px !important;
+  margin: 0 0 16px !important;
   letter-spacing: -.005em !important;
   text-transform: none !important;
   transition: color .2s ease;
@@ -484,9 +484,9 @@ section .eyebrow {
 .case-card-head {
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px;
-  padding-bottom: 24px;
+  padding-bottom: 10px;
   border-bottom: 1px solid rgba(98,0,238,.06);
-  margin-bottom: clamp(24px, 3vw, 40px);
+  margin-bottom: 10px;
 }
 .case-card-title {
   font-family: var(--font-heading);
@@ -603,9 +603,16 @@ section .eyebrow {
 }
 
 /* ---------- Section tinted ---------- */
-.sect-tinted { background: #FAF8FD; }
-.sect { background: #FAF8FD; }
+.sect-tinted { background: #FCFAFD; }
+.sect { background: #FCFAFD; }
 .sect-white, .sect.sect-white, .sect-tight.sect-white { background: #ffffff; }
+
+/* Merge the Portfolio (logos + CTA) section with the Success Matrix (stats)
+   section visually: drop the inter-section padding so the stats-v2 element's
+   own 64px margin-top + 64px padding-top supply the 64px-each-side breathing
+   room around the divider line that sits at the top of stats-v2. */
+.sect.sect-white:has(.portfolio-cta-row) { padding-bottom: 0; }
+.sect-tight.sect-white { padding-top: 0; padding-bottom: 64px; }
 
 .sect-head h2 { letter-spacing: -.022em; }
 .sect-head { text-align: center; max-width: 760px; margin: 0 auto 48px; }
@@ -656,61 +663,55 @@ section .eyebrow {
 .portfolio-footnote-v2 .accent { color: var(--primary); font-weight: 700; }
 .portfolio-cta-row { display: flex; justify-content: center; margin-top: 22px; }
 
-/* ---------- Stats v2 — "Our Journey" cards ---------- */
+/* ---------- Stats v2 — clean horizontal row, no dividers ---------- */
 .stats-v2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  text-align: left;
-  margin-top: 48px;
-  border-top: 0;
+  gap: 0;
+  text-align: center;
+  margin: 64px 0 0;
+  padding: 64px 0 0;
+  border-top: 1px solid var(--outline);
   border-bottom: 0;
-  padding: 0;
   align-items: center;
 }
 .stats-v2 > div {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  align-items: stretch;
-  background: linear-gradient(180deg, #ffffff 0%, #f6f4ff 100%);
-  border: 1px solid var(--outline);
-  border-radius: 16px;
-  padding: 32px 28px;
-  box-shadow: none;
-}
-/* Alternating heights — 1st and 3rd cards taller than 2nd and 4th */
-.stats-v2 > div:nth-child(odd)  { min-height: 260px; }
-.stats-v2 > div:nth-child(even) { min-height: 200px; }
-.stat-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-.stat-dot {
-  width: 28px;
-  height: 28px;
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--primary-10);
-  color: var(--primary);
-  border-radius: 50%;
-  flex-shrink: 0;
+  gap: 6px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 12px 24px;
+  box-shadow: none;
+  min-height: auto;
+  position: relative;
 }
-.stat-dot svg { display: block; }
+/* Vertical divider between adjacent stat columns */
+.stats-v2 > div:not(:last-child)::after {
+  content: "";
+  display: block !important;
+  position: absolute;
+  right: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 1px;
+  background: var(--outline);
+}
 .stats-v2 .num {
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-  font-size: clamp(2.5rem, 1.6rem + 3vw, 4rem);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-size: 56px;
+  font-weight: 600;
   line-height: 1;
-  color: var(--text-1);
+  color: var(--heading);
   letter-spacing: -.02em;
 }
 .stats-v2 .num .plus {
   color: var(--primary);
+  font-weight: 500;
   margin-left: 2px;
 }
 .stats-v2 .lbl {
@@ -722,8 +723,12 @@ section .eyebrow {
   text-transform: uppercase;
 }
 @media (max-width: 720px) {
-  .stats-v2 { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .stats-v2 > div:not(:last-child)::after { display: none; }
+  .stats-v2 { grid-template-columns: repeat(2, 1fr); padding: 36px 0; }
+  .stats-v2 > div:nth-child(2)::after { display: none; }
+  .stats-v2 > div:nth-child(1), .stats-v2 > div:nth-child(2) {
+    padding-bottom: 28px; margin-bottom: 14px;
+    border-bottom: 1px solid var(--outline);
+  }
 }
 
 /* ---------- Service cards ---------- */
@@ -779,9 +784,32 @@ section .eyebrow {
 .svc-card-v2:hover {
   transform: translateY(-3px);
   background: #ffffff;
-  border-color: var(--primary-30);
+  border-color: transparent;
 }
 .svc-card-v2:hover::before { opacity: 1; }
+
+/* Rotating conic-gradient border on hover — same treatment as .ai-card.
+   Reuses --ai-card-angle and ai-card-border-spin keyframes defined earlier. */
+.svc-card-v2::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: conic-gradient(from var(--ai-card-angle), #5800D6, #A13ADF, #559EF2, #E0CCFF, #5800D6);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s ease;
+  z-index: 1;
+}
+.svc-card-v2:hover::after {
+  opacity: 1;
+  animation: ai-card-border-spin 4s linear infinite;
+}
 
 .svc-card-ic-v2 {
   width: 52px; height: 52px;
@@ -4159,13 +4187,44 @@ section .eyebrow {
   line-height: 1.25;
   transition: color .3s ease;
 }
-[class*="-card"]:not([class*="-cards"]):hover h3,
-[class*="-card"]:not([class*="-cards"]):hover h4,
-[class*="-card"]:not([class*="-cards"]):hover h5,
-[class*="-tile"]:not([class*="-tiles"]):hover h3,
-[class*="-tile"]:not([class*="-tiles"]):hover h4,
-[class*="-tile"]:not([class*="-tiles"]):hover h5 {
+[class*="-card"]:not([class*="-cards"]):not(.case-card):hover h3,
+[class*="-card"]:not([class*="-cards"]):not(.case-card):hover h4,
+[class*="-card"]:not([class*="-cards"]):not(.case-card):hover h5,
+[class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h3,
+[class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h4,
+[class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h5 {
   color: var(--primary) !important;
+}
+/* Case-card headings — fully static. Title sits in dark heading colour,
+   block headings (Challenge/Solution/Impact) stay in their primary-purple
+   default. No colour change on hover, no transition. */
+/* Lock case-card headings to black on every interaction state. The repeated
+   `.case-card` raises specificity above any other rule that might try to
+   tint these on hover; transitions are killed so no color fade can occur. */
+html .case-card .case-card-title,
+html .case-card .case-card-title:hover,
+html .case-card.case-card .case-card-title,
+html .case-card:hover .case-card-title,
+html .case-card:focus-visible .case-card-title,
+html .case-card:active .case-card-title,
+html .case-card h3,
+html .case-card:hover h3,
+html .case-card:focus-visible h3 {
+  color: #000000 !important;
+  transition: none !important;
+}
+html .case-card .case-block h4,
+html .case-card .case-block h4:hover,
+html .case-card.case-card .case-block h4,
+html .case-card:hover .case-block h4,
+html .case-card:focus-visible .case-block h4,
+html .case-card:active .case-block h4,
+html .case-card .case-block:hover h4,
+html .case-card h4,
+html .case-card:hover h4,
+html .case-card:focus-visible h4 {
+  color: #000000 !important;
+  transition: none !important;
 }
 [class*="-card"] p,
 [class*="-tile"] p {
@@ -4238,7 +4297,308 @@ section .eyebrow {
 }
 
 /* ==========================================================================
+   Sectors v3 — centered header + 4x2 image-card grid + centered CTA
+   ========================================================================== */
+.sectors-v3-section .sect-head { display: none; }
+.sectors-v3-head {
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto 56px;
+}
+.sectors-v3-eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.sectors-v3-title {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  color: var(--heading);
+  margin: 0;
+}
+.sectors-v3-lead {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-2, #2c3344);
+  margin: 18px auto 0;
+  max-width: 880px;
+}
+.sectors-v3-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+@media (max-width: 1100px) {
+  .sectors-v3-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .sectors-v3-grid { grid-template-columns: 1fr; }
+}
+.sectors-v3-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 8px 8px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.sectors-v3-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px -20px rgba(15, 23, 42, .18);
+}
+.sectors-v3-card-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #eef1f6;
+}
+.sectors-v3-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.sectors-v3-card-body {
+  padding: 0 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sectors-v3-card-body h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #0b0c2a;
+  margin: 0;
+  letter-spacing: -.01em;
+}
+.sectors-v3-card-body p {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-2, #2c3344);
+  margin: 0;
+}
+.sectors-v3-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+.sectors-v3-cta {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Sectors v2 — split header + image-left/accordion-right (legacy)
+   ========================================================================== */
+.sectors-v2-section { background: #FCFAFD !important; }
+.sectors-v2-section .sect-head { display: none; }
+
+.sectors-v2-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 48px;
+  max-width: 760px;
+}
+.sectors-v2-head-left,
+.sectors-v2-head-right {
+  width: 100%;
+}
+.sectors-v2-title {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2rem, 1.4rem + 2vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--heading);
+  margin: 0;
+}
+.sectors-v2-title em {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--heading);
+  opacity: .55;
+}
+.sectors-v2-head-right p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-2, #2c3344);
+  margin: 0;
+  max-width: 44ch;
+}
+
+/* Body split: image left, accordion + CTA right */
+.sectors-v2-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 980px) {
+  .sectors-v2-body { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* Sticky image with rounded frame and a pill tag in the top-left */
+.sectors-v2-visual {
+  position: sticky;
+  top: 96px;
+}
+.sectors-v2-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #eef1f6;
+  box-shadow: 0 18px 38px -20px rgba(15, 23, 42, .18);
+}
+.sectors-v2-img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: opacity .35s ease;
+}
+.sectors-v2-frame.is-swapping .sectors-v2-img { opacity: 0; }
+.sectors-v2-tag {
+  position: absolute;
+  top: 18px; left: 18px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, .94);
+  color: var(--heading);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -.005em;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px -8px rgba(15, 23, 42, .35);
+  backdrop-filter: blur(4px);
+  transition: opacity .35s ease;
+}
+.sectors-v2-frame.is-swapping .sectors-v2-tag { opacity: 0; }
+.sectors-v2-tag-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+/* Accordion column */
+.sectors-v2-accordion {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sectors-v2-acc-item {
+  background: #ffffff;
+  border: 1px solid var(--outline);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color .25s ease, background .25s ease;
+}
+.sectors-v2-acc-item.is-open {
+  border-color: var(--primary-20);
+  background: #fdfaff;
+}
+.sectors-v2-acc-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 16px 16px 22px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  text-align: left;
+  color: var(--heading);
+}
+.sectors-v2-acc-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.005em;
+}
+.sectors-v2-acc-icon {
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  display: inline-grid; place-items: center;
+  background: #1d1d1d;
+  color: #fff;
+  border-radius: 50%;
+  transition: transform .25s ease, background .2s ease;
+}
+.sectors-v2-acc-head:hover .sectors-v2-acc-icon { background: #000; }
+.sectors-v2-acc-item.is-open .sectors-v2-acc-icon { transform: rotate(45deg); }
+/* Body collapses by default; transitions max-height + padding on open */
+.sectors-v2-acc-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  transition: max-height .3s ease, padding .3s ease;
+}
+.sectors-v2-acc-item.is-open .sectors-v2-acc-body {
+  max-height: 220px;
+  padding: 0 22px 18px;
+}
+.sectors-v2-acc-body p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-2, #2c3344);
+  margin: 0;
+}
+.sectors-v2-acc-thumb {
+  width: 96px; height: 96px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 6px 14px -8px rgba(15, 23, 42, .35);
+}
+.sectors-v2-acc-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+.sectors-v2-cta {
+  display: inline-flex; align-items: center;
+  margin-top: 18px;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
    Sectors we serve — image-left + numbered-list-right with hover swap
+   (legacy — kept in case other pages reuse the classes)
    ========================================================================== */
 .sectors-split {
   display: grid;
@@ -4302,7 +4662,9 @@ section .eyebrow {
 .sectors-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 36px 32px;
+  /* row-gap: 16px keeps content-to-line distance; column-gap: 0 so adjacent
+     borders meet to form a single continuous horizontal divider. */
+  gap: 16px 0;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -4311,13 +4673,23 @@ section .eyebrow {
 .sectors-item {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   padding: 0 4px;
   border-bottom: 0;
   cursor: pointer;
   font-family: var(--font-heading);
   transition: color .25s ease;
 }
+/* Horizontal divider between rows: every item except the last two carries a
+   bottom border + 16px bottom padding so the line sits 16px below content
+   and 16px above the next row. Left/right item borders touch (column-gap 0)
+   to look like one continuous line spanning both columns. */
+.sectors-list > .sectors-item:not(:nth-last-child(-n+2)) {
+  border-bottom: 1px solid var(--outline);
+  padding-bottom: 16px;
+}
+.sectors-item:nth-child(odd)  { padding-right: 16px; }
+.sectors-item:nth-child(even) { padding-left: 16px; }
 .sectors-num {
   font-size: 14px;
   font-weight: 600;
@@ -4328,7 +4700,7 @@ section .eyebrow {
   transition: color .25s ease;
 }
 .sectors-name {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
   color: var(--heading);
   transition: color .25s ease;
@@ -4391,12 +4763,12 @@ section .eyebrow {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 .megamenu-col {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
 }
 .megamenu-link {
   display: block;
@@ -4445,6 +4817,9 @@ section .eyebrow {
   width: 1px;
   background: #EBEDF3;
 }
+/* Hide the "NEW CASE STUDY" eyebrow inside the feature column so the card
+   top aligns with the top of the left/middle column text. */
+.megamenu-feature > .megamenu-eyebrow { display: none; }
 .megamenu-feature-card {
   display: flex;
   flex-direction: column;
@@ -4503,3 +4878,304 @@ section .eyebrow {
 @media (max-width: 960px) {
   .megamenu { display: none; }
 }
+
+/* ==========================================================================
+   Our Capabilities — 2-column card grid (image left, body right + badge)
+   ========================================================================== */
+.cap-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+.cap-card-v2 {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: stretch;
+  padding: 18px;
+  background: #f5f4ef;
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 220px;
+}
+.cap-card-v2-img {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e9e7df;
+}
+.cap-card-v2-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 180px;
+}
+.cap-card-v2-body {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px 8px 0;
+  position: relative;
+}
+.cap-card-v2-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 4px 12px 4px 6px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+.cap-card-v2-badge-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  background: #1f1f1f;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.cap-card-v2-title {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  color: var(--heading) !important;
+  margin: 0 0 10px !important;
+  max-width: calc(100% - 110px);
+}
+.cap-card-v2-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+.cap-card-v2-desc {
+  font-family: var(--font-heading) !important;
+  font-size: 13.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  color: var(--text-2) !important;
+  margin: 0 0 14px !important;
+}
+.cap-card-v2-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.cap-card-v2-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  background: #ffffff;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--heading);
+  letter-spacing: 0.02em;
+}
+
+/* Defeat global card hover rules for this layout — static look */
+.cap-card-v2:hover,
+.cap-card-v2:focus-visible {
+  transform: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.cap-card-v2:hover .cap-card-v2-title,
+.cap-card-v2:hover .cap-card-v2-desc,
+.cap-card-v2:hover h3 {
+  color: var(--heading) !important;
+}
+
+@media (max-width: 900px) {
+  .cap-cards-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .cap-card-v2 { grid-template-columns: 1fr; }
+  .cap-card-v2-img img { min-height: 160px; }
+}
+
+/* ==========================================================================
+   Our Capabilities v2 — image + accordion split (mirrors sectors-v2)
+   ========================================================================== */
+.caps-v2-section .sect-head { display: none; }
+.caps-v2-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 48px;
+  max-width: 760px;
+}
+.caps-v2-head-left,
+.caps-v2-head-right { width: 100%; }
+.caps-v2-title {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 1.4rem + 2vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--heading);
+  margin: 0;
+}
+.caps-v2-title em {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--heading);
+  opacity: .55;
+}
+.caps-v2-head { max-width: 1040px; }
+.caps-v2-head-right p {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-2);
+  margin: 0;
+  max-width: 1040px;
+}
+
+.caps-v2-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: stretch;
+}
+@media (max-width: 980px) {
+  .caps-v2-body { grid-template-columns: 1fr; gap: 28px; }
+}
+
+.caps-v2-visual {
+  display: flex;
+  height: 100%;
+}
+.caps-v2-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #eef1f6;
+  box-shadow: 0 18px 38px -20px rgba(15, 23, 42, .18);
+  min-height: 480px;
+}
+@media (max-width: 980px) {
+  .caps-v2-frame { aspect-ratio: 4 / 5; min-height: 0; }
+}
+.caps-v2-img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: opacity .35s ease;
+}
+.caps-v2-frame.is-swapping .caps-v2-img { opacity: 0; }
+.caps-v2-tag {
+  position: absolute;
+  top: 18px; left: 18px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, .94);
+  color: var(--heading);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px -8px rgba(15, 23, 42, .35);
+  backdrop-filter: blur(4px);
+  transition: opacity .35s ease;
+}
+.caps-v2-frame.is-swapping .caps-v2-tag { opacity: 0; }
+.caps-v2-tag-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.caps-v2-accordion {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.caps-v2-acc-item {
+  background: #ffffff;
+  border: 1px solid var(--outline);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color .25s ease, background .25s ease;
+}
+.caps-v2-acc-item.is-open {
+  border-color: var(--primary-20);
+  background: #fdfaff;
+}
+.caps-v2-acc-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 16px 16px 22px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  text-align: left;
+  color: var(--heading);
+}
+.caps-v2-acc-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.005em;
+}
+.caps-v2-acc-icon {
+  width: 32px; height: 32px;
+  flex-shrink: 0;
+  display: inline-grid; place-items: center;
+  background: #1d1d1d;
+  color: #fff;
+  border-radius: 50%;
+  transition: transform .25s ease, background .2s ease;
+}
+.caps-v2-acc-head:hover .caps-v2-acc-icon { background: #000; }
+.caps-v2-acc-item.is-open .caps-v2-acc-icon { transform: rotate(45deg); }
+.caps-v2-acc-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  transition: max-height .3s ease, padding .3s ease;
+}
+.caps-v2-acc-item.is-open .caps-v2-acc-body {
+  max-height: 220px;
+  padding: 0 22px 18px;
+}
+.caps-v2-acc-body p {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-2);
+  margin: 0;
+}
+.caps-v2-acc-thumb { display: none !important; }
+.caps-v2-acc-body { grid-template-columns: 1fr !important; }
+.caps-v2-cta { display: none !important; }
