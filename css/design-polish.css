@@ -906,14 +906,19 @@ section .eyebrow {
   flex-direction: column;
   gap: 48px;
 }
+/* When .ai-split-v2 also has .ai-split applied (HTML uses both classes),
+   ensure the left column aligns to the TOP of the right card grid. */
+.ai-split.ai-split-v2 { align-items: start; }
 .ai-split-v2 .ai-pitch {
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: flex-start;
-  position: static;
+  position: sticky;
+  top: 96px;
   max-width: 100%;
   width: 100%;
+  align-self: start;
 }
 .ai-section-title {
   font-family: var(--font-heading);
@@ -985,7 +990,7 @@ section .eyebrow {
 
 .ai-cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 300px));
+  grid-template-columns: repeat(2, minmax(0, 330px));
   gap: 24px;
   align-items: start;
 }
@@ -1011,6 +1016,7 @@ section .eyebrow {
   gap: 0;
   transition: transform .3s ease, border-color .3s ease;
   position: relative;
+  min-height: 320px;
 }
 .ai-card:hover {
   transform: translateY(-4px);
@@ -1173,13 +1179,13 @@ section .eyebrow {
 
 .sect-card {
   background: #fff;
-  border: 1px solid var(--outline);
+  border: 1px solid #E5E7EB;
   border-radius: var(--r-card);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: none;
+  transition: transform .25s ease, border-color .25s ease;
 }
-.sect-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-h); }
+.sect-card:hover { transform: translateY(-4px); border-color: var(--primary-30); }
 .sect-card-img {
   height: 180px;
   position: relative;
@@ -3537,12 +3543,13 @@ section .eyebrow {
 }
 
 /* ---------- AI split layout ---------- */
-.ai-split { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
-.ai-split .ai-pitch { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; max-width: 480px; }
+.ai-split { display: grid; grid-template-columns: 1fr auto; gap: 80px; align-items: start; }
+.ai-split .ai-pitch { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; max-width: 100%; }
+.ai-split .ai-cards { justify-self: end; }
 .ai-split .ai-pitch h2 { margin: 0; }
 .ai-split .ai-pitch p { margin: 0; }
 .ai-split .ai-pitch .btn { margin-top: 8px; }
-@media (max-width: 920px) { .ai-split { grid-template-columns: 1fr; gap: 32px; align-items: start; } }
+@media (max-width: 920px) { .ai-split { grid-template-columns: 1fr; gap: 32px; align-items: start; } .ai-split .ai-pitch { max-width: 100%; } }
 
 /* ---------- Reveal animations ---------- */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
@@ -4852,9 +4859,10 @@ html .case-card:focus-visible h4 {
 }
 .megamenu-feature-meta { padding: 20px 22px 22px; position: relative; z-index: 1; }
 .megamenu-feature-meta h4 {
-  font-family: var(--font-heading) !important;
-  font-size: 16px !important;
-  font-weight: 700;
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic !important;
+  font-size: 18px !important;
+  font-weight: 600;
   color: #fff !important;
   margin: 0 0 6px;
 }
@@ -4871,7 +4879,7 @@ html .case-card:focus-visible h4 {
   font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.04em;
-  color: #b9f4cf;
+  color: #ffffff;
 }
 .megamenu-feature-card:hover .megamenu-feature-cta {
   text-decoration: underline;
@@ -5055,7 +5063,7 @@ html .case-card:focus-visible h4 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
-  align-items: stretch;
+  align-items: start;
 }
 /* Swap order: accordion sits on the LEFT (aligned with "Our Capabilities"
    heading), image on the right. */
@@ -5067,11 +5075,19 @@ html .case-card:focus-visible h4 {
   .caps-v2-accordion-col { order: 0; }
 }
 
+/* Image stretches to match the accordion column height — top of image
+   aligns with the first row, bottom aligns with "Department ERP".
+   No transition on the image so any reflow on open/close is instant. */
 .caps-v2-visual {
-  display: flex;
-  align-self: stretch;
-  height: 100%;
+  display: block;
+  position: relative;
+  align-self: start;
+  width: 100%;
+  height: 600px;
   min-height: 0;
+}
+@media (max-width: 980px) {
+  .caps-v2-visual { height: 420px; }
 }
 .caps-v2-frame {
   position: relative;
@@ -5084,15 +5100,21 @@ html .case-card:focus-visible h4 {
   min-height: 0;
 }
 @media (max-width: 980px) {
-  .caps-v2-frame { aspect-ratio: 4 / 5; min-height: 0; height: auto; }
+  .caps-v2-frame { aspect-ratio: 4 / 5; height: auto; }
 }
 .caps-v2-img {
+  position: absolute;
+  inset: 0;
   width: 100%; height: 100%;
   object-fit: cover; display: block;
-  transition: none;
+  transition: none !important;
   transform: none !important;
+  animation: none !important;
+  filter: none !important;
 }
 .caps-v2-frame.is-swapping .caps-v2-img { opacity: 1; }
+.caps-v2-frame:hover .caps-v2-img,
+.caps-v2-visual:hover .caps-v2-img { transform: none !important; }
 .caps-v2-tag {
   display: none !important;
   position: absolute;
@@ -5459,5 +5481,311 @@ html .case-card:focus-visible h4 {
   .leader-card-v3-shade,
   .leader-card-v3-img,
   .leader-card-v3-plus svg { transition: none; }
+}
+
+/* ==========================================================================
+   Why Choose Webority v3 — image with client logos + glass testimonial on left,
+   6 separate tick-mark cards on the right.
+   ========================================================================== */
+.why-v3 {
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) auto;
+  gap: 80px;
+  margin-top: 0;
+  align-items: stretch;
+}
+@media (max-width: 1100px) {
+  .why-v3 { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+}
+/* Left column: heading on top, image below. Image stretches to fill the
+   remaining height so its bottom aligns with the bottom of the right cards. */
+.why-v3-left {
+  display: flex;
+  flex-direction: column;
+  gap: 64px !important;
+  row-gap: 64px !important;
+}
+.why-v3-head { margin: 0 !important; padding: 0 !important; }
+.why-v3-head .why-section-lead { margin-bottom: 0 !important; }
+.why-v3-visual { margin-top: 0 !important; }
+.why-v3-head { max-width: 520px; }
+.why-v3-head .why-section-title {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 1.4rem + 1.8vw, 2.75rem);
+  line-height: 1.15;
+  color: var(--heading);
+  margin: 0 0 14px;
+}
+.why-v3-head .why-section-lead {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-2);
+  margin: 0;
+  max-width: 46ch;
+}
+
+/* LEFT: visual — stretches to fill the remaining space in the left column
+   so its bottom aligns with the bottom of the right-side card grid. */
+.why-v3-visual {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 520px;
+  flex: 1 1 auto;
+  min-height: 440px;
+  background: #1a1a1a;
+  isolation: isolate;
+}
+@media (max-width: 1100px) {
+  .why-v3-visual { max-width: 100%; flex: 0 0 auto; height: 380px; min-height: 0; }
+}
+.why-v3-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(1.1);
+}
+
+/* BEE seal variant — the image (bee-testimonals.png) already includes the
+   green spotlit background. Fill the container edge-to-edge with no extra
+   padding, filters, or pseudo-element overlays. */
+.why-v3-visual--bee { background: #0a3d2c !important; }
+.why-v3-visual--bee .why-v3-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 0;
+  filter: none;
+}
+
+/* Client logos overlay at top */
+.why-v3-clients {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+          backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+}
+.why-v3-client {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  margin-left: -10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.25);
+}
+.why-v3-client:first-child { margin-left: 0; }
+.why-v3-client img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Glass testimonial card — sits above the dots inside the image */
+.why-v3-testimonial {
+  position: absolute !important;
+  left: 20px !important;
+  right: 20px !important;
+  bottom: 42px !important;
+  top: auto !important;
+  z-index: 2;
+  margin: 0;
+  padding: 20px 22px;
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+          backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 16px;
+  color: #ffffff;
+}
+.why-v3-testimonial blockquote {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 12px;
+  font-weight: 400;
+}
+.why-v3-testimonial figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.why-v3-testimonial figcaption strong {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.why-v3-testimonial figcaption span {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.why-v3-dots {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 18px !important;
+  top: auto !important;
+  z-index: 5 !important;
+  display: flex !important;
+  gap: 10px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+.why-v3-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  transition: background .2s ease, width .25s ease;
+}
+.why-v3-dot:hover {
+  background: rgba(255, 255, 255, 0.85);
+}
+.why-v3-dot.is-active {
+  background: #ffffff;
+  width: 22px;
+  border-radius: 999px;
+}
+.why-v3-dot:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* RIGHT: cards */
+.why-v3-cards {
+  display: grid;
+  grid-template-columns: 320px 320px;
+  gap: 24px;
+  align-items: start;
+}
+.why-v3-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 320px;
+}
+.why-v3-col--offset { margin-top: 60px; }
+@media (max-width: 1100px) {
+  .why-v3-cards { grid-template-columns: 1fr; }
+  .why-v3-col { width: 100%; }
+  .why-v3-col--offset { margin-top: 0; }
+}
+.why-v3-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 22px 22px;
+  background: #ffffff;
+  border: 1px solid var(--outline);
+  border-radius: 14px;
+}
+.why-v3-tick {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #17c653;
+  color: #ffffff;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin: 6px 0 0 6px;
+  box-shadow: 0 0 0 6px rgba(23, 198, 83, 0.18);
+}
+.why-v3-card-body h3 {
+  font-family: var(--font-heading) !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  color: var(--heading) !important;
+  margin: 0 0 8px !important;
+  line-height: 1.3 !important;
+}
+.why-v3-card-body p {
+  font-family: var(--font-heading) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  color: var(--text-2) !important;
+  margin: 0 !important;
+}
+/* Defeat global card hover rules */
+.why-v3-card:hover,
+.why-v3-card:focus-visible {
+  transform: none !important;
+  border-color: var(--outline) !important;
+  box-shadow: none !important;
+}
+.why-v3-card:hover h3 { color: var(--heading) !important; }
+
+/* ==========================================================================
+   Global card outline — every section card gets a #ECE4F7 outline, no shadow.
+   Excludes plural containers (-cards, -tiles) and special-purpose card types
+   that intentionally have transparent or no border (glass cards, hero overlays).
+   ========================================================================== */
+.svc-card-v2,
+.svc-card,
+.ai-card,
+.feature-card,
+.sect-card,
+.cap-card,
+.cap-card-v2,
+.solution-card,
+.cred-card,
+.team-card,
+.svc-grid-card,
+.why-card,
+.why-v3-card,
+.svc-card-v3 {
+  border: 1px solid #ECE4F7 !important;
+  box-shadow: none !important;
+}
+.svc-card-v2:hover,
+.svc-card:hover,
+.ai-card:hover,
+.feature-card:hover,
+.sect-card:hover,
+.cap-card:hover,
+.cap-card-v2:hover,
+.solution-card:hover,
+.cred-card:hover,
+.team-card:hover,
+.svc-grid-card:hover,
+.why-card:hover,
+.why-v3-card:hover,
+.svc-card-v3:hover {
+  border-color: #ECE4F7 !important;
+  box-shadow: none !important;
 }
 
