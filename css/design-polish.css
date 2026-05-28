@@ -5962,7 +5962,7 @@ html .case-card:focus-visible h4 {
 }
 .svc-row-section .num {
   font-size: 54px !important;
-  color: var(--muted, #6b6b76) !important;
+  color: #C4CADA !important;
   letter-spacing: 0.02em !important;
   display: block !important;
   margin: 0 0 8px !important;
