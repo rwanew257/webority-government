@@ -73,11 +73,8 @@
     panel.addEventListener('mouseleave', scheduleClose);
     link.addEventListener('focus', open);
 
-    link.addEventListener('click', function (e) {
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
-      e.preventDefault();
-      if (panel.classList.contains('is-open')) close(); else open();
-    });
+    // Click on the Services link navigates to services.html (default <a>
+    // behavior). The megamenu still opens on hover via mouseenter above.
 
     document.addEventListener('click', function (e) {
       if (trigger.contains(e.target) || panel.contains(e.target)) return;

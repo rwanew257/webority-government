@@ -947,16 +947,19 @@ section .eyebrow {
   display: inline-flex;
   flex-direction: column;
   overflow: hidden;
-  line-height: 1;
-  height: 1.5em;
+  line-height: 1.2;
+  height: 1.2em;
   vertical-align: middle;
+  align-self: center;
 }
 .btn .btn-marquee-line {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  height: 1.5em;
-  flex: 0 0 1.5em;
+  height: 1.2em;
+  line-height: 1.2;
+  flex: 0 0 1.2em;
   white-space: nowrap;
   transition: transform .35s cubic-bezier(.4, 0, .2, 1);
 }
@@ -2855,9 +2858,7 @@ section .eyebrow {
   isolation: isolate;
   padding: clamp(72px, 10vw, 140px) 0 clamp(80px, 8vw, 120px);
   background:
-    radial-gradient(55% 60% at 80% 20%,  rgba(167,96,244,.32), transparent 60%),
-    radial-gradient(45% 55% at 0% 80%,   rgba(98,0,238,.30),   transparent 60%),
-    radial-gradient(40% 50% at 50% 110%, rgba(200,164,255,.22), transparent 70%),
+    url('../images/logos/gov/Pages%20Banner.png') center / cover no-repeat,
     linear-gradient(180deg, #1a0b3a 0%, #2a0d6e 50%, #1f0a4d 100%);
   color: #fff;
 }
@@ -2968,57 +2969,51 @@ section .eyebrow {
 /* Foreground content */
 .svc-hero--v2 .container { position: relative; z-index: 1; }
 .svc-hero--v2 .svc-hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 1050px;
+  margin: 0;
+  text-align: left;
 }
 .svc-hero-eyebrow {
   display: inline-block;
-  padding: 6px 14px;
+  padding: 0;
   margin-bottom: 22px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 999px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   font-family: var(--font-display, var(--font-heading));
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: .22em;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.95);
-  backdrop-filter: blur(6px);
+  color: var(--primary);
+  backdrop-filter: none;
 }
 .svc-hero--v2 .svc-hero-content h1 {
-  color: #fff;
-  font-family: var(--font-heading);
+  color: #000000;
+  font-family: 'Times New Roman', Times, serif !important;
   font-style: italic;
   font-weight: 400;
   font-size: clamp(2.2rem, 1.8rem + 2vw, 3.6rem);
   line-height: 1.12;
   letter-spacing: -.02em;
-  margin: 0 auto 20px;
-  max-width: 780px;
-  text-shadow: 0 2px 12px rgba(0,0,0,.3);
+  margin: 0 0 20px;
+  max-width: 1050px;
+  text-shadow: none;
 }
-.svc-hero--v2 .svc-hero-content h1::after {
-  content: ""; display: block;
-  width: 72px; height: 4px;
-  margin: 20px auto 0;
-  background: linear-gradient(90deg, #b180f7, #fff, #b180f7);
-  border-radius: 4px;
-  opacity: .8;
-}
+.svc-hero--v2 .svc-hero-content h1::after { display: none; }
 .svc-hero--v2 .svc-hero-content p {
-  color: rgba(255,255,255,.85);
+  color: #000000;
+  font-family: var(--font-heading);
   font-size: clamp(1rem, .95rem + .35vw, 1.18rem);
   line-height: 1.65;
-  max-width: 720px;
-  margin: 0 auto 28px;
+  max-width: 1050px;
+  margin: 0 0 28px;
 }
 
 /* Standards badge row */
 .svc-hero-badges {
   list-style: none; padding: 0; margin: 0;
-  display: flex; flex-wrap: wrap; justify-content: center;
+  display: flex; flex-wrap: wrap; justify-content: flex-start;
   gap: 10px 12px;
 }
 .svc-hero-badges li {
@@ -3026,10 +3021,10 @@ section .eyebrow {
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: .08em;
-  color: rgba(255,255,255,.95);
+  color: #000000;
   padding: 7px 14px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(0,0,0,.08);
   border-radius: 999px;
   backdrop-filter: blur(6px);
 }
@@ -3115,6 +3110,81 @@ section .eyebrow {
 }
 
 /* ============================================================
+   SERVICES PAGE — auto-scrolling certification strip below the hero
+   The .cert-strip-track wraps two duplicate .cert-strip-list rows so
+   the translate animation loops seamlessly.
+   ============================================================ */
+.cert-strip {
+  background: var(--primary);
+  color: #ffffff;
+  padding: 26px 0;
+  overflow: hidden;
+}
+.cert-strip-track {
+  display: flex;
+  width: max-content;
+  animation: cert-strip-marquee 35s linear infinite;
+}
+.cert-strip:hover .cert-strip-track { animation-play-state: paused; }
+.cert-strip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 14px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 28px;
+  flex-shrink: 0;
+}
+.cert-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+  position: relative;
+  white-space: nowrap;
+  line-height: 1;
+}
+.cert-strip-item + .cert-strip-item::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.32);
+  transform: translateY(-50%);
+}
+.cert-strip-tick {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #17c653;
+  color: #ffffff;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 5px rgba(23, 198, 83, 0.25);
+}
+/* Marquee: items move from left → right (track starts shifted left,
+   slides back to 0; with the duplicated list the loop is seamless). */
+@keyframes cert-strip-marquee {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cert-strip-track { animation: none; }
+}
+@media (max-width: 720px) {
+  .cert-strip-item { font-size: 12px; letter-spacing: 0.1em; }
+}
+
+/* ============================================================
    SERVICES PAGE — sticky tab navigation
    ============================================================ */
 .svc-tabs {
@@ -3126,6 +3196,7 @@ section .eyebrow {
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--outline, #ece4f7);
   box-shadow: 0 1px 2px rgba(98,0,238,.04);
+  padding-top: 10px;
 }
 .svc-tabs .container { padding-block: 0; }
 .svc-tabs-scroll {
@@ -5612,10 +5683,10 @@ html .case-card:focus-visible h4 {
   z-index: 2;
   margin: 0;
   padding: 20px 22px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
           backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 0.5px solid rgba(255, 255, 255, 0.35);
   border-radius: 16px;
   color: #ffffff;
 }
@@ -5660,8 +5731,8 @@ html .case-card:focus-visible h4 {
   pointer-events: auto;
 }
 .why-v3-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   border: 0;
   padding: 0;
@@ -5675,7 +5746,7 @@ html .case-card:focus-visible h4 {
 }
 .why-v3-dot.is-active {
   background: #ffffff;
-  width: 22px;
+  width: 18px;
   border-radius: 999px;
 }
 .why-v3-dot:focus-visible {
@@ -5787,5 +5858,79 @@ html .case-card:focus-visible h4 {
 .svc-card-v3:hover {
   border-color: #ECE4F7 !important;
   box-shadow: none !important;
+}
+
+/* === Cert strip auto-scrolling marquee (services.html) === */
+.cert-strip {
+  overflow: hidden !important;
+  width: 100% !important;
+  padding: 12px 0 !important;
+}
+.cert-strip .cert-strip-track {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
+}
+/* Hide the duplicate list — only needed when the marquee was animating */
+.cert-strip .cert-strip-track > .cert-strip-list[aria-hidden="true"] {
+  display: none !important;
+}
+.cert-strip .cert-strip-list {
+  display: flex !important;
+  flex: 0 1 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 80px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+  flex-wrap: nowrap !important;
+}
+.cert-strip .cert-strip-item {
+  font-size: 18px !important;
+}
+/* Divider sits exactly halfway between two items (gap = 80px → -40px from the right item) */
+.cert-strip .cert-strip-item + .cert-strip-item::before {
+  left: -40px !important;
+}
+.cert-strip .cert-strip-item {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+}
+/* Center the vertical divider between two items (gap = 96px → divider at -48px from the right item) */
+.cert-strip .cert-strip-item + .cert-strip-item::before {
+  left: -48px !important;
+}
+/* Use the PNG tick icon (the image itself already contains the green circle + glow) */
+.cert-strip .cert-strip-tick {
+  background: none !important;
+  box-shadow: none !important;
+  width: 22px !important;
+  height: 22px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+.cert-strip .cert-strip-tick img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+@keyframes cert-scroll-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cert-strip .cert-strip-track {
+    animation: none !important;
+    transform: translateX(0) !important;
+  }
 }
 
