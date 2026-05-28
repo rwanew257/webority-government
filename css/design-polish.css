@@ -2981,7 +2981,7 @@ section .eyebrow {
   border: 0;
   border-radius: 0;
   font-family: var(--font-display, var(--font-heading));
-  font-size: 18px;
+  font-size: 8px;
   font-weight: 400;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -3212,8 +3212,8 @@ section .eyebrow {
   background: rgba(255,255,255,.92);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
-  border-bottom: 1px solid var(--outline, #ece4f7);
-  box-shadow: 0 1px 2px rgba(98,0,238,.04);
+  border-bottom: 0;
+  box-shadow: none;
   padding-top: 10px;
 }
 .svc-tabs .container { padding-block: 0; }

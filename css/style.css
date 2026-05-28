@@ -1634,7 +1634,7 @@ form { display: grid; gap: var(--space-4); }
    ============================================================ */
 .svc-row-section {
   padding: 64px 0;
-  border-top: 1px solid var(--outline);
+  border-top: 0;
 }
 .svc-row-section:first-of-type { border-top: 0; }
 .svc-row-section.tinted { background: var(--bg-light); }
