@@ -6211,6 +6211,12 @@ html .case-card:focus-visible h4 {
   filter: none !important;
   border: 1px solid #eceff4 !important;
 }
+.ref-project .ref-project-body h3,
+.ref-project--inline .ref-project-body h3 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
 .ref-project .ref-project-img,
 .ref-project--inline .ref-project-img,
 .ref-project .ref-project-img img,

@@ -2040,7 +2040,7 @@ form { display: grid; gap: var(--space-4); }
 }
 /* Inline variant: when .ref-project is dropped inside a panel (no section wrap) */
 .ref-project--inline {
-  margin: 56px auto 0;
+  margin: 100px auto 0;
 }
 .ref-project-body { padding: 30px 36px 36px; }
 .ref-project-body .eyebrow {
@@ -2067,7 +2067,7 @@ form { display: grid; gap: var(--space-4); }
   line-height: 1.6;
   color: var(--text-1);
   margin: 0 0 22px;
-  max-width: 760px;
+  max-width: none;
 }
 .ref-project-cta {
   font-family: var(--font-heading);
