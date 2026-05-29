@@ -642,10 +642,20 @@ body.sectors-page .site-header.scrolled {
   border-bottom-color: var(--outline);
   box-shadow: none;
 }
-/* Horizontal divider between stats row and the sticky sector tabs — sits
-   inside the 1280px container so it aligns with the stats above. */
+/* Stats row capped at 1280px total — both the stats grid and the divider
+   line below it. */
 body.sectors-page .sect-tight:has(.stats-v2) > .container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
   border-bottom: 1px solid var(--outline, #eceff4);
+}
+body.sectors-page .sect-tight .stats-v2 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Merge the Portfolio (logos + CTA) section with the Success Matrix (stats)
@@ -6193,12 +6203,13 @@ html .case-card:focus-visible h4 {
   background: #f9fafb !important;
 }
 
-/* Reference project block — widen container to 1280px, no shadows */
+/* Reference project block — widen container to 1280px, no shadows, soft outline */
 .ref-project,
 .ref-project--inline {
   max-width: 1280px !important;
   box-shadow: none !important;
   filter: none !important;
+  border: 1px solid #eceff4 !important;
 }
 .ref-project .ref-project-img,
 .ref-project--inline .ref-project-img,
