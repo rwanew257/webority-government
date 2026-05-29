@@ -1637,7 +1637,7 @@ form { display: grid; gap: var(--space-4); }
   border-top: 0;
 }
 .svc-row-section:first-of-type { border-top: 0; }
-.svc-row-section.tinted { background: var(--bg-light); }
+.svc-row-section.tinted { background: #fcfafd; }
 
 .svc-row {
   display: grid;

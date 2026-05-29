@@ -89,7 +89,7 @@ section .eyebrow {
 
 /* ---------- Header ---------- */
 .site-header { border-bottom: 1px solid transparent; background: transparent; backdrop-filter: none; transition: background .2s ease, border-color .2s ease; }
-.site-header.scrolled { background: rgba(255,255,255,.92); border-bottom-color: var(--outline); backdrop-filter: saturate(140%) blur(6px); box-shadow: 0 4px 18px -8px rgba(98,0,238,.18); }
+.site-header.scrolled { background: rgba(255,255,255,.92); border-bottom-color: var(--outline); backdrop-filter: saturate(140%) blur(6px); box-shadow: none; }
 .site-header.has-open-megamenu { background: #ffffff; border-bottom-color: var(--outline); backdrop-filter: none; box-shadow: none; }
 
 /* Nav layout — centred page links; height comes from --nav-height in style.css */
@@ -606,6 +606,12 @@ section .eyebrow {
 .sect-tinted { background: #FCFAFD; }
 .sect { background: #FCFAFD; }
 .sect-white, .sect.sect-white, .sect-tight.sect-white { background: #ffffff; }
+.sect.sect-soft, .sect.sect-tinted.sect-soft, .sect.sect-white.sect-soft { background: #f9fafb; }
+.sect.ready-cta-section {
+  background:
+    url('../images/logos/gov/CTA%20Background.png') center / cover no-repeat,
+    #f9fafb;
+}
 
 /* Merge the Portfolio (logos + CTA) section with the Success Matrix (stats)
    section visually: drop the inter-section padding so the stats-v2 element's
@@ -2981,7 +2987,7 @@ section .eyebrow {
   border: 0;
   border-radius: 0;
   font-family: var(--font-display, var(--font-heading));
-  font-size: 8px;
+  font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -3040,7 +3046,8 @@ section .eyebrow {
   place-items: center;
   flex-shrink: 0;
 }
-.svc-hero-tick img {
+.svc-hero-tick img,
+.svc-hero-tick svg {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -5993,16 +6000,76 @@ html .case-card:focus-visible h4 {
 .svc-row-section .btn-row {
   margin: 0 !important;
 }
-/* Strip the dark KPI cards and use vertical dividers between numbers */
+/* === Right visual card — clean white-card layout (image on top, content below) === */
+.svc-row-section .svc-visual-card {
+  background: #ffffff !important;
+  border: 1px solid #ECE4F7 !important;
+  border-radius: 18px !important;
+  box-shadow: none !important;
+  padding: 14px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 18px !important;
+}
+.svc-row-section .svc-visual-img,
+.svc-row-section .svc-visual-img.has-photo {
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: auto !important;
+  min-height: 0 !important;
+  height: 250px !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  flex: 0 0 auto !important;
+}
+.svc-row-section .svc-visual-img.has-photo img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+}
+/* Kill the dark gradient that previously sat over the photo bottom */
+.svc-row-section .svc-visual-img.has-photo::after {
+  display: none !important;
+  content: none !important;
+}
+/* Body sits BELOW the image on white, no longer absolute over the photo */
+.svc-row-section .svc-visual-body {
+  position: static !important;
+  background: transparent !important;
+  color: inherit !important;
+  padding: 4px 8px 10px !important;
+  z-index: auto !important;
+}
+.svc-row-section .svc-visual-title {
+  color: #0b0b14 !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  margin: 0 0 18px !important;
+}
+/* KPI row — wrapped in a tinted container, vertical hairline between items */
+.svc-row-section .svc-kpis {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0 !important;
+  background: #fcfafd !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  padding: 18px 14px !important;
+}
 .svc-row-section .svc-kpi {
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  padding: 8px 0 !important;
+  padding: 6px 14px !important;
   position: relative !important;
   box-shadow: none !important;
+  text-align: center !important;
 }
 .svc-row-section .svc-kpi + .svc-kpi::before {
   content: "" !important;
@@ -6012,14 +6079,26 @@ html .case-card:focus-visible h4 {
   transform: translateY(-50%) !important;
   width: 1px !important;
   height: 60% !important;
-  background: rgba(255, 255, 255, 0.28) !important;
+  background: rgba(11, 11, 20, 0.12) !important;
 }
-.svc-row-section .svc-kpis {
-  gap: 0 !important;
+.svc-row-section .svc-kpi strong {
+  color: #0b0b14 !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
 }
-/* Visual tag — dark pill (replaces purple block) */
-.svc-visual-img.has-photo .tag,
-.svc-visual-img .tag {
+.svc-row-section .svc-kpi span {
+  color: #4B5675 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+}
+/* NCP tag — dark pill overlay on the photo */
+.svc-row-section .svc-visual-img.has-photo .tag {
+  position: absolute !important;
+  top: 14px !important;
+  left: 14px !important;
+  z-index: 2 !important;
   background: rgba(20, 20, 24, 0.72) !important;
   color: #ffffff !important;
   border-radius: 999px !important;
@@ -6040,26 +6119,24 @@ html .case-card:focus-visible h4 {
   justify-content: center !important;
   line-height: 1 !important;
 }
-/* Right visual fixed at 550px; left text column takes the rest. Both columns stretch to equal height. */
+/* Right visual fixed at 550px; left text column takes the rest. */
 .svc-row-section .svc-row {
   grid-template-columns: 1fr 550px !important;
   gap: 64px !important;
-  align-items: stretch !important;
+  align-items: center !important;
 }
 .svc-row-section .svc-row > div:last-child {
   max-width: 550px !important;
   width: 100% !important;
   margin-left: auto !important;
-  display: flex !important;
+  display: block !important;
 }
 .svc-row-section .svc-row > div:last-child .svc-visual-card {
   max-width: 550px !important;
   width: 100% !important;
-  height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
+  height: auto !important;
 }
-.svc-row-section .svc-visual-img.has-photo {
+.svc-row-section .svc-visual-img.has-photo--legacy {
   flex: 1 1 auto !important;
   min-height: 0 !important;
 }
@@ -6072,5 +6149,109 @@ html .case-card:focus-visible h4 {
     max-width: 100% !important;
     margin-left: 0 !important;
   }
+}
+
+/* Alternating tinted services row → neutral gray background */
+.svc-row-section.tinted {
+  background: #f9fafb !important;
+}
+
+/* Why Choose Webority cards — kill every hover transition/state */
+html .why-v3-card,
+html .why-v3-card:hover,
+html .why-v3-card:focus-visible,
+html .why-v3-card:focus-within {
+  transform: none !important;
+  border-color: #ECE4F7 !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+html .why-v3-card h3,
+html .why-v3-card:hover h3,
+html .why-v3-card:focus-visible h3,
+html .why-v3-card:focus-within h3,
+html .why-v3-card h4,
+html .why-v3-card:hover h4,
+html .why-v3-card:focus-visible h4,
+html .why-v3-card:focus-within h4 {
+  color: var(--heading) !important;
+  transition: none !important;
+}
+html .why-v3-card:hover [class*="card-ic"],
+html .why-v3-card:focus-visible [class*="card-ic"] {
+  background: inherit !important;
+  color: inherit !important;
+  transition: none !important;
+}
+
+/* FAQ cards — tinted background with a 1px outline */
+.faq-item {
+  background: #f9fafb !important;
+  border: 1px solid #eceff4 !important;
+  box-shadow: none !important;
+}
+.faq-item:hover {
+  box-shadow: none !important;
+}
+/* Replace "+" pill with a thin chevron arrow */
+.faq-q::after {
+  content: "" !important;
+  width: 10px !important;
+  height: 10px !important;
+  background: transparent !important;
+  color: transparent !important;
+  border: 0 !important;
+  border-right: 2px solid #0b0b14 !important;
+  border-bottom: 2px solid #0b0b14 !important;
+  border-radius: 0 !important;
+  transform: rotate(45deg) !important;
+  transition: transform .25s ease !important;
+  margin-right: 10px !important;
+}
+.faq-q:hover::after {
+  background: transparent !important;
+}
+.faq-item.open .faq-q::after,
+.faq-q[aria-expanded="true"]::after {
+  transform: rotate(-135deg) !important;
+}
+/* Horizontal divider between question and answer when the item is open */
+.faq-item.open .faq-a,
+.faq-q[aria-expanded="true"] + .faq-a {
+  border-top: 1px solid #eceff4 !important;
+  margin: 0 26px !important;
+  padding: 18px 0 22px !important;
+}
+
+/* === Hero badges — restyle to match the multi-row, mixed-case reference === */
+.svc-hero-badges {
+  display: grid !important;
+  grid-template-columns: repeat(3, max-content) !important;
+  gap: 18px 56px !important;
+  margin: 32px 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  justify-content: start !important;
+}
+.svc-hero-badges li {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  font-family: var(--font-body, var(--font-heading)) !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  color: #0b0b14 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  white-space: nowrap !important;
+}
+.svc-hero-tick {
+  width: 26px !important;
+  height: 26px !important;
 }
 
