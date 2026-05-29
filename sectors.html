@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/gov-identity.css" />
   <link rel="stylesheet" href="css/design-polish.css" />
 </head>
-<body>
+<body class="sectors-page">
   <a class="skip-nav-link" href="#main-content">Skip to main content</a>
 
   <header class="site-header" id="siteHeader">
@@ -60,7 +60,7 @@
   </section>
 
   <!-- Sector Tabs + Panels -->
-  <section class="sect">
+  <section class="sect sect-soft">
     <div class="container">
       <div class="sector-tabs" role="tablist" aria-label="Sectors">
         <button class="sector-tab active" data-tab="energy" role="tab" aria-selected="true">Energy &amp; Environment</button>
@@ -81,75 +81,46 @@
           <p>Digital compliance platforms for energy efficiency and environmental governance &mdash; from appliance rating systems to sustainability programme tracking at national and state level.</p>
         </div>
 
-        <div class="cap-grid">
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="14" cy="14" r="10"/>
-                <path d="M14 8l-3 7h3l-2 6 5-8h-3l2-5z"/>
-                <path d="M22 22l4 4M24 22h2v2"/>
-              </svg>
-            </div>
+        <div class="svc-grid svc-grid-v2">
+          <article class="svc-card-v2 reveal">
+            <span class="svc-card-ic-v2" aria-hidden="true">
+              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/flash.svg');"></i>
+            </span>
             <h3>Renewable Infrastructure</h3>
             <p>Architecting decentralised power grids with energy storage solutions for renewable integration.</p>
           </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 27V13M11 27V9M17 27V16M23 27V6"/>
-                <path d="M5 7l6 4 6-7 6 3"/>
-              </svg>
-            </div>
+          <article class="svc-card-v2 reveal">
+            <span class="svc-card-ic-v2" aria-hidden="true">
+              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/chart-2.svg');"></i>
+            </span>
             <h3>Carbon Analytics</h3>
             <p>Real-time carbon footprint tracking with predictive environmental impact modelling.</p>
           </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 5h12l5 5v17a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/>
-                <path d="M19 5v5h5"/>
-                <path d="M11 14h7M11 18h6"/>
-                <path d="M19 21a4 4 0 0 0 4 4 4 4 0 0 0 4-4v-3l-4-1.5-4 1.5v3z"/>
-                <path d="M21 22l1.5 1.5L25 21"/>
-              </svg>
-            </div>
+          <article class="svc-card-v2 reveal">
+            <span class="svc-card-ic-v2" aria-hidden="true">
+              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/clipboard-tick.svg');"></i>
+            </span>
             <h3>Compliance Engines</h3>
             <p>Automated auditing tools designed to meet evolving ESG environment standards and legal requirements.</p>
           </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 24c0-1.5 1-2.5 2.5-2.5h4l2.5-2 6 2 5-1.5"/>
-                <circle cx="17" cy="9" r="3.5"/>
-                <circle cx="22" cy="13" r="2"/>
-                <circle cx="11" cy="13" r="2"/>
-                <path d="M15 8h4M17 6v4"/>
-              </svg>
-            </div>
+          <article class="svc-card-v2 reveal">
+            <span class="svc-card-ic-v2" aria-hidden="true">
+              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/box-2.svg');"></i>
+            </span>
             <h3>Resource Management</h3>
             <p>Advanced logistics platforms for tracking and optimisation of water, waste, and sustainable resources.</p>
           </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 24c0-1.5 1-2.5 2.5-2.5h4l2.5-2 6 2 5-1.5"/>
-                <circle cx="17" cy="10" r="5"/>
-                <path d="M17 5v2M17 13v2M12 10h2M20 10h2M13.5 6.5l1.4 1.4M19.1 11.6l1.4 1.4M13.5 13.5l1.4-1.4M19.1 8.4l1.4-1.4"/>
-                <path d="M15 10l1.5 1.5L19 9"/>
-              </svg>
-            </div>
+          <article class="svc-card-v2 reveal">
+            <span class="svc-card-ic-v2" aria-hidden="true">
+              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/cpu.svg');"></i>
+            </span>
             <h3>Smart Grid Logic</h3>
             <p>AI-driven load balancing and predictive maintenance protocols for intelligent energy network optimisation.</p>
           </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="14" cy="14" r="9"/>
-                <path d="M5 14h18M14 5c3 3 4.5 6 4.5 9s-1.5 6-4.5 9c-3-3-4.5-6-4.5-9s1.5-6 4.5-9z"/>
-                <path d="M22 18l5 2v4a4 4 0 0 1-5 4 4 4 0 0 1-5-4v-4l5-2z"/>
-                <path d="M20 23l1.5 1.5L24 22"/>
-              </svg>
-            </div>
+          <article class="svc-card-v2 reveal">
+            <span class="svc-card-ic-v2" aria-hidden="true">
+              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/shield-tick.svg');"></i>
+            </span>
             <h3>EcoSecurity</h3>
             <p>Protection strategies for critical environmental infrastructure including air quality and physical threats.</p>
           </article>
