@@ -62,7 +62,7 @@ body { overflow-x: visible !important; overflow-y: visible !important; }
   --heading:        #1a0b3a;     /* deep purple-tinted near-black */
   --text-1:         #2c2540;
   --text-2:         #5b5470;
-  --outline:        #ece4f7;     /* subtle purple-tinted hairline */
+  --outline:        #eceff4;     /* subtle purple-tinted hairline */
 
   --shadow-card:    0 1px 2px rgba(98, 0, 238, .06),
                     0 8px 24px -8px rgba(98, 0, 238, .12);
@@ -612,6 +612,10 @@ section .eyebrow {
     url('../images/logos/gov/CTA%20Background.png') center / cover no-repeat,
     #f9fafb;
 }
+body.contact-page,
+body.contact-page .svc-hero,
+body.contact-page .sect,
+body.contact-page .download-cta { background: #f9fafb; }
 
 /* Merge the Portfolio (logos + CTA) section with the Success Matrix (stats)
    section visually: drop the inter-section padding so the stats-v2 element's
@@ -2488,7 +2492,7 @@ section .eyebrow {
 
 .case-card-v3 {
   background: #fff;
-  border: 1px solid var(--border-hairline, #ece4f7);
+  border: 1px solid var(--border-hairline, #eceff4);
   border-radius: 18px;
   overflow: hidden;
   display: flex; flex-direction: column;
@@ -2794,7 +2798,7 @@ section .eyebrow {
 }
 .case-card-v3 .case-pills li {
   padding: 6px 14px;
-  border: 1px solid var(--border-hairline, #ece4f7);
+  border: 1px solid var(--border-hairline, #eceff4);
   border-radius: 999px;
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 12.5px;
@@ -5846,7 +5850,7 @@ html .case-card:focus-visible h4 {
 .why-v3-card:hover h3 { color: var(--heading) !important; }
 
 /* ==========================================================================
-   Global card outline — every section card gets a #ECE4F7 outline, no shadow.
+   Global card outline — every section card gets a #eceff4 outline, no shadow.
    Excludes plural containers (-cards, -tiles) and special-purpose card types
    that intentionally have transparent or no border (glass cards, hero overlays).
    ========================================================================== */
@@ -5864,7 +5868,7 @@ html .case-card:focus-visible h4 {
 .why-card,
 .why-v3-card,
 .svc-card-v3 {
-  border: 1px solid #ECE4F7 !important;
+  border: 1px solid #eceff4 !important;
   box-shadow: none !important;
 }
 .svc-card-v2:hover,
@@ -5881,7 +5885,7 @@ html .case-card:focus-visible h4 {
 .why-card:hover,
 .why-v3-card:hover,
 .svc-card-v3:hover {
-  border-color: #ECE4F7 !important;
+  border-color: #eceff4 !important;
   box-shadow: none !important;
 }
 
@@ -6003,7 +6007,7 @@ html .case-card:focus-visible h4 {
 /* === Right visual card — clean white-card layout (image on top, content below) === */
 .svc-row-section .svc-visual-card {
   background: #ffffff !important;
-  border: 1px solid #ECE4F7 !important;
+  border: 1px solid #eceff4 !important;
   border-radius: 18px !important;
   box-shadow: none !important;
   padding: 14px !important;
@@ -6119,20 +6123,21 @@ html .case-card:focus-visible h4 {
   justify-content: center !important;
   line-height: 1 !important;
 }
-/* Right visual fixed at 550px; left text column takes the rest. */
+/* Left text column 610px, right visual card 636px, 50px gap between them. */
 .svc-row-section .svc-row {
-  grid-template-columns: 1fr 550px !important;
-  gap: 64px !important;
+  grid-template-columns: 610px 636px !important;
+  gap: 50px !important;
   align-items: center !important;
+  justify-content: center !important;
 }
 .svc-row-section .svc-row > div:last-child {
-  max-width: 550px !important;
+  max-width: 636px !important;
   width: 100% !important;
   margin-left: auto !important;
   display: block !important;
 }
 .svc-row-section .svc-row > div:last-child .svc-visual-card {
-  max-width: 550px !important;
+  max-width: 636px !important;
   width: 100% !important;
   height: auto !important;
 }
@@ -6156,13 +6161,58 @@ html .case-card:focus-visible h4 {
   background: #f9fafb !important;
 }
 
+/* Download Company Profile CTA — replace dark gradient with CTA Background.png */
+.download-cta,
+body.contact-page .download-cta {
+  background:
+    url('../images/logos/gov/CTA%20Background.png') center / cover no-repeat !important;
+}
+
+/* Inner-page hero — Pages Banner background + Times New Roman italic heading.
+   The --v2 (services) and --watercolor variants set their own backgrounds and win via order. */
+.svc-hero {
+  background:
+    url('../images/logos/gov/Pages%20Banner.png') center / cover no-repeat,
+    linear-gradient(180deg, #fdfcf9 0%, #f6f8fb 100%) !important;
+}
+.svc-hero::before {
+  display: none !important;
+  content: none !important;
+}
+.svc-hero h1 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+/* Ready-CTA — reduce section height + switch text to white over the dark CTA background */
+.sect.ready-cta-section {
+  min-height: 450px !important;
+  height: 450px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.sect.ready-cta-section .container {
+  width: 100% !important;
+}
+.sect.ready-cta-section .ready-cta {
+  padding: 24px !important;
+}
+.sect.ready-cta-section .ready-cta-title,
+.sect.ready-cta-section .ready-cta-lead,
+.sect.ready-cta-section .ready-cta-badges li {
+  color: #ffffff !important;
+}
+
 /* Why Choose Webority cards — kill every hover transition/state */
 html .why-v3-card,
 html .why-v3-card:hover,
 html .why-v3-card:focus-visible,
 html .why-v3-card:focus-within {
   transform: none !important;
-  border-color: #ECE4F7 !important;
+  border-color: #eceff4 !important;
   box-shadow: none !important;
   transition: none !important;
 }

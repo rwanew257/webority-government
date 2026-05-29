@@ -2733,7 +2733,7 @@ form { display: grid; gap: var(--space-4); }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px -4px rgba(98,0,238,.25);
+  box-shadow: none;
 }
 .contact-item-ic svg { width: 20px; height: 20px; }
 
