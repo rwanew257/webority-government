@@ -578,25 +578,65 @@
     }
   }
 
-  // Scroll-driven reveal for the case-study scope-of-work timeline
-  var scopeList = document.querySelector('.cs-scope-list');
+  // Scroll-driven reveal for the case-study scope-of-work timeline —
+  // the vertical rail fills from top to bottom as the user scrolls,
+  // and each step fades + pops its dot when the rail reaches it.
+  // Supports both the legacy `.cs-scope-list` and the live `.scope-v2-timeline`.
+  var scopeList = document.querySelector('.scope-v2-timeline') || document.querySelector('.cs-scope-list');
   if (scopeList) {
     var scopeItems = scopeList.querySelectorAll('li');
     var reduceMotionScope = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotionScope) {
+      scopeList.style.setProperty('--timeline-progress', '1');
       scopeItems.forEach(function (li) { li.classList.add('is-in'); });
-    } else if ('IntersectionObserver' in window) {
-      var scopeObs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-in');
-            scopeObs.unobserve(entry.target);
+    } else {
+      var scopeTicking = false;
+      var updateScopeRail = function () {
+        var rect = scopeList.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        // Step-driven progress: figure out which item the user has scrolled
+        // past (its title top has crossed the upper-half of the viewport) and
+        // snap the rail fill to the next circle's position. This gives a
+        // smooth fill that always lines up exactly with the activated circle.
+        var triggerY = vh * 0.55;
+        var lastActiveIndex = -1;
+        scopeItems.forEach(function (li, idx) {
+          var liRect = li.getBoundingClientRect();
+          // Activate when the item's title has scrolled into the upper half
+          // of the viewport — the user is now "at" this step.
+          if (liRect.top <= triggerY) {
+            li.classList.add('is-in');
+            lastActiveIndex = idx;
+          } else {
+            li.classList.remove('is-in');
           }
         });
-      }, { rootMargin: '0px 0px -20% 0px', threshold: 0.15 });
-      scopeItems.forEach(function (li) { scopeObs.observe(li); });
-    } else {
-      scopeItems.forEach(function (li) { li.classList.add('is-in'); });
+
+        // Fill ends EXACTLY at the active circle's centre — no interpolation
+        // toward the next circle. Once item N+1 crosses the trigger line it
+        // becomes the active item, and the fill snaps (with CSS transition)
+        // to its position. Until then, the segment between two circles stays
+        // gray (showing the base rail).
+        var fillPx = 0;
+        if (lastActiveIndex >= 0) {
+          var activeLi = scopeItems[lastActiveIndex];
+          var activeRect = activeLi.getBoundingClientRect();
+          fillPx = (activeRect.top + 19) - rect.top;
+        }
+        fillPx = Math.max(0, fillPx - 12);  // rail starts at top:12, so subtract that offset
+        scopeList.style.setProperty('--timeline-fill', fillPx.toFixed(1) + 'px');
+        scopeList.style.setProperty('--timeline-progress', (fillPx / Math.max(1, rect.height)).toFixed(4));
+        scopeTicking = false;
+      };
+      var onScopeScroll = function () {
+        if (!scopeTicking) {
+          window.requestAnimationFrame(updateScopeRail);
+          scopeTicking = true;
+        }
+      };
+      updateScopeRail();
+      window.addEventListener('scroll', onScopeScroll, { passive: true });
+      window.addEventListener('resize', onScopeScroll);
     }
   }
 
