@@ -526,4 +526,55 @@
     megamenu.addEventListener('mouseenter', function () { openMenu(null); });
     megamenu.addEventListener('mouseleave', closeMenu);
   }
+
+  // Scroll-driven timeline animation (about page)
+  // — vertical rail "draws" from top to bottom as the section scrolls into view
+  // — each timeline row fades up + dot pops as it enters the viewport
+  var timeline = document.querySelector('.timeline');
+  if (timeline) {
+    var rows = timeline.querySelectorAll('.timeline-row');
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      timeline.style.setProperty('--timeline-progress', '1');
+      rows.forEach(function (r) { r.classList.add('is-in'); });
+    } else {
+      // Progress bar effect — rail draws as you scroll, rows fade in as the
+      // line reaches each one (premium loading-bar feel).
+      var ticking = false;
+      var updateRail = function () {
+        var rect = timeline.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var startY = vh * 0.95;
+        var endY = vh * 0.35;
+        var travelled = startY - rect.top;
+        var distance = rect.height + (startY - endY);
+        var progress = distance > 0 ? travelled / distance : 0;
+        progress = Math.min(1, Math.max(0, progress));
+        timeline.style.setProperty('--timeline-progress', progress.toFixed(4));
+
+        // Reveal each row when the rail's filled height passes its centre
+        var railTop = rect.top;
+        var railHeight = rect.height;
+        var filledPx = progress * railHeight;
+        rows.forEach(function (row) {
+          var rowRect = row.getBoundingClientRect();
+          var rowCentreFromTop = (rowRect.top + rowRect.height * 0.35) - railTop;
+          if (filledPx >= rowCentreFromTop - 4) {
+            row.classList.add('is-in');
+          }
+        });
+        ticking = false;
+      };
+      var onScroll = function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateRail);
+          ticking = true;
+        }
+      };
+      updateRail();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+    }
+  }
 })();

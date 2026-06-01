@@ -626,6 +626,184 @@ body.sectors-page .svc-hero {
   margin-top: calc(-1 * var(--nav-height, 64px));
   padding-top: calc(var(--nav-height, 64px) + 40px);
 }
+
+/* Homepage stats — hairline divider between the View Our Clients button and the stats row */
+.sect-tight.sect-white > .container > .stats-v2 {
+  border-top: 1px solid var(--outline) !important;
+  margin-top: 42px !important;
+  padding-top: 42px !important;
+}
+
+/* About page — Key Milestones timeline: year + heading in Times New Roman italic */
+body.about-page .timeline-year,
+body.about-page .timeline-content h3 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+/* About page timeline — 42px gap between year text, vertical rail, and right text;
+   right-side content fills the available width. */
+body.about-page .timeline-row {
+  grid-template-columns: 120px 1fr !important;
+  column-gap: 0 !important;
+  margin-bottom: 100px !important;
+}
+body.about-page .timeline-row:last-child {
+  margin-bottom: 0 !important;
+}
+body.about-page .timeline-year {
+  padding-right: 0 !important;
+  font-size: 36px !important;
+  line-height: 1.1 !important;
+}
+body.about-page .timeline-content h3 {
+  font-size: 36px !important;
+  line-height: 1.15 !important;
+}
+body.about-page .timeline-content p {
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+}
+body.about-page .timeline-rail {
+  left: 176px !important;          /* 120px year column + 56px gap (rail is 4px wide, center at 178) */
+}
+body.about-page .timeline-year::after {
+  right: -68px !important;          /* 20px dot centred on the rail (year right = 120, dot right edge = 188 → right: -68) */
+}
+body.about-page .timeline-row::before {
+  left: 168px !important;          /* legacy dot — kept hidden by base design-polish rule */
+}
+body.about-page .timeline-content {
+  padding-left: 116px !important;  /* puts the content text 56px to the right of the rail (116 = 56 + 4 rail + 56) */
+}
+body.about-page .timeline-content p {
+  max-width: none !important;
+}
+
+/* Scroll-driven timeline animation — fades each row in as it enters the viewport */
+body.about-page .timeline-row {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+body.about-page .timeline-row.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+body.about-page .timeline-year::after {
+  transform: translateY(-50%) scale(0.4) !important;
+  opacity: 0;
+  transition:
+    transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms,
+    opacity 500ms ease 200ms !important;
+}
+body.about-page .timeline-row.is-in .timeline-year::after {
+  transform: translateY(-50%) scale(1) !important;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.about-page .timeline-row,
+  body.about-page .timeline-year::after {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  body.about-page .timeline-rail::after {
+    height: 100% !important;
+    transition: none !important;
+  }
+}
+
+/* About page — stats row matches homepage's clean .stats-v2 (no card, hairline divider only) */
+body.about-page .sect-story-light .stats-v2 {
+  background: transparent !important;
+  border: 0 !important;
+  border-top: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 24px 0 !important;
+  margin-top: 64px !important;
+  overflow: visible !important;
+}
+body.about-page .sect-story-light .stats-v2::before {
+  display: none !important;
+  content: none !important;
+}
+body.about-page .sect-story-light .stats-v2 > div {
+  padding: 12px 24px !important;
+}
+body.about-page .sect-story-light .stats-v2 > div:not(:last-child)::after {
+  background: var(--outline) !important;
+  top: 18% !important;
+  bottom: 18% !important;
+}
+body.about-page .sect-story-light .stats-v2 .num {
+  font-family: var(--font-heading) !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 56px !important;
+  color: var(--heading) !important;
+}
+body.about-page .sect-story-light .stats-v2 .num .plus {
+  color: var(--primary) !important;
+  font-weight: 500 !important;
+}
+body.about-page .sect-story-light .stats-v2 .lbl {
+  font-size: 12px !important;
+  margin-top: 8px !important;
+  color: var(--text-2) !important;
+}
+
+/* About page — 500px hero with the same transparent-header treatment */
+body.about-page .svc-hero {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  margin-top: calc(-1 * var(--nav-height, 64px));
+  padding-top: calc(var(--nav-height, 64px) + 40px);
+}
+body.about-page .site-header {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+body.about-page .site-header.scrolled {
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: var(--outline);
+  box-shadow: none;
+}
+
+/* Contact page — 500px hero with the same transparent-header treatment */
+body.contact-page .svc-hero {
+  background: none !important;
+  min-height: 500px !important;
+  display: flex !important;
+  align-items: center !important;
+  margin-top: calc(-1 * var(--nav-height, 64px)) !important;
+  padding-top: calc(var(--nav-height, 64px) + 40px) !important;
+}
+body.contact-page .site-header {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+body.contact-page .site-header.scrolled {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom-color: var(--outline) !important;
+  box-shadow: none !important;
+}
 /* Sectors page: header transparent only at the very top of the page;
    once the user scrolls (the JS toggles .scrolled), it becomes solid white. */
 body.sectors-page .site-header {
@@ -642,15 +820,64 @@ body.sectors-page .site-header.scrolled {
   border-bottom-color: var(--outline);
   box-shadow: none;
 }
-/* Stats row capped at 1280px total — both the stats grid and the divider
-   line below it. */
+
+/* Credentials page — 500px hero, transparent header overlay on the watercolor. */
+body.credentials-page .svc-hero {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  margin-top: calc(-1 * var(--nav-height, 64px));
+  padding-top: calc(var(--nav-height, 64px) + 40px);
+}
+body.credentials-page .site-header {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+body.credentials-page .site-header.scrolled {
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom-color: var(--outline);
+  box-shadow: none;
+}
+/* Credentials page — kill the rotating conic-gradient border on standards cards */
+body.credentials-page .svc-card-v2::after { display: none !important; content: none !important; }
+body.credentials-page .svc-card-v2:hover::after { animation: none !important; opacity: 0 !important; }
+body.credentials-page .svc-card-v2:hover { transform: none !important; border-color: var(--outline) !important; }
+
+/* Credentials standards cards — typography + spacing per spec */
+body.credentials-page .svc-card-v2 { gap: 0 !important; }
+body.credentials-page .svc-card-v2 .svc-card-ic-v2 { margin-bottom: 24px !important; }
+body.credentials-page .svc-card-v2 h3 {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  margin: 0 0 6px !important;
+}
+body.credentials-page .svc-card-v2 .std-sub {
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  margin: 0 0 14px !important;
+}
+body.credentials-page .svc-card-v2 p:not(.std-sub) {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+
+/* Stats grid capped at 1280px; the divider line below it spans full width. */
+body.sectors-page .sect-tight:has(.stats-v2) {
+  border-bottom: 1px solid var(--outline, #eceff4);
+}
 body.sectors-page .sect-tight:has(.stats-v2) > .container {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 0;
   padding-right: 0;
-  border-bottom: 1px solid var(--outline, #eceff4);
 }
 body.sectors-page .sect-tight .stats-v2 {
   max-width: 1280px;
@@ -2369,33 +2596,75 @@ body.sectors-page .sect-tight .stats-v2 {
   box-shadow: 0 24px 48px -16px rgba(98,0,238,.45);
 }
 
-/* ---------- Process grid (about page) ---------- */
-.proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+/* ---------- Process grid (about page) — mirrors homepage svc-card-v2 ---------- */
+.proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 @media (max-width: 1100px) { .proc-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px)  { .proc-grid { grid-template-columns: 1fr; } }
 .proc-card {
-  background: #fff; border: 1px solid var(--outline); border-radius: var(--r-card);
-  padding: 22px;
-  box-shadow: var(--shadow-card);
-  transition: transform .25s ease, box-shadow .25s ease;
-  display: flex; flex-direction: column; gap: 10px;
+  background: #ffffff;
+  border: 1px solid var(--outline);
+  border-radius: 18px;
+  padding: 32px 28px 30px;
+  box-shadow: none;
+  display: flex; flex-direction: column; gap: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
 }
-.proc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-h); }
+.proc-card::before {
+  content: ""; position: absolute;
+  right: -30px; bottom: -30px;
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 65% 65%, rgba(255, 138, 30, .55), transparent 65%),
+    radial-gradient(circle at 35% 35%, rgba(34, 176, 78, .50), transparent 65%);
+  filter: blur(200px);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+.proc-card:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+  border-color: transparent;
+}
+.proc-card:hover::before { opacity: 1; }
+
+.proc-card::after { display: none; content: none; }
+.proc-card:hover { border-color: var(--outline); }
+
 .proc-card-ic {
-  width: 44px; height: 44px;
+  width: 52px; height: 52px;
   display: grid; place-items: center;
-  background: linear-gradient(135deg, var(--accent-10), #fff);
-  border: 1px solid #cba6fa;
+  color: var(--saffron-600, #4e00be);
+  background: rgba(255,255,255,.7);
+  border: 0;
   border-radius: 12px;
-  font-size: 20px;
-  color: #6a3df0;
+  box-shadow: 0 1px 2px rgba(98,0,238,.04);
 }
 .proc-card-ic svg {
   width: 24px; height: 24px;
   display: block;
 }
-.proc-card h3 { font-size: 1.05rem; }
-.proc-card p { color: var(--text-2); margin: 0; font-size: 14px; }
+.proc-card-ic .iconsax-ic { width: 28px; height: 28px; }
+.proc-card h3 {
+  font-family: var(--font-display, 'Josefin Sans', sans-serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--heading);
+  margin: 0;
+  letter-spacing: -.005em;
+}
+.proc-card p {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-2, #2c3344);
+  margin: 0;
+}
 
 /* ---------- Timeline ---------- */
 .timeline { position: relative; margin-top: 32px; padding: 16px 0; }
@@ -3712,22 +3981,14 @@ body.sectors-page .sect-tight .stats-v2 {
    ============================================================ */
 .sect-story-light {
   position: relative;
-  background: #f6f3fb;
+  background: #ffffff;
   color: var(--text-1);
   padding: 88px 0 96px;
   overflow: hidden;
 }
 .sect-story-light .container { position: relative; z-index: 2; }
 .sect-story-light .story-bg-decor {
-  position: absolute;
-  right: -160px; top: -120px;
-  width: 480px; height: 480px;
-  background:
-    radial-gradient(circle at 40% 60%, rgba(124,77,255,.22), transparent 60%),
-    radial-gradient(circle at 70% 30%, rgba(98,0,238,.14), transparent 65%);
-  filter: blur(20px);
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
 .sect-story-light .story-split {
   display: grid;
@@ -3777,7 +4038,7 @@ body.sectors-page .sect-tight .stats-v2 {
 }
 .sect-story-light .story-copy p {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.7;
   color: #4a4d61;
   margin: 0 0 16px;
@@ -6203,6 +6464,42 @@ html .case-card:focus-visible h4 {
   background: #f9fafb !important;
 }
 
+/* Government Registrations cards (credentials page) — spacing + typography lock,
+   pill anchored top-right (image stays top-left). */
+.reg-card {
+  position: relative !important;
+}
+.reg-card .reg-card-logo {
+  margin: 0 0 8px !important;
+}
+.reg-card h3 {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  margin: 0 0 12px !important;
+}
+.reg-card p {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+.reg-card .reg-card-pill {
+  position: absolute !important;
+  top: 44px !important;
+  right: 44px !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  align-self: auto !important;
+}
+
+/* Standards We Work To — middle text (.std-sub) renders in Times New Roman regular,
+   with a 12px gap before the description below. */
+.svc-card-v2 .std-sub {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: normal !important;
+  margin: 0 0 12px !important;
+}
+
 /* Reference project block — widen container to 1280px, no shadows, soft outline */
 .ref-project,
 .ref-project--inline {
@@ -6302,6 +6599,9 @@ html .case-card:focus-visible h4 {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
   width: 100% !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   justify-content: center !important;
   position: sticky !important;
   top: var(--nav-height, 64px) !important;
@@ -6342,6 +6642,29 @@ html .case-card:focus-visible h4 {
 body.contact-page .download-cta {
   background:
     url('../images/logos/gov/CTA%20Background.png') center / cover no-repeat !important;
+}
+.download-cta h2 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+/* Download Profile button — hug content (no stretched width) */
+.download-cta .btn,
+.download-cta a.btn,
+.download-cta a.btn.btn-primary,
+.download-cta a.btn.btn-primary.btn-glow {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: max-content !important;
+  flex: 0 0 auto !important;
+  align-self: center !important;
+}
+/* Submit Enquiry button (contact form) — 36px horizontal padding */
+.submit-row .btn,
+.submit-row button.btn {
+  padding-left: 36px !important;
+  padding-right: 36px !important;
 }
 
 /* Inner-page hero — Pages Banner background + Times New Roman italic heading.

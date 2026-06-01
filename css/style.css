@@ -2187,35 +2187,36 @@ form { display: grid; gap: var(--space-4); }
   line-height: 1.4;
 }
 
-/* Government Registrations — 4 cards */
+/* Government Registrations — 2 cards per row, large layout */
 .reg-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
   margin-top: 40px;
 }
 .reg-card {
   background: var(--white);
   border: 1px solid var(--outline);
-  border-radius: 14px;
-  padding: 26px 22px 22px;
+  border-radius: 18px;
+  padding: 44px 44px 40px;
   display: flex;
   flex-direction: column;
+  position: relative;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .reg-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .reg-card-logo {
-  min-height: 64px;
+  min-height: 80px;
   max-width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: 28px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 4px 0;
 }
 .reg-card-logo img {
-  max-height: 60px;
-  max-width: 180px;
+  max-height: 80px;
+  max-width: 240px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -2241,17 +2242,19 @@ form { display: grid; gap: var(--space-4); }
 }
 .reg-card h3 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 17px;
+  font-weight: 500;
+  font-size: 24px;
   color: var(--heading);
-  margin: 0 0 10px;
+  margin: 0 0 16px;
+  letter-spacing: -0.005em;
 }
 .reg-card p {
   font-family: var(--font-heading);
-  font-size: 13px;
-  line-height: 1.55;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--text-1);
-  margin: 0 0 18px;
+  margin: 0;
   flex: 1;
 }
 .reg-card-pill {
@@ -2264,6 +2267,11 @@ form { display: grid; gap: var(--space-4); }
   padding: 6px 12px;
   border-radius: 999px;
   align-self: flex-start;
+  position: absolute;
+  top: calc(44px + 40px);
+  right: 44px;
+  transform: translateY(-50%);
+  margin: 0;
 }
 
 /* Standards We Work To — 3x2 grid of standards */
@@ -2479,10 +2487,36 @@ form { display: grid; gap: var(--space-4); }
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 132px;
-  width: 2px;
-  background: var(--primary);
-  opacity: 0.85;
+  left: 131px;
+  width: 4px;
+  background: rgba(106, 61, 240, 0.08);
+  opacity: 1;
+  overflow: visible;
+  border-radius: 4px;
+}
+/* Filled portion — soft purple gradient, no glow, with a gentle breathing pulse */
+.timeline-rail::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: calc(var(--timeline-progress, 0) * 100%);
+  background: linear-gradient(
+    180deg,
+    #4e00be 0%,
+    #6a3df0 30%,
+    #8c5cff 75%,
+    #b180f7 95%,
+    rgba(177, 128, 247, 0) 100%
+  );
+  border-radius: 4px;
+  transition: height 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  animation: timeline-line-pulse 2.4s ease-in-out infinite;
+}
+@keyframes timeline-line-pulse {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 1; }
 }
 .timeline-row::before {
   content: "";
