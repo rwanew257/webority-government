@@ -577,4 +577,69 @@
       window.addEventListener('resize', onScroll);
     }
   }
+
+  // Download Profile modal (contact page)
+  var profileTrigger = document.getElementById('downloadProfileBtn');
+  var profileModal = document.getElementById('profileModal');
+  if (profileTrigger && profileModal) {
+    var profileModalClose = document.getElementById('profileModalClose');
+    var profileModalForm = document.getElementById('profileModalForm');
+    var profileModalEmail = document.getElementById('profileModalEmail');
+    var profileModalRight = profileModal.querySelector('.profile-modal-right');
+    var profileModalStateForm = profileModal.querySelector('.profile-modal-state-form');
+    var profileModalStateThanks = profileModal.querySelector('.profile-modal-state-thanks');
+    var lastFocused = null;
+
+    var resetProfileModalState = function () {
+      if (profileModalRight) profileModalRight.setAttribute('data-state', 'form');
+      if (profileModalStateForm) profileModalStateForm.hidden = false;
+      if (profileModalStateThanks) profileModalStateThanks.hidden = true;
+      if (profileModalForm) profileModalForm.reset();
+    };
+
+    var showProfileModalThanks = function () {
+      if (profileModalRight) profileModalRight.setAttribute('data-state', 'thanks');
+      if (profileModalStateForm) profileModalStateForm.hidden = true;
+      if (profileModalStateThanks) profileModalStateThanks.hidden = false;
+    };
+
+    var openProfileModal = function (e) {
+      if (e) e.preventDefault();
+      lastFocused = document.activeElement;
+      resetProfileModalState();
+      profileModal.classList.add('is-open');
+      profileModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      window.setTimeout(function () {
+        if (profileModalEmail) profileModalEmail.focus();
+      }, 60);
+    };
+    var closeProfileModal = function () {
+      profileModal.classList.remove('is-open');
+      profileModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      window.setTimeout(resetProfileModalState, 280);
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+    };
+
+    profileTrigger.addEventListener('click', openProfileModal);
+    if (profileModalClose) profileModalClose.addEventListener('click', closeProfileModal);
+    profileModal.addEventListener('click', function (e) {
+      if (e.target === profileModal) closeProfileModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && profileModal.classList.contains('is-open')) {
+        closeProfileModal();
+      }
+    });
+    if (profileModalForm) {
+      profileModalForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // TODO-WG: wire up the actual PDF download / lead capture endpoint.
+        showProfileModalThanks();
+      });
+    }
+  }
 })();

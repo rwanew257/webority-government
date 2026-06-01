@@ -138,9 +138,70 @@
         <li><span class="ck" aria-hidden="true">&#x2713;</span> GeM Registered</li>
       </ul>
       <!-- TODO-WG: link to the actual company-profile PDF once finalised by leadership -->
-      <a class="btn btn-primary btn-glow btn-md" href="#" aria-label="Download company profile PDF (placeholder)"><span class="btn-glow-label">Download Profile</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-primary btn-glow btn-md" href="#" id="downloadProfileBtn" aria-label="Download company profile PDF" aria-haspopup="dialog"><span class="btn-glow-label">Download Profile</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
     </div>
   </section>
+
+  <!-- Download Profile modal -->
+  <div class="profile-modal-overlay" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle" aria-hidden="true">
+    <div class="profile-modal">
+     <div class="profile-modal-inner">
+      <button type="button" class="profile-modal-close" id="profileModalClose" aria-label="Close dialog">
+        <img src="images/logos/gov/charm_cross.svg" alt="" aria-hidden="true" />
+      </button>
+
+      <div class="profile-modal-left" aria-hidden="true">
+        <div class="profile-modal-flag">
+          <img src="images/logos/gov/Indian-Flag.png" alt="" onerror="this.style.display='none'" />
+        </div>
+        <h3 class="profile-modal-quote-title">Our Clients Say</h3>
+        <div class="profile-modal-testimonial">
+          <p class="profile-modal-quote">&ldquo;Webority transformed our brand with their exceptional design expertise. Their team crafted a visually stunning and user-friendly product that perfectly captures our vision.&rdquo;</p>
+          <p class="profile-modal-author">Director, DRDO</p>
+          <div class="profile-modal-stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+        </div>
+        <div class="profile-modal-dots">
+          <span class="profile-modal-dot is-active"></span>
+          <span class="profile-modal-dot"></span>
+          <span class="profile-modal-dot"></span>
+        </div>
+      </div>
+
+      <div class="profile-modal-right" data-state="form">
+        <div class="profile-modal-brand">
+          <strong>WEBORITY</strong>
+          <span>TECHNOLOGIES</span>
+        </div>
+
+        <div class="profile-modal-state profile-modal-state-form">
+          <p class="profile-modal-lead" id="profileModalTitle">Enter your email to receive the Download Company Profile.</p>
+          <form class="profile-modal-form" id="profileModalForm" novalidate>
+            <div class="profile-modal-field">
+              <label for="profileModalEmail">Email ID*</label>
+              <input id="profileModalEmail" name="email" type="email" autocomplete="email" placeholder=" " required />
+            </div>
+            <button type="submit" class="profile-modal-submit btn btn-primary btn-glow"><span class="btn-glow-label">Submit</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></button>
+            <p class="profile-modal-note">We Promise not to spam you!</p>
+          </form>
+        </div>
+
+        <div class="profile-modal-state profile-modal-state-thanks" hidden>
+          <h3 class="profile-modal-thanks-title">Thank You!</h3>
+          <p class="profile-modal-thanks-text">We&rsquo;ve sent the Company Profile to your inbox. Please check your email &mdash; it should arrive within a few minutes.</p>
+          <p class="profile-modal-thanks-sub">If you don&rsquo;t see it, check your spam folder or write to <a href="mailto:contact@webority.com">contact@webority.com</a>.</p>
+        </div>
+
+        <p class="profile-modal-footer"><span class="profile-modal-footer-year">&copy;2026</span> <span class="profile-modal-footer-name">Webority Technologies Private Limited</span></p>
+      </div>
+     </div>
+    </div>
+  </div>
 
     <footer class="site-footer wg-footer wg-footer-v2" role="contentinfo">
     <div class="wg-inner">
