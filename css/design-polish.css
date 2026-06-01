@@ -1050,6 +1050,7 @@ body.sectors-page .svc-hero {
   border-top: 1px solid var(--outline) !important;
   margin-top: 56px !important;
   padding-top: 56px !important;
+  padding-bottom: 100px !important;
 }
 
 /* About page — Key Milestones timeline: year + heading in Times New Roman italic */
@@ -1421,9 +1422,9 @@ body.sectors-page .sect-tight .stats-v2 {
 .portfolio-v2-text strong { color: var(--heading); font-family: var(--font-heading) !important; font-style: normal !important; font-weight: 500 !important; font-size: 18px !important; line-height: 1.25; }
 .portfolio-v2-text span { color: var(--text-2); font-size: 12px; letter-spacing: -0.02em; }
 
-.portfolio-footnote-v2 { text-align: center; margin-top: 100px; color: #252F4A; }
+.portfolio-footnote-v2 { text-align: center; margin-top: 56px; color: #252F4A; }
 .portfolio-footnote-v2 .accent { color: var(--primary); font-weight: 700; }
-.portfolio-cta-row { display: flex; justify-content: center; margin-top: 22px; margin-bottom: 100px; }
+.portfolio-cta-row { display: flex; justify-content: center; margin-top: 22px; margin-bottom: 0; }
 
 /* ---------- Stats v2 — clean horizontal row, no dividers ---------- */
 .stats-v2 {
@@ -2949,8 +2950,9 @@ body.sectors-page .sect-tight .stats-v2 {
   align-items: center;
   gap: 14px;
 }
+section .ready-cta-eyebrow,
 .ready-cta-eyebrow {
-  color: var(--primary) !important;
+  color: #ffffff !important;
   font-family: var(--font-display, 'Josefin Sans', sans-serif);
   font-size: 11.5px;
   font-weight: 700;
@@ -2980,16 +2982,19 @@ body.sectors-page .sect-tight .stats-v2 {
 /* Trust badges row */
 .ready-cta-badges {
   list-style: none; padding: 0; margin: 16px 0 8px;
-  display: flex; flex-wrap: wrap; justify-content: center;
+  display: flex; flex-wrap: nowrap; justify-content: center; align-items: center;
   gap: 18px 28px;
+  white-space: nowrap;
 }
+.ready-cta-badges li { white-space: nowrap; }
 .ready-cta-badges li {
   display: inline-flex; align-items: center; gap: 10px;
   font-family: var(--font-display, 'Josefin Sans', sans-serif);
   font-size: 13.5px;
   font-weight: 600;
   color: var(--text-1, #0B1322);
-  letter-spacing: .01em;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 .ready-cta-check {
   width: 22px; height: 22px;
@@ -3016,21 +3021,38 @@ body.sectors-page .sect-tight .stats-v2 {
   text-transform: uppercase;
   display: inline-flex; align-items: center; gap: 12px;
 }
-.ready-cta-secondary {
-  font-family: var(--font-display, 'Josefin Sans', sans-serif);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--navy-800, #0B2545);
-  text-decoration: none;
-  padding: 14px 4px;
-  border-bottom: 1px solid transparent;
-  transition: color .2s ease, border-color .2s ease;
+/* Secondary CTA — design-system btn-outline rendered in white (white text,
+   white border, 36px side padding) against the dark Ready-CTA background. */
+html body .ready-cta-secondary,
+html body a.ready-cta-secondary,
+html body a.ready-cta-secondary.btn,
+html body a.ready-cta-secondary.btn.btn-outline,
+html body a.ready-cta-secondary.btn.btn-outline.btn-md {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 999px !important;
+  font-family: var(--font-display, 'Josefin Sans', sans-serif) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  height: 44px !important;
+  padding: 0 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: none !important;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
-.ready-cta-secondary:hover {
-  color: var(--saffron-600, #4e00be);
-  border-bottom-color: var(--saffron-400, #6200ee);
+html body .ready-cta-secondary:hover,
+html body a.ready-cta-secondary:hover,
+html body a.ready-cta-secondary.btn:hover,
+html body a.ready-cta-secondary.btn.btn-outline:hover {
+  background: #ffffff !important;
+  color: var(--primary, #6a3df0) !important;
+  border-color: #ffffff !important;
 }
 
 @media (max-width: 560px) {
@@ -5082,9 +5104,9 @@ body.sectors-page .sect-tight .stats-v2 {
   line-height: 1.25;
   transition: color .3s ease;
 }
-[class*="-card"]:not([class*="-cards"]):not(.case-card):not(.leader-card-v3):hover h3,
-[class*="-card"]:not([class*="-cards"]):not(.case-card):not(.leader-card-v3):hover h4,
-[class*="-card"]:not([class*="-cards"]):not(.case-card):not(.leader-card-v3):hover h5,
+[class*="-card"]:not([class*="-cards"]):not(.case-card):not(.leader-card-v3):not(.why-v3-card):hover h3,
+[class*="-card"]:not([class*="-cards"]):not(.case-card):not(.leader-card-v3):not(.why-v3-card):hover h4,
+[class*="-card"]:not([class*="-cards"]):not(.case-card):not(.leader-card-v3):not(.why-v3-card):hover h5,
 [class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h3,
 [class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h4,
 [class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h5 {
@@ -7286,10 +7308,10 @@ html .why-v3-card:focus-visible [class*="card-ic"] {
   transition: none !important;
 }
 
-/* FAQ cards — tinted background with a 1px outline */
+/* FAQ cards — tinted background, no outline */
 .faq-item {
   background: #f9fafb !important;
-  border: 1px solid #eceff4 !important;
+  border: 0 !important;
   box-shadow: none !important;
 }
 .faq-item:hover {
