@@ -2180,7 +2180,8 @@ body.sectors-page .sect-tight .stats-v2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  align-items: start;
+  align-items: end;          /* every tile's bottom edge sits on the row's bottom line */
+  justify-content: center;
 }
 .creds-grid > .cert-tile { grid-column: span 1; }
 .creds-grid > .cert-tile--wide { grid-column: span 2; }
@@ -2209,7 +2210,9 @@ body.sectors-page .sect-tight .stats-v2 {
     inset 0 0 0 1px rgba(255,255,255,.35);
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.cert-tile--wide { aspect-ratio: 11 / 8; }  /* landscape Startup India cert */
+/* Startup India landscape cert — aspect-ratio tuned so its height equals
+   the portrait tile height (so the bottom edges line up cleanly). */
+.cert-tile--wide { aspect-ratio: 31 / 20; align-self: end; }
 .cert-tile:hover {
   transform: translateY(-3px);
   box-shadow:
