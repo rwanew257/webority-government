@@ -2744,7 +2744,7 @@ form { display: grid; gap: var(--space-4); }
 .contact-items {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 32px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -2754,7 +2754,7 @@ form { display: grid; gap: var(--space-4); }
   align-items: center;
   gap: 18px;
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: #0e1640;
 }
@@ -2770,6 +2770,16 @@ form { display: grid; gap: var(--space-4); }
   box-shadow: none;
 }
 .contact-item-ic svg { width: 20px; height: 20px; }
+.contact-item-ic--img {
+  background: transparent;
+  padding: 0;
+}
+.contact-item-ic--img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
 
 /* Send an Enquiry card */
 .enquiry-card {
@@ -2793,28 +2803,47 @@ form { display: grid; gap: var(--space-4); }
   margin: 0 0 28px;
   line-height: 1.55;
 }
-.enquiry-form { display: flex; flex-direction: column; gap: 22px; }
-.enquiry-form .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.enquiry-form { display: flex; flex-direction: column; gap: 24px; }
+.enquiry-form .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
-.field-line { display: flex; flex-direction: column; gap: 6px; }
+.field-line { display: flex; flex-direction: column; gap: 0; }
 .field-line label {
   font-family: var(--font-heading);
   font-size: 12.5px;
+  line-height: 1;
   color: var(--text-2);
   letter-spacing: 0.02em;
+  margin: 0;
+  padding: 0;
 }
 .field-line input,
 .field-line textarea {
   font-family: var(--font-heading);
   font-size: 15px;
+  line-height: 1;
   color: var(--heading);
   background: transparent;
   border: 0;
   border-bottom: 1px solid var(--outline);
-  padding: 8px 0 10px;
+  padding: 0;
+  margin: 0;
   outline: none;
   width: 100%;
   resize: vertical;
+  height: 0;
+  box-sizing: content-box;
+}
+.field-line input:focus,
+.field-line input:not(:placeholder-shown) {
+  height: auto;
+  min-height: 20px;
+  padding-top: 6px;
+}
+.field-line textarea:focus,
+.field-line textarea:not(:placeholder-shown) {
+  height: auto;
+  min-height: 72px;
+  padding-top: 6px;
 }
 .field-line input:focus,
 .field-line textarea:focus {
@@ -2829,8 +2858,9 @@ form { display: grid; gap: var(--space-4); }
 .enquiry-form .submit-row .privacy-note {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 12.5px;
-  color: var(--text-2);
+  font-size: 24px;
+  line-height: 24px;
+  color: #78829D;
   margin: 0;
 }
 .btn-pill {
