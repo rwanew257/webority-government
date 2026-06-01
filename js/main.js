@@ -578,6 +578,28 @@
     }
   }
 
+  // Scroll-driven reveal for the case-study scope-of-work timeline
+  var scopeList = document.querySelector('.cs-scope-list');
+  if (scopeList) {
+    var scopeItems = scopeList.querySelectorAll('li');
+    var reduceMotionScope = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotionScope) {
+      scopeItems.forEach(function (li) { li.classList.add('is-in'); });
+    } else if ('IntersectionObserver' in window) {
+      var scopeObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            scopeObs.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -20% 0px', threshold: 0.15 });
+      scopeItems.forEach(function (li) { scopeObs.observe(li); });
+    } else {
+      scopeItems.forEach(function (li) { li.classList.add('is-in'); });
+    }
+  }
+
   // Download Profile modal (contact page)
   var profileTrigger = document.getElementById('downloadProfileBtn');
   var profileModal = document.getElementById('profileModal');
