@@ -2687,12 +2687,13 @@ form { display: grid; gap: var(--space-4); }
   margin: 0 0 12px;
 }
 .portfolio-section-head h2 {
-  font-family: var(--font-body);
+  font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   font-weight: 400;
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   color: var(--heading);
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 @media (max-width: 880px) {

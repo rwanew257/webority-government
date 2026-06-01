@@ -19,8 +19,19 @@
     .cs-hero h1 { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 400; color: var(--heading); font-size: var(--fs-42); line-height: 1.15; margin: 8px 0 12px; letter-spacing: -0.01em; }
     .cs-hero p.client { color: var(--text-1); font-family: var(--font-heading); margin: 0; }
     .cs-hero .cs-eyebrow-light { display: inline-block; color: var(--primary); font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
-    .cs-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--outline); }
-    .cs-meta-item .v { font-family: var(--font-heading); font-weight: 700; color: var(--heading); font-size: var(--fs-32); display: block; line-height: 1.1; }
+    .cs-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 56px; margin-top: 32px; padding-top: 0; border-top: 0; }
+    .cs-meta-item { position: relative; padding: 8px 0; }
+    .cs-meta-item + .cs-meta-item::before {
+      content: "";
+      position: absolute;
+      left: -28px;
+      top: 12%;
+      bottom: 12%;
+      width: 1px;
+      background: var(--outline, #eceff4);
+    }
+    .cs-meta-item .v { font-family: var(--font-heading); font-weight: 500; color: var(--heading); font-size: 42px; display: block; line-height: 1.1; }
+    .cs-meta-item .cs-meta-pct { font-size: 32px; color: var(--primary, #6a3df0); font-weight: 500; }
     .cs-meta-item .l { font-family: var(--font-heading); color: var(--text-2); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-top: 6px; display: block; }
     .cs-two-col { display: grid; grid-template-columns: 769px 416px; gap: 76px; align-items: start; justify-content: center; }
     @media (max-width: 1300px) { .cs-two-col { grid-template-columns: minmax(0, 769px) 416px; } }
@@ -44,12 +55,14 @@
     }
     /* Rail — a single 2px column rendered as a linear-gradient with a HARD
        colour stop at --timeline-fill px: purple above, light gray below.
-       Single element, no overlap, no perception of fade. */
+       Top: 50px so the rail starts at the FIRST circle's BOTTOM edge — the
+       circle sits fully above the line with nothing protruding from its top.
+       Bottom: 50px so the rail ends at the LAST circle's top edge. */
     .cs-scope-list::before {
       content: "";
       position: absolute;
-      top: 12px;
-      bottom: 12px;
+      top: 50px;
+      bottom: 50px;
       left: 61px;
       width: 2px;
       background: linear-gradient(
@@ -160,8 +173,9 @@
     /* ---------- Impact Metrics — centred heading + 3 tinted cards + pill CTA ---------- */
     .impact-metrics {
       text-align: center;
-      margin: 100px 0 0;
-      padding: 0;
+      margin: 50px 0 0;
+      padding: 100px 0;
+      border-top: 1px solid #eceff4;
     }
     .impact-metrics-heading {
       font-family: 'Times New Roman', Times, serif;
@@ -195,7 +209,7 @@
       background: #ffffff;
       border: 1px solid #eceff4;
       border-radius: 16px;
-      padding: 24px;
+      padding: 0 18px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -346,7 +360,7 @@
     .op-card--violet  .op-card-banner { background: #e8e0f7; }
 
     .op-card-body {
-      padding: 28px 28px 24px;
+      padding: 6px 28px 24px;
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -720,7 +734,7 @@
         <h1>Market Surveillance &amp; Star<br />Label Compliance Platform</h1>
         <div class="cs-meta">
           <div class="cs-meta-item"><span class="v">36</span><span class="l">SDAs Connected</span></div>
-          <div class="cs-meta-item"><span class="v">100%</span><span class="l">Manual &rarr; Digital</span></div>
+          <div class="cs-meta-item"><span class="v">100<span class="cs-meta-pct">%</span></span><span class="l">Manual &rarr; Digital</span></div>
           <div class="cs-meta-item"><span class="v">PAN</span><span class="l">India Deployment</span></div>
         </div>
       </div>
@@ -857,9 +871,6 @@
               </article>
             </div>
 
-            <div class="impact-metrics-cta">
-              <a class="btn btn-primary btn-glow" href="contact.html"><span class="btn-glow-label">Discuss a Similar Project</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
-            </div>
           </section>
         </div>
       </div>
