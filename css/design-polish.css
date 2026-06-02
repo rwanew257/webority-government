@@ -692,7 +692,7 @@ body.contact-page .download-cta { background: #f9fafb; }
 .profile-modal-left {
   position: relative;
   background:
-    url('../images/logos/gov/Pop-container.png') center / cover no-repeat,
+    url('../images/logos/gov/Image.png') center top / cover no-repeat,
     #111111;
   color: #ffffff;
   padding: 24px 28px 28px;
@@ -6799,6 +6799,39 @@ html .case-card:focus-visible h4 {
   box-shadow: none !important;
 }
 .why-v3-card:hover h3 { color: var(--heading) !important; }
+/* 3-column desktop: strip right-border off the last column (every 3rd item)
+   and bottom-border off the last row (last 3 items). */
+@media (min-width: 961px) {
+  .why-v3-cards--grid3 > .why-v3-card--line:nth-child(3n) {
+    border-right: 0 !important;
+  }
+  .why-v3-cards--grid3 > .why-v3-card--line:nth-last-child(-n+3) {
+    border-bottom: 0 !important;
+  }
+  /* Tighten outer padding so lines align with the section's content edges. */
+  .why-v3-cards--grid3 > .why-v3-card--line:nth-child(3n+1) { padding-left: 0 !important; }
+  .why-v3-cards--grid3 > .why-v3-card--line:nth-child(3n)   { padding-right: 0 !important; }
+  .why-v3-cards--grid3 > .why-v3-card--line:nth-child(-n+3) { padding-top: 0 !important; }
+  .why-v3-cards--grid3 > .why-v3-card--line:nth-last-child(-n+3) { padding-bottom: 0 !important; }
+}
+/* 2-column tablet: strip right-border off every 2nd item; last 2 lose bottom-border. */
+@media (max-width: 960px) and (min-width: 641px) {
+  .why-v3-cards--grid3 > .why-v3-card--line:nth-child(2n) {
+    border-right: 0 !important;
+  }
+  .why-v3-cards--grid3 > .why-v3-card--line:nth-last-child(-n+2) {
+    border-bottom: 0 !important;
+  }
+}
+/* 1-column mobile: no vertical dividers; only horizontal between items. */
+@media (max-width: 640px) {
+  .why-v3-cards--grid3 > .why-v3-card--line {
+    border-right: 0 !important;
+  }
+  .why-v3-cards--grid3 > .why-v3-card--line:last-child {
+    border-bottom: 0 !important;
+  }
+}
 
 /* ==========================================================================
    Global card outline — every section card gets a #eceff4 outline, no shadow.
@@ -7495,7 +7528,7 @@ html .why-v3-card:focus-visible [class*="card-ic"] {
 .svc-hero-badges li {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 18px !important;
   font-family: var(--font-body, var(--font-heading)) !important;
   font-size: 15px !important;
   font-weight: 500 !important;
@@ -7512,6 +7545,13 @@ html .why-v3-card:focus-visible [class*="card-ic"] {
 .svc-hero-tick {
   width: 26px !important;
   height: 26px !important;
+  color: #22c55e !important;            /* Iconsax mask renders in currentColor — green badge */
+}
+.svc-hero-tick .iconsax-ic {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  background-color: #22c55e !important;
 }
 
 /* Leader card v3 — lock BOTH the expand-name AND the expand-role to dark/black
