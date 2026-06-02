@@ -127,9 +127,8 @@
 
   <header class="site-header" id="siteHeader">
     <nav class="nav" aria-label="Primary">
-      <a class="brand brand--mockup" href="index.html" aria-label="Webority Technologies - Government practice home">
-        <span class="brand-mark" aria-hidden="true">W</span>
-        <span class="brand-name"><strong>Webority</strong><span>Technologies</span></span>
+      <a class="brand brand--logo" href="index.html" aria-label="Webority Technologies - Government practice home">
+        <img class="brand-logo-img" src="images/logos/gov/Webiste logo.svg" alt="Webority Technologies" />
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -596,7 +595,7 @@
             <div class="ds-note">
               <strong>The single most-used button on the site</strong> is the navigation CTA <code>&lt;a class="btn btn-primary"&gt;Contact Us &amp;rarr;&lt;/a&gt;</code>. It appears in the header on every page. Render it exactly as shown:
               <div style="margin-top:12px;">
-                <a class="btn btn-primary" href="#" onclick="return false;">Contact Us &rarr;</a>
+                <a class="btn btn-primary" href="#" onclick="return false;">Contact Us</a>
               </div>
             </div>
 
@@ -605,10 +604,7 @@
             <p>A button is a label, optionally preceded or followed by an icon, inside a pill-shaped container. The container is always horizontally centred with consistent vertical and horizontal padding.</p>
             <div class="ds-example">
               <div class="ds-anatomy">
-                <a class="btn btn-primary" href="#" onclick="return false;" style="pointer-events:none;">
-                  <span>Request a Consultation</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </a>
+                <a class="btn btn-primary" href="#" onclick="return false;" style="pointer-events:none;">Request a Consultation</a>
                 <span class="ds-anatomy-callout" style="top:14px; left:32px;">container &middot; <code>.btn</code></span>
                 <span class="ds-anatomy-callout" style="bottom:14px; left:32px;">label (Josefin Sans 600)</span>
                 <span class="ds-anatomy-callout" style="bottom:14px; right:32px;">icon / arrow (optional)</span>
@@ -660,9 +656,9 @@
             <p>The default CTA. Purple gradient fill, white label. Use for the single most important action on a section &mdash; usually exactly one per view (header CTA aside).</p>
             <div class="ds-example">
               <div class="ds-example-preview">
-                <a class="btn btn-primary" href="#" onclick="return false;">Contact Us &rarr;</a>
-                <a class="btn btn-primary" href="#" onclick="return false;">Request a Consultation &rarr;</a>
-                <a class="btn btn-primary" href="#" onclick="return false;">View Our Clients &rarr;</a>
+                <a class="btn btn-primary" href="#" onclick="return false;">Contact Us</a>
+                <a class="btn btn-primary" href="#" onclick="return false;">Request a Consultation</a>
+                <a class="btn btn-primary" href="#" onclick="return false;">View Our Clients</a>
               </div>
               <pre class="ds-example-code"><code>&lt;a class="btn btn-primary" href="contact.html"&gt;Contact Us &amp;rarr;&lt;/a&gt;</code></pre>
             </div>
@@ -762,7 +758,7 @@
             <p>Default button size. Header CTA, inline form actions, card buttons. 44px tall.</p>
             <div class="ds-example">
               <div class="ds-example-preview">
-                <a class="btn btn-primary btn-md" href="#" onclick="return false;">Contact Us &rarr;</a>
+                <a class="btn btn-primary btn-md" href="#" onclick="return false;">Contact Us</a>
                 <a class="btn btn-outline btn-md" href="#" onclick="return false;">View Case Studies</a>
               </div>
               <pre class="ds-example-code"><code>&lt;a class="btn btn-primary btn-md" href="contact.html"&gt;Contact Us &amp;rarr;&lt;/a&gt;</code></pre>
@@ -788,27 +784,27 @@
             <div class="ds-state-grid">
               <div class="ds-state-tile">
                 <span class="ds-state-label">Default</span>
-                <a class="btn btn-primary" href="#" onclick="return false;">Contact Us &rarr;</a>
+                <a class="btn btn-primary" href="#" onclick="return false;">Contact Us</a>
               </div>
               <div class="ds-state-tile">
                 <span class="ds-state-label">Hover (simulated)</span>
-                <a class="btn btn-primary" href="#" onclick="return false;" style="background:linear-gradient(135deg, var(--primary-80) 0%, #1c4a82 100%); transform:translateY(-1px); box-shadow:0 14px 28px -10px rgba(98,0,238,.6);">Contact Us &rarr;</a>
+                <a class="btn btn-primary" href="#" onclick="return false;" style="background:linear-gradient(135deg, var(--primary-80) 0%, #1c4a82 100%); transform:translateY(-1px); box-shadow:0 14px 28px -10px rgba(98,0,238,.6);">Contact Us</a>
               </div>
               <div class="ds-state-tile">
                 <span class="ds-state-label">Focus-visible (simulated)</span>
-                <a class="btn btn-primary" href="#" onclick="return false;" style="outline:3px solid #FFD600; outline-offset:2px;">Contact Us &rarr;</a>
+                <a class="btn btn-primary" href="#" onclick="return false;" style="outline:3px solid #FFD600; outline-offset:2px;">Contact Us</a>
               </div>
               <div class="ds-state-tile">
                 <span class="ds-state-label">Active (pressed)</span>
-                <a class="btn btn-primary" href="#" onclick="return false;" style="transform:translateY(1px);">Contact Us &rarr;</a>
+                <a class="btn btn-primary" href="#" onclick="return false;" style="transform:translateY(1px);">Contact Us</a>
               </div>
               <div class="ds-state-tile">
                 <span class="ds-state-label">Disabled (recommended)</span>
-                <button type="button" class="btn btn-primary" disabled style="opacity:0.5; cursor:not-allowed; pointer-events:none;">Contact Us &rarr;</button>
+                <button type="button" class="btn btn-primary" disabled style="opacity:0.5; cursor:not-allowed; pointer-events:none;">Contact Us</button>
               </div>
               <div class="ds-state-tile">
                 <span class="ds-state-label">Current-page (.active)</span>
-                <a class="btn btn-primary active" href="#" onclick="return false;">Contact Us &rarr;</a>
+                <a class="btn btn-primary active" href="#" onclick="return false;">Contact Us</a>
               </div>
             </div>
 

@@ -1176,6 +1176,23 @@ form { display: grid; gap: var(--space-4); }
   margin-top: 4px;
 }
 
+/* Brand logo (SVG image variant) — replaces the wordmark site-wide */
+.brand--logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+.brand--logo .brand-logo-img {
+  display: block;
+  height: 44px;
+  width: auto;
+  max-width: 220px;
+}
+@media (max-width: 880px) {
+  .brand--logo .brand-logo-img { height: 36px; }
+}
+
+
 @media (max-width: 880px) {
   .hero-v2-grid { grid-template-columns: 1fr; }
   .hero-v2-image-wrap { order: -1; max-width: 420px; margin: 0 auto; }
@@ -2582,6 +2599,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .gov-logo-card {
   background: var(--bg-light);
+  border: 1px solid #eef1f6;
   border-radius: 12px;
   padding: 18px 18px 22px;
   display: flex;
@@ -2642,6 +2660,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .ent-logo-card {
   background: var(--bg-light);
+  border: 1px solid #eef1f6;
   border-radius: 12px;
   padding: 28px 22px 22px;
   display: flex;
