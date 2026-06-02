@@ -1708,10 +1708,10 @@ body.sectors-page .sect-tight .stats-v2 {
   align-self: start;
 }
 /* Tighten the spacing between the AI-Powered Solutions eyebrow and the
-   "AI Built for India's Public Sector" heading to 4px. The parent has a
-   20px flex gap, so a -16px margin on the heading collapses it to 4px. */
+   "AI Built for India's Public Sector" heading to 8px. The parent has a
+   20px flex gap, so a -12px margin on the heading collapses it to 8px. */
 .ai-split-v2 .ai-pitch > .eyebrow + .ai-section-title {
-  margin-top: -16px;
+  margin-top: -12px;
 }
 .ai-section-title {
   font-family: var(--font-heading);
@@ -3007,7 +3007,9 @@ section .ready-cta-eyebrow,
   font-weight: 700;
   letter-spacing: .22em;
   text-transform: uppercase;
-  margin-bottom: 2px;
+  /* Combined with the parent .ready-cta flex `gap: 14px`, this -10px margin
+     leaves a 4px visible gap between the eyebrow and the title below. */
+  margin-bottom: -10px;
 }
 .ready-cta-title {
   font-family: var(--font-heading);
@@ -3886,7 +3888,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   border-radius: 0;
   font-family: var(--font-display, var(--font-heading));
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--primary);
@@ -7476,16 +7478,20 @@ html .why-v3-card:focus-visible [class*="card-ic"] {
   padding: 18px 0 22px !important;
 }
 
-/* === Hero badges — restyle to match the multi-row, mixed-case reference === */
+/* === Hero badges — single-row layout, evenly distributed across the row === */
 .svc-hero-badges {
-  display: grid !important;
-  grid-template-columns: repeat(3, max-content) !important;
-  gap: 18px 56px !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
   margin: 32px 0 0 !important;
   padding: 0 !important;
   list-style: none !important;
-  justify-content: start !important;
+  width: 100% !important;
 }
+.svc-hero-badges > li { white-space: nowrap !important; }
+.svc-hero-tick img { width: 100% !important; height: 100% !important; display: block !important; object-fit: contain !important; }
 .svc-hero-badges li {
   display: inline-flex !important;
   align-items: center !important;
