@@ -4997,7 +4997,11 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   100% { transform: translateX(0);    opacity: 1; }
 }
 .hero-v2-actions .btn.btn-glow .btn-glow-arrow {
-  transition: none;
+  transform: translateX(0);
+  opacity: 1;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .hero-v2-actions .btn.btn-glow:hover .btn-glow-arrow,
 .hero-v2-actions .btn.btn-glow:focus-visible .btn-glow-arrow {
