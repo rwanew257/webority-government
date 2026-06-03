@@ -4986,6 +4986,31 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 .btn-glow > * { position: relative; z-index: 1; }
 
 /* ==========================================================================
+   Homepage hero CTA — arrow swipe animation on hover.
+   Text stays static; the arrow slides right and out of the button,
+   then re-enters from the left back to its original position.
+   ========================================================================== */
+@keyframes hero-arrow-sweep {
+  0%   { transform: translateX(0);    opacity: 1; }
+  45%  { transform: translateX(48px); opacity: 0; }
+  55%  { transform: translateX(48px); opacity: 0; }
+  100% { transform: translateX(0);    opacity: 1; }
+}
+.hero-v2-actions .btn.btn-glow .btn-glow-arrow {
+  transition: none;
+}
+.hero-v2-actions .btn.btn-glow:hover .btn-glow-arrow,
+.hero-v2-actions .btn.btn-glow:focus-visible .btn-glow-arrow {
+  animation: hero-arrow-sweep 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-v2-actions .btn.btn-glow:hover .btn-glow-arrow,
+  .hero-v2-actions .btn.btn-glow:focus-visible .btn-glow-arrow {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
    Universal cursor-tracked glow — apply the .btn-glow hover effect to every
    .btn on the site. JS in main.js updates --mx / --my per pointer move.
    ========================================================================== */
