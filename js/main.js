@@ -364,8 +364,9 @@
     });
   }
 
-  // Cursor-tracked glow on .btn-glow — updates --mx / --my CSS vars used by ::before radial gradient.
-  document.querySelectorAll('.btn-glow').forEach(function (btn) {
+  // Cursor-tracked glow — updates --mx / --my CSS vars used by ::before
+  // radial gradient. Applies to every .btn so the hover-glow is universal.
+  document.querySelectorAll('.btn').forEach(function (btn) {
     btn.addEventListener('pointermove', function (e) {
       const rect = btn.getBoundingClientRect();
       const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -640,6 +641,110 @@
     }
   }
 
+  // Language dropdown — convert the inline .gov-lang-toggle pair into a
+  // single trigger + dropdown menu with flags. Original buttons stay in DOM
+  // (offscreen via CSS) and receive the .click() to drive lang-toggle.js logic.
+  document.querySelectorAll('.nav-lang').forEach(function (langContainer) {
+    if (langContainer.dataset.dropdownified === '1') return;
+    var btnEn = langContainer.querySelector('.gov-lang-toggle[data-lang="en"]');
+    var btnHi = langContainer.querySelector('.gov-lang-toggle[data-lang="hi"]');
+    if (!btnEn || !btnHi) return;
+
+    // Build dropdown trigger
+    var trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'lang-trigger';
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-label', 'Language');
+    trigger.innerHTML =
+      '<svg class="lang-globe-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<circle cx="12" cy="12" r="10"/>' +
+        '<path d="M2 12h20"/>' +
+        '<ellipse cx="12" cy="12" rx="4" ry="10"/>' +
+      '</svg>' +
+      '<span class="lang-current">EN</span>' +
+      '<svg class="lang-chevron-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<polyline points="6 9 12 15 18 9"/>' +
+      '</svg>';
+
+    var ukFlagSvg =
+      '<svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">' +
+        '<path d="M0,0 v30 h60 v-30 z" fill="#012169"/>' +
+        '<path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>' +
+        '<path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>' +
+        '<path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>' +
+      '</svg>';
+    var indiaFlagSvg =
+      '<svg viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">' +
+        '<rect width="90" height="60" fill="#fff"/>' +
+        '<rect width="90" height="20" fill="#FF9933"/>' +
+        '<rect y="40" width="90" height="20" fill="#138808"/>' +
+        '<circle cx="45" cy="30" r="7" fill="none" stroke="#000080" stroke-width="1.4"/>' +
+      '</svg>';
+
+    var menu = document.createElement('div');
+    menu.className = 'lang-menu';
+    menu.setAttribute('role', 'menu');
+    menu.setAttribute('aria-hidden', 'true');
+    menu.innerHTML =
+      '<button type="button" class="lang-option is-active" role="menuitem" data-lang="en">' +
+        '<span class="lang-flag-icon">' + ukFlagSvg + '</span>' +
+        '<span>ENG</span>' +
+      '</button>' +
+      '<button type="button" class="lang-option" role="menuitem" data-lang="hi">' +
+        '<span class="lang-flag-icon">' + indiaFlagSvg + '</span>' +
+        '<span lang="hi">हिंदी</span>' +
+      '</button>';
+
+    langContainer.appendChild(trigger);
+    langContainer.appendChild(menu);
+    langContainer.classList.add('lang-dropdown');
+
+    var currentLabel = trigger.querySelector('.lang-current');
+    var enOpt = menu.querySelector('.lang-option[data-lang="en"]');
+    var hiOpt = menu.querySelector('.lang-option[data-lang="hi"]');
+
+    function setOpen(open) {
+      langContainer.classList.toggle('is-open', open);
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    function pick(lang) {
+      if (lang === 'hi') {
+        hiOpt.classList.add('is-active'); enOpt.classList.remove('is-active');
+        currentLabel.textContent = 'HI';
+        btnHi.click();
+      } else {
+        enOpt.classList.add('is-active'); hiOpt.classList.remove('is-active');
+        currentLabel.textContent = 'EN';
+        btnEn.click();
+      }
+      setOpen(false);
+    }
+
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setOpen(!langContainer.classList.contains('is-open'));
+    });
+    enOpt.addEventListener('click', function (e) { e.stopPropagation(); pick('en'); });
+    hiOpt.addEventListener('click', function (e) { e.stopPropagation(); pick('hi'); });
+    document.addEventListener('click', function (e) {
+      if (!langContainer.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && langContainer.classList.contains('is-open')) setOpen(false);
+    });
+
+    // Sync initial state with whichever toggle is already pressed
+    if (btnHi.getAttribute('aria-pressed') === 'true') {
+      hiOpt.classList.add('is-active'); enOpt.classList.remove('is-active');
+      currentLabel.textContent = 'HI';
+    }
+
+    langContainer.dataset.dropdownified = '1';
+  });
+
   // Download Profile modal (contact page)
   var profileTrigger = document.getElementById('downloadProfileBtn');
   var profileModal = document.getElementById('profileModal');
@@ -704,4 +809,52 @@
       });
     }
   }
+
+  /* ---------- Why-Choose visual: auto-rotating dots with crossfade ---------- */
+  document.querySelectorAll('.why-v3-visual[data-auto-rotate]').forEach(function (visual) {
+    var dots = visual.querySelectorAll('.why-v3-dot');
+    if (dots.length < 2) return;
+    var imgs = visual.querySelectorAll('.why-v3-img');
+    var imgA = imgs[0], imgB = imgs[1];
+    var interval = parseInt(visual.getAttribute('data-auto-rotate'), 10) || 3000;
+    var idx = 0;
+    var timer = null;
+    var active = imgA;
+    var inactive = imgB;
+
+    function swapImage(src) {
+      if (!src || !inactive) return;
+      var temp = new Image();
+      temp.onload = function () {
+        inactive.src = src;
+        inactive.classList.add('is-active');
+        active.classList.remove('is-active');
+        var swap = active; active = inactive; inactive = swap;
+      };
+      temp.src = src;
+    }
+
+    function activate(i) {
+      dots.forEach(function (d, k) {
+        var on = k === i;
+        d.classList.toggle('is-active', on);
+        d.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      idx = i;
+      var src = dots[i].getAttribute('data-img');
+      if (src && active && active.getAttribute('src') !== src) swapImage(src);
+    }
+    function start() {
+      stop();
+      timer = setInterval(function () { activate((idx + 1) % dots.length); }, interval);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    dots.forEach(function (d, k) {
+      d.addEventListener('click', function () { activate(k); start(); });
+    });
+    visual.addEventListener('mouseenter', stop);
+    visual.addEventListener('mouseleave', start);
+    start();
+  });
 })();
