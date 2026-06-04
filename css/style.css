@@ -2737,7 +2737,7 @@ form { display: grid; gap: var(--space-4); }
 .direct-contact-card {
   background-image:
     linear-gradient(150deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 32%, rgba(255,255,255,0.15) 55%, rgba(255,255,255,0) 70%),
-    url("../images/direct-contact-bg.jpg");
+    url("../images/logos/gov/Direct Contact.jpg");
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
@@ -2790,6 +2790,7 @@ form { display: grid; gap: var(--space-4); }
   box-shadow: none;
 }
 .contact-item-ic svg { width: 20px; height: 20px; }
+.contact-item-ic .iconsax-ic { width: 20px; height: 20px; }
 .contact-item-ic--img {
   background: transparent;
   padding: 0;
@@ -2866,8 +2867,12 @@ form { display: grid; gap: var(--space-4); }
   padding-top: 6px;
 }
 .field-line input:focus,
-.field-line textarea:focus {
+.field-line textarea:focus,
+.field-line input:focus-visible,
+.field-line textarea:focus-visible {
   border-bottom-color: var(--primary);
+  outline: none;
+  box-shadow: none;
 }
 .enquiry-form .submit-row {
   display: flex;
