@@ -2979,28 +2979,13 @@ form { display: grid; gap: var(--space-4); }
    ============================================================ */
 
 .site-footer.wg-footer {
-  background:
-    radial-gradient(45% 60% at 90% 60%, rgba(120, 60, 220, 0.45), transparent 60%),
-    radial-gradient(55% 70% at 10% 30%, rgba(98, 0, 238, 0.30), transparent 65%),
-    radial-gradient(40% 50% at 50% 85%, rgba(255, 200, 240, 0.18), transparent 70%),
-    linear-gradient(135deg, #07051e 0%, #0d0a3a 50%, #1a103f 100%);
+  background: url('../images/logos/gov/Footer Background.jpg') center / cover no-repeat;
   color: #fff;
   padding: 0;
   position: relative;
   overflow: hidden;
 }
-.site-footer.wg-footer::before {
-  /* horizontal light streaks across the middle */
-  content: "";
-  position: absolute;
-  inset: 50% -10% auto -10%;
-  height: 200px;
-  transform: translateY(-50%) rotate(-3deg);
-  background:
-    linear-gradient(90deg, transparent 0%, rgba(180, 120, 255, 0.18) 30%, rgba(120, 180, 255, 0.22) 65%, transparent 100%);
-  filter: blur(40px);
-  pointer-events: none;
-}
+.site-footer.wg-footer::before { content: none; }
 .wg-footer .wg-inner {
   max-width: 1320px;
   margin: 0 auto;
