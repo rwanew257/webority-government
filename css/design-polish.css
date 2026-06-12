@@ -4340,6 +4340,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 /* Social icons — circular purple pills with SVG glyphs */
 .wg-social { display: flex; gap: 10px; flex-wrap: wrap; }
 .wg-social a {
+  position: relative;
   width: 38px; height: 38px;
   display: inline-grid; place-items: center;
   background: rgba(255, 255, 255, 0.10);
@@ -4347,17 +4348,39 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   color: #fff;
   border-radius: 50%;
   text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
   -webkit-backdrop-filter: blur(100px);
           backdrop-filter: blur(100px);
-  transition: background .2s ease, transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  transition: border-color .35s ease;
   margin: 0;
 }
-.wg-social a svg { display: block; fill: #fff; color: #fff; }
+.wg-social a::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  height: 0%;
+  background: var(--primary, #6a3df0);
+  z-index: -1;
+  transition: height .7s cubic-bezier(.22, .61, .36, 1);
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+}
+.wg-social a svg { position: relative; z-index: 1; display: block; fill: currentColor; color: #fff; transition: color .25s ease, fill .25s ease; }
 .wg-social a:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255,255,255,.25);
+  border-color: rgba(255,255,255,.35);
   color: #fff;
 }
+.wg-social a:hover::before {
+  height: 160%;
+  border-radius: 0;
+}
+/* Brand-specific water-fill — each icon's ::before fill takes its brand color. */
+.wg-social a[aria-label="LinkedIn"]::before { background: #1a6bc2; }
+.wg-social a[aria-label="X (Twitter)"]::before { background: #000000; }
+.wg-social a[aria-label="Behance"]::before { background: #1156fb; }
+.wg-social a[aria-label="YouTube"]::before { background: #ea3a2b; }
 
 /* Column headings + list links */
 .wg-footer h5 {
@@ -4516,6 +4539,16 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 .wg-footer .wg-foot-bottom .sep,
 .wg-footer-v2 .wg-foot-bottom .sep {
   opacity: .55 !important;
+}
+/* Promo card arrow on hover — keep the primary purple instead of white. */
+.wg-footer .wg-promo:hover .wg-promo-arrow,
+.wg-footer-v2 .wg-promo:hover .wg-promo-arrow {
+  color: var(--primary, #6a3df0) !important;
+}
+.wg-footer .wg-promo:hover .wg-promo-arrow svg,
+.wg-footer-v2 .wg-promo:hover .wg-promo-arrow svg {
+  fill: var(--primary, #6a3df0) !important;
+  color: var(--primary, #6a3df0) !important;
 }
 
 /* Mega wordmark — metallic silver fade, cropped at bottom, fits viewport */
