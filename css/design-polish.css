@@ -4456,6 +4456,16 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   background: rgba(255, 255, 255, 0.18);
   border-color: rgba(255, 255, 255, 0.25);
 }
+.wg-promo-logo.wg-promo-logo--img {
+  display: inline-flex;
+  align-items: center;
+}
+.wg-promo-logo.wg-promo-logo--img img {
+  display: block;
+  width: auto;
+  height: 36px;
+  object-fit: contain;
+}
 .wg-promo-logo strong {
   font-family: var(--font-display, var(--font-heading));
   font-weight: 800; letter-spacing: .04em; font-size: 20px;
@@ -5004,34 +5014,6 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 .btn-glow:focus-visible { outline: 3px solid #FFD600; outline-offset: 3px; }
 .btn-glow > * { position: relative; z-index: 1; }
 
-/* ==========================================================================
-   Homepage hero CTA — arrow swipe animation on hover.
-   Text stays static; the arrow slides right and out of the button,
-   then re-enters from the left back to its original position.
-   ========================================================================== */
-@keyframes hero-arrow-sweep {
-  0%   { transform: translateX(0);    opacity: 1; }
-  45%  { transform: translateX(48px); opacity: 0; }
-  55%  { transform: translateX(48px); opacity: 0; }
-  100% { transform: translateX(0);    opacity: 1; }
-}
-.hero-v2-actions .btn.btn-glow .btn-glow-arrow {
-  transform: translateX(0);
-  opacity: 1;
-  transition:
-    transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
-    opacity 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-.hero-v2-actions .btn.btn-glow:hover .btn-glow-arrow,
-.hero-v2-actions .btn.btn-glow:focus-visible .btn-glow-arrow {
-  animation: hero-arrow-sweep 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-v2-actions .btn.btn-glow:hover .btn-glow-arrow,
-  .hero-v2-actions .btn.btn-glow:focus-visible .btn-glow-arrow {
-    animation: none;
-  }
-}
 
 /* ==========================================================================
    Universal cursor-tracked glow — apply the .btn-glow hover effect to every
@@ -7332,6 +7314,167 @@ html .case-card:focus-visible h4 {
   box-shadow: none !important;
   filter: none !important;
   border: 1px solid #eceff4 !important;
+}
+
+/* Reference Project v2 — side-by-side layout with brand block + green-tinted visual */
+.ref-project.ref-project--v2 {
+  display: grid !important;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 40px;
+  align-items: center;
+  min-height: 460px;
+  max-height: 460px;
+  padding: 48px 56px;
+  background:
+    url('../images/logos/gov/Showcasing image background.png') center / cover no-repeat,
+    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+  border: 1px solid #eceff4 !important;
+  border-radius: 24px !important;
+  overflow: hidden;
+}
+.ref-project.ref-project--v2.ref-project--sickle {
+  background:
+    url('../images/logos/gov/Sickal Scan Showcasing Banner.png') center / cover no-repeat,
+    linear-gradient(120deg, #fdf4f4 0%, #f9e6e6 60%, #f4d8d8 100%) !important;
+}
+.ref-project.ref-project--v2.ref-project--manthan {
+  background:
+    url('../images/logos/gov/Manthan Application Showcasing Banner.png') center / cover no-repeat,
+    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+}
+.ref-project.ref-project--v2.ref-project--parliament {
+  background:
+    url('../images/logos/gov/Parliament of India Showcasing Banner.png') center / cover no-repeat,
+    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+}
+.ref-project.ref-project--v2.ref-project--nbt {
+  background:
+    url('../images/logos/gov/NBT Showcasing impact background.png') center / cover no-repeat,
+    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+}
+.ref-project--v2 .ref-project-content { padding: 0; }
+.ref-project--v2 .ref-project-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.ref-project--v2 .ref-project-brand-logo {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.ref-project--v2.ref-project--sickle .ref-project-brand-logo {
+  width: auto;
+  height: 60px;
+}
+.ref-project--v2.ref-project--manthan .ref-project-brand-logo {
+  width: 120px;
+  height: 120px;
+}
+.ref-project--v2.ref-project--parliament .ref-project-brand-logo {
+  width: 120px;
+  height: 120px;
+}
+.ref-project--v2.ref-project--nbt .ref-project-brand-logo {
+  width: 120px;
+  height: 120px;
+}
+.ref-project--v2 .ref-project-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ref-project--v2 .ref-project-brand-text strong {
+  font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: #0e1640;
+  line-height: 1.2;
+}
+.ref-project--v2 .ref-project-brand-text span {
+  font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  color: #1a6e3a;
+  text-transform: uppercase;
+}
+.ref-project--v2 .ref-project-eyebrow {
+  display: inline-block;
+  color: #212D80;
+  font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.ref-project--v2 h3 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: clamp(2rem, 3.4vw, 2.8rem) !important;
+  color: #0e1640 !important;
+  margin: 0 0 16px !important;
+  line-height: 1.1 !important;
+}
+.ref-project--v2.ref-project--parliament h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem) !important;
+}
+.ref-project--v2 p {
+  font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4b5675;
+  margin: 0 0 24px;
+  max-width: 500px;
+}
+.ref-project--v2 .ref-project-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary, #6a3df0);
+  font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.ref-project--v2 .ref-project-cta::after {
+  content: " →";
+  display: inline-block;
+}
+.ref-project--v2 .ref-project-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.ref-project--v2 .ref-project-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  position: relative;
+}
+@media (max-width: 980px) {
+  .ref-project.ref-project--v2 {
+    grid-template-columns: 1fr;
+    padding: 32px 28px;
+    gap: 32px;
+  }
+  .ref-project--v2 .ref-project-brand { margin-bottom: 24px; }
+  .ref-project--v2 .ref-project-visual { min-height: 280px; }
 }
 .ref-project .ref-project-body h3,
 .ref-project--inline .ref-project-body h3 {
