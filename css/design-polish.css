@@ -4282,7 +4282,14 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   color: rgba(255,255,255,.82);
 }
 .wg-footer::before,
-.wg-footer-v2::before { content: none; }
+.wg-footer-v2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.20);
+  z-index: 0;
+  pointer-events: none;
+}
 .wg-footer::after,
 .wg-footer-v2::after { content: none; }
 
@@ -7369,17 +7376,38 @@ html .case-card:focus-visible h4 {
   width: auto;
   height: 60px;
 }
+.ref-project--v2.ref-project--bee .ref-project-eyebrow {
+  color: #085938;
+}
+.ref-project--v2.ref-project--bee .ref-project-brand {
+  margin-bottom: 32px;
+}
+.ref-project--v2.ref-project--sickle .ref-project-eyebrow {
+  color: #212D80;
+}
+.ref-project--v2.ref-project--sickle .ref-project-brand {
+  margin-bottom: 32px;
+}
 .ref-project--v2.ref-project--manthan .ref-project-brand-logo {
   width: 120px;
   height: 120px;
+}
+.ref-project--v2.ref-project--manthan .ref-project-eyebrow {
+  color: #034EB4;
 }
 .ref-project--v2.ref-project--parliament .ref-project-brand-logo {
   width: 120px;
   height: 120px;
 }
 .ref-project--v2.ref-project--nbt .ref-project-brand-logo {
-  width: 120px;
-  height: 120px;
+  width: 96px;
+  height: 96px;
+}
+.ref-project--v2.ref-project--nbt .ref-project-eyebrow {
+  color: #E00046;
+}
+.ref-project--v2.ref-project--nbt .ref-project-brand {
+  margin-bottom: 32px;
 }
 .ref-project--v2 .ref-project-brand-text {
   display: flex;
@@ -7403,7 +7431,7 @@ html .case-card:focus-visible h4 {
 }
 .ref-project--v2 .ref-project-eyebrow {
   display: inline-block;
-  color: #212D80;
+  color: #FD6D56;
   font-family: var(--font-heading, 'Josefin Sans', sans-serif);
   font-weight: 700;
   font-size: 12px;
@@ -7556,20 +7584,21 @@ html .case-card:focus-visible h4 {
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
   gap: 4px !important;
-  padding: 10px 24px 0 !important;
+  padding-top: 10px !important;
+  padding-bottom: 0 !important;
+  padding-left: max(24px, calc(50vw - 640px)) !important;
+  padding-right: max(24px, calc(50vw - 640px)) !important;
   border-top: 0 !important;
   border-bottom: 0 !important;
-  margin: 0 0 40px !important;
+  margin: 0 calc(50% - 50vw) 40px !important;
   background: #ffffff !important;
   backdrop-filter: saturate(140%) blur(10px) !important;
   -webkit-backdrop-filter: saturate(140%) blur(10px) !important;
   box-shadow: none !important;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
-  width: 100% !important;
-  max-width: 1280px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  width: 100vw !important;
+  max-width: none !important;
   justify-content: flex-start !important;
   position: sticky !important;
   top: var(--nav-height, 64px) !important;
