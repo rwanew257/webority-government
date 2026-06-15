@@ -12,42 +12,707 @@
   <link rel="stylesheet" href="css/gov-identity.css" />
   <link rel="stylesheet" href="css/design-polish.css" />
   <style>
-    .cs-back { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-heading); font-size: 14px; text-decoration: none; margin-bottom: 16px; color: rgba(255,255,255,0.7); }
-    .cs-back:hover { color: var(--white); }
-    .cs-hero { color: var(--white); padding: 64px 0 56px; }
-    .cs-hero h1 { font-family: var(--font-heading); font-weight: 700; color: var(--white); font-size: var(--fs-42); line-height: 1.15; margin: 8px 0 12px; }
-    .cs-hero p.client { color: rgba(255,255,255,0.75); font-family: var(--font-heading); margin: 0; }
-    .cs-hero .cs-eyebrow-light { display: inline-block; color: rgba(255,255,255,0.85); font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
-    .cs-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); }
-    .cs-meta-item .v { font-family: var(--font-heading); font-weight: 700; color: var(--white); font-size: var(--fs-32); display: block; line-height: 1.1; }
-    .cs-meta-item .l { font-family: var(--font-heading); color: rgba(255,255,255,0.65); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-top: 6px; display: block; }
-    .cs-two-col { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 48px; align-items: start; }
-    @media (max-width: 880px) { .cs-two-col { grid-template-columns: 1fr; } }
+    .cs-back { display: flex; align-items: center; gap: 6px; width: max-content; font-family: var(--font-heading); font-size: 14px; text-decoration: none; margin-bottom: 50px; color: var(--text-1); }
+    .cs-back:hover { color: var(--heading); }
+    .cs-back-ic { width: 18px; height: 18px; vertical-align: middle; }
+    .cs-hero { color: var(--heading); padding: 64px 0 56px; min-height: 500px; display: flex; align-items: center; margin-top: calc(-1 * var(--nav-height, 64px)); padding-top: calc(var(--nav-height, 64px) + 40px); }
+    .cs-hero .cs-hero-content { max-width: 768px; }
+    .cs-hero h1 { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 400; color: var(--heading); font-size: var(--fs-42); line-height: 1.15; margin: 8px 0 12px; letter-spacing: -0.01em; }
+    .cs-hero p.client { color: var(--text-1); font-family: var(--font-heading); margin: 0; }
+    .cs-hero .cs-eyebrow-light { display: inline-block; color: var(--primary); font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
+    .cs-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; margin-top: 32px; padding-top: 0; border-top: 0; }
+    .cs-meta-item { position: relative; padding: 8px 0; }
+    .cs-meta-item + .cs-meta-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 12%;
+      bottom: 12%;
+      width: 1px;
+      background: var(--outline, #eceff4);
+    }
+    .cs-meta-item .v { font-family: var(--font-heading); font-weight: 500; color: var(--heading); font-size: 42px; display: block; line-height: 1.1; }
+    .cs-meta-item .cs-meta-pct { font-size: 32px; color: var(--primary, #6a3df0); font-weight: 500; }
+    .cs-meta-item .l { font-family: var(--font-heading); color: var(--text-2); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-top: 6px; display: block; }
+    .cs-two-col { display: grid; grid-template-columns: 769px 416px; gap: 76px; align-items: start; justify-content: center; }
+    @media (max-width: 1300px) { .cs-two-col { grid-template-columns: minmax(0, 769px) 416px; } }
+    @media (max-width: 880px) { .cs-two-col { grid-template-columns: 1fr; gap: 48px; } }
     .cs-eyebrow { display: inline-block; color: var(--primary); font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
-    .cs-h2 { font-family: var(--font-heading); font-weight: 700; color: var(--heading); font-size: var(--fs-32); margin: 8px 0 16px; }
+    .cs-h2 { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 400; color: var(--heading); font-size: var(--fs-32); margin: 8px 0 16px; letter-spacing: -0.01em; }
     .cs-p { color: var(--text-1); font-family: var(--font-heading); margin-bottom: 12px; line-height: 1.65; }
     .cs-block { margin-bottom: 36px; }
-    .cs-scope-list { list-style: none; padding: 0; margin: 12px 0 0; counter-reset: cs-step; }
-    .cs-scope-list li { display: grid; grid-template-columns: 40px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--secondary-10); counter-increment: cs-step; }
-    .cs-scope-list li:last-child { border-bottom: none; }
-    .cs-scope-list li::before { content: counter(cs-step); display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--primary-10); color: var(--primary); border-radius: 50%; font-family: var(--font-heading); font-weight: 700; font-size: 14px; }
-    .cs-scope-title { font-family: var(--font-heading); font-weight: 700; color: var(--heading); font-size: 16px; margin-bottom: 4px; }
-    .cs-scope-desc { color: var(--text-1); font-family: var(--font-heading); font-size: 14px; line-height: 1.55; }
+    /* 100px gap below the Project Overview block; flush to the top of the section */
+    .cs-two-col > div > .cs-block:first-child { margin-top: 0; margin-bottom: 100px; }
+    /* Bottom single-column area below the full-bleed image */
+    .cs-single-col { display: block; margin-top: 48px; }
+    .cs-single-col > div { max-width: 100%; }
+    /* Scope-of-work — vertical timeline rail with circle dots (same treatment as About page milestones) */
+    .cs-scope-list {
+      list-style: none;
+      padding: 16px 0;
+      margin: 16px 0 0;
+      counter-reset: cs-step;
+      position: relative;
+    }
+    /* Rail — a single 2px column rendered as a linear-gradient with a HARD
+       colour stop at --timeline-fill px: purple above, light gray below.
+       Top: 50px so the rail starts at the FIRST circle's BOTTOM edge — the
+       circle sits fully above the line with nothing protruding from its top.
+       Bottom: 50px so the rail ends at the LAST circle's top edge. */
+    .cs-scope-list::before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      bottom: 50px;
+      left: 61px;
+      width: 2px;
+      background: linear-gradient(
+        180deg,
+        #6a3df0 0,
+        #6a3df0 var(--timeline-fill, 0px),
+        #e5e7eb var(--timeline-fill, 0px),
+        #e5e7eb 100%
+      );
+      border-radius: 0;
+      z-index: 1;
+      transition: background 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .cs-scope-list::after { content: none; display: none; }
+    .cs-scope-list li {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 64px;
+      margin-bottom: 56px;
+      padding: 4px 0 0;
+      position: relative;
+      counter-increment: cs-step;
+      border-bottom: 0;
+      background: transparent;
+    }
+    .cs-scope-list li:last-child { margin-bottom: 0; border-bottom: 0; }
+    .cs-scope-list li::before {
+      content: counter(cs-step, decimal-leading-zero) ".";
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 14px;
+      color: #9ca3af;
+      text-align: left;
+      padding: 4px 0 0;
+      display: block;
+      width: auto;
+      height: auto;
+      background: transparent;
+      border-radius: 0;
+      line-height: 1;
+      transition: color 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .cs-scope-list li::after {
+      content: "";
+      position: absolute;
+      left: 47px;
+      top: 4px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      z-index: 3;
+      transition:
+        border-color 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        border-width 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        background 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .cs-scope-list li.is-in::after {
+      border-color: #6a3df0;
+      border-width: 3px;
+      background: #ffffff;
+    }
+    .cs-scope-list li.is-in::before {
+      color: #6a3df0;
+    }
+    .cs-scope-title { font-family: var(--font-heading); font-weight: 700; color: var(--heading); font-size: 18px; margin-bottom: 8px; }
+    .cs-scope-desc { color: var(--text-1); font-family: var(--font-heading); font-size: 14px; line-height: 1.6; }
+    @media (max-width: 700px) {
+      .cs-scope-list li { grid-template-columns: 32px 1fr; gap: 24px; margin-bottom: 40px; }
+      .cs-scope-list li::after { left: 8px; }
+    }
+    /* Scroll-driven reveal animation for each scope-of-work step */
+    .cs-scope-list li {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .cs-scope-list li.is-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Circles stay visible at all times — colour swap (is-reached) handles
+       the fill animation; no scale/opacity reveal on the marker itself. */
+    @media (prefers-reduced-motion: reduce) {
+      .cs-scope-list li,
+      .cs-scope-list li::after {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .cs-scope-list::before {
+        background: #6a3df0 !important;
+        transition: none !important;
+      }
+      .cs-scope-list li.is-in::after,
+      .cs-scope-list li::after {
+        border-color: #6a3df0 !important;
+        transition: none !important;
+      }
+    }
     .cs-tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
     .cs-outcomes { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 0 0 32px; padding: 28px 24px; background: var(--bg-light); border-radius: var(--radius-lg); }
+
+    /* ---------- Impact Metrics — centered heading + 3-column card row ---------- */
+    .impact-metrics {
+      margin: 50px 0 0;
+      padding: 100px 0 0;
+      border-top: 1px solid #eceff4;
+      background: #ffffff;
+      text-align: center;
+    }
+    .impact-metrics-heading {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2rem, 1.6rem + 1.4vw, 2.6rem);
+      line-height: 1.15;
+      color: var(--heading, #0e1640);
+      letter-spacing: -0.01em;
+      margin: 0 0 16px;
+    }
+    .impact-metrics-lead {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #4b5675;
+      margin: 0 auto 48px;
+      max-width: 760px;
+    }
+    .impact-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 820px) {
+      .impact-metrics-grid { grid-template-columns: 1fr; }
+    }
+    .impact-metric-card {
+      position: relative;
+      background: #f9fafb;
+      border: 0;
+      border-radius: 16px;
+      padding: 40px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      box-shadow: none;
+      overflow: hidden;
+    }
+    .impact-metric-card::before { content: none; }
+    .impact-metric-num {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 44px;
+      line-height: 1;
+      color: var(--primary, #6a3df0);
+      letter-spacing: -0.01em;
+      width: auto;
+      padding-bottom: 0;
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+    .impact-metric-num span {
+      font-family: inherit;
+      font-style: normal;
+      font-size: 1em;
+      font-weight: 600;
+      vertical-align: baseline;
+      color: inherit;
+    }
+    .impact-metric-num .impact-metric-pct {
+      font-family: inherit;
+      font-style: normal;
+      font-size: 1em;
+      color: var(--primary, #6a3df0);
+    }
+    .impact-metric-lbl {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4b5675;
+      line-height: 1.4;
+    }
+    .impact-metrics-cta {
+      display: flex;
+      justify-content: center;
+      margin-top: 48px;
+    }
+    .impact-metrics-cta .btn {
+      height: 48px;
+      padding: 0 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 999px;
+    }
     .cs-outcome { text-align: center; }
     .cs-outcome .v { font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: var(--fs-32); display: block; line-height: 1.1; }
     .cs-outcome .v span { font-size: 0.55em; }
-    .cs-outcome .l { font-family: var(--font-heading); color: var(--text-2); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; margin-top: 6px; display: block; }
+    .cs-outcome .l { font-family: var(--font-heading); color: var(--text-2); font-size: 16px; text-transform: uppercase; letter-spacing: .08em; margin-top: 6px; display: block; }
+
+    /* ---------- Other Government Projects — horizontal carousel ---------- */
+    .other-projects { padding: 100px 0 120px; background: #f9fafb; overflow: hidden; }
+    .other-projects-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      gap: 24px;
+    }
+    .other-projects-heading {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 42px;
+      line-height: 1.1;
+      color: var(--heading);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .other-projects-nav {
+      display: flex;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .other-projects-arrow {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1.5px solid #6a3df0;
+      color: #6a3df0;
+      display: inline-grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+    .other-projects-arrow svg { width: 20px; height: 20px; }
+    .other-projects-arrow:hover { background: #6a3df0; color: #ffffff; }
+    .other-projects-arrow:active { transform: scale(0.96); }
+    .other-projects-arrow:disabled { opacity: .4; cursor: not-allowed; }
+    .other-projects-arrow:disabled:hover { background: transparent; color: #6a3df0; }
+
+    .other-projects-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 48px) / 3);
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .other-projects-track::-webkit-scrollbar { display: none; }
+
+    .op-card {
+      scroll-snap-align: start;
+      background: #ffffff;
+      border: 1px solid #eceff4;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      transition: transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .op-card:hover { transform: translateY(-4px); }
+
+    .op-card-banner {
+      display: block;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      text-decoration: none;
+      padding: 12px;
+      box-sizing: border-box;
+      background: #ffffff !important;
+    }
+    .op-card-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+    .op-card--green   .op-card-banner { background: #d9f0e0; }
+    .op-card--mint    .op-card-banner { background: #e2f7e8; }
+    .op-card--peach   .op-card-banner { background: #fde2dd; }
+    .op-card--blue    .op-card-banner { background: #dde6f5; }
+    .op-card--red     .op-card-banner { background: #f8d9d3; }
+    .op-card--violet  .op-card-banner { background: #e8e0f7; }
+
+    .op-card-body {
+      padding: 6px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .op-card-title {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1.3;
+      color: #0e1640;
+      letter-spacing: -0.005em;
+      margin: 0;
+    }
+    .op-card-desc {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #4b5675;
+      margin: 0;
+    }
+
+    .other-projects-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 40px;
+    }
+    .op-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      transition: background 200ms ease, width 200ms ease;
+    }
+    .op-dot.is-active {
+      background: #6a3df0;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 1100px) {
+      .other-projects-track { grid-auto-columns: minmax(0, calc((100% - 24px) / 2)); }
+      .op-card { height: auto; min-height: 520px; }
+    }
+    @media (max-width: 720px) {
+      .other-projects { padding: 64px 0 80px; }
+      .other-projects-head { flex-direction: column; align-items: flex-start; }
+      .other-projects-heading { font-size: 32px; }
+      .other-projects-track { grid-auto-columns: minmax(0, 88%); gap: 16px; }
+      .op-card { height: auto; min-height: 480px; }
+    }
+
     .cs-info-card { background: var(--secondary); color: rgba(255,255,255,0.85); padding: 28px 24px; border-radius: var(--radius-lg); position: sticky; top: 96px; font-family: var(--font-heading); font-size: 14px; }
     .cs-info-card .cs-info-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: rgba(255,255,255,0.5); margin-top: 16px; margin-bottom: 4px; font-weight: 700; }
     .cs-info-card .cs-info-lbl:first-child { margin-top: 0; }
     .cs-info-card .cs-info-item { color: var(--white); margin-bottom: 4px; line-height: 1.4; }
     .cs-info-divider { margin: 20px 0 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
     .cs-info-card a.btn { width: 100%; justify-content: center; font-size: 13px; }
+
+    /* ---------- Project Info card v2 — light, minimalist, with serif italic labels ---------- */
+    .cs-info-card--v2 {
+      background: transparent;
+      color: var(--heading);
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      position: static;
+      font-family: var(--font-heading);
+    }
+    .cs-info-card--v2 .cs-info-row {
+      padding: 22px 0;
+      border-bottom: 1px solid #eceff4;
+    }
+    .cs-info-card--v2 .cs-info-row:first-child { padding-top: 0; }
+    .cs-info-card--v2 .cs-info-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .cs-info-card--v2 .cs-info-lbl {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      color: #4b5675;
+      text-transform: none;
+      margin: 0 0 10px;
+    }
+    .cs-info-card--v2 .cs-info-val {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #0e1640;
+    }
+    .cs-info-card--v2 .cs-info-tech {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .cs-info-card--v2 .cs-tech-chip {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #eceff4;
+      box-shadow: none;
+      display: inline-grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .cs-info-card--v2 .cs-tech-chip svg,
+    .cs-info-card--v2 .cs-tech-chip img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      display: block;
+    }
+    /* Full-bleed feature image — uses a real <img> with object-fit: fill so it
+       stretches to fully cover the section regardless of its aspect ratio. */
+    .cs-feature-image {
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      margin-top: 48px;
+      margin-bottom: 48px;
+      padding: 0;
+      height: 800px;
+      background-color: #1d6e3d;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .cs-feature-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+    html, body { overflow-x: hidden; }
+
+    /* ---------- Scope of Work v2 — left intro + right timeline list ---------- */
+    .scope-v2 {
+      display: grid;
+      grid-template-columns: 480px 636px;
+      gap: 80px;
+      align-items: start;
+      justify-content: center;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    @media (max-width: 1280px) { .scope-v2 { grid-template-columns: minmax(0, 480px) minmax(0, 636px); } }
+    @media (max-width: 980px) { .scope-v2 { grid-template-columns: 1fr; gap: 48px; } }
+    .scope-v2-intro { position: sticky; top: 96px; }
+    @media (max-width: 980px) { .scope-v2-intro { position: static; } }
+    .scope-v2-eyebrow {
+      display: inline-block;
+      color: var(--primary);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 14px;
+    }
+    .scope-v2-heading {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 42px;
+      line-height: 1.1;
+      color: var(--heading);
+      letter-spacing: -0.01em;
+      margin: 0 0 22px;
+    }
+    .scope-v2-lead {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      line-height: 1.7;
+      color: #4b5675;
+      margin: 0;
+    }
+    .scope-v2-timeline {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+    }
+    /* Base rail — sits in the 80px gap between intro and timeline columns
+       (left: -40px places its centre at exactly -37px = mid-gap). */
+    .scope-v2-timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -40px;
+      width: 6px;
+      background: linear-gradient(180deg, #6a3df0 0%, #6a3df0 88%, rgba(106, 61, 240, 0) 100%);
+      border-radius: 6px;
+      opacity: 1;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* Filled portion — rich purple gradient that grows with --timeline-progress as the user scrolls. */
+    .scope-v2-timeline::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -40px;
+      width: 6px;
+      height: calc(var(--timeline-progress, 0) * 100%);
+      background: linear-gradient(
+        180deg,
+        #4e00be 0%,
+        #6a3df0 30%,
+        #8c5cff 75%,
+        #b180f7 95%,
+        rgba(177, 128, 247, 0) 100%
+      );
+      border-radius: 6px;
+      transition: height 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      animation: scope-v2-pulse 2.4s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @keyframes scope-v2-pulse {
+      0%, 100% { opacity: 0.85; }
+      50%      { opacity: 1; }
+    }
+    .scope-v2-item {
+      position: relative;
+      z-index: 3;                 /* lift the item — and therefore its dot — above the timeline rail's ::before/::after */
+      padding: 0 0 80px;
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      will-change: opacity, transform;
+    }
+    .scope-v2-item.is-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .scope-v2-item:last-child { padding-bottom: 0; }
+    /* Open-circle dot centred on the rail (rail centre at -37px → 20px dot at left:-47px).
+       z-index higher than the rail so the circle sits ABOVE the line. */
+    .scope-v2-item { isolation: auto; }
+    .scope-v2-item::before {
+      content: "";
+      position: absolute;
+      left: -47px;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f7f9fc;
+      border: 3.5px solid #6a3df0;
+      box-sizing: border-box;
+      z-index: 5;
+      transform: scale(0.4);
+      opacity: 0;
+      transition:
+        transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms,
+        opacity 500ms ease 200ms;
+    }
+    .scope-v2-item.is-in::before {
+      transform: scale(1);
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scope-v2-item,
+      .scope-v2-item::before {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .scope-v2-timeline::after {
+        height: 100% !important;
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+    @media (max-width: 980px) {
+      .scope-v2-timeline::before,
+      .scope-v2-timeline::after { display: none; }
+      .scope-v2-item::before { display: none; }
+    }
+    .scope-v2-num {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 14px;
+      color: #9ca3af;
+      letter-spacing: 0;
+      margin: 0 0 4px;
+      line-height: 1;
+    }
+    .scope-v2-title {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 1.3;
+      color: #0e1640;
+      letter-spacing: -0.005em;
+      margin: 0 0 10px;
+    }
+    .scope-v2-desc {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: #4b5675;
+      margin: 0;
+    }
+    .scope-v2-media {
+      width: 636px;
+      max-width: 100%;
+      height: 283px;
+      margin: 20px 0 0;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .scope-v2-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
   </style>
 </head>
-<body>
+<body class="case-detail-page">
   <a class="skip-nav-link" href="#main-content">Skip to main content</a>
 
   <header class="site-header" id="siteHeader">
@@ -76,21 +741,22 @@
   </header>
   <a id="main-content" tabindex="-1"></a>
 
-  <section class="cs-hero" style="background: linear-gradient(135deg, #2D4A1E, #0A1628);">
+  <section class="cs-hero" style="background: url('images/logos/gov/Case Study Main Container.png') center / cover no-repeat;">
     <div class="container">
-      <a href="case-studies.html" class="cs-back">&larr; Back to Case Studies</a>
-      <span class="cs-eyebrow-light">Quality Council of India &middot; DPIIT</span>
-      <h1>SAMAR &mdash; Certification &amp;<br />Assessment Platform</h1>
-      <p class="client">Quality Council of India (QCI) &middot; Department for Promotion of Industry and Internal Trade</p>
-      <div class="cs-meta">
-        <div class="cs-meta-item"><span class="v">E2E</span><span class="l">Certification Workflow</span></div>
-        <div class="cs-meta-item"><span class="v">Multi</span><span class="l">Level Approvals</span></div>
-        <div class="cs-meta-item"><span class="v">Digital</span><span class="l">Certificate Issuance</span></div>
+      <div class="cs-hero-content">
+        <a href="case-studies.html" class="cs-back"><i class="iconsax-ic cs-back-ic" aria-hidden="true" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/arrow-left.svg');"></i> Back to Case Studies</a>
+        <span class="cs-eyebrow-light">Quality Council of India &middot; DPIIT</span>
+        <h1>SAMAR &mdash; Certification &amp;<br />Assessment Platform</h1>
+        <div class="cs-meta">
+          <div class="cs-meta-item"><span class="v">E2E</span><span class="l">Certification Workflow</span></div>
+          <div class="cs-meta-item"><span class="v">Multi</span><span class="l">Level Approvals</span></div>
+          <div class="cs-meta-item"><span class="v">Digital</span><span class="l">Certificate Issuance</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="sect">
+  <section class="sect" style="background:#ffffff;">
     <div class="container">
       <div class="cs-two-col">
         <div>
@@ -98,56 +764,219 @@
             <span class="cs-eyebrow">Project Overview</span>
             <h2 class="cs-h2">End-to-End Certification Lifecycle for India&rsquo;s Quality Regulator</h2>
             <p class="cs-p">The Quality Council of India manages certification and accreditation for a wide range of organisations across India. The SAMAR (System for Assessment, Monitoring, and Review) platform digitises the complete certification lifecycle &mdash; from initial application and document submission through evaluator assignment, multi-level review, final approval, and digital certificate issuance.</p>
+            <p class="cs-p">By replacing legacy paper-based workflows with a unified digital backbone, SAMAR brings transparency, auditability, and faster turnaround to every stage of the certification process &mdash; benefiting applicant organisations, evaluators, and QCI&rsquo;s administrative teams alike.</p>
           </div>
+        </div>
 
-          <div class="cs-block">
-            <span class="cs-eyebrow">Scope of Work</span>
-            <h2 class="cs-h2">What We Delivered</h2>
-            <ol class="cs-scope-list">
-              <li><div><div class="cs-scope-title">Online Application &amp; Document Management</div><div class="cs-scope-desc">Self-service applicant portal for organisations to submit certification applications, upload supporting documents, and track application status in real time.</div></div></li>
-              <li><div><div class="cs-scope-title">Evaluator Assignment &amp; Management</div><div class="cs-scope-desc">Automated and manual evaluator assignment system &mdash; matching assessors to applications based on domain expertise, availability, and conflict-of-interest rules.</div></div></li>
-              <li><div><div class="cs-scope-title">Multi-Level Approval Workflow</div><div class="cs-scope-desc">Configurable multi-stage approval workflow &mdash; technical review, committee review, and final approval stages &mdash; with role-based access and full audit trail on every decision.</div></div></li>
-              <li><div><div class="cs-scope-title">Digital Certificate Issuance</div><div class="cs-scope-desc">Automated generation and issuance of digitally signed certificates upon approval &mdash; with QR code verification and public certificate validation portal.</div></div></li>
-              <li><div><div class="cs-scope-title">Surveillance &amp; Renewal Management</div><div class="cs-scope-desc">Periodic surveillance visit scheduling, renewal reminder workflows, and compliance monitoring for active certificate holders.</div></div></li>
-              <li><div><div class="cs-scope-title">Reporting &amp; Analytics Dashboard</div><div class="cs-scope-desc">Operational dashboard for QCI management &mdash; application volumes, approval turnaround times, evaluator performance, and certificate status across all schemes.</div></div></li>
+        <aside class="cs-info-card cs-info-card--v2 cs-info-card--top">
+          <div class="cs-info-row">
+            <div class="cs-info-lbl">Client</div>
+            <div class="cs-info-val">Quality Council of India (QCI)</div>
+          </div>
+          <div class="cs-info-row">
+            <div class="cs-info-lbl">Ministry</div>
+            <div class="cs-info-val">DPIIT &middot; Ministry of Commerce</div>
+          </div>
+          <div class="cs-info-row">
+            <div class="cs-info-lbl">Platform</div>
+            <div class="cs-info-val">e-Governance &middot; Workflow Platform &middot; Regulatory</div>
+          </div>
+          <div class="cs-info-row">
+            <div class="cs-info-lbl">Technology</div>
+            <div class="cs-info-tech">
+              <span class="cs-tech-chip" aria-label="AWS">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#252F3E" d="M9.7 16.2c0 .4.04.74.13 1 .1.24.22.51.39.8.06.1.08.2.08.28 0 .12-.07.24-.23.36l-.76.5a.58.58 0 0 1-.31.11c-.12 0-.24-.06-.36-.17a3.7 3.7 0 0 1-.43-.56 9.3 9.3 0 0 1-.37-.7c-.94 1.1-2.12 1.66-3.54 1.66-1.01 0-1.81-.29-2.4-.86a3.06 3.06 0 0 1-.9-2.3c0-.97.34-1.76 1.04-2.36.7-.6 1.62-.9 2.78-.9.38 0 .78.03 1.2.1.4.05.83.13 1.28.23v-.81c0-.87-.18-1.48-.54-1.83-.37-.36-.99-.53-1.88-.53-.4 0-.82.05-1.25.15-.43.1-.85.22-1.25.38a3.3 3.3 0 0 1-.4.15.7.7 0 0 1-.19.04c-.16 0-.24-.12-.24-.36v-.57c0-.18.02-.32.08-.4a.83.83 0 0 1 .33-.24c.4-.2.88-.38 1.44-.52a6.96 6.96 0 0 1 1.79-.22c1.36 0 2.36.31 3 .93.63.62.95 1.56.95 2.83v3.72zM5.3 17.85c.38 0 .77-.07 1.18-.21.4-.14.77-.4 1.08-.75.18-.22.32-.45.39-.72.07-.27.11-.59.11-.97v-.46a9.28 9.28 0 0 0-2.07-.27c-.76 0-1.32.15-1.7.46-.37.31-.55.74-.55 1.32 0 .54.14.94.42 1.22.28.27.69.4 1.16.4zm8.71 1.18c-.2 0-.34-.04-.42-.12-.09-.07-.17-.23-.24-.45L10.96 9.7a2.02 2.02 0 0 1-.1-.46c0-.18.09-.28.27-.28h1.18c.21 0 .36.04.43.12.1.07.17.23.24.45l1.7 6.69 1.58-6.69c.06-.22.13-.38.23-.45.1-.08.25-.12.45-.12h.97c.21 0 .36.04.45.12.1.07.19.23.24.45l1.6 6.77 1.74-6.77c.07-.22.15-.38.24-.45.1-.08.24-.12.43-.12h1.12c.18 0 .28.1.28.28 0 .06-.01.12-.02.18-.02.07-.04.16-.08.28l-2.45 8.76c-.06.22-.14.38-.24.45-.1.07-.24.12-.42.12h-1.05c-.21 0-.36-.04-.45-.13-.1-.08-.18-.23-.23-.46l-1.57-6.51-1.55 6.5c-.06.22-.13.38-.23.46-.1.09-.26.13-.45.13zm13.93.33a7.42 7.42 0 0 1-1.74-.2c-.55-.13-.98-.27-1.27-.43-.18-.1-.3-.21-.34-.31a.78.78 0 0 1-.07-.32v-.59c0-.24.09-.35.26-.35.07 0 .14 0 .2.04.07.02.18.06.3.11a6.8 6.8 0 0 0 2.78.57c.71 0 1.27-.12 1.65-.37.39-.25.59-.61.59-1.08 0-.32-.1-.58-.31-.8-.21-.21-.6-.41-1.18-.59l-1.69-.53c-.85-.27-1.48-.67-1.86-1.19a2.79 2.79 0 0 1-.58-1.69c0-.49.1-.92.32-1.29.21-.37.5-.7.86-.96a3.8 3.8 0 0 1 1.24-.61c.48-.14 1-.2 1.54-.2.27 0 .55.01.82.05.28.04.54.09.79.15.24.07.46.14.68.22.21.08.38.16.5.24.18.1.3.2.38.31.07.1.11.24.11.41v.55c0 .24-.09.36-.26.36-.09 0-.23-.04-.42-.13a5.07 5.07 0 0 0-2.13-.43c-.65 0-1.16.1-1.51.32-.35.21-.54.54-.54 1 0 .32.11.59.34.8.23.21.65.42 1.27.62l1.65.52c.84.27 1.45.65 1.81 1.13.36.48.54 1.03.54 1.64 0 .5-.1.95-.31 1.34a3.1 3.1 0 0 1-.85 1.01c-.36.29-.79.5-1.29.65a5.51 5.51 0 0 1-1.66.24z"/><path fill="#F90" d="M28.93 23.6c-3.51 2.59-8.6 3.96-12.99 3.96a23.5 23.5 0 0 1-15.87-6.06c-.33-.3-.04-.7.36-.47a31.96 31.96 0 0 0 15.88 4.22c3.9 0 8.18-.81 12.12-2.48.6-.26 1.09.39.5.82zm1.47-1.67c-.45-.58-2.97-.27-4.1-.14-.34.04-.4-.25-.09-.46 2-1.4 5.29-1 5.67-.53.39.48-.1 3.76-1.98 5.34-.29.24-.56.11-.43-.2.42-1.06 1.37-3.42.93-4.01z"/></svg>
+              </span>
+              <span class="cs-tech-chip" aria-label="Microsoft Azure">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="azGrad1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#114A8B"/><stop offset="1" stop-color="#0669BC"/></linearGradient><linearGradient id="azGrad2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#3CCBF4"/><stop offset="1" stop-color="#2892DF"/></linearGradient></defs><path fill="url(#azGrad1)" d="M12 4h7l-7 21H6.5c-1.3 0-2.4-1.2-2-2.4L12 4z"/><path fill="#0078D4" d="M13 17h10l-3 8H8l5-8z"/><path fill="url(#azGrad2)" d="M16 4h5l9 21h-5l-2.5-6h-8L16 4z"/></svg>
+              </span>
+              <span class="cs-tech-chip" aria-label="Google Cloud">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#EA4335" d="M20 11l3-3 .2-1.3A12 12 0 0 0 6 13l1.2-.2 6-1 .5-.5A6.7 6.7 0 0 1 20 11z"/><path fill="#4285F4" d="M27 13a12 12 0 0 0-3.7-6L19 11.3a6.7 6.7 0 0 1 2.5 5.2v.6a3.3 3.3 0 0 1 0 6.6h-6.7l-.6.7v4l.6.6h6.7a8.7 8.7 0 0 0 5.4-15.7z"/><path fill="#34A853" d="M8 28h6.7v-5.3H8a3.3 3.3 0 0 1-1.4-.3l-.9.3-3.4 3.3-.3.9A8.6 8.6 0 0 0 8 28z"/><path fill="#FBBC05" d="M8 11a8.7 8.7 0 0 0-5.3 15.6l3.9-3.9a3.3 3.3 0 0 1 4.4-4.4l3.9-3.9A8.6 8.6 0 0 0 8 11z"/></svg>
+              </span>
+              <span class="cs-tech-chip" aria-label="Docker">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#2396ED" d="M29.5 13.5c-.7-.5-2.3-.7-3.5-.4-.2-1.1-.8-2.1-1.9-3l-.6-.5-.5.6a4 4 0 0 0-.5 4.3c.2.5.6 1 1 1.4a8 8 0 0 1-2.5.4H1.8l-.1.6a8 8 0 0 0 .8 5.5c.9 1.5 2.4 2.6 4.4 3.1 2.3.7 4.6.9 6.9.8a14 14 0 0 0 7.5-2c1.6-1 3-2.3 4.1-3.9 1.4-.1 2.6-.5 3.5-1.6.2-.2.5-.6.6-.8l.2-.5-.2-.5zM4 14h2.4v2.4H4V14zm3 0h2.5v2.4H7V14zm3.1 0h2.5v2.4H10V14zm3.1 0h2.5v2.4h-2.5V14zm-6.2-3h2.4v2.4H7V11zm3.1 0h2.5v2.4H10V11zm3.1 0h2.5v2.4h-2.5V11zm0-3.1h2.5v2.5h-2.5V8zm3.2 6.1h2.4v2.4h-2.4V14z"/></svg>
+              </span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <div class="cs-block cs-feature-image">
+      <img src="images/logos/gov/Case Study Section BEE.png" alt="SAMAR Certification &amp; Assessment platform" loading="lazy" />
+    </div>
+
+    <div class="container">
+      <div class="cs-single-col">
+        <div>
+          <div class="cs-block scope-v2">
+            <div class="scope-v2-intro">
+              <span class="scope-v2-eyebrow">Scope of Work</span>
+              <h2 class="scope-v2-heading">What We Delivered</h2>
+              <p class="scope-v2-lead">SAMAR was built around six integrated components &mdash; applicant portals, evaluator workflows, multi-level approval chains, digital certificate issuance, surveillance management, and operational dashboards &mdash; all running on a single digital backbone for QCI.</p>
+            </div>
+            <ol class="scope-v2-timeline">
+              <li class="scope-v2-item">
+                <div class="scope-v2-num">01.</div>
+                <h3 class="scope-v2-title">Online Application &amp; Document Management</h3>
+                <p class="scope-v2-desc">Self-service applicant portal for organisations to submit certification applications, upload supporting documents, and track application status in real time.</p>
+                <div class="scope-v2-media">
+                  <img src="images/logos/gov/Scope we deliver 1.png" alt="Online application and document management screens" loading="lazy" />
+                </div>
+              </li>
+              <li class="scope-v2-item">
+                <div class="scope-v2-num">02.</div>
+                <h3 class="scope-v2-title">Evaluator Assignment &amp; Management</h3>
+                <p class="scope-v2-desc">Automated and manual evaluator assignment system &mdash; matching assessors to applications based on domain expertise, availability, and conflict-of-interest rules.</p>
+                <div class="scope-v2-media">
+                  <img src="images/logos/gov/Scope we deliver 1.png" alt="Evaluator assignment and management screens" loading="lazy" />
+                </div>
+              </li>
+              <li class="scope-v2-item">
+                <div class="scope-v2-num">03.</div>
+                <h3 class="scope-v2-title">Multi-Level Approval Workflow</h3>
+                <p class="scope-v2-desc">Configurable multi-stage approval workflow &mdash; technical review, committee review, and final approval stages &mdash; with role-based access and full audit trail on every decision.</p>
+                <div class="scope-v2-media">
+                  <img src="images/logos/gov/Scope we deliver 1.png" alt="Multi-level approval workflow screens" loading="lazy" />
+                </div>
+              </li>
+              <li class="scope-v2-item">
+                <div class="scope-v2-num">04.</div>
+                <h3 class="scope-v2-title">Digital Certificate Issuance</h3>
+                <p class="scope-v2-desc">Automated generation and issuance of digitally signed certificates upon approval &mdash; with QR code verification and public certificate validation portal.</p>
+                <div class="scope-v2-media">
+                  <img src="images/logos/gov/Scope we deliver 1.png" alt="Digital certificate issuance screens" loading="lazy" />
+                </div>
+              </li>
+              <li class="scope-v2-item">
+                <div class="scope-v2-num">05.</div>
+                <h3 class="scope-v2-title">Surveillance &amp; Renewal Management</h3>
+                <p class="scope-v2-desc">Periodic surveillance visit scheduling, renewal reminder workflows, and compliance monitoring for active certificate holders.</p>
+                <div class="scope-v2-media">
+                  <img src="images/logos/gov/Scope we deliver 1.png" alt="Surveillance and renewal management screens" loading="lazy" />
+                </div>
+              </li>
+              <li class="scope-v2-item">
+                <div class="scope-v2-num">06.</div>
+                <h3 class="scope-v2-title">Reporting &amp; Analytics Dashboard</h3>
+                <p class="scope-v2-desc">Operational dashboard for QCI management &mdash; application volumes, approval turnaround times, evaluator performance, and certificate status across all schemes.</p>
+                <div class="scope-v2-media">
+                  <img src="images/logos/gov/Scope we deliver 1.png" alt="Reporting and analytics dashboard screens" loading="lazy" />
+                </div>
+              </li>
             </ol>
           </div>
 
-          <div class="cs-block">
-            <span class="cs-eyebrow">Technology Stack</span>
-            <div class="cs-tech-row">
-              <span class="tag">React.js</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">Digital Signatures</span>
-              <span class="tag">QR Verification</span>
-              <span class="tag">Workflow Engine</span>
-              <span class="tag">NIC Hosting</span>
+          <section class="impact-metrics">
+            <h2 class="impact-metrics-heading">Impact Metrics</h2>
+            <p class="impact-metrics-lead">Real results from organisations that have digitised regulatory and certification workflows with our platforms.</p>
+            <div class="impact-metrics-grid">
+              <article class="impact-metric-card">
+                <div class="impact-metric-num">E2E</div>
+                <div class="impact-metric-lbl">Certification lifecycle digitised</div>
+              </article>
+              <article class="impact-metric-card">
+                <div class="impact-metric-num">Zero</div>
+                <div class="impact-metric-lbl">Paper-based certification</div>
+              </article>
+              <article class="impact-metric-card">
+                <div class="impact-metric-num">Live</div>
+                <div class="impact-metric-lbl">Digital certificate verification</div>
+              </article>
             </div>
-          </div>
-
-          <div class="cs-outcomes">
-            <div class="cs-outcome"><span class="v">E2E</span><span class="l">Certification lifecycle digitised</span></div>
-            <div class="cs-outcome"><span class="v">Zero</span><span class="l">Paper-based certification</span></div>
-            <div class="cs-outcome"><span class="v">Live</span><span class="l">Digital certificate verification</span></div>
-          </div>
-
-          <a class="btn btn-primary" href="contact.html">Discuss a Similar Requirement</a>
+            <div class="impact-metrics-cta">
+              <a class="btn btn-primary btn-glow btn-md" href="contact.html"><span class="btn-glow-label">Discuss a Similar Project</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </section>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <aside class="cs-info-card">
-          <div class="cs-info-lbl">Client</div>
-          <div class="cs-info-item"><strong>Quality Council of India (QCI)</strong></div>
-          <div class="cs-info-lbl">Ministry</div>
-          <div class="cs-info-item">DPIIT &middot; Ministry of Commerce</div>
-          <div class="cs-info-lbl">Service Type</div>
-          <div class="cs-info-item">e-Governance &middot; Workflow Platform &middot; Regulatory</div>
-          <div class="cs-info-lbl">Technology</div>
-          <div class="cs-info-item">React.js &middot; Node.js &middot; PostgreSQL</div>
-          <div class="cs-info-divider">
-            <a class="btn btn-primary" href="contact.html">Discuss a Similar Project</a>
+  <!-- Other Government Projects — horizontal carousel -->
+  <section class="other-projects">
+    <div class="container">
+      <div class="other-projects-head">
+        <h2 class="other-projects-heading">Other Government Projects</h2>
+        <div class="other-projects-nav" role="group" aria-label="Carousel navigation">
+          <button type="button" class="other-projects-arrow" id="otherProjectsPrev" aria-label="Previous projects">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          </button>
+          <button type="button" class="other-projects-arrow" id="otherProjectsNext" aria-label="Next projects">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="other-projects-track" id="otherProjectsTrack">
+        <article class="op-card op-card--green">
+          <a href="case-bee.html" class="op-card-banner" aria-label="BEE Star Label Compliance">
+            <img src="images/case-studies/bee-star-label.png" alt="" loading="lazy" />
+          </a>
+          <div class="op-card-body">
+            <h3 class="op-card-title">BEE Star Label Compliance</h3>
+            <p class="op-card-desc">National platform replacing manual appliance compliance inspections with offline-first field officer app and real-time dashboards for State Designated Agencies.</p>
           </div>
-        </aside>
+        </article>
+
+        <article class="op-card op-card--mint">
+          <a href="case-studies.html" class="op-card-banner" aria-label="Sickle Scan — National Health Screening">
+            <img src="images/case-studies/ministry-of-tribal-affairs.png" alt="" loading="lazy" />
+          </a>
+          <div class="op-card-body">
+            <h3 class="op-card-title">Sickle Scan &mdash; National Health Screening Platform</h3>
+            <p class="op-card-desc">Offline-capable, multilingual mobile platform deployed in tribal and remote areas for India&rsquo;s national sickle cell disease eradication initiative.</p>
+          </div>
+        </article>
+
+        <article class="op-card op-card--peach">
+          <a href="case-parliament.html" class="op-card-banner" aria-label="Sansad Cafeteria Food Ordering System">
+            <img src="images/case-studies/sansad-cafeteria.png" alt="" loading="lazy" />
+          </a>
+          <div class="op-card-body">
+            <h3 class="op-card-title">Sansad Cafeteria Food Ordering System</h3>
+            <p class="op-card-desc">Multi-outlet facility management system deployed across Parliament premises, serving Members of Parliament in one of India&rsquo;s highest-security environments.</p>
+          </div>
+        </article>
+
+        <article class="op-card op-card--blue">
+          <a href="case-studies.html" class="op-card-banner" aria-label="Manthan — Defence PSU Platform">
+            <img src="images/case-studies/manthan-application.png" alt="" loading="lazy" />
+          </a>
+          <div class="op-card-body">
+            <h3 class="op-card-title">Manthan &mdash; Defence PSU Platform</h3>
+            <p class="op-card-desc">Enterprise technology platform for Munitions India Limited &mdash; secure, compliant digital infrastructure supporting a Defence Public Sector Undertaking.</p>
+          </div>
+        </article>
+
+        <article class="op-card op-card--red">
+          <a href="case-studies.html" class="op-card-banner" aria-label="NBT India E-commerce">
+            <img src="images/case-studies/nbt-ecommerce.png" alt="" loading="lazy" />
+          </a>
+          <div class="op-card-body">
+            <h3 class="op-card-title">National Book Trust E-commerce</h3>
+            <p class="op-card-desc">Multilingual e-commerce platform for the Ministry of Education&rsquo;s National Book Trust &mdash; catalogue, payments and fulfilment for India&rsquo;s flagship publisher.</p>
+          </div>
+        </article>
+
+        <article class="op-card op-card--violet">
+          <a href="case-studies.html" class="op-card-banner" aria-label="Parliamentary Affairs Portal">
+            <img src="images/case-studies/parliamentary-affairs.png" alt="" loading="lazy" />
+          </a>
+          <div class="op-card-body">
+            <h3 class="op-card-title">Parliamentary Affairs Portal</h3>
+            <p class="op-card-desc">Digital workflow platform for the Ministry of Parliamentary Affairs &mdash; legislative session tracking, document management and inter-ministry coordination.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="other-projects-dots" id="otherProjectsDots" role="tablist" aria-label="Carousel pages">
+        <button type="button" class="op-dot is-active" aria-label="Page 1"></button>
+        <button type="button" class="op-dot" aria-label="Page 2"></button>
+        <button type="button" class="op-dot" aria-label="Page 3"></button>
+        <button type="button" class="op-dot" aria-label="Page 4"></button>
+        <button type="button" class="op-dot" aria-label="Page 5"></button>
+        <button type="button" class="op-dot" aria-label="Page 6"></button>
       </div>
     </div>
   </section>
@@ -241,5 +1070,84 @@
   <script src="js/main.js"></script>
   <script src="js/i18n-dict.js" defer></script>
   <script src="js/lang-toggle.js" defer></script>
+
+  <script>
+    // Other Government Projects — carousel: arrows + dots
+    (function () {
+      var track = document.getElementById('otherProjectsTrack');
+      var prev = document.getElementById('otherProjectsPrev');
+      var next = document.getElementById('otherProjectsNext');
+      var dotsRoot = document.getElementById('otherProjectsDots');
+      if (!track) return;
+      var cards = track.querySelectorAll('.op-card');
+      var dots = dotsRoot ? dotsRoot.querySelectorAll('.op-dot') : [];
+      if (!cards.length) return;
+
+      function cardStep() {
+        if (cards.length < 2) return cards[0].offsetWidth;
+        return cards[1].offsetLeft - cards[0].offsetLeft;
+      }
+      function visibleCount() {
+        var step = cardStep();
+        if (!step) return 1;
+        return Math.max(1, Math.round(track.clientWidth / step));
+      }
+      function pageCount() {
+        return Math.max(1, cards.length - visibleCount() + 1);
+      }
+      function activeIndex() {
+        var step = cardStep();
+        if (!step) return 0;
+        return Math.round(track.scrollLeft / step);
+      }
+      function syncDots() {
+        if (!dots.length) return;
+        var idx = activeIndex();
+        var pages = pageCount();
+        dots.forEach(function (d, i) {
+          // Map the (pageCount) pages onto the 6 dots evenly so the indicator
+          // still moves even if there are more/fewer cards than dots.
+          var ratio = pages > 1 ? idx / (pages - 1) : 0;
+          var dotIndex = Math.round(ratio * (dots.length - 1));
+          d.classList.toggle('is-active', i === dotIndex);
+        });
+      }
+      function syncArrows() {
+        if (prev) prev.disabled = activeIndex() <= 0;
+        if (next) next.disabled = activeIndex() >= pageCount() - 1;
+      }
+
+      if (prev) prev.addEventListener('click', function () {
+        track.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+      });
+      if (next) next.addEventListener('click', function () {
+        track.scrollBy({ left: cardStep(), behavior: 'smooth' });
+      });
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          var pages = pageCount();
+          var targetIdx = Math.round((i / Math.max(1, dots.length - 1)) * (pages - 1));
+          track.scrollTo({ left: targetIdx * cardStep(), behavior: 'smooth' });
+        });
+      });
+
+      var ticking = false;
+      track.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            syncDots();
+            syncArrows();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      syncDots();
+      syncArrows();
+      window.addEventListener('resize', function () { syncDots(); syncArrows(); });
+    })();
+  </script>
 </body>
 </html>
