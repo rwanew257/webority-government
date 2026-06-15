@@ -2111,14 +2111,14 @@ form { display: grid; gap: var(--space-4); }
   background: var(--white);
   border: 1px solid var(--outline);
   border-radius: 12px;
-  padding: 20px;
+  padding: 20px 20px;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .partner-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .partner-card-logo {
-  width: 136px; height: 136px;
-  margin: 0 auto 2px;
+  width: 64px !important; height: 64px !important;
+  margin: 0 auto 16px;
   border-radius: 0;
   background: transparent;
   display: flex; align-items: center; justify-content: center;
@@ -2128,15 +2128,30 @@ form { display: grid; gap: var(--space-4); }
   color: var(--text-2);
   letter-spacing: 0.05em;
   overflow: hidden;
-  padding: 8px;
+  padding: 0;
+  box-sizing: border-box;
 }
 .partner-card-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: 64px;
-  object-fit: contain;
-  display: block;
+  width: 64px !important;
+  height: 64px !important;
+  min-width: 64px !important;
+  min-height: 64px !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+.partner-card.partner-card--wide-logo .partner-card-logo {
+  width: auto !important;
+  height: 64px !important;
+  overflow: visible !important;
+}
+.partner-card.partner-card--wide-logo .partner-card-logo img {
+  width: auto !important;
+  height: 64px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
 }
 .partner-card-name {
   font-family: var(--font-heading);

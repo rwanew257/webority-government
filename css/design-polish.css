@@ -873,6 +873,7 @@ body.contact-page .download-cta { background: #f9fafb; }
 }
 .case-card-v3 .case-card-body {
   gap: 0 !important;
+  padding-top: 0 !important;
 }
 .case-card-v3 h3 {
   font-weight: 500 !important;
@@ -1642,6 +1643,14 @@ body.sectors-page .sect-tight .stats-v2 {
   color: var(--text-2, #2c3344);
   margin: 0;
 }
+body.sectors-page .svc-card-v2,
+body.sectors-page .cap-card { gap: 0 !important; }
+body.sectors-page .svc-card-v2 .svc-card-ic-v2,
+body.sectors-page .cap-card .cap-card-icon { margin-bottom: 20px !important; }
+body.sectors-page .svc-card-v2 h3,
+body.sectors-page .cap-card h3 { margin: 0 0 10px !important; }
+body.sectors-page .svc-card-v2 p,
+body.sectors-page .cap-card p { margin: 0 !important; }
 
 .svc-cta-row {
   display: flex;
@@ -3432,9 +3441,11 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
    PNGs in images/case-studies/ are ~1272×640 (2:1 ratio) after server-side crop. */
 .case-card-banner {
   position: relative;
-  width: 100%;
+  width: calc(100% - 32px);
   aspect-ratio: 2 / 1;
   overflow: hidden;
+  margin: 16px 16px 20px;
+  border-radius: 12px;
 }
 .case-card-banner img {
   width: 100%;
@@ -3686,11 +3697,11 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   min-width: 0;
 }
 .case-card-logo {
-  flex: 0 0 64px;
-  width: 64px; height: 64px;
+  flex: 0 0 54px;
+  width: 54px; height: 54px;
   display: grid; place-items: center;
-  border-radius: 50%;
-  background: #fff;
+  border-radius: 0;
+  background: transparent;
   overflow: hidden;
 }
 .case-card-logo img {
@@ -7584,25 +7595,23 @@ html .case-card:focus-visible h4 {
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
   gap: 4px !important;
-  padding-top: 10px !important;
-  padding-bottom: 0 !important;
-  padding-left: max(24px, calc(50vw - 640px)) !important;
-  padding-right: max(24px, calc(50vw - 640px)) !important;
+  padding: 10px 0 0 !important;
   border-top: 0 !important;
   border-bottom: 0 !important;
-  margin: 0 calc(50% - 50vw) 40px !important;
+  margin: 0 auto 40px !important;
   background: #ffffff !important;
   backdrop-filter: saturate(140%) blur(10px) !important;
   -webkit-backdrop-filter: saturate(140%) blur(10px) !important;
   box-shadow: none !important;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
-  width: 100vw !important;
-  max-width: none !important;
+  width: 100% !important;
+  max-width: 1280px !important;
   justify-content: flex-start !important;
   position: sticky !important;
   top: var(--nav-height, 64px) !important;
   z-index: 100 !important;
+  box-sizing: border-box !important;
 }
 .sector-tabs::-webkit-scrollbar { display: none !important; }
 .sector-tab {
