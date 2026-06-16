@@ -316,7 +316,8 @@ body.sectors-page .site-header.has-open-megamenu {
 .megamenu-feature-img img {
   width: 100%; height: 100%;
   object-fit: cover; object-position: center;
-  opacity: .85;
+  opacity: 1;
+  filter: blur(4px);
 }
 .megamenu-feature-body {
   position: absolute;
