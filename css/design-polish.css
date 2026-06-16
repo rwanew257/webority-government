@@ -295,7 +295,7 @@ body.sectors-page .site-header.has-open-megamenu {
 }
 
 /* Case-study feature card on the right */
-.megamenu-col--feature .megamenu-eyebrow { margin-bottom: 24px; }
+.megamenu-col--feature .megamenu-eyebrow { display: none; }
 .megamenu-feature {
   display: block;
   position: relative;
