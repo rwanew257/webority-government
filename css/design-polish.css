@@ -302,11 +302,12 @@ body.sectors-page .site-header.has-open-megamenu {
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
-  background: linear-gradient(135deg, #0f6b3a 0%, #14904a 60%, #1aa755 100%);
+  background: #000000;
   min-height: 240px;
   color: #ffffff;
   transition: transform .25s ease, box-shadow .25s ease;
 }
+.megamenu-feature .megamenu-feature-img { display: none; }
 .megamenu-feature:hover { transform: translateY(-2px); box-shadow: none; }
 .megamenu-feature-img {
   position: absolute; inset: 0;
@@ -323,7 +324,7 @@ body.sectors-page .site-header.has-open-megamenu {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   padding: 20px 22px 22px;
-  background: linear-gradient(180deg, rgba(15, 85, 40, 0) 0%, rgba(8, 56, 28, .85) 70%, rgba(8, 56, 28, .95) 100%);
+  background: transparent;
 }
 .megamenu-feature h5 {
   font-family: var(--font-heading);
@@ -4517,7 +4518,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   color: rgba(255,255,255,.65);
   font-size: 12.5px;
   display: block;
-  font-family: var(--font-heading);
+  font-family: 'Times New Roman', Times, serif;
 }
 .wg-promo-cta-text strong {
   font-family: var(--font-display, var(--font-heading));
