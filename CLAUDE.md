@@ -1,0 +1,60 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this is
+
+A **static, hand-built multi-page marketing website** for Webority Technologies' Indian public-sector ("Government") practice. There is **no framework, no bundler, and no build step for the site itself** — the `.html` files in the repo root are the deployable artifact, served as-is. Open any page directly in a browser (e.g. `index.html`) to develop; there is no dev server and `package.json` defines no scripts.
+
+The `node` dependencies (`sharp`, `pdf-to-png-converter`) exist **only** for the one-off image-generation scripts in `scripts/`, not for serving the site.
+
+## Architecture
+
+### Pages
+Each top-level `*.html` is a complete, standalone page (`index`, `about`, `services`, `sectors`, `case-studies`, `credentials`, `contact`, plus per-case-study `case-*.html`, and a `design-system.html` reference). There is **no templating** — the header, nav, mega-menu, and footer markup is **physically duplicated in every page**. A change to navigation, brand, or footer must be applied to *every* HTML file or the site becomes inconsistent. `design-system.html` is a living style/component reference, not a shipped page.
+
+### CSS cascade — order is load-bearing
+Stylesheets are linked in a fixed order and **later files intentionally override earlier ones**:
+1. `css/style.css` — the original hand-built base stylesheet. Defines layout, the `--primary: #6200ee` token, and most components. Historically treated as "do not modify" (see `CHANGES.md`).
+2. `css/gov-identity.css` — government identity layer: skip-nav link, `:focus-visible` outlines, language-toggle styling. Injected alongside the `WG_GOV_BAR_MARK` comment marker.
+3. `css/design-polish.css` — the **top override layer** (largest file). Most recent visual refinements live here and win the cascade.
+
+When adjusting styles, prefer adding to `design-polish.css` so the override order is preserved; only touch `style.css` for genuinely foundational changes.
+
+### JavaScript (vanilla, IIFE, no modules)
+Loaded at the end of `<body>` in this order:
+- `js/main.js` — all interactivity: mobile nav toggle, sticky-header shadow, the services **mega-menu** (the panel is a *sibling* of the nav, not a child, so it's driven entirely from JS rather than CSS `:hover`).
+- `js/i18n-dict.js` — defines `window.WG_I18N_HI`, an English-source-string → Hindi map. Must load **before** the toggle.
+- `js/lang-toggle.js` — the EN/Hindi switcher.
+
+### i18n is text-node translation, not key-based
+`lang-toggle.js` does **not** rely on `data-i18n` attributes (even though some exist in the markup — they are vestigial). Instead it walks every text node under `<body>` with a `TreeWalker`, looks up the node's **trimmed English text** as a key in `WG_I18N_HI`, and swaps in the Hindi value, snapshotting the original English (via `WeakMap`) so switching back restores it. Consequences:
+- To make new copy translatable, add an entry to `js/i18n-dict.js` keyed by the **exact trimmed English string** as it appears on the page. No markup change needed.
+- Missing keys fall back gracefully to English.
+- Nodes inside `SCRIPT/STYLE/CODE/PRE/TEXTAREA/INPUT/SELECT/OPTION`, anything with `.gov-lang-toggle`, and anything marked `data-no-i18n` are skipped. Use `data-no-i18n` to protect proper nouns / brand names / standards codes from translation.
+- Language choice persists in `localStorage` under `wg-lang`.
+
+### Image-generation scripts (`scripts/`) — manual, build-time only
+These are Node utilities run by hand to produce assets committed under `images/`; they are not part of the site runtime. Several read source files from the user's `~/Downloads`. Run individually, e.g.:
+```
+node scripts/case-pdfs-to-png.cjs       # case-study PDFs (Downloads) → images/case-studies PNGs
+node scripts/pdf-to-png.cjs             # certificate PDFs → images/credentials PNGs
+node scripts/crop-case-images.cjs       # crop baked-in "MINISTRY OF X" chips off case images
+node scripts/build-team-collage.js      # composite images/team/*.jpg → team collage
+node scripts/build-story-illustration.js
+```
+
+## Conventions specific to this repo
+
+- **`TODO-WG`** marks every spot deliberately handed off for human review (placeholder emails, unverified compliance claims, legal sign-offs). Find them all: `grep -rn "TODO-WG" .`. Do not silently resolve or remove these — they gate publication.
+- **`WG_GOV_BAR_MARK`** marks the injected government-identity additions across pages; grep it to locate them consistently.
+- `CHANGES.md` is a narrative changelog of past iterations and `REVIEW_NEEDED.md` / `docs/audit/*` track outstanding decisions — consult them before assuming why something is the way it is.
+
+## Domain caution: regulated national symbols
+
+This is an Indian-government-facing site. The **State Emblem of India (Lion Capital of Ashoka), the Ashoka Chakra, and the national flag are legally protected** (State Emblem of India (Prohibition of Improper Use) Act 2005; Prevention of Insults to National Honour Act 1971). Existing decorative marks are deliberately *chakra-styled motifs, not the real emblem*. Do not introduce the actual State Emblem, Ashoka Chakra, or flag imagery, and flag any request to do so for legal review (see `REVIEW_NEEDED.md`). Compliance/empanelment badges (CMMI L5, ISO, GIGW, GeM, Startup India) are claims that must be verified true before publishing — treat them as `TODO-WG`-gated.
+
+## Editing notes
+
+- Files are UTF-8 and some begin with a BOM; a few contain mojibake from earlier encoding round-trips (e.g. `â€"` for an em-dash). Preserve the existing encoding of a file when editing rather than mass-rewriting it.
+- Because pages are duplicated, when asked to change shared chrome (nav links, brand, footer, the gov bar), apply the edit across **all** affected `*.html` files.
