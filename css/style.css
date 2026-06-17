@@ -181,7 +181,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --hero-padding: var(--space-16-mobile);
   --section-padding: var(--space-12-mobile);
   --card-padding: var(--space-6-mobile);
-  --container-padding: var(--space-4-mobile);
+  --container-padding: var(--space-4);
   --nav-height: 3.5rem;
   --nav-font-size: var(--fs-16-mobile);
   --btn-padding-y: var(--space-3-mobile);
@@ -199,7 +199,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     --hero-padding: var(--space-20-tablet);
     --section-padding: var(--space-16-tablet);
     --card-padding: var(--space-8-tablet);
-    --container-padding: var(--space-6-tablet);
+    --container-padding: var(--space-6);
     --nav-height: 4rem;
     --nav-font-size: var(--fs-18-tablet);
     --btn-padding-y: var(--space-4-tablet);
@@ -216,7 +216,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     --hero-padding: var(--space-32-desktop);
     --section-padding: var(--space-24-desktop);
     --card-padding: var(--space-12-desktop);
-    --container-padding: var(--space-8-desktop);
+    --container-padding: var(--space-8);
     --nav-height: 4.5rem;
     --nav-font-size: var(--fs-18-desktop);
     --btn-padding-y: var(--space-5-desktop);
@@ -232,7 +232,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     --section-subtitle: var(--fs-24-desktop);
     --hero-padding: var(--space-48-desktop);
     --section-padding: var(--space-32-desktop);
-    --container-padding: var(--space-12-desktop);
+    --container-padding: var(--space-12);
   }
 }
 @media (min-width: 1920px) {
@@ -243,7 +243,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     --section-subtitle: var(--fs-28-desktop);
     --hero-padding: var(--space-64-desktop);
     --section-padding: var(--space-40-desktop);
-    --container-padding: var(--space-16-desktop);
+    --container-padding: var(--space-16);
   }
 }
 @media (prefers-reduced-motion: reduce) {
