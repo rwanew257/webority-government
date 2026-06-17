@@ -470,7 +470,10 @@ body.sectors-page .site-header.has-open-megamenu {
 }
 
 @media (max-width: 880px) {
-  .hero-v2 { min-height: 540px; padding: 40px 0; }
+  /* Keep the top padding large enough to clear the header: .hero-v2 still has
+     the -(2.5rem + 72px) negative margin pulling it up behind the sticky header,
+     so padding-top must exceed that or the heading collides with the logo. */
+  .hero-v2 { min-height: 540px; padding: calc(2.5rem + 72px + 24px) 0 48px; }
   .hero-v2::before { background-position: 70% center; }
   .hero-v2::after {
     background: linear-gradient(180deg,
@@ -1728,6 +1731,12 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 /* When .ai-split-v2 also has .ai-split applied (HTML uses both classes),
    ensure the left column aligns to the TOP of the right card grid. */
 .ai-split.ai-split-v2 { align-items: start; }
+/* Below 1080px the ~684px-wide right card grid no longer fits beside the
+   left pitch column and overlaps it — stack the section instead. */
+@media (max-width: 1080px) {
+  .ai-split.ai-split-v2 { grid-template-columns: 1fr; gap: 40px; }
+  .ai-split-v2 .ai-pitch { position: static; top: auto; }
+}
 .ai-split-v2 .ai-pitch {
   display: flex;
   flex-direction: column;
@@ -1834,10 +1843,17 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   flex-direction: column;
   gap: 24px;
 }
-@media (min-width: 721px) {
+/* Stagger only on true desktop, where the section is laid out side-by-side. */
+@media (min-width: 1081px) {
   .ai-col--offset { margin-top: 80px; }
 }
-@media (max-width: 720px) {
+/* Tablet (section stacked): even 2-up cards, no stagger. */
+@media (min-width: 601px) and (max-width: 1080px) {
+  .ai-split-v2 .ai-cards { grid-template-columns: repeat(2, 1fr); }
+  .ai-col--offset { margin-top: 0; }
+}
+/* Mobile: single column of cards. */
+@media (max-width: 600px) {
   .ai-cards { grid-template-columns: 1fr; }
   .ai-col--offset { margin-top: 0; }
 }
@@ -6155,11 +6171,14 @@ html .case-card:focus-visible h4 {
   font-family: 'Times New Roman', Times, serif !important;
   font-style: italic;
   font-weight: 400;
-  font-size: 38px;
+  /* Responsive: was a fixed 38px that overran the viewport on tablet/mobile. */
+  font-size: clamp(1.5rem, 4vw, 38px);
   line-height: 1.1;
   letter-spacing: -.02em;
   color: #000000;
   margin: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 .caps-v2-title em {
   font-family: 'Times New Roman', Times, serif !important;
@@ -6176,6 +6195,10 @@ html .case-card:focus-visible h4 {
   margin: 0;
   max-width: 100%;
 }
+@media (max-width: 600px) {
+  .caps-v2-head { margin-bottom: 32px; gap: 14px; }
+  .caps-v2-head-right p { font-size: 16px; }
+}
 
 .caps-v2-body {
   display: grid;
@@ -6183,6 +6206,10 @@ html .case-card:focus-visible h4 {
   gap: 64px;
   align-items: start;
 }
+/* Let the 1fr tracks actually shrink — without this the columns refuse to go
+   below their content's min-content width and the grid overflows the row. */
+.caps-v2-visual,
+.caps-v2-accordion-col { min-width: 0; }
 /* Swap order: accordion sits on the LEFT (aligned with "Our Capabilities"
    heading), image on the right. */
 .caps-v2-visual { order: 1; }
