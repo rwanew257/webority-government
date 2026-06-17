@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAPT &amp; Cybersecurity for Government India &mdash; Webority Government</title>
+  <meta name="description" content="Comprehensive cybersecurity for Indian government — VAPT, ISO 27001 implementation, and CERT-In aligned incident response for ministries, paramilitary forces, and PSUs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- WG_GOV_BAR_MARK : gov identity stylesheet -->
+  <link rel="stylesheet" href="css/gov-identity.css" />
+  <link rel="stylesheet" href="css/design-polish.css" />
+  <style>
+    /* ============================================================
+       e-Governance category page — scoped styles.
+       Tokens mirror design-polish.css: primary #6a3df0, heading
+       #0e1640, body #4b5675, card #f9fafb / border #eceff4.
+       ============================================================ */
+
+    /* ---------- Hero ---------- */
+    .egov-hero {
+      position: relative;
+      overflow: hidden;
+      padding: calc(var(--nav-height, 64px) + 88px) 0 96px;
+      margin-top: calc(-1 * var(--nav-height, 64px));
+      /* Multicolour watercolour wash per the Main Container design:
+         mint-green (left) → lavender (centre) → warm orange (right). */
+      background:
+        radial-gradient(95% 135% at 100% 55%, #ffc06b 0%, rgba(255,192,107,0) 52%),
+        radial-gradient(80% 120% at 0% 0%, #c9e8d2 0%, rgba(201,232,210,0) 50%),
+        linear-gradient(100deg, #cfe9d6 0%, #d8d4f2 34%, #e9d6ee 54%, #f7dcc0 78%, #ffce8f 100%);
+    }
+    .egov-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 60%, #ffffff 100%);
+      pointer-events: none;
+    }
+    .egov-hero .container { position: relative; z-index: 1; }
+    .egov-hero-content { max-width: 1040px; }
+    .egov-eyebrow {
+      display: inline-block;
+      color: var(--primary, #6a3df0);
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 14px;
+    }
+    .egov-hero h1 {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--heading, #0e1640);
+      font-size: clamp(2.4rem, 1.6rem + 3vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin: 0 0 18px;
+    }
+    .egov-hero p.egov-hero-lead {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 18px;
+      line-height: 1.6;
+      color: #4b5675;
+      margin: 0;
+      max-width: 920px;
+    }
+
+    /* ---------- Intro band ---------- */
+    .egov-band { padding: 100px 0; background: #ffffff; }
+    .egov-band-grid {
+      display: grid;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    @media (max-width: 920px) { .egov-band-grid { grid-template-columns: 1fr; gap: 48px; } }
+    .egov-h2 {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--heading, #0e1640);
+      font-size: clamp(2rem, 1.6rem + 1.6vw, 2.8rem);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin: 8px 0 18px;
+    }
+    .egov-band p.copy {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 16px;
+      line-height: 1.7;
+      color: #4b5675;
+      margin: 0 0 24px;
+    }
+    .egov-checklist { list-style: none; padding: 0; margin: 0 0 36px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; row-gap: 16px; }
+    @media (max-width: 560px) { .egov-checklist { grid-template-columns: 1fr; } }
+    .egov-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 15px;
+      font-weight: 500;
+      color: #0e1640;
+      line-height: 1.5;
+    }
+    .egov-check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary, #6a3df0);
+      display: inline-grid;
+      place-items: center;
+      margin-top: 1px;
+    }
+    .egov-check svg { width: 12px; height: 12px; color: #ffffff; }
+    .egov-btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    /* Reference Projects panel on the right */
+    .egov-ref-list { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 24px; }
+    .egov-ref-item { display: flex; align-items: center; gap: 16px; }
+    .egov-ref-logo {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #eceff4;
+      display: inline-grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .egov-ref-logo img { width: 34px; height: 34px; object-fit: contain; display: block; }
+    .egov-ref-name {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-weight: 600;
+      font-size: 16px;
+      color: #0e1640;
+      margin: 0;
+      line-height: 1.3;
+    }
+    .egov-ref-proj {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 13px;
+      color: #6b7385;
+      margin: 3px 0 0;
+      line-height: 1.4;
+    }
+
+    /* ---------- What We Build grid ---------- */
+    .egov-build { padding: 100px 0; background: #f9fafb; }
+    .egov-build-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+    .egov-build-head .egov-h2 { margin-top: 0; }
+    .egov-build-head p {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4b5675;
+      margin: 0;
+    }
+    .egov-build-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .egov-build-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .egov-build-grid { grid-template-columns: 1fr; } }
+    .egov-build-card {
+      background: #ffffff;
+      border: 1px solid #eceff4;
+      border-radius: 18px;
+      padding: 32px 28px;
+      transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 300ms ease;
+    }
+    .egov-build-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(14,22,64,0.35); }
+    .egov-build-ic {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(106, 61, 240, 0.10);
+      display: inline-grid;
+      place-items: center;
+      margin-bottom: 20px;
+    }
+    .egov-build-ic img { width: 28px; height: 28px; object-fit: contain; display: block; }
+    .egov-build-card h3 {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.3;
+      color: #0e1640;
+      margin: 0 0 10px;
+    }
+    .egov-build-card p {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 14px;
+      line-height: 1.6;
+      color: #4b5675;
+      margin: 0;
+    }
+
+    /* ---------- Certifications band ---------- */
+    .egov-certs { padding: 100px 0; background: #ffffff; }
+    .egov-certs .sect-head { text-align: center; margin-bottom: 48px; }
+    .egov-certs .egov-h2 { margin-top: 8px; }
+
+    /* ---------- FAQ ---------- */
+    .egov-faq { padding: 100px 0 110px; background: #f9fafb; }
+    .egov-faq .sect-head { text-align: center; margin-bottom: 40px; }
+    .egov-faq .egov-h2 { margin-top: 8px; }
+
+    /* ---------- CTA strip ---------- */
+    .egov-cta {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0e1640 0%, #2a1a6e 60%, #4e00be 100%);
+      text-align: center;
+    }
+    .egov-cta h2 {
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.6rem);
+      margin: 0 0 14px;
+    }
+    .egov-cta p {
+      font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      margin: 0 auto 28px;
+      max-width: 560px;
+    }
+  
+    /* ---- per-service additions ---- */
+    .egov-build-ic svg { width: 28px; height: 28px; color: var(--primary, #6a3df0); }
+    .svc-hero-standards { margin: 18px 0 0; font-family: var(--font-heading, 'Josefin Sans', sans-serif); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: #5b4b8a; }
+    .egov-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 32px; padding: 0; list-style: none; }
+    .egov-tags li { font-family: var(--font-heading, 'Josefin Sans', sans-serif); font-size: 12px; font-weight: 600; color: #5b4b8a; background: rgba(106,61,240,0.07); border: 1px solid rgba(106,61,240,0.16); border-radius: 999px; padding: 5px 12px; }
+    .egov-ref-logo--generic { background: rgba(106,61,240,0.10); border: 0; }
+    .egov-ref-logo--generic svg { width: 24px; height: 24px; color: var(--primary, #6a3df0); }
+  </style>
+</head>
+<body class="services-page">
+  <a class="skip-nav-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand brand--logo" href="index.html" aria-label="Webority Technologies - Government practice home"><img class="brand-logo-img" src="images/logos/gov/Company logo.svg" alt="Webority Technologies" /></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-menu" id="navMenu">
+        <li class="has-megamenu" data-megamenu="services">
+          <a href="services.html" class="active" aria-haspopup="true" aria-expanded="false">Services</a>
+        </li>
+        <li class="has-megamenu" data-megamenu="services">
+          <a href="case-studies.html" data-i18n="nav.case-studies" aria-haspopup="true" aria-expanded="false">Case Studies</a>
+        </li>
+        <li><a href="sectors.html" data-i18n="nav.sectors">Sectors</a></li>
+        <li><a href="credentials.html" data-i18n="nav.credentials">Credentials</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+        <li class="nav-cta-group">
+          <div class="nav-lang" role="group" aria-label="Language switcher (placeholder - Hindi copy not yet wired)">
+            <button type="button" class="gov-lang-toggle" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
+            <button type="button" class="gov-lang-toggle" data-lang="hi" aria-pressed="false" aria-label="Switch to Hindi" lang="hi">&#2361;&#2367;&#2306;&#2342;&#2368;</button>
+          </div>
+          <a class="btn btn-primary btn-glow" href="contact.html" data-i18n="nav.contact-cta"><span class="btn-glow-label">Contact Us</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Services megamenu: slides down from the nav on hover/click of "Services". -->
+    <div class="megamenu" id="megamenu-services" data-megamenu-panel="services" aria-hidden="true">
+      <div class="container">
+        <div class="megamenu-grid">
+          <div class="megamenu-col">
+            <span class="megamenu-eyebrow">Services</span>
+            <ul class="megamenu-list" role="list">
+              <li><a href="service-egov.html">
+                <h5>e-Governance &amp; Custom Software</h5>
+                <p>NIC-compatible platforms, G2C/G2G/G2B</p>
+              </a></li>
+              <li><a href="services.html#staff">
+                <h5>IT Staff Augmentation</h5>
+                <p>Vetted engineers for ministries &amp; PSUs</p>
+              </a></li>
+              <li><a href="services.html#mobile">
+                <h5>Citizen Mobile &amp; Web Apps</h5>
+                <p>High-capacity floor units</p>
+              </a></li>
+              <li><a href="services.html#consulting">
+                <h5>Digital Transformation Consulting</h5>
+                <p>Roadmaps, RFP support, PMU</p>
+              </a></li>
+            </ul>
+          </div>
+
+          <div class="megamenu-col">
+            <ul class="megamenu-list" role="list">
+              <li><a href="services.html#ai">
+                <h5>AI &amp; Data Analytics</h5>
+                <p>Dashboard, NLP, fraud detection, MLOps</p>
+              </a></li>
+              <li><a href="services.html#security">
+                <h5>Cybersecurity &amp; VAPT</h5>
+                <p>CERT-In, ISO 27001, DPDP compliance</p>
+              </a></li>
+              <li><a href="services.html#legacy">
+                <h5>Legacy System Modernisation</h5>
+                <p>Migration without disrupting operations</p>
+              </a></li>
+              <li><a href="services.html#cloud">
+                <h5>Cloud &amp; Managed Services</h5>
+                <p>MeghRaj, NIC hosting, AMC, 24x7</p>
+              </a></li>
+            </ul>
+          </div>
+
+          <div class="megamenu-col megamenu-col--feature">
+            <span class="megamenu-eyebrow">New Case Study</span>
+            <a class="megamenu-feature" href="case-studies.html">
+              <div class="megamenu-feature-img" aria-hidden="true">
+                <img src="images/logos/gov/Bee Menu card image.png" alt="" loading="lazy" />
+              </div>
+              <div class="megamenu-feature-body">
+                <h5>Bee Star Label mobile app</h5>
+                <p>National appliance compliance platform &mdash; offline field inspection app for SDA officers, real-time central.</p>
+                <span class="megamenu-feature-cta">Explore Full Case Study &rsaquo;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <a id="main-content" tabindex="-1"></a>
+
+  <!-- Hero -->
+  <section class="egov-hero">
+    <div class="container">
+      <div class="egov-hero-content">
+        <h1>VAPT &amp; Cybersecurity for Government India</h1>
+        <p class="egov-hero-lead">Comprehensive security services — from VAPT assessments to ISO 27001 implementation and CERT-In aligned incident response — for Central Government ministries, paramilitary forces, and PSUs.</p>
+        <p class="svc-hero-standards">CERT-In Aligned   ·   ISO 27001:2017 Certified   ·   DPDP Act Compliant</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Deliver -->
+  <section class="egov-band">
+    <div class="container">
+      <div class="egov-band-grid">
+        <div>
+          <span class="egov-eyebrow">What We Deliver</span>
+          <h2 class="egov-h2">Securing India’s Government Digital Infrastructure</h2>
+          <p class="copy">We provide comprehensive cybersecurity services designed for government environments — from VAPT assessments to full ISO 27001 implementation support and CERT-In aligned incident response planning.</p>
+          <p class="copy">Our team has conducted security assessments for paramilitary forces under the Ministry of Home Affairs — among the most sensitive government environments in India. Every engagement is conducted with the highest levels of confidentiality and GoI security compliance.</p>
+          <ul class="egov-checklist">
+            <li><span class="egov-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span> Vulnerability Assessment &amp; Penetration Testing</li>
+            <li><span class="egov-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span> Web Application Security Audits</li>
+            <li><span class="egov-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span> Network Security Assessment</li>
+            <li><span class="egov-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span> ISO 27001:2017 Implementation</li>
+            <li><span class="egov-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span> CERT-In Compliance Gap Analysis</li>
+            <li><span class="egov-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span> Security Architecture Design</li>
+            <li><span class="egov-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span> Cybersecurity Policy &amp; SOP Documentation</li>
+            <li><span class="egov-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span> Third-Party Vendor Security Assessment</li>
+          </ul>
+          <ul class="egov-tags" aria-label="Keywords">
+            <li>CERT-In</li>
+            <li>VAPT</li>
+            <li>ISO 27001</li>
+            <li>OWASP Top 10</li>
+            <li>NCIIPC</li>
+            <li>DPDP Act</li>
+          </ul>
+          <div class="egov-btn-row">
+            <a href="contact.html" class="btn btn-primary btn-glow btn-md"><span class="btn-glow-label">Discuss Your Requirements</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+            <a href="case-studies.html" class="btn btn-outline btn-md">View Projects</a>
+          </div>
+        </div>
+        <div>
+          <span class="egov-eyebrow">Reference Projects</span>
+          <!-- TODO-WG: each public-sector reference below must have approved public listing before publishing. -->
+          <ul class="egov-ref-list">
+            <li class="egov-ref-item">
+              <span class="egov-ref-logo"><img src="images/logos/gov/SSB 64PX LOGO.svg" alt="Sashastra Seema Bal (SSB)" loading="lazy" /></span>
+              <span>
+                <p class="egov-ref-name">Sashastra Seema Bal (SSB)</p>
+                <p class="egov-ref-proj">Ministry of Home Affairs · Comprehensive VAPT · CERT-In compliant</p>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities -->
+  <section class="egov-build">
+    <div class="container">
+      <div class="egov-build-head">
+        <span class="egov-eyebrow">Capabilities</span>
+        <h2 class="egov-h2">What Our Cybersecurity Practice Delivers</h2>
+        <p>CERT-In aligned security capabilities across every government engagement we handle.</p>
+      </div>
+      <div class="egov-build-grid">
+        <article class="egov-build-card">
+          <span class="egov-build-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>VAPT — Web, API &amp; Network</h3>
+          <p>Comprehensive vulnerability assessment and penetration testing across web applications, APIs, mobile apps, and network infrastructure.</p>
+        </article>
+        <article class="egov-build-card">
+          <span class="egov-build-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 22l5-3 5 3-1.21-8.11"/></svg></span>
+          <h3>ISO 27001:2017 ISMS Implementation</h3>
+          <p>Full information security management system design, gap analysis, policy documentation, and certification support.</p>
+        </article>
+        <article class="egov-build-card">
+          <span class="egov-build-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+          <h3>Secure Code Review &amp; SAST</h3>
+          <p>Static application security testing, OWASP Top 10 remediation, and threat modelling integrated into the development lifecycle.</p>
+        </article>
+        <article class="egov-build-card">
+          <span class="egov-build-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <h3>Data Protection &amp; DPDP Act 2023</h3>
+          <p>Privacy impact assessments, data flow mapping, consent management architecture, and compliance documentation for all citizen data platforms.</p>
+        </article>
+        <article class="egov-build-card">
+          <span class="egov-build-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <h3>CERT-In Audit Reports</h3>
+          <p>Formal security assessment reports structured as government audit deliverables — accepted by ministry IT divisions and auditors.</p>
+        </article>
+        <article class="egov-build-card">
+          <span class="egov-build-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
+          <h3>Incident Response Planning</h3>
+          <p>Security incident playbooks, escalation matrices, and SOC integration support for government platforms handling citizen data.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="egov-certs">
+    <div class="container">
+      <div class="sect-head">
+        <span class="egov-eyebrow">Government &amp; Public Sector</span>
+        <h2 class="egov-h2">Certifications</h2>
+      </div>
+      <!-- TODO-WG: confirm the exact list of held certifications; replace any seal below with the real certificate. -->
+      <div class="cert-seals-row">
+        <div class="cert-seal-card"><div class="cert-seal-img-wrap"><img class="cert-seal-img" src="images/credentials/cmmi-l5.png" alt="CMMI Level 5 certified" loading="lazy" /></div><div class="cert-seal-card-name">CMMI Level 5</div></div>
+        <div class="cert-seal-card"><div class="cert-seal-img-wrap"><img class="cert-seal-img" src="images/credentials/iso-27001-2022.png" alt="ISO 27001:2022 certified" loading="lazy" /></div><div class="cert-seal-card-name">Information Security</div></div>
+        <div class="cert-seal-card"><div class="cert-seal-img-wrap"><img class="cert-seal-img" src="images/credentials/iso-9001-2015.png" alt="ISO 9001:2015 certified" loading="lazy" /></div><div class="cert-seal-card-name">Quality Management</div></div>
+        <div class="cert-seal-card"><div class="cert-seal-img-wrap"><img class="cert-seal-img" src="images/credentials/iso-20000-2018.png" alt="ISO 20000:2018 certified" loading="lazy" /></div><div class="cert-seal-card-name">IT Service Management</div></div>
+        <div class="cert-seal-card"><div class="cert-seal-img-wrap"><img class="cert-seal-img" src="images/credentials/startup-india.png" alt="DPIIT — Startup India recognised" loading="lazy" onerror="this.style.display='none'; this.parentNode.classList.add('reg-card-logo--fallback'); this.parentNode.setAttribute('aria-hidden','true'); this.parentNode.textContent='DPIIT';" /></div><div class="cert-seal-card-name">Startup India / DPIIT</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="egov-faq">
+    <div class="container">
+      <div class="sect-head">
+        <span class="egov-eyebrow">FAQ</span>
+        <h2 class="egov-h2">Frequently Asked Questions</h2>
+      </div>
+      <!-- TODO-WG: verify each Q&A pairing and all compliance/client claims (ISO version, certifications, named bodies) before publishing. -->
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What does a CERT-In aligned VAPT from Webority include?</button>
+          <div class="faq-a"><p>VAPT (Vulnerability Assessment and Penetration Testing) for government is a structured cybersecurity assessment that identifies and validates security vulnerabilities in government digital infrastructure — web portals, applications, networks, and databases. Government VAPT must be aligned with CERT-In security guidelines and NIC information security policy. Reports are delivered with a formal remediation roadmap suitable for government audit documentation. Webority has conducted VAPT for organisations including Sashastra Seema Bal under the Ministry of Home Affairs — among the most sensitive security environments in India.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How quickly can Webority mobilise for an urgent government security assessment?</button>
+          <div class="faq-a"><p>Webority Technologies holds ISO 27001:2017 certification for its Information Security Management System (ISMS). This certification governs how the organisation handles all government client data throughout the project lifecycle — covering data classification, access control, incident management, and supplier security. The same ISO 27001:2017 standard is applied when helping government clients achieve their own ISMS certification.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does Webority provide post-VAPT remediation support and clearance reports?</button>
+          <div class="faq-a"><p>All cybersecurity engagements are designed around the DPDP Act 2023 framework — ensuring data minimisation during security testing, secure handling of vulnerability data, and breach notification protocol documentation as a standard deliverable. Our VAPT methodology includes a DPDP Act 2023 compliance gap analysis as a component of every government cybersecurity assessment. All testing is conducted on isolated environments with NDA and government-grade confidentiality protocols in place.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA strip -->
+  <section class="egov-cta">
+    <div class="container">
+      <h2>Need a CERT-In aligned security assessment?</h2>
+      <p>Tell us about the system, its data classification, and your audit timeline — we’ll scope the engagement under full confidentiality.</p>
+      <a href="contact.html" class="btn btn-primary btn-glow btn-md"><span class="btn-glow-label">Contact Us</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+    <footer class="site-footer wg-footer wg-footer-v2" role="contentinfo">
+    <div class="wg-inner">
+
+      <div class="wg-footer-top wg-footer-top-v2">
+
+        <div class="wg-foot-brand">
+          <a class="wg-wordmark" href="index.html">
+            <strong>Webority</strong>
+            <span>Technologies</span>
+          </a>
+          <p data-i18n="footer.tagline">We specialize in three core services: Product Development, Team Augmentation, and Technology Consulting.</p>
+          <p class="follow-label" data-i18n="footer.follow">Follow Us</p>
+          <div class="wg-social">
+            <a href="https://www.linkedin.com/company/webority-technologies" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M9.1 21.5v-7.6H6.4V10.5h2.7V8.1c0-2.7 1.6-4.2 4.1-4.2 1.2 0 2.4.2 2.4.2v2.6h-1.3c-1.3 0-1.7.8-1.7 1.7v2.1h2.9l-.5 3.4h-2.4v7.6"/></svg>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.behance.net/" target="_blank" rel="noopener" aria-label="Behance">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8.4 5.3c.8 0 1.5.1 2.2.2.6.2 1.2.4 1.6.7.5.3.8.7 1.1 1.3.3.5.4 1.2.4 1.9 0 .8-.2 1.5-.6 2.1-.4.5-.9 1-1.6 1.4 1 .3 1.7.7 2.2 1.4.5.6.7 1.4.7 2.4 0 .8-.2 1.5-.5 2.1-.3.6-.7 1-1.3 1.4-.5.3-1.1.6-1.8.8-.7.2-1.4.2-2.1.2H1V5.3zm-.4 6c.6 0 1.1-.2 1.5-.5s.6-.7.6-1.4c0-.4-.1-.7-.2-.9-.1-.2-.3-.4-.5-.5-.2-.1-.5-.2-.8-.3-.3 0-.6-.1-.9-.1H4.4v3.7zm.2 6.3c.3 0 .7 0 1-.1.3-.1.6-.2.9-.4.2-.2.4-.4.6-.7.1-.3.2-.6.2-1 0-.8-.2-1.3-.7-1.7-.4-.3-1.1-.5-1.8-.5H4.4v4.4zM17.4 17.6c.4.4 1.1.7 1.9.7.6 0 1.1-.2 1.6-.5.4-.3.7-.6.8-1h2.7c-.4 1.4-1.1 2.4-2 3-.9.6-2 .9-3.3.9-.9 0-1.7-.1-2.4-.4-.7-.3-1.3-.7-1.8-1.2-.5-.5-.9-1.2-1.1-1.9-.3-.7-.4-1.6-.4-2.4 0-.9.1-1.7.4-2.4.3-.7.7-1.4 1.2-1.9.5-.5 1.1-.9 1.8-1.2.7-.3 1.5-.5 2.3-.5.9 0 1.8.2 2.5.6.7.4 1.3.9 1.7 1.5.4.6.8 1.4 1 2.2.2.8.2 1.6.2 2.5h-7.7c0 .9.3 1.6.6 2zm3.5-5.5c-.3-.4-.9-.6-1.7-.6-.5 0-.9.1-1.2.3-.3.2-.6.4-.8.6-.2.3-.3.5-.4.8-.1.2-.1.5-.1.7H21c-.1-.8-.3-1.4-.6-1.8zM15.5 6.7h6v1.5h-6z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="wg-foot-col">
+          <h5 data-i18n="footer.services">Core Services</h5>
+          <ul>
+            <li><a href="service-egov.html">e-Governance</a></li>
+            <li><a href="services.html#ai">AI &amp; Data Analytics</a></li>
+            <li><a href="services.html#security">Cybersecurity &amp; VAPT</a></li>
+            <li><a href="services.html#cloud">MeghRaj Cloud</a></li>
+            <li><a href="services.html#modernization">Legacy Modernisation</a></li>
+            <li><a href="services.html#consulting">Consulting</a></li>
+            <li><a href="services.html#staffing">IT Staff Augmentation</a></li>
+          </ul>
+        </div>
+
+        <div class="wg-foot-col">
+          <h5 data-i18n="footer.industries">Industries</h5>
+          <!-- TODO-WG: every entry below names a public-sector body. Confirm each engagement
+               has approved public listing before publishing this footer. -->
+          <ul>
+            <li><a href="portfolio.html">Parliament of India</a></li>
+            <li><a href="portfolio.html">Bureau of Energy Efficiency</a></li>
+            <li><a href="portfolio.html">Ministry of Tribal Affairs</a></li>
+            <li><a href="portfolio.html">Sashastra Seema Bal</a></li>
+            <li><a href="portfolio.html">Quality Council of India</a></li>
+            <li><a href="portfolio.html">National Book Trust India</a></li>
+          </ul>
+        </div>
+
+        <div class="wg-foot-col wg-foot-contact">
+          <div class="contact-block">
+            <h5 data-i18n="footer.sayhello">Say Hello!</h5>
+            <a href="tel:+919599006518">(+91) 959-900-6518</a>
+            <a href="mailto:contact@webority.com">contact@webority.com</a>
+          </div>
+          <div class="contact-block">
+            <h5 data-i18n="footer.office">Office</h5>
+            <p>629 - 634, Sixth Floor, Vipul Trade Centre,<br />Sohna - Gurgaon Rd, Sector 48, Gurugram,<br />Haryana 122018</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="wg-foot-promos">
+        <a class="wg-promo" href="https://www.webority.com/" target="_blank" rel="noopener">
+          <span class="wg-promo-logo wg-promo-logo--img">
+            <img src="images/logos/gov/Webority Design Logo.svg" alt="Webority Design" />
+          </span>
+          <span class="wg-promo-cta">
+            <span class="wg-promo-cta-text">
+              <em>Know more about</em>
+              <strong>Webority Design</strong>
+            </span>
+            <span class="wg-promo-arrow" aria-hidden="true">&#x2197;</span>
+          </span>
+        </a>
+        <a class="wg-promo wg-promo--featured" href="index.html">
+          <span class="wg-promo-logo">
+            <strong>WEBORITY</strong>
+            <span>Technologies</span>
+          </span>
+          <span class="wg-promo-cta">
+            <span class="wg-promo-cta-text">
+              <em>Know more about</em>
+              <strong>Webority Government</strong>
+            </span>
+            <span class="wg-promo-arrow" aria-hidden="true">&#x2197;</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="wg-foot-bottom">
+        <div class="wg-foot-bottom-left">
+          <div>Copyright &copy; <span id="year">2026</span> Webority Technologies Private Limited. All Rights Reserved.</div>
+          <div>CMMI Level 5 &amp; ISO 27001:2022 Certified Company</div>
+        </div>
+        <div class="wg-foot-bottom-right">
+          <a href="design-system.html">Design System</a>
+          <span class="sep">|</span>
+          <a href="#" data-todo="WG: create privacy-policy.html">Privacy Policy</a>
+          <span class="sep">|</span>
+          <a href="#" data-todo="WG: create terms-conditions.html">Terms &amp; Conditions</a>
+        </div>
+      </div>
+
+      <div class="wg-foot-mega" aria-hidden="true">Webority Technologies</div>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!-- WG_GOV_BAR_MARK : language toggle placeholder -->
+  <script src="js/i18n-dict.js" defer></script>
+  <script src="js/lang-toggle.js" defer></script>
+</body>
+</html>
