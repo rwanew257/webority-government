@@ -521,18 +521,21 @@ body.sectors-page .site-header.has-open-megamenu {
   margin: 0;
   line-height: 1.2;
 }
-.case-card-nav { display: flex; gap: 12px; }
+.case-card-nav { display: flex; gap: 12px; flex-shrink: 0; }
 .case-nav-btn {
-  width: 18px; height: 18px;
+  width: 38px; height: 38px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: transparent;
   border: 1.5px solid var(--saffron-400, #6200ee);
   color: var(--saffron-500, #4e00be);
   display: grid; place-items: center;
   cursor: pointer;
+  transition: background .2s ease, color .2s ease;
 }
+.case-nav-btn:hover { background: rgba(98,0,238,.06); }
 .case-nav-btn:focus-visible { outline: 3px solid #FFD600; outline-offset: 2px; }
-.case-nav-btn svg { display: block; }
+.case-nav-btn svg { display: block; width: 18px; height: 18px; }
 
 .case-card-body {
   display: grid;
@@ -6659,8 +6662,10 @@ html .case-card:focus-visible h4 {
   margin-top: 0;
   align-items: stretch;
 }
-@media (max-width: 768px) {
-  .why-v3 { grid-template-columns: 1fr; gap: 32px; align-items: start; }
+/* Below 1200px the left column + 664px-wide staggered cards no longer fit
+   comfortably, so stack the section: left content on top, cards below. */
+@media (max-width: 1200px) {
+  .why-v3 { grid-template-columns: 1fr; gap: 40px; align-items: start; }
 }
 /* Left column: heading on top, image below. Image stretches to fill the
    remaining height so its bottom aligns with the bottom of the right cards. */
@@ -6705,7 +6710,7 @@ html .case-card:focus-visible h4 {
   background: #1a1a1a;
   isolation: isolate;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .why-v3-visual { max-width: 100%; flex: 0 0 auto; height: 380px; min-height: 0; }
 }
 .why-v3-img {
@@ -6904,10 +6909,16 @@ html .case-card:focus-visible h4 {
   width: 320px;
 }
 .why-v3-col--offset { margin-top: 60px; }
-@media (max-width: 1100px) {
-  .why-v3-cards { grid-template-columns: 1fr; }
+/* Tablet: drop the stagger and lay the two card columns out as an even
+   2-up grid beneath the left content. */
+@media (max-width: 1200px) {
+  .why-v3-cards { grid-template-columns: repeat(2, 1fr); }
   .why-v3-col { width: 100%; }
   .why-v3-col--offset { margin-top: 0; }
+}
+/* Mobile: single column of cards. */
+@media (max-width: 600px) {
+  .why-v3-cards { grid-template-columns: 1fr; }
 }
 .why-v3-card {
   display: flex;
