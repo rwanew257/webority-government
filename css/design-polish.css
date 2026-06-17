@@ -523,7 +523,7 @@ body.sectors-page .site-header.has-open-megamenu {
 }
 .case-card-nav { display: flex; gap: 12px; }
 .case-nav-btn {
-  width: 44px; height: 44px;
+  width: 18px; height: 18px;
   border-radius: 50%;
   background: transparent;
   border: 1.5px solid var(--saffron-400, #6200ee);
@@ -1779,8 +1779,7 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   align-items: center;
   justify-content: center;
   gap: 6px;
-  height: 1.2em;
-  line-height: 1.2;
+  line-height: 150%;
   flex: 0 0 1.2em;
   white-space: nowrap;
   transition: transform .35s cubic-bezier(.4, 0, .2, 1);
@@ -5074,7 +5073,13 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
+  padding-bottom: 3px;
   transition: transform 0.25s ease;
+}
+/* Larger arrow only for the hero CTA button */
+.hero-v2-actions .btn-glow-arrow {
+  width: 24px;
+  height: 24px;
 }
 /* The marquee text-slide already provides hover feedback — the redundant
    arrow shift was clipping the icon against `overflow: hidden`. */
@@ -6302,7 +6307,7 @@ html .case-card:focus-visible h4 {
   letter-spacing: -.005em;
 }
 .caps-v2-acc-icon {
-  width: 24px; height: 24px;
+  width: 18px; height: 18px;
   flex-shrink: 0;
   display: inline-grid; place-items: center;
   background: transparent;
@@ -6460,8 +6465,8 @@ html .case-card:focus-visible h4 {
   position: absolute;
   bottom: 22px;
   right: 22px;
-  width: 36px;
-  height: 36px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.95);
   border: 0;
@@ -6858,24 +6863,23 @@ html .case-card:focus-visible h4 {
   pointer-events: auto;
 }
 .why-v3-dot {
-  width: 6px;
-  height: 6px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: 0;
   padding: 0;
   background: rgba(255, 255, 255, 0.55);
   cursor: pointer;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
-  transition: background .2s ease, width .25s ease;
+  transition: background .2s ease;
 }
 .why-v3-dot:hover {
   background: rgba(255, 255, 255, 0.85);
 }
 .why-v3-dot.is-active {
   background: #ffffff;
-  width: 18px;
-  border-radius: 999px;
 }
+
 .why-v3-dot:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
