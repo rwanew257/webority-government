@@ -7599,8 +7599,11 @@ html .case-card:focus-visible h4 {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
+  /* Restore a side gutter so cards don't run edge-to-edge below 1280px.
+     box-sizing:border-box keeps the content cap at 1280px total width. */
+  box-sizing: border-box;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
 }
 /* Stats row directly above the tabs strip — drop its bottom padding so the gap is 0 */
 .sect-tight:has(.stats-v2) {
@@ -7611,7 +7614,7 @@ html .case-card:focus-visible h4 {
   flex-wrap: nowrap !important;
   overflow-x: auto !important;
   gap: 4px !important;
-  padding: 10px 0 0 !important;
+  padding: 10px var(--container-padding) 0 !important;
   border-top: 0 !important;
   border-bottom: 0 !important;
   margin: 0 auto 40px !important;
