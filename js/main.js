@@ -89,6 +89,35 @@
     });
   });
 
+  // Case Studies megamenu — hover a name to reveal its preview image on the
+  // right. No image is shown until a name is hovered (per design).
+  (function () {
+    var panel = document.querySelector('[data-megamenu-panel="case-studies"]');
+    if (!panel) return;
+    var frame = panel.querySelector('.csmenu-preview-frame');
+    var img = panel.querySelector('.csmenu-preview-img');
+    var titleEl = panel.querySelector('.csmenu-preview-title');
+    var subEl = panel.querySelector('.csmenu-preview-sub');
+    var links = panel.querySelectorAll('.csmenu-link');
+    if (!frame || !img || !links.length) return;
+
+    links.forEach(function (a) {
+      a.addEventListener('mouseenter', function () {
+        var src = a.getAttribute('data-csimg');
+        if (!src) return;
+        img.setAttribute('src', src);
+        img.setAttribute('alt', a.getAttribute('data-cstitle') || '');
+        if (titleEl) titleEl.textContent = a.getAttribute('data-cstitle') || '';
+        if (subEl) subEl.textContent = a.getAttribute('data-cssub') || '';
+        frame.classList.add('is-active');
+      });
+    });
+    // Clear the preview when the pointer leaves the whole panel.
+    panel.addEventListener('mouseleave', function () {
+      frame.classList.remove('is-active');
+    });
+  })();
+
   // Sectors v2 accordion — click a row to expand its body, close others,
   // and fade-swap the big sticky photo + pill label on the left.
   (function () {
@@ -857,4 +886,32 @@
     visual.addEventListener('mouseleave', start);
     start();
   });
+
+  /* ---------- Our Work case-study carousel: prev/next nav between slides ---------- */
+  (function () {
+    var carousel = document.getElementById('caseCarousel');
+    if (!carousel) return;
+    var slides = carousel.querySelectorAll('[data-case-slide]');
+    if (slides.length < 2) return;
+    var idx = 0;
+
+    function show(i) {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach(function (slide, k) {
+        var on = k === idx;
+        slide.classList.toggle('is-active', on);
+        slide.hidden = !on;
+        // Re-trigger the reveal-on-scroll animation for the newly shown slide
+        if (on) slide.classList.add('in');
+      });
+    }
+
+    carousel.querySelectorAll('[data-case-nav]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        show(idx + (btn.getAttribute('data-case-nav') === 'next' ? 1 : -1));
+      });
+    });
+
+    show(0);
+  })();
 })();

@@ -29,7 +29,7 @@
         <li class="has-megamenu" data-megamenu="services">
           <a href="services.html" data-i18n="nav.services" aria-haspopup="true" aria-expanded="false">Services</a>
         </li>
-        <li class="has-megamenu" data-megamenu="services">
+        <li class="has-megamenu" data-megamenu="case-studies">
           <a href="case-studies.html" data-i18n="nav.case-studies" aria-haspopup="true" aria-expanded="false">Case Studies</a>
         </li>
         <li><a href="sectors.html" data-i18n="nav.sectors">Sectors</a></li>
@@ -106,6 +106,66 @@
                 <span class="megamenu-feature-cta">Explore Full Case Study &rsaquo;</span>
               </div>
             </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <!-- Case Studies megamenu: name list + hover-preview image. WG nav chrome. -->
+    <div class="megamenu" id="megamenu-case-studies" data-megamenu-panel="case-studies" aria-hidden="true">
+      <div class="container">
+        <div class="csmenu-head">
+          <span class="megamenu-eyebrow">Case Studies</span>
+          <a class="csmenu-viewall" href="case-studies.html">View all case studies &rsaquo;</a>
+        </div>
+        <!-- TODO-WG: each named public-sector body below must have approved public listing before publishing. -->
+        <div class="csmenu-layout">
+          <ul class="csmenu-list">
+            <li><a class="csmenu-link" href="case-bee.html" data-csimg="images/logos/gov/BEE Case Study image.png" data-cstitle="BEE Star Label Platform" data-cssub="Bureau of Energy Efficiency">
+              <span class="csmenu-link-title">BEE Star Label Platform</span>
+              <span class="csmenu-link-sub">Bureau of Energy Efficiency</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-parliament.html" data-csimg="images/logos/gov/Parilament Case Study image.png" data-cstitle="Sansad Cafeteria" data-cssub="Parliament of India">
+              <span class="csmenu-link-title">Sansad Cafeteria</span>
+              <span class="csmenu-link-sub">Parliament of India</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-manthan.html" data-csimg="images/logos/gov/Manthan Case Study image.png" data-cstitle="Manthan Application" data-cssub="Defence PSU · Ministry of Defence">
+              <span class="csmenu-link-title">Manthan Application</span>
+              <span class="csmenu-link-sub">Defence PSU · Ministry of Defence</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-nbt.html" data-csimg="images/logos/gov/NBT Case Study image.png" data-cstitle="National Book Trust E-commerce" data-cssub="Ministry of Education">
+              <span class="csmenu-link-title">National Book Trust E-commerce</span>
+              <span class="csmenu-link-sub">Ministry of Education</span>
+            </a></li>
+          </ul>
+          <ul class="csmenu-list">
+            <li><a class="csmenu-link" href="case-mota.html" data-csimg="images/logos/gov/Sickle Scan Case Study image.png" data-cstitle="Sickle Scan — Health Screening" data-cssub="Ministry of Tribal Affairs">
+              <span class="csmenu-link-title">Sickle Scan — Health Screening</span>
+              <span class="csmenu-link-sub">Ministry of Tribal Affairs</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-ssb.html" data-csimg="images/logos/gov/SSB Case Study image.png" data-cstitle="Cybersecurity Assessment &amp; VAPT" data-cssub="Sashastra Seema Bal · MHA">
+              <span class="csmenu-link-title">Cybersecurity Assessment &amp; VAPT</span>
+              <span class="csmenu-link-sub">Sashastra Seema Bal · MHA</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-qci.html" data-csimg="images/logos/gov/Samar Case Study image.png" data-cstitle="SAMAR — Certification &amp; Assessment" data-cssub="Quality Council of India">
+              <span class="csmenu-link-title">SAMAR — Certification &amp; Assessment</span>
+              <span class="csmenu-link-sub">Quality Council of India</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-safdarjung.html" data-csimg="images/logos/gov/Sarfdarnjan Case Study image.png" data-cstitle="Hospital Digital Services Platform" data-cssub="Safdarjung Hospital">
+              <span class="csmenu-link-title">Hospital Digital Services Platform</span>
+              <span class="csmenu-link-sub">Safdarjung Hospital</span>
+            </a></li>
+          </ul>
+          <div class="csmenu-preview">
+            <div class="csmenu-preview-frame">
+              <img class="csmenu-preview-img" src="" alt="" />
+              <span class="csmenu-preview-empty">Hover a case study to preview</span>
+            </div>
+            <div class="csmenu-preview-cap">
+              <span class="csmenu-preview-title"></span>
+              <span class="csmenu-preview-sub"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -198,7 +258,7 @@
           <div class="portfolio-v2-logo" aria-hidden="true"><img src="images/logos/gov/vmmc-safdarjung.png" alt="" loading="lazy" /></div>
           <div class="portfolio-v2-text">
             <strong>Ministry of Health &amp; Family Welfare</strong>
-            <span>Vardhman Mahavir Medical College</span>
+            <span>Safdarjung Hospital</span>
           </div>
         </div>
         <div class="portfolio-v2-card">
@@ -437,52 +497,435 @@
         <p>Real products. Real outcomes. Each was built across a different industry, healthcare, fintech, government, and e-commerce, with measurable results that speak for themselves.</p>
       </div>
 
-      <!-- TODO-WG: case study card. Carousel arrows currently non-functional placeholders for multi-case rollout. -->
-      <article class="case-card reveal" id="case-card">
-        <header class="case-card-head">
-          <h3 class="case-card-title">Healthcare &mdash; Apollo MedTech</h3>
-          <div class="case-card-nav" role="group" aria-label="Browse case studies">
-            <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-            </button>
-            <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
-              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-          </div>
-        </header>
+      <!-- TODO-WG: case study carousel. All nine slides reference real public-sector engagements
+           (BEE, Sansad Cafeteria, Sickle Scan, SSB, SAMAR/QCI, NBT, Safdarjung, Manthan, Vasudha).
+           Confirm public listing approval for each before publishing. -->
+      <div class="case-carousel" id="caseCarousel">
 
-        <div class="case-card-body">
-          <div class="case-card-copy">
-            <div class="case-block">
-              <h4>Challenge</h4>
-              <p>Big Red Rooster Flow&rsquo;s paper-based inspections across 500+ gas stations for Exxon, Marathon, 7-Eleven, Gulf, and BP suffered from 42% data error rates, 60-minute inspection times, and zero location verification, causing $4.2M in annual losses and threatening $18M in contracts.</p>
+        <!-- Slide 1 — BEE Star Label Platform -->
+        <article class="case-card reveal is-active" id="case-card" data-case-slide="0">
+          <header class="case-card-head">
+            <h3 class="case-card-title">BEE Star Label Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
             </div>
+          </header>
 
-            <div class="case-block">
-              <h4>Solution</h4>
-              <p>We delivered a React Native app with offline-first architecture, HL7-compliant data models, biometric login, and a real-time sync engine &mdash; built in 14 weeks from discovery to Play Store submission.</p>
-            </div>
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Manual inspection of Energy Star labels across India&rsquo;s vast appliance market was slow, error-prone, and lacked centralised visibility &mdash; making it difficult for BEE to enforce compliance or for consumers to verify appliance ratings.</p>
+              </div>
 
-            <div class="case-block">
-              <h4>Impact</h4>
-              <div class="case-impact-grid">
-                <div class="case-impact-tile">
-                  <span class="case-impact-num">68%</span>
-                  <span class="case-impact-lbl">reduction in patient data entry errors</span>
-                </div>
-                <div class="case-impact-tile">
-                  <span class="case-impact-num">Zero</span>
-                  <span class="case-impact-lbl">compliance findings in post-launch audit</span>
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built a mobile and web platform that enables surveyors to validate star ratings, capture geo-tagged data with photo evidence, work offline, and generate instant reports, while giving consumers a simple interface to browse certified appliances, verify authenticity through star-label lookup, and raise complaints directly to BEE.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">36</span>
+                    <span class="case-impact-lbl">State Designated Agencies monitored on one dashboard</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Real-time</span>
+                    <span class="case-impact-lbl">inspection data capture, replacing all paper-based forms</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="case-card-visual" aria-hidden="true">
-            <img class="case-card-visual-img" src="images/logos/gov/Bee Menu card image.png" alt="" loading="lazy" />
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/Bee Menu card image.png" alt="" loading="lazy" />
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+
+        <!-- Slide 2 — Sansad Cafeteria / Parliament of India -->
+        <article class="case-card reveal" data-case-slide="1" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Sansad Cafeteria</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Food ordering within the Indian Parliament relied on traditional, manual processes &mdash; leading to long wait times, operational inefficiency, and logistical challenges in managing catering across a high-security environment.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We developed a mobile app for MPs and staff with real-time menu access, QR-based pickup, in-room delivery, integrated digital payments, and full order history &mdash; along with an admin portal for ITDC to manage live orders, menus, pricing, user roles, inventory, and reporting across Parliament canteen operations.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">One</span>
+                    <span class="case-impact-lbl">platform for ordering, payments, kitchen ops, and ITDC reporting</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">QR</span>
+                    <span class="case-impact-lbl">contactless pickup and delivery across Parliament premises</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/Parilament Case Study image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3 — Sickle Scan / Ministry of Tribal Affairs -->
+        <article class="case-card reveal" data-case-slide="2" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Sickle Scan National Screening</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Sickle cell disease in India is concentrated in tribal populations, and the 2023 National Mission committed to screening crores of people. Frontline screening relied on paper, with no reliable way to capture data offline in remote districts or aggregate it for the mission.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built an offline-first, multilingual mobile platform for ASHA and frontline workers to screen, capture, and sync data from remote tribal districts, feeding a central dashboard for the Ministry to monitor the National Sickle Cell Mission at scale.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Offline-first</span>
+                    <span class="case-impact-lbl">data capture built for remote tribal districts</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">National</span>
+                    <span class="case-impact-lbl">screening infrastructure for the Sickle Cell Mission</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/Sickle Scan Case Study image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 4 — SSB Cybersecurity / Ministry of Home Affairs -->
+        <article class="case-card reveal" data-case-slide="3" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Cybersecurity Assessment &amp; VAPT</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Sashastra Seema Bal, one of India&rsquo;s Central Armed Police Forces guarding sensitive borders, needed an independent, defensible assessment of its digital security posture, with every finding handled under strict classification.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We conducted a CERT-In-aligned vulnerability assessment and penetration testing engagement, with all findings, evidence, and remediation guidance classified and handled inside SSB&rsquo;s security perimeter.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">CERT-In</span>
+                    <span class="case-impact-lbl">aligned assessment methodology</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Classified</span>
+                    <span class="case-impact-lbl">findings handled inside the security perimeter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/SSB Case Study image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 5 — SAMAR / Quality Council of India -->
+        <article class="case-card reveal" data-case-slide="4" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">SAMAR Certification Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>The Quality Council of India runs national certification and accreditation manually, across applications, assessments, and multi-level committee approvals, causing delays and limited transparency across the certification lifecycle.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We are building SAMAR, the platform QCI uses to run its national certification process, with role-based workflows, automated scheduling, real-time dashboards, and a complete audit trail on every decision, rolled out in phases without disrupting live operations.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">National</span>
+                    <span class="case-impact-lbl">certification and accreditation on one platform</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Audit-trailed</span>
+                    <span class="case-impact-lbl">every certification decision</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/Samar Case Study image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 6 — National Book Trust / Ministry of Education -->
+        <article class="case-card reveal" data-case-slide="5" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">NBT Digital Publishing Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>The National Book Trust, India&rsquo;s largest educational and cultural publisher, needed a single digital infrastructure for catalogue, ordering, and distribution, built for accessibility and multilingual fidelity across India&rsquo;s diverse readership.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built a digital publishing and distribution platform unifying catalogue, ordering, and fulfilment, designed accessibility-first and multilingual, so NBT reaches readers across India through one system.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">One</span>
+                    <span class="case-impact-lbl">infrastructure for catalogue, ordering, and distribution</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Multilingual</span>
+                    <span class="case-impact-lbl">fidelity across India&rsquo;s readership</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/NBT Case Study image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 7 — Safdarjung Hospital -->
+        <article class="case-card reveal" data-case-slide="6" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Safdarjung Hospital Digital Services</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Safdarjung Hospital, one of India&rsquo;s largest Central Government hospitals serving thousands of patients daily, needed to digitise patient-facing services that were slow and paper-bound, straining staff and patients alike.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We delivered a digital services platform for the hospital, streamlining patient-facing workflows so services that ran on paper now run digitally, reducing manual effort for staff and wait times for patients.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Central</span>
+                    <span class="case-impact-lbl">Government hospital scale, thousands of patients daily</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Digitised</span>
+                    <span class="case-impact-lbl">patient-facing services replacing paper workflows</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/Sarfdarnjan Case Study image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 8 — Manthan / Defence PSU -->
+        <article class="case-card reveal" data-case-slide="7" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Manthan Employee Engagement Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>A Government of India Public Sector Undertaking under the Ministry of Defence runs operations across 17 units. Announcements, compliance, grievances, and incidents ran on paper and email with no auditable trail and no real-time view for leadership.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We engineered Manthan, a bilingual mobile app for every employee and a role-based web portal for administrators, bringing announcements, compliance, learning, submissions, and HR self-service onto one secure system of record.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">17</span>
+                    <span class="case-impact-lbl">units unified on one secure platform</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">100%</span>
+                    <span class="case-impact-lbl">audit-logged submissions</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/Manthan Case Study image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 9 — Environment & Sustainability / Vasudha Foundation -->
+        <article class="case-card reveal" data-case-slide="8" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Environment &amp; Sustainability Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Environmental governance in Karnataka was data-hungry and data-starved at once, with air quality, forest cover, and programme data scattered across sources and no single geographic view for decision-makers.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built a platform that centralises environmental data with GIS visualisation, so air quality, forest, and programme data sit on one geographic layer for monitoring and decision-making across the state.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">GIS</span>
+                    <span class="case-impact-lbl">visualisation for geographic decision-making</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Statewide</span>
+                    <span class="case-impact-lbl">programme monitoring on a single platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="images/logos/gov/Vasudha Fundation.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 

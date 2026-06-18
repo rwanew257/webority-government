@@ -203,6 +203,17 @@
       color: #4b5675;
       margin: 0;
     }
+    .egov-build-eg {
+      margin: 14px 0 0 !important;
+      padding-top: 12px;
+      border-top: 1px solid #e6e9f2;
+      font-size: 13px !important;
+      color: #0e1640 !important;
+    }
+    .egov-build-eg strong {
+      font-weight: 600;
+      color: var(--primary, #6200ee);
+    }
 
     /* ---------- Certifications band ---------- */
     .egov-certs { padding: 100px 0; background: #ffffff; }
@@ -248,7 +259,7 @@
         <li class="has-megamenu" data-megamenu="services">
           <a href="services.html" class="active" aria-haspopup="true" aria-expanded="false">Services</a>
         </li>
-        <li class="has-megamenu" data-megamenu="services">
+        <li class="has-megamenu" data-megamenu="case-studies">
           <a href="case-studies.html" data-i18n="nav.case-studies" aria-haspopup="true" aria-expanded="false">Case Studies</a>
         </li>
         <li><a href="sectors.html" data-i18n="nav.sectors">Sectors</a></li>
@@ -327,6 +338,66 @@
         </div>
       </div>
     </div>
+  
+  
+    <!-- Case Studies megamenu: name list + hover-preview image. WG nav chrome. -->
+    <div class="megamenu" id="megamenu-case-studies" data-megamenu-panel="case-studies" aria-hidden="true">
+      <div class="container">
+        <div class="csmenu-head">
+          <span class="megamenu-eyebrow">Case Studies</span>
+          <a class="csmenu-viewall" href="case-studies.html">View all case studies &rsaquo;</a>
+        </div>
+        <!-- TODO-WG: each named public-sector body below must have approved public listing before publishing. -->
+        <div class="csmenu-layout">
+          <ul class="csmenu-list">
+            <li><a class="csmenu-link" href="case-bee.html" data-csimg="images/logos/gov/BEE Case Study image.png" data-cstitle="BEE Star Label Platform" data-cssub="Bureau of Energy Efficiency">
+              <span class="csmenu-link-title">BEE Star Label Platform</span>
+              <span class="csmenu-link-sub">Bureau of Energy Efficiency</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-parliament.html" data-csimg="images/logos/gov/Parilament Case Study image.png" data-cstitle="Sansad Cafeteria" data-cssub="Parliament of India">
+              <span class="csmenu-link-title">Sansad Cafeteria</span>
+              <span class="csmenu-link-sub">Parliament of India</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-manthan.html" data-csimg="images/logos/gov/Manthan Case Study image.png" data-cstitle="Manthan Application" data-cssub="Defence PSU · Ministry of Defence">
+              <span class="csmenu-link-title">Manthan Application</span>
+              <span class="csmenu-link-sub">Defence PSU · Ministry of Defence</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-nbt.html" data-csimg="images/logos/gov/NBT Case Study image.png" data-cstitle="National Book Trust E-commerce" data-cssub="Ministry of Education">
+              <span class="csmenu-link-title">National Book Trust E-commerce</span>
+              <span class="csmenu-link-sub">Ministry of Education</span>
+            </a></li>
+          </ul>
+          <ul class="csmenu-list">
+            <li><a class="csmenu-link" href="case-mota.html" data-csimg="images/logos/gov/Sickle Scan Case Study image.png" data-cstitle="Sickle Scan — Health Screening" data-cssub="Ministry of Tribal Affairs">
+              <span class="csmenu-link-title">Sickle Scan — Health Screening</span>
+              <span class="csmenu-link-sub">Ministry of Tribal Affairs</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-ssb.html" data-csimg="images/logos/gov/SSB Case Study image.png" data-cstitle="Cybersecurity Assessment &amp; VAPT" data-cssub="Sashastra Seema Bal · MHA">
+              <span class="csmenu-link-title">Cybersecurity Assessment &amp; VAPT</span>
+              <span class="csmenu-link-sub">Sashastra Seema Bal · MHA</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-qci.html" data-csimg="images/logos/gov/Samar Case Study image.png" data-cstitle="SAMAR — Certification &amp; Assessment" data-cssub="Quality Council of India">
+              <span class="csmenu-link-title">SAMAR — Certification &amp; Assessment</span>
+              <span class="csmenu-link-sub">Quality Council of India</span>
+            </a></li>
+            <li><a class="csmenu-link" href="case-safdarjung.html" data-csimg="images/logos/gov/Sarfdarnjan Case Study image.png" data-cstitle="Hospital Digital Services Platform" data-cssub="Safdarjung Hospital">
+              <span class="csmenu-link-title">Hospital Digital Services Platform</span>
+              <span class="csmenu-link-sub">Safdarjung Hospital</span>
+            </a></li>
+          </ul>
+          <div class="csmenu-preview">
+            <div class="csmenu-preview-frame">
+              <img class="csmenu-preview-img" src="" alt="" />
+              <span class="csmenu-preview-empty">Hover a case study to preview</span>
+            </div>
+            <div class="csmenu-preview-cap">
+              <span class="csmenu-preview-title"></span>
+              <span class="csmenu-preview-sub"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   <a id="main-content" tabindex="-1"></a>
 
@@ -370,17 +441,17 @@
           <!-- TODO-WG: each public-sector reference below must have approved public listing before publishing. -->
           <ul class="egov-ref-list">
             <li class="egov-ref-item">
-              <span class="egov-ref-logo"><img src="images/logos/gov/BEE logo.svg" alt="Bureau of Energy Efficiency" loading="lazy" /></span>
-              <span>
-                <p class="egov-ref-name">Bureau of Energy Efficiency</p>
-                <p class="egov-ref-proj">Market Surveillance &amp; Compliance Platform</p>
-              </span>
-            </li>
-            <li class="egov-ref-item">
               <span class="egov-ref-logo"><img src="images/logos/gov/parliament-cafeteria.svg" alt="Parliament of India" loading="lazy" /></span>
               <span>
                 <p class="egov-ref-name">Parliament of India</p>
                 <p class="egov-ref-proj">Online Food Ordering System</p>
+              </span>
+            </li>
+            <li class="egov-ref-item">
+              <span class="egov-ref-logo"><img src="images/logos/gov/BEE logo.svg" alt="Bureau of Energy Efficiency" loading="lazy" /></span>
+              <span>
+                <p class="egov-ref-name">Bureau of Energy Efficiency</p>
+                <p class="egov-ref-proj">Market Surveillance &amp; Compliance Platform</p>
               </span>
             </li>
             <li class="egov-ref-item">
@@ -409,6 +480,7 @@
           <span class="egov-build-ic" aria-hidden="true"><img src="images/icons/egov/role-access.png" alt="" loading="lazy" /></span>
           <h3>Role-Based Access &amp; Audit Trails</h3>
           <p>Granular, role-scoped permissions with full audit logging on every action &mdash; so every approval, edit and submission is traceable to a user and a timestamp.</p>
+          <p class="egov-build-eg"><strong>Parliament of India</strong></p>
         </article>
         <article class="egov-build-card">
           <span class="egov-build-ic" aria-hidden="true"><img src="images/icons/egov/multilingual.png" alt="" loading="lazy" /></span>
