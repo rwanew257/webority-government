@@ -2214,6 +2214,7 @@ form { display: grid; gap: var(--space-4); }
   display: block;
 }
 .cert-seal-card-name {
+  display: none;
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 12px;

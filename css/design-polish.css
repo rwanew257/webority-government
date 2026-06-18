@@ -898,6 +898,9 @@ body.contact-page .download-cta { background: #f9fafb; }
 .case-card-v3 .case-pills li {
   font-size: 14px !important;
 }
+.case-card-v3 .case-card-cta {
+  margin-top: auto !important;
+}
 .case-card-cta .btn-glow-arrow {
   color: inherit !important;
   stroke: currentColor !important;
@@ -6497,8 +6500,8 @@ html .case-card:focus-visible h4 {
   position: absolute;
   bottom: 22px;
   right: 22px;
-  width: 18px;
-  height: 18px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.95);
   border: 0;
@@ -6902,8 +6905,8 @@ html .case-card:focus-visible h4 {
   pointer-events: auto;
 }
 .why-v3-dot {
-  width: 18px;
-  height: 18px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   border: 0;
   padding: 0;
