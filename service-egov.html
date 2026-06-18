@@ -23,24 +23,16 @@
     .egov-hero {
       position: relative;
       overflow: hidden;
-      padding: calc(var(--nav-height, 64px) + 88px) 0 96px;
+      min-height: 500px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-height, 64px);
       margin-top: calc(-1 * var(--nav-height, 64px));
-      /* Multicolour watercolour wash per the Main Container design:
-         mint-green (left) → lavender (centre) → warm orange (right). */
-      background:
-        radial-gradient(95% 135% at 100% 55%, #ffc06b 0%, rgba(255,192,107,0) 52%),
-        radial-gradient(80% 120% at 0% 0%, #c9e8d2 0%, rgba(201,232,210,0) 50%),
-        linear-gradient(100deg, #cfe9d6 0%, #d8d4f2 34%, #e9d6ee 54%, #f7dcc0 78%, #ffce8f 100%);
-    }
-    .egov-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0) 60%, #ffffff 100%);
-      pointer-events: none;
+      background: url('images/logos/gov/Pages Banner.png') center / cover no-repeat;
     }
     .egov-hero .container { position: relative; z-index: 1; }
-    .egov-hero-content { max-width: 1040px; }
+    .egov-hero-content { max-width: 880px; }
     .egov-eyebrow {
       display: inline-block;
       color: var(--primary, #6a3df0);
@@ -67,7 +59,7 @@
       line-height: 1.6;
       color: #4b5675;
       margin: 0;
-      max-width: 920px;
+      max-width: 880px;
     }
 
     /* ---------- Intro band ---------- */
@@ -174,31 +166,37 @@
       background: #ffffff;
       border: 1px solid #eceff4;
       border-radius: 18px;
-      padding: 32px 28px;
-      transition: transform 300ms cubic-bezier(0.22,0.61,0.36,1), box-shadow 300ms ease;
+      padding: 32px 28px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: border-color 300ms ease;
     }
-    .egov-build-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(14,22,64,0.35); }
+    .egov-build-card:hover { border-color: #eceff4; }
     .egov-build-ic {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
       background: rgba(106, 61, 240, 0.10);
+      color: var(--primary, #6a3df0);
       display: inline-grid;
       place-items: center;
       margin-bottom: 20px;
     }
+    .egov-build-ic .iconsax-ic { width: 28px; height: 28px; }
     .egov-build-ic img { width: 28px; height: 28px; object-fit: contain; display: block; }
     .egov-build-card h3 {
       font-family: var(--font-heading, 'Josefin Sans', sans-serif);
-      font-weight: 600;
-      font-size: 19px;
+      font-weight: 500;
+      font-size: 20px;
       line-height: 1.3;
       color: #0e1640;
       margin: 0 0 10px;
+      letter-spacing: -.005em;
     }
     .egov-build-card p {
       font-family: var(--font-heading, 'Josefin Sans', sans-serif);
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.6;
       color: #4b5675;
       margin: 0;
@@ -477,33 +475,33 @@
       </div>
       <div class="egov-build-grid">
         <article class="egov-build-card">
-          <span class="egov-build-ic" aria-hidden="true"><img src="images/icons/egov/role-access.png" alt="" loading="lazy" /></span>
+          <span class="egov-build-ic" aria-hidden="true"><i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/user-tick.svg');"></i></span>
           <h3>Role-Based Access &amp; Audit Trails</h3>
           <p>Granular, role-scoped permissions with full audit logging on every action &mdash; so every approval, edit and submission is traceable to a user and a timestamp.</p>
           <p class="egov-build-eg"><strong>Parliament of India</strong></p>
         </article>
         <article class="egov-build-card">
-          <span class="egov-build-ic" aria-hidden="true"><img src="images/icons/egov/multilingual.png" alt="" loading="lazy" /></span>
+          <span class="egov-build-ic" aria-hidden="true"><i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/global.svg');"></i></span>
           <h3>Multilingual &amp; GIGW 3.0 Compliant</h3>
           <p>Built against GIGW 3.0 and WCAG 2.1 AA from day one, with multilingual interfaces so citizens are served in their own language across devices.</p>
         </article>
         <article class="egov-build-card">
-          <span class="egov-build-ic" aria-hidden="true"><img src="images/icons/egov/offline-bandwidth.png" alt="" loading="lazy" /></span>
+          <span class="egov-build-ic" aria-hidden="true"><i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/wifi.svg');"></i></span>
           <h3>Offline-First &amp; Low-Bandwidth</h3>
           <p>Field-ready applications that capture and sync data on patchy or absent connectivity &mdash; designed for low-bandwidth Bharat, not just metro broadband.</p>
         </article>
         <article class="egov-build-card">
-          <span class="egov-build-ic" aria-hidden="true"><img src="images/icons/egov/india-stack.png" alt="" loading="lazy" /></span>
+          <span class="egov-build-ic" aria-hidden="true"><i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/layer.svg');"></i></span>
           <h3>India Stack Integration</h3>
           <p>Aadhaar e-KYC, DigiLocker and UPI integrated against the published India Stack APIs under the relevant agreements and MeitY security guidelines.</p>
         </article>
         <article class="egov-build-card">
-          <span class="egov-build-ic" aria-hidden="true"><img src="images/icons/egov/nic-api.png" alt="" loading="lazy" /></span>
+          <span class="egov-build-ic" aria-hidden="true"><i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/code-1.svg');"></i></span>
           <h3>NIC &amp; API Compatible</h3>
           <p>Open-standard, API-first architecture (OpenAPI, OAuth 2.0) that deploys on NIC infrastructure and interoperates with departmental ERPs &mdash; no proprietary lock-in.</p>
         </article>
         <article class="egov-build-card">
-          <span class="egov-build-ic" aria-hidden="true"><img src="images/icons/egov/realtime-dashboard.png" alt="" loading="lazy" /></span>
+          <span class="egov-build-ic" aria-hidden="true"><i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/chart-2.svg');"></i></span>
           <h3>Real-Time Reporting Dashboards</h3>
           <p>Live programme-monitoring dashboards that give leadership a real-time view of operations across every unit, district or scheme.</p>
         </article>
@@ -559,7 +557,7 @@
   <section class="egov-faq">
     <div class="container">
       <div class="sect-head">
-        <span class="egov-eyebrow">FAQ</span>
+
         <h2 class="egov-h2">Frequently Asked Questions</h2>
       </div>
       <div class="faq-wrap">

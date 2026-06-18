@@ -15,6 +15,11 @@
     .cs-back { display: flex; align-items: center; gap: 6px; width: max-content; font-family: var(--font-heading); font-size: 14px; text-decoration: none; margin-bottom: 50px; color: var(--text-1); }
     .cs-back:hover { color: var(--heading); }
     .cs-back-ic { width: 18px; height: 18px; vertical-align: middle; }
+    .cs-breadcrumb { display: flex; align-items: center; gap: 8px; width: max-content; font-family: var(--font-heading); font-size: 13px; margin-bottom: 50px; }
+    .cs-breadcrumb a { color: var(--text-2); text-decoration: none; transition: color .2s ease; }
+    .cs-breadcrumb a:hover { color: var(--primary); }
+    .cs-breadcrumb .cs-breadcrumb-sep { color: var(--text-2); }
+    .cs-breadcrumb .cs-breadcrumb-current { color: var(--heading); font-weight: 500; }
     .cs-hero { color: var(--heading); padding: 64px 0 56px; min-height: 550px; height: 550px; display: flex; align-items: center; margin-top: calc(-1 * var(--nav-height, 64px)); padding-top: calc(var(--nav-height, 64px) + 40px); }
     .cs-hero .cs-hero-content { max-width: 768px; }
     .cs-hero h1 { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 400; color: var(--heading); font-size: var(--fs-42); line-height: 1.15; margin: 8px 0 12px; letter-spacing: -0.01em; }
@@ -739,8 +744,12 @@
   <section class="cs-hero" style="background: url('images/logos/gov/SSB Case Study Hero section.png') center / cover no-repeat;">
     <div class="container">
       <div class="cs-hero-content">
-        <a href="case-studies.html" class="cs-back"><i class="iconsax-ic cs-back-ic" aria-hidden="true" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/arrow-left.svg');"></i> Back to Case Studies</a>
-        <span class="cs-eyebrow-light">Sashastra Seema Bal &middot; Ministry of Home Affairs</span>
+        <nav class="cs-breadcrumb" aria-label="Breadcrumb">
+          <a href="case-studies.html">Case Studies</a>
+          <span class="cs-breadcrumb-sep">/</span>
+          <span class="cs-breadcrumb-current">Sashastra Seema Bal</span>
+        </nav>
+        <span class="cs-eyebrow-light">Ministry of Home Affairs</span>
         <h1>Cybersecurity Assessment<br />&amp; VAPT</h1>
         <div class="cs-meta">
           <div class="cs-meta-item"><span class="v">CERT</span><span class="l">-In Aligned</span></div>

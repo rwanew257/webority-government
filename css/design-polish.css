@@ -538,7 +538,8 @@ body.sectors-page .site-header.has-open-megamenu {
   cursor: pointer;
   transition: background .2s ease, color .2s ease;
 }
-.case-nav-btn:hover { background: rgba(98,0,238,.06); }
+.case-nav-btn:hover { background: var(--primary, #6200ee); color: #ffffff; border-color: var(--primary, #6200ee); }
+.case-nav-btn:hover svg { stroke: #ffffff; }
 .case-nav-btn:focus-visible { outline: 3px solid #FFD600; outline-offset: 2px; }
 .case-nav-btn svg { display: block; width: 18px; height: 18px; }
 
@@ -6733,7 +6734,7 @@ html .case-card:focus-visible h4 {
    so its bottom aligns with the bottom of the right-side card grid. */
 .why-v3-visual {
   position: relative;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   width: 100%;
   max-width: 520px;

@@ -23,24 +23,16 @@
     .egov-hero {
       position: relative;
       overflow: hidden;
-      padding: calc(var(--nav-height, 64px) + 88px) 0 96px;
+      min-height: 500px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      padding-top: var(--nav-height, 64px);
       margin-top: calc(-1 * var(--nav-height, 64px));
-      /* Multicolour watercolour wash per the Main Container design:
-         mint-green (left) → lavender (centre) → warm orange (right). */
-      background:
-        radial-gradient(95% 135% at 100% 55%, #ffc06b 0%, rgba(255,192,107,0) 52%),
-        radial-gradient(80% 120% at 0% 0%, #c9e8d2 0%, rgba(201,232,210,0) 50%),
-        linear-gradient(100deg, #cfe9d6 0%, #d8d4f2 34%, #e9d6ee 54%, #f7dcc0 78%, #ffce8f 100%);
-    }
-    .egov-hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0) 60%, #ffffff 100%);
-      pointer-events: none;
+      background: url('images/logos/gov/Pages Banner.png') center / cover no-repeat;
     }
     .egov-hero .container { position: relative; z-index: 1; }
-    .egov-hero-content { max-width: 1040px; }
+    .egov-hero-content { max-width: 880px; }
     .egov-eyebrow {
       display: inline-block;
       color: var(--primary, #6a3df0);
@@ -67,7 +59,7 @@
       line-height: 1.6;
       color: #4b5675;
       margin: 0;
-      max-width: 920px;
+      max-width: 880px;
     }
 
     /* ---------- Intro band ---------- */
@@ -532,7 +524,7 @@
   <section class="egov-faq">
     <div class="container">
       <div class="sect-head">
-        <span class="egov-eyebrow">FAQ</span>
+
         <h2 class="egov-h2">Frequently Asked Questions</h2>
       </div>
       <!-- TODO-WG: verify each Q&A pairing and all compliance/client claims (ISO version, certifications, named bodies) before publishing. -->
