@@ -1756,7 +1756,7 @@ form { display: grid; gap: var(--space-4); }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.case-card-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+.case-card-body { display: flex; flex-direction: column; flex: 1; }
 .case-card-title {
   display: flex;
   align-items: center;

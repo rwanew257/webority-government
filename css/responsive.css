@@ -14,6 +14,7 @@
 @media (max-width: 1400px) {
   .ent-logo-card { height: 220px; }
   .ent-logo-image img { height: 110px; }
+  .nav {padding: var(--space-4) var(--container-padding);}
 }
 
 @media (max-width: 1200px) {
@@ -185,15 +186,8 @@
   }
   .case-impact-tile { padding: 12px; }
   .case-impact-num { font-size: 1.25rem; }
-  /* Nav drops below the card content, centred */
-  .case-card-nav {
-    position: relative;
-    top: auto;
-    right: auto;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  .case-nav-btn { width: 48px; height: 48px; }
+
+  .case-nav-btn { width: 40px; height: 40px; }
 
  .portfolio-v2-grid { grid-template-columns: repeat(2, 1fr); }
 
