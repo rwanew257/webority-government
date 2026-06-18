@@ -2392,47 +2392,28 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   color: var(--heading);
 }
 
+/* 4-column grid. The landscape "Certificate of Recognition" tile spans 2
+   columns, so it sits centred in row 2 (portrait | recognition×2 | portrait)
+   and fills the row exactly. `dense` backfills any gap a span-2 tile leaves at
+   narrower breakpoints. Row height is set by the portrait tiles' 3:4 ratio, and
+   the wide tile stretches to match — keeping every cert the same height. */
 .creds-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: row dense;
+  align-items: stretch;
   gap: 24px;
 }
-.creds-grid > .cert-tile {
-  flex: 0 0 calc((100% - 3 * 24px) / 4);
-  max-width: calc((100% - 3 * 24px) / 4);
-}
-.creds-grid > .cert-tile--wide {
-  /* Width derived so the landscape (31:20) cert renders at the same HEIGHT as
-     a portrait (3:4) tile in the same row: width = portrait_width × 31/15. */
-  flex: 0 0 calc((100% - 3 * 24px) * 31 / 60);
-  max-width: calc((100% - 3 * 24px) * 31 / 60);
-  aspect-ratio: 31 / 20;
-}
+.creds-grid > .cert-tile--wide { grid-column: span 2; }
 @media (max-width: 1100px) {
-  .creds-grid > .cert-tile {
-    flex: 0 0 calc((100% - 2 * 24px) / 3);
-    max-width: calc((100% - 2 * 24px) / 3);
-  }
-  .creds-grid > .cert-tile--wide {
-    flex: 0 0 calc((100% - 2 * 24px) * 31 / 45);
-    max-width: calc((100% - 2 * 24px) * 31 / 45);
-  }
+  .creds-grid { grid-template-columns: repeat(2, 1fr); }
+  /* wide tile spans both columns -> its own full-width row, so it needs its
+     natural landscape ratio to set its height (no portrait sibling to match). */
+  .creds-grid > .cert-tile--wide { aspect-ratio: 31 / 20; }
 }
-@media (max-width: 720px) {
-  .creds-grid > .cert-tile,
-  .creds-grid > .cert-tile--wide {
-    flex: 0 0 calc((100% - 24px) / 2);
-    max-width: calc((100% - 24px) / 2);
-  }
-}
-@media (max-width: 480px) {
-  .creds-grid > .cert-tile,
-  .creds-grid > .cert-tile--wide {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
+@media (max-width: 560px) {
+  .creds-grid { grid-template-columns: 1fr; }
+  .creds-grid > .cert-tile--wide { grid-column: auto; }
 }
 
 .cert-tile {
@@ -2445,9 +2426,10 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   box-shadow: none;
   transition: none;
 }
-/* Startup India landscape cert — aspect-ratio tuned so its height equals
-   the portrait tile height (so the bottom edges line up cleanly). */
-.cert-tile--wide { aspect-ratio: 31 / 20; align-self: end; }
+/* Startup India landscape cert — no fixed aspect-ratio; it stretches to the
+   grid row height (set by the portrait tiles) and its image is centred inside
+   via object-fit, so all certs in the row share the same height. */
+.cert-tile--wide { aspect-ratio: auto; align-self: stretch; }
 .cert-tile:hover {
   transform: none;
   box-shadow: none;
@@ -2461,6 +2443,12 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   background: transparent;
   position: relative;
   z-index: 2;
+}
+/* Absolutely positioned so the landscape image fills its stretched tile without
+   its intrinsic height inflating the grid row (which would push every cert taller). */
+.cert-tile--wide > img {
+  position: absolute;
+  inset: 0;
 }
 
 .cert-tile-fallback {
