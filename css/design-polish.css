@@ -754,7 +754,7 @@ section .eyebrow {
 
 /* ---------- Section tinted ---------- */
 .sect-tinted { background: #FCFAFD; }
-.sect { background: #FCFAFD; }
+/* .sect { background: #FCFAFD; } */
 .sect-white, .sect.sect-white, .sect-tight.sect-white { background: #ffffff; }
 .sect.sect-soft, .sect.sect-tinted.sect-soft, .sect.sect-white.sect-soft { background: #f9fafb; }
 .sect.ready-cta-section {
@@ -7802,8 +7802,6 @@ html .case-card:focus-visible h4 {
   /* Restore a side gutter so cards don't run edge-to-edge below 1280px.
      box-sizing:border-box keeps the content cap at 1280px total width. */
   box-sizing: border-box;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
 }
 /* Stats row directly above the tabs strip — drop its bottom padding so the gap is 0 */
 .sect-tight:has(.stats-v2) {
@@ -7837,8 +7835,6 @@ html .case-card:focus-visible h4 {
   margin-left: auto !important;
   margin-right: auto !important;
   padding-block: 0 !important;
-  padding-left: var(--container-padding) !important;
-  padding-right: var(--container-padding) !important;
 }
 .sector-tabs-scroll {
   display: flex !important;
