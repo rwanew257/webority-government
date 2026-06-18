@@ -371,7 +371,7 @@ ul, ol { list-style: none; }
   justify-content: space-between;
   max-width: 1320px;
   margin: 0 auto;
-  padding: var(--space-4) var(--container-padding);
+  /* padding: var(--space-4) var(--container-padding); */
   min-height: var(--nav-height);
 }
 .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; }
@@ -2709,7 +2709,9 @@ form { display: grid; gap: var(--space-4); }
 /* Rotating soft card tints — cycle of 20, same palette as our-clients */
 .ent-logo-card:nth-child(20n+1)  { background: #F2F7FA; }
 .ent-logo-card:nth-child(20n+2)  { background: #FCFAF2; }
-.ent-logo-card:nth-child(20n+3)  { background: #FBFBFB; }
+.ent-logo-card:nth-child(20n+3) {
+    background: #fff6e9;
+}
 .ent-logo-card:nth-child(20n+4)  { background: #FEF9F4; }
 .ent-logo-card:nth-child(20n+5)  { background: #FDF4F3; }
 .ent-logo-card:nth-child(20n+6)  { background: #F2F4FA; }

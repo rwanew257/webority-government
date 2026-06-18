@@ -106,20 +106,15 @@ section .eyebrow {
 /* ---------- Header ---------- */
 .site-header { border-bottom: 1px solid transparent; background: transparent; backdrop-filter: none; transition: background .2s ease, border-color .2s ease; }
 .site-header.scrolled { background: #ffffff; border-bottom-color: var(--outline); backdrop-filter: none; box-shadow: none; }
-.site-header.has-open-megamenu { background: #ffffff; border-bottom-color: var(--outline); backdrop-filter: none; box-shadow: none; }
 /* When the Services megamenu is open, force the header to solid white on every
-   page — beats the per-body-class transparent-at-top rules below. */
-body.about-page .site-header.has-open-megamenu,
-body.case-detail-page .site-header.has-open-megamenu,
-body.portfolio-page .site-header.has-open-megamenu,
-body.case-studies-page .site-header.has-open-megamenu,
-body.contact-page .site-header.has-open-megamenu,
-body.sectors-page .site-header.has-open-megamenu {
+   page — `!important` beats every per-body-class `body.<page> .site-header
+   { background: transparent }` rule (specificity 0,2,1) below. */
+.site-header.has-open-megamenu {
   background: #ffffff !important;
   border-bottom-color: var(--outline) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  box-shadow: none !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
 }
 
 /* Nav layout — centred page links; height comes from --nav-height in style.css */
@@ -4796,7 +4791,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 /* ---------- Sections vertical rhythm ---------- */
 .sect { padding: 100px 0; }
 .sect-tight { padding: 28px 0; }
-@media (max-width: 700px) { .sect { padding: 100px 0; } }
+@media (max-width: 768px) { .sect { padding: 50px 0; } }
 
 /* ============================================================
    Our Story — light variant (about page)
@@ -8424,4 +8419,42 @@ html .case-card .case-block p {
   html .case-card h3,
   html .case-card:hover h3 { font-size: 22px !important; }
   html .case-card .case-block p { font-size: 14px !important; }
+}
+
+/* ============================================================
+   Formal Certifications — full certificate-scan gallery
+   4-column grid; the landscape Startup India "Certificate of
+   Recognition" spans the two middle columns so it fills the
+   same width as the two portrait certificates above it.
+   ============================================================ */
+.cert-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+  align-items: start;
+}
+.cert-doc {
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 24px rgba(17, 24, 39, 0.08);
+}
+.cert-doc img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Landscape certificate: occupy the two middle columns (2–3) */
+.cert-doc--wide {
+  grid-column: 2 / span 2;
+}
+@media (max-width: 900px) {
+  .cert-docs-grid { grid-template-columns: repeat(2, 1fr); }
+  .cert-doc--wide { grid-column: 1 / span 2; }
+}
+@media (max-width: 560px) {
+  .cert-docs-grid { grid-template-columns: 1fr; }
+  .cert-doc--wide { grid-column: auto; }
 }
