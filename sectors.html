@@ -63,18 +63,22 @@
   <section class="sect sect-soft">
     <div class="container">
       <div class="sector-tabs" role="tablist" aria-label="Sectors">
-        <button class="sector-tab active" data-tab="energy" role="tab" aria-selected="true">Energy &amp; Environment</button>
-        <button class="sector-tab" data-tab="health" role="tab" aria-selected="false">Health &amp; Welfare</button>
-        <button class="sector-tab" data-tab="defence" role="tab" aria-selected="false">Defence &amp; Security</button>
-        <button class="sector-tab" data-tab="parliament" role="tab" aria-selected="false">Parliament &amp; Legislature</button>
-        <button class="sector-tab" data-tab="finance" role="tab" aria-selected="false">Finance, PSUs &amp; Fintech</button>
-        <button class="sector-tab" data-tab="quality" role="tab" aria-selected="false">Quality &amp; Standards</button>
-        <button class="sector-tab" data-tab="education" role="tab" aria-selected="false">Education &amp; Publishing</button>
-        <button class="sector-tab" data-tab="urban" role="tab" aria-selected="false">Smart Cities, Urban &amp; NGOs</button>
+        <div class="container">
+          <div class="sector-tabs-scroll">
+            <button class="sector-tab active" data-tab="energy" role="tab" aria-selected="true">Energy &amp; Environment</button>
+            <button class="sector-tab" data-tab="health" role="tab" aria-selected="false">Health &amp; Welfare</button>
+            <button class="sector-tab" data-tab="defence" role="tab" aria-selected="false">Defence &amp; Security</button>
+            <button class="sector-tab" data-tab="parliament" role="tab" aria-selected="false">Parliament &amp; Legislature</button>
+            <button class="sector-tab" data-tab="finance" role="tab" aria-selected="false">Finance, PSUs &amp; Fintech</button>
+            <button class="sector-tab" data-tab="quality" role="tab" aria-selected="false">Quality &amp; Standards</button>
+            <button class="sector-tab" data-tab="education" role="tab" aria-selected="false">Education &amp; Publishing</button>
+            <button class="sector-tab" data-tab="urban" role="tab" aria-selected="false">Smart Cities, Urban &amp; NGOs</button>
+          </div>
+        </div>
       </div>
 
       <!-- Energy & Environment (active) -->
-      <div class="sector-panel active" id="panel-energy" role="tabpanel">
+      <div class="sect sector-panel active" id="panel-energy" role="tabpanel">
         <div class="sect-head">
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
           <h2>Energy &amp; Environment Architecture</h2>
@@ -167,7 +171,7 @@
       </div>
 
       <!-- Health & Welfare (placeholder) -->
-      <div class="sector-panel" id="panel-health" role="tabpanel">
+      <div class="sect sector-panel" id="panel-health" role="tabpanel">
         <div class="sect-head">
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
           <h2>Health &amp; Welfare Infrastructure</h2>
@@ -285,7 +289,7 @@
       </div>
 
       <!-- Defence & Security (placeholder) -->
-      <div class="sector-panel" id="panel-defence" role="tabpanel">
+      <div class="sect sector-panel" id="panel-defence" role="tabpanel">
         <div class="sect-head">
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
           <h2>Defence &amp; Internal Security Protocols</h2>
@@ -404,7 +408,7 @@
       </div>
 
       <!-- Parliament & Legislature (placeholder) -->
-      <div class="sector-panel" id="panel-parliament" role="tabpanel">
+      <div class="sect sector-panel" id="panel-parliament" role="tabpanel">
         <div class="sect-head">
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
           <h2>Parliament &amp; Legislative Governance</h2>
@@ -522,7 +526,7 @@
       </div>
 
       <!-- Finance, PSUs & Fintech -->
-      <div class="sector-panel" id="panel-finance" role="tabpanel">
+      <div class="sect sector-panel" id="panel-finance" role="tabpanel">
         <div class="sect-head">
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
           <h2>Finance, PSUs &amp; Fintech Systems</h2>
@@ -638,7 +642,7 @@
       </div>
 
       <!-- Quality & Standards (placeholder) -->
-      <div class="sector-panel" id="panel-quality" role="tabpanel">
+      <div class="sect sector-panel" id="panel-quality" role="tabpanel">
         <div class="sect-head">
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
           <h2>Quality &amp; Standards Certification</h2>
@@ -753,7 +757,7 @@
       </div>
 
       <!-- Education & Publishing -->
-      <div class="sector-panel" id="panel-education" role="tabpanel">
+      <div class="sect sector-panel" id="panel-education" role="tabpanel">
         <div class="sect-head">
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
           <h2>Education &amp; Publishing Knowledge</h2>
@@ -869,7 +873,7 @@
       </div>
 
       <!-- Smart Cities & Urban (placeholder) -->
-      <div class="sector-panel" id="panel-urban" role="tabpanel">
+      <div class="sect sector-panel" id="panel-urban" role="tabpanel">
         <div class="sect-head">
           <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
           <h2>Smart Cities, Urban &amp; NGO Solutions</h2>

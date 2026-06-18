@@ -394,12 +394,26 @@
       if (key) tabByKey[key] = tab;
     });
 
+    // Keep the active tab visible inside the horizontal scroll strip — scrolls
+    // only the strip (not the page) so the active tab is never hidden off-edge.
+    const tabsScroll = document.querySelector('.sector-tabs-scroll');
+    const revealTab = function (tab) {
+      if (!tabsScroll || !tab) return;
+      const cRect = tabsScroll.getBoundingClientRect();
+      const tRect = tab.getBoundingClientRect();
+      const delta = (tRect.left + tRect.width / 2) - (cRect.left + cRect.width / 2);
+      tabsScroll.scrollBy({ left: delta, behavior: 'smooth' });
+    };
+
     const setActive = function (key) {
+      let activeTab = null;
       sectorTabs.forEach(function (t) {
         const isActive = t.getAttribute('data-tab') === key;
         t.classList.toggle('active', isActive);
         t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        if (isActive) activeTab = t;
       });
+      revealTab(activeTab);
     };
 
     sectorTabs.forEach(function (tab) {
