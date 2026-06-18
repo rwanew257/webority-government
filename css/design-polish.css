@@ -7819,7 +7819,7 @@ img, svg, video { max-width: 100%; }
   background: var(--outline);
 }
 .csmenu-link { display:block; padding:10px 12px; border-radius:10px; text-decoration:none; transition: background .2s ease; }
-.csmenu-link:hover { background: rgba(106,61,240,0.06); }
+.csmenu-link:hover { background: transparent; }
 /* Title + subtitle typography matches the Services megamenu (.megamenu-list
    h5 / p) so both menus read identically: heading 16px/500, sub 14px/400. */
 .csmenu-link-title { display:block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight:500; font-size:16px; line-height:1.25; letter-spacing:-.005em; color: var(--heading); }
