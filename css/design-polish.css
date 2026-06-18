@@ -84,8 +84,24 @@ section .eyebrow {
   letter-spacing: .2em !important;
 }
 
-/* ---------- Container slight breathing ---------- */
-.container { max-width: 1280px; }
+/* ---------- Container — proper Bootstrap-5 behaviour ----------
+   Replaces the site's custom fluid `--container-padding` (which grew from
+   space-4 up to space-16 on large screens) with a real Bootstrap container:
+   a small fixed 0.75rem gutter on every screen + stepped responsive
+   max-widths. No additional side padding at any breakpoint. */
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+@media (min-width: 576px)  { .container { max-width: 540px;  } }
+@media (min-width: 768px)  { .container { max-width: 720px;  } }
+@media (min-width: 992px)  { .container { max-width: 960px;  } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
 
 /* ---------- Header ---------- */
 .site-header { border-bottom: 1px solid transparent; background: transparent; backdrop-filter: none; transition: background .2s ease, border-color .2s ease; }
@@ -501,112 +517,167 @@ body.sectors-page .site-header.has-open-megamenu {
   color: var(--heading);
 }
 
+/* ------------------------------------------------------------------
+   Ported 1:1 from webority-os-web "Product Success Stories"
+   (Webority.Web/wwwroot/css/site.css + responsive.css) so the section
+   renders identically on desktop, tablet and mobile. Reference class
+   names are mapped onto this site's existing .case-* markup/JS:
+     .success-carousel-container -> .case-card
+     .success-card-title         -> .case-card-title
+     .section-label              -> .case-block h4
+     .section-text               -> .case-block p
+     .impact-grid/-item/-value/-label -> .case-impact-grid/-tile/-num/-lbl
+     .success-card-image(/img)   -> .case-card-visual(/-img)
+     .carousel-nav-btn           -> .case-nav-btn
+   ------------------------------------------------------------------ */
 .case-card {
+  position: relative;
+  overflow: hidden;
   background: #ffffff;
-  border: 1px solid var(--border-hairline, #EEF1F6);
-  border-radius: 28px;
-  padding: clamp(24px, 3vw, 40px);
-  box-shadow: 0 1px 2px rgba(98,0,238,.04);
+  border: 1px solid #EBEDF3;
+  border-radius: 20px;
+  margin: 0;
+  padding: 30px;
 }
 
 .case-card-head {
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid rgba(98,0,238,.06);
-  margin-bottom: 10px;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 .case-card-title {
-  font-family: var(--font-heading);
+  color: #1a1a2e;
+  margin: 0 0 36px;
+  font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem);
-  letter-spacing: -.01em;
-  color: #000000;
-  margin: 0;
+  font-size: 32px;
   line-height: 1.2;
+  padding-right: 160px;             /* clear the absolutely-placed nav */
 }
-.case-card-nav { display: flex; gap: 12px; flex-shrink: 0; }
+
+/* Nav box pinned top-right of the card, matching the reference layout */
+.case-card-nav {
+  position: absolute;
+  top: 23px;
+  right: 30px;
+  display: flex;
+  gap: 12px;
+  z-index: 9;
+}
 .case-nav-btn {
-  width: 38px; height: 38px;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: transparent;
-  border: 1.5px solid var(--saffron-400, #6200ee);
-  color: var(--saffron-500, #4e00be);
-  display: grid; place-items: center;
+  border: 1px solid #6200EE;
+  background: #fff;
+  color: #6200EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  transition: background .2s ease, color .2s ease;
+  transition: all .4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.case-nav-btn:hover {
+  background: #6200EE;
+  border-color: #6200EE;
+  color: #fff;
+  transform: scale(1.05);
+}
+.case-nav-btn:active {
+  background: #4A00B4;
+  border-color: #4A00B4;
+  color: #fff;
+  transform: scale(0.98);
+  transition: all .15s ease;
 }
 .case-nav-btn:hover { background: var(--primary, #6200ee); color: #ffffff; border-color: var(--primary, #6200ee); }
 .case-nav-btn:hover svg { stroke: #ffffff; }
 .case-nav-btn:focus-visible { outline: 3px solid #FFD600; outline-offset: 2px; }
-.case-nav-btn svg { display: block; width: 18px; height: 18px; }
+.case-nav-btn svg { display: block; width: 20px; height: 20px; }
 
+/* Two-column body: copy left, image right (reference --bs-gutter-x: 50px) */
 .case-card-body {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: clamp(24px, 3vw, 56px);
-  align-items: stretch;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
 }
-@media (max-width: 920px) { .case-card-body { grid-template-columns: 1fr; } }
 
-.case-card-copy { display: flex; flex-direction: column; gap: 28px; }
+.case-card-copy { display: flex; flex-direction: column; gap: 24px; }
 .case-block h4 {
-  font-family: var(--font-display, 'Josefin Sans', sans-serif);
-  font-size: 20px;
-  font-weight: 500;
-  color: #000000;
+  color: #1a1a2e;
   margin: 0 0 8px;
-  letter-spacing: -.005em;
+  font-family: var(--font-display, 'Josefin Sans', sans-serif);
+  font-size: 18px;
+  font-weight: 500;
 }
 .case-block p {
   font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 18px;
   font-weight: 400;
-  line-height: 1.65;
-  color: var(--text-2, #2c3344);
+  line-height: 1.6;
+  color: #4B5675;
   margin: 0;
 }
 
 /* Impact metric tiles */
 .case-impact-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
   margin-top: 8px;
 }
-@media (max-width: 560px) { .case-impact-grid { grid-template-columns: 1fr; } }
 .case-impact-tile {
   background: #F9F6FD;
   border: 0;
-  border-radius: 14px;
-  padding: 18px 20px;
-  display: flex; flex-direction: column; gap: 4px;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .case-impact-num {
+  display: block;
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
-  font-weight: 600;
-  font-size: 24px;
-  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #6200EE;
   line-height: 1.1;
-  letter-spacing: -.01em;
+  margin-bottom: 5px;
 }
 .case-impact-lbl {
+  display: block;
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 13.5px;
-  line-height: 1.45;
-  color: var(--text-2, #2c3344);
+  font-size: 1.12rem;
+  line-height: normal;
+  color: #3F4254;
 }
 
-/* Phone-mockup visual â€” images/case-apollo-medtech.png is a phones-only image
-   (3 phones on a green gradient). Render it natively at cover-fit. */
+/* Card image — contained, rounded, with a subtle pulsing backdrop */
 .case-card-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  min-height: 380px;
-  border-radius: 22px;
   overflow: hidden;
-  background: #0f3a23;            /* fallback while the image loads */
+}
+.case-card-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300%;
+  height: 300%;
+  animation: case-pulse-bg 4s ease-in-out infinite;
+}
+@keyframes case-pulse-bg {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.1); }
 }
 .case-card-visual,
 .case-card-visual:hover,
@@ -614,24 +685,75 @@ body.sectors-page .site-header.has-open-megamenu {
 .case-card-visual-img:hover,
 .case-card:hover .case-card-visual,
 .case-card:hover .case-card-visual-img {
-  transform: none;
-  transition: none;
   filter: none;
 }
 .case-card-visual-img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
   display: block;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  border-radius: 20px;
 }
-@media (max-width: 920px) {
-  .case-card-visual { min-height: 320px; }
+
+/* ---- Tablet / small-desktop : reference @media (max-width: 991px) ---- */
+@media (max-width: 991px) {
+  .case-card {
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .case-card-title {
+    text-align: left;
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 24px;
+  }
+  .case-card-body {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .case-card-visual { order: -1; min-height: 280px; }
+  .case-card-visual-img {
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  .case-impact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .case-impact-tile { padding: 12px; }
+  .case-impact-num { font-size: 1.25rem; }
+  /* Nav drops below the card content, centred */
+  .case-card-nav {
+    position: relative;
+    top: auto;
+    right: auto;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .case-nav-btn { width: 48px; height: 48px; }
 }
-@media (max-width: 560px) {
-  .case-card-head { flex-direction: column; align-items: flex-start; }
-  .case-card-nav { align-self: flex-end; }
-  .case-card-visual { min-height: 260px; }
+
+/* ---- Mobile : reference @media (max-width: 575px) ---- */
+@media (max-width: 575px) {
+  .case-card {
+    border-radius: 12px;
+    padding: 10px;
+  }
+  .case-card-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .case-block { margin-bottom: 0; }
+  .case-card-copy { gap: 8px; }
+  .case-block h4 {
+    margin-bottom: 4px;
+    font-size: 18px;
+  }
+  .case-block p { font-size: 14px; }
+  .case-impact-num { font-size: 18px; margin-bottom: 3px; }
+  .case-impact-lbl { font-size: 14px; }
+  .case-nav-btn { width: 44px; height: 44px; }
 }
 
 /* ---------- Section tinted ---------- */
@@ -3046,8 +3168,6 @@ body.sectors-page .cap-card p { margin: 0 !important; }
    ============================================================ */
 .ready-cta {
   text-align: center;
-  max-width: 880px;
-  margin: 0 auto;
   padding: clamp(32px, 5vw, 64px) 24px;
   display: flex; flex-direction: column;
   align-items: center;
@@ -3087,7 +3207,7 @@ section .ready-cta-eyebrow,
 /* Trust badges row */
 .ready-cta-badges {
   list-style: none; padding: 0; margin: 16px 0 8px;
-  display: flex; flex-wrap: nowrap; justify-content: center; align-items: center;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
   gap: 18px 28px;
   white-space: nowrap;
 }
@@ -8172,3 +8292,44 @@ img, svg, video { max-width: 100%; }
 .csmenu-preview-sub { display:block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-size:12.5px; color:#6b7385; margin-top:2px; }
 @media (max-width:980px){ .csmenu-layout { grid-template-columns: 1fr 1fr; } .csmenu-preview { display:none; } }
 @media (max-width:560px){ .csmenu-layout { grid-template-columns: 1fr; } .csmenu-head{ flex-direction:column; align-items:flex-start; gap:8px; } }
+
+/* ==========================================================================
+   "Delivering Where It Matters Most" — final lock-in.
+   Beats the generic [class*="-card"] / [class*="-tile"] !important catch-alls
+   above so the section matches webority-os-web Product Success Stories exactly
+   across desktop / tablet / mobile.
+   ========================================================================== */
+html .case-card .case-card-title,
+html .case-card:hover .case-card-title,
+html .case-card h3,
+html .case-card:hover h3 {
+  font-family: 'Times New Roman', Times, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: 32px !important;
+  line-height: 1.2 !important;
+  color: #1a1a2e !important;
+}
+html .case-card .case-block h4,
+html .case-card:hover .case-block h4,
+html .case-card h4,
+html .case-card:hover h4 {
+  font-family: var(--font-display, 'Josefin Sans', sans-serif) !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  color: #1a1a2e !important;
+}
+html .case-card .case-block p {
+  font-family: var(--font-body, 'Inter', sans-serif) !important;
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  color: #4B5675 !important;
+}
+@media (max-width: 575px) {
+  html .case-card .case-card-title,
+  html .case-card:hover .case-card-title,
+  html .case-card h3,
+  html .case-card:hover h3 { font-size: 22px !important; }
+  html .case-card .case-block p { font-size: 14px !important; }
+}
