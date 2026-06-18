@@ -41,7 +41,7 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       font-size: 11px;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
     }
     .egov-hero h1 {
       font-family: 'Times New Roman', Times, serif;
@@ -79,16 +79,16 @@
       font-size: clamp(2rem, 1.6rem + 1.6vw, 2.8rem);
       line-height: 1.12;
       letter-spacing: -0.01em;
-      margin: 8px 0 18px;
+      margin: 0 0 18px;
     }
     .egov-band p.copy {
       font-family: var(--font-heading, 'Josefin Sans', sans-serif);
       font-size: 16px;
       line-height: 1.7;
       color: #4b5675;
-      margin: 0 0 24px;
+      margin: 0 0 12px;
     }
-    .egov-checklist { list-style: none; padding: 0; margin: 0 0 36px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; row-gap: 16px; }
+    .egov-checklist { list-style: none; padding: 0; margin: 0 0 42px; display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; row-gap: 16px; }
     @media (max-width: 560px) { .egov-checklist { grid-template-columns: 1fr; } }
     .egov-checklist li {
       display: flex;
@@ -97,23 +97,33 @@
       font-family: var(--font-heading, 'Josefin Sans', sans-serif);
       font-size: 15px;
       font-weight: 500;
-      color: #0e1640;
+      color: #4b5674;
       line-height: 1.5;
     }
     .egov-check {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: var(--primary, #6a3df0);
       display: inline-grid;
       place-items: center;
       margin-top: 1px;
     }
-    .egov-check svg { width: 12px; height: 12px; color: #ffffff; }
+    .egov-check svg { width: 10px; height: 10px; color: #ffffff; }
     .egov-btn-row { display: flex; flex-wrap: wrap; gap: 14px; }
 
     /* Reference Projects panel on the right */
+    .egov-ref-panel {
+      background: #ffffff;
+      border: 1px solid #eceff4;
+      border-radius: 16px;
+      padding: 36px;
+    }
+    .egov-ref-panel .egov-eyebrow {
+      color: #4B5675;
+      font-size: 16px;
+    }
     .egov-ref-list { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 24px; }
     .egov-ref-item { display: flex; align-items: center; gap: 16px; }
     .egov-ref-logo {
@@ -222,6 +232,19 @@
     .egov-faq { padding: 100px 0 110px; background: #f9fafb; }
     .egov-faq .sect-head { text-align: center; margin-bottom: 40px; }
     .egov-faq .egov-h2 { margin-top: 8px; }
+    .egov-faq .faq-wrap {
+      background: transparent;
+      padding: 0;
+      max-width: 880px;
+      margin: 0 auto;
+      gap: 16px;
+    }
+    .egov-faq .faq-item {
+      background: #ffffff !important;
+      border: 1px solid #eceff4 !important;
+      border-radius: 16px !important;
+      box-shadow: none !important;
+    }
 
     /* ---------- CTA strip ---------- */
     .egov-cta {
@@ -343,7 +366,7 @@
       <div class="container">
         <div class="csmenu-head">
           <span class="megamenu-eyebrow">Case Studies</span>
-          <a class="csmenu-viewall" href="case-studies.html">View all case studies &rsaquo;</a>
+          <span class="megamenu-eyebrow csmenu-head-feature">New Case Study</span>
         </div>
         <!-- TODO-WG: each named public-sector body below must have approved public listing before publishing. -->
         <div class="csmenu-layout">
@@ -434,7 +457,7 @@
             <a href="case-studies.html" class="btn btn-outline btn-md">View Projects</a>
           </div>
         </div>
-        <div>
+        <div class="egov-ref-panel">
           <span class="egov-eyebrow">Reference Projects</span>
           <!-- TODO-WG: each public-sector reference below must have approved public listing before publishing. -->
           <ul class="egov-ref-list">
@@ -478,7 +501,6 @@
           <span class="egov-build-ic" aria-hidden="true"><i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/user-tick.svg');"></i></span>
           <h3>Role-Based Access &amp; Audit Trails</h3>
           <p>Granular, role-scoped permissions with full audit logging on every action &mdash; so every approval, edit and submission is traceable to a user and a timestamp.</p>
-          <p class="egov-build-eg"><strong>Parliament of India</strong></p>
         </article>
         <article class="egov-build-card">
           <span class="egov-build-ic" aria-hidden="true"><i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@master/docs/Iconsax/Svg/All/linear/global.svg');"></i></span>
@@ -544,7 +566,7 @@
         </div>
         <div class="cert-seal-card">
           <div class="cert-seal-img-wrap">
-            <img class="cert-seal-img" src="images/credentials/Start up logo.svg" alt="DPIIT — Startup India recognised" loading="lazy" />
+            <img class="cert-seal-img" src="images/logos/gov/Start up logo.svg" alt="DPIIT — Startup India recognised" loading="lazy" />
           </div>
           <div class="cert-seal-card-name">Startup India / DPIIT</div>
         </div>
