@@ -2608,7 +2608,7 @@ form { display: grid; gap: var(--space-4); }
    Portfolio page — government + enterprise logo grids
    ============================================================ */
 
-.portfolio-section { padding: 64px 0; }
+.portfolio-section { padding: 100px 0; }
 
 /* Government & Public Sector — card with ministry chip + logo + name */
 .gov-logo-grid {
@@ -2671,54 +2671,83 @@ form { display: grid; gap: var(--space-4); }
   line-height: 1.4;
 }
 
-/* Enterprise & MNC — card with just logo + name */
+/* Enterprise & MNC — "Trusted by Leading Brands & Growing Startups".
+   Ported from webority-os-web our-clients grid (.clients-grid / .client-grid-cell):
+   bordered cards with rotating soft tints, centred logo + name. No hover. */
 .ent-logo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 24px;
   margin-top: 40px;
 }
 .ent-logo-card {
-  background: var(--bg-light);
-  border: 1px solid #eef1f6;
-  border-radius: 12px;
-  padding: 28px 22px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border: 1px solid #EBEDF3;
+  border-radius: 0;
+  background: #F2F7FA;
+  height: 300px;
+  padding: 20px;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  transition: none;            /* deliberately no hover, matching our-clients */
 }
-.ent-logo-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+/* Rotating soft card tints — cycle of 20, same palette as our-clients */
+.ent-logo-card:nth-child(20n+1)  { background: #F2F7FA; }
+.ent-logo-card:nth-child(20n+2)  { background: #FCFAF2; }
+.ent-logo-card:nth-child(20n+3)  { background: #FBFBFB; }
+.ent-logo-card:nth-child(20n+4)  { background: #FEF9F4; }
+.ent-logo-card:nth-child(20n+5)  { background: #FDF4F3; }
+.ent-logo-card:nth-child(20n+6)  { background: #F2F4FA; }
+.ent-logo-card:nth-child(20n+7)  { background: #FEFBF4; }
+.ent-logo-card:nth-child(20n+8)  { background: #F2FAFA; }
+.ent-logo-card:nth-child(20n+9)  { background: #FFF7F2; }
+.ent-logo-card:nth-child(20n+10) { background: #F4F4F8; }
+.ent-logo-card:nth-child(20n+11) { background: #FEFBF3; }
+.ent-logo-card:nth-child(20n+12) { background: #F7F9F6; }
+.ent-logo-card:nth-child(20n+13) { background: #F2F2F2; }
+.ent-logo-card:nth-child(20n+14) { background: #FDF8F4; }
+.ent-logo-card:nth-child(20n+15) { background: #FEFBF4; }
+.ent-logo-card:nth-child(20n+16) { background: #FCF2F4; }
+.ent-logo-card:nth-child(20n+17) { background: #F7FBF3; }
+.ent-logo-card:nth-child(20n+18) { background: #F3F6FB; }
+.ent-logo-card:nth-child(20n+19) { background: #F4F4F9; }
+.ent-logo-card:nth-child(20n+20) { background: #FDF3F5; }
 .ent-logo-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
   width: 100%;
-  height: 64px;
-  background: var(--white);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
+  background: transparent;
+  border-radius: 0;
+  margin-bottom: 14px;
+  padding: 0;
+  overflow: hidden;
+  /* text fallback styling (cards with no logo file) */
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 22px;
+  letter-spacing: 0.02em;
   color: var(--text-2);
-  margin-bottom: 18px;
-  letter-spacing: 0.04em;
-  padding: 8px;
   text-align: center;
-  overflow: hidden;
+  line-height: 1.2;
 }
 .ent-logo-image img {
   max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
+  height: 120px;
   object-fit: contain;
   display: block;
 }
 .ent-logo-name {
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: 14px;
-  color: var(--heading);
+  font-size: 16px;
+  color: #171A21;
+  line-height: 1.3;
+  margin: 0;
 }
 
 .portfolio-section-head {
@@ -2736,10 +2765,37 @@ form { display: grid; gap: var(--space-4); }
 }
 
 @media (max-width: 880px) {
-  .gov-logo-grid, .ent-logo-grid { grid-template-columns: repeat(2, 1fr); }
+  .gov-logo-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
-  .gov-logo-grid, .ent-logo-grid { grid-template-columns: 1fr; }
+  .gov-logo-grid { grid-template-columns: 1fr; }
+}
+
+/* Enterprise / "Trusted by…" grid — responsive steps from our-clients */
+@media (max-width: 1400px) {
+  .ent-logo-card { height: 220px; }
+  .ent-logo-image img { height: 110px; }
+}
+@media (max-width: 1200px) {
+  .ent-logo-grid { grid-template-columns: repeat(3, 1fr); }
+  .ent-logo-card { height: 200px; padding: 15px; }
+  .ent-logo-image img { height: 100px; }
+  .ent-logo-image { font-size: 20px; }
+  .ent-logo-name { font-size: 14px; }
+}
+@media (max-width: 991px) {
+  .ent-logo-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .ent-logo-card { height: 180px; padding: 12px; }
+  .ent-logo-image img { height: 90px; }
+  .ent-logo-image { font-size: 18px; }
+  .ent-logo-name { font-size: 13px; }
+}
+@media (max-width: 575px) {
+  .ent-logo-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .ent-logo-card { height: 160px; padding: 10px; }
+  .ent-logo-image img { height: 70px; }
+  .ent-logo-image { font-size: 16px; }
+  .ent-logo-name { font-size: 12px; }
 }
 /* ============================================================
    Contact page — Direct Contact + Send an Enquiry split, plus
