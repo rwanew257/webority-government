@@ -5441,9 +5441,9 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   line-height: 1.25;
   transition: color .3s ease;
 }
-[class*="-card"]:not([class*="-cards"]):not(.case-card):not([class*="leader-card-v3"]):not(.why-v3-card):not(.why-v3-card-body):hover h3,
-[class*="-card"]:not([class*="-cards"]):not(.case-card):not([class*="leader-card-v3"]):not(.why-v3-card):not(.why-v3-card-body):hover h4,
-[class*="-card"]:not([class*="-cards"]):not(.case-card):not([class*="leader-card-v3"]):not(.why-v3-card):not(.why-v3-card-body):hover h5,
+[class*="-card"]:not([class*="-cards"]):not(.case-card):not([class*="leader-card-v3"]):not(.why-v3-card):not(.why-v3-card-body):not(.svc-visual-card):hover h3,
+[class*="-card"]:not([class*="-cards"]):not(.case-card):not([class*="leader-card-v3"]):not(.why-v3-card):not(.why-v3-card-body):not(.svc-visual-card):hover h4,
+[class*="-card"]:not([class*="-cards"]):not(.case-card):not([class*="leader-card-v3"]):not(.why-v3-card):not(.why-v3-card-body):not(.svc-visual-card):hover h5,
 [class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h3,
 [class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h4,
 [class*="-tile"]:not([class*="-tiles"]):not(.case-impact-tile):hover h5 {
@@ -7346,6 +7346,20 @@ html .case-card:focus-visible h4 {
   display: flex !important;
   flex-direction: column !important;
   gap: 18px !important;
+  transition: none !important;
+}
+.svc-row-section .svc-visual-card:hover,
+.svc-row-section .svc-visual-card:focus-visible,
+.svc-row-section .svc-visual-card:hover .svc-visual-img.has-photo img,
+.svc-row-section .svc-visual-card:hover .svc-visual-img img {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: #eceff4 !important;
+  scale: 1 !important;
+}
+.svc-row-section .svc-visual-card:hover .svc-visual-title,
+.svc-row-section .svc-visual-card:hover h3 {
+  color: #0b0b14 !important;
 }
 .svc-row-section .svc-visual-img,
 .svc-row-section .svc-visual-img.has-photo {
