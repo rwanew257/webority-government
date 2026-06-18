@@ -131,10 +131,3 @@ textarea:focus-visible,
     outline-offset: 2px;
 }
 
-@media (max-width: 640px) {
-    .gov-topbar-inner { padding: 7px 14px; font-size: 11px; }
-    .gov-topbar-tagline { display: none; }
-    .gov-topbar-links a { font-size: 11px; }
-    .gov-topbar-links { gap: 6px; }
-    .gov-topbar-right { gap: 10px; }
-}

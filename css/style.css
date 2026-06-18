@@ -190,69 +190,6 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 }
 
 /* Tablet — verbatim mapping from core.min.css */
-@media (min-width: 768px) {
-  :root {
-    --hero-title: var(--fs-62-tablet);
-    --hero-subtitle: var(--fs-20-tablet);
-    --section-title: var(--fs-42-tablet);
-    --section-subtitle: var(--fs-18-tablet);
-    --hero-padding: var(--space-20-tablet);
-    --section-padding: var(--space-16-tablet);
-    --card-padding: var(--space-8-tablet);
-    --container-padding: var(--space-6);
-    --nav-height: 4rem;
-    --nav-font-size: var(--fs-18-tablet);
-    --btn-padding-y: var(--space-4-tablet);
-    --btn-padding-x: var(--space-8-tablet);
-    --btn-font-size: var(--fs-18-tablet);
-  }
-}
-@media (min-width: 1024px) {
-  :root {
-    --hero-title: var(--fs-80-desktop);
-    --hero-subtitle: var(--fs-24-desktop);
-    --section-title: var(--fs-52-desktop);
-    --section-subtitle: var(--fs-20-desktop);
-    --hero-padding: var(--space-32-desktop);
-    --section-padding: var(--space-24-desktop);
-    --card-padding: var(--space-12-desktop);
-    --container-padding: var(--space-8);
-    --nav-height: 4.5rem;
-    --nav-font-size: var(--fs-18-desktop);
-    --btn-padding-y: var(--space-5-desktop);
-    --btn-padding-x: var(--space-10-desktop);
-    --btn-font-size: var(--fs-18-desktop);
-  }
-}
-@media (min-width: 1440px) {
-  :root {
-    --hero-title: var(--fs-110-desktop);
-    --hero-subtitle: var(--fs-28-desktop);
-    --section-title: var(--fs-72-desktop);
-    --section-subtitle: var(--fs-24-desktop);
-    --hero-padding: var(--space-48-desktop);
-    --section-padding: var(--space-32-desktop);
-    --container-padding: var(--space-12);
-  }
-}
-@media (min-width: 1920px) {
-  :root {
-    --hero-title: var(--fs-120-desktop);
-    --hero-subtitle: var(--fs-32-desktop);
-    --section-title: var(--fs-80-desktop);
-    --section-subtitle: var(--fs-28-desktop);
-    --hero-padding: var(--space-64-desktop);
-    --section-padding: var(--space-40-desktop);
-    --container-padding: var(--space-16);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --transition-fast: 0ms;
-    --transition-base: 0ms;
-    --transition-slow: 0ms;
-  }
-}
 
 /* ---------- Base ---------- */
 body {
@@ -960,32 +897,6 @@ form { display: grid; gap: var(--space-4); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 960px) {
-  .hero-content, .two-col, .form-grid, .footer-top { grid-template-columns: 1fr; }
-  .footer-top { gap: var(--space-8); }
-  .stats-row { grid-template-columns: repeat(2, 1fr); }
-  .stats-card:nth-child(2)::after { display: none; }
-  .field-row { grid-template-columns: 1fr; }
-
-  .nav-toggle { display: flex; }
-  .nav-menu {
-    position: absolute; top: 100%; left: 0; right: 0;
-    background: var(--white);
-    flex-direction: column; align-items: stretch;
-    padding: var(--space-4);
-    border-top: 1px solid var(--outline);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-10px); opacity: 0; pointer-events: none;
-    transition: all var(--transition-base);
-  }
-  .nav-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-  .nav-menu a { padding: var(--space-3) var(--space-4); }
-  .nav-cta { margin: var(--space-2) 0 0; }
-}
-@media (max-width: 560px) {
-  .stats-row { grid-template-columns: 1fr 1fr; }
-  .hero-actions .btn { width: 100%; justify-content: center; }
-}
 
 /* ============================================================
    v2 — Public-sector landing hero (matches Main Frame mockup)
@@ -1190,20 +1101,7 @@ form { display: grid; gap: var(--space-4); }
   width: auto;
   max-width: 220px;
 }
-@media (max-width: 880px) {
-  .brand--logo .brand-logo-img { height: 30px; }
-}
 
-
-@media (max-width: 880px) {
-  .hero-v2-grid { grid-template-columns: 1fr; }
-  .hero-v2-image-wrap { order: -1; max-width: 420px; margin: 0 auto; }
-  .trust-badges { grid-template-columns: repeat(2, minmax(0, max-content)); }
-}
-@media (max-width: 520px) {
-  .trust-badges { grid-template-columns: 1fr; }
-  .nav-lang { margin-right: var(--space-2); }
-}
 /* ============================================================
    FULL-PAGE LAYOUT v2 — sections from the "Main Frame" full mockup
    All additive. None of the original rules above are overridden.
@@ -1592,22 +1490,7 @@ form { display: grid; gap: var(--space-4); }
 .final-cta-actions .btn-ghost:hover { background: rgba(255,255,255,0.12); }
 
 /* ---------- Responsive collapses ---------- */
-@media (max-width: 980px) {
-  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-  .ai-split, .trust-split { grid-template-columns: 1fr; gap: 36px; }
-  .feature-card-grid, .svc-grid, .sect-grid-3, .solutions-grid { grid-template-columns: repeat(2, 1fr); }
-  .case-showcase { grid-template-columns: 1fr; }
-  .creds-row { grid-template-columns: repeat(3, 1fr); }
-  .team-grid { grid-template-columns: 1fr; max-width: 420px; }
-}
-@media (max-width: 600px) {
-  .portfolio-grid, .feature-card-grid, .svc-grid, .sect-grid-3, .solutions-grid { grid-template-columns: 1fr; }
-  .stats-v2 { grid-template-columns: repeat(2, 1fr); }
-  .stats-v2 > div:nth-child(2) { border-right: 0; }
-  .stats-v2 > div:nth-child(1), .stats-v2 > div:nth-child(2) { padding-bottom: 24px; margin-bottom: 12px; border-bottom: 1px solid var(--outline); }
-  .creds-row { grid-template-columns: repeat(2, 1fr); }
-  .final-cta { padding: 36px 22px; }
-}
+
 /* ============================================================
    Services-page hero (Main Frame mockup variant)
    Full-width, watercolor gradient (green left, saffron right),
@@ -1644,9 +1527,7 @@ form { display: grid; gap: var(--space-4); }
   max-width: 760px;
   margin: 0;
 }
-@media (max-width: 720px) {
-  .svc-hero { padding: 60px 0 80px; }
-}
+
 /* ============================================================
    Services-page rows (Main Frame mockup)
    Alternating two-column: numbered text + visual card with KPI strip.
@@ -1820,10 +1701,6 @@ form { display: grid; gap: var(--space-4); }
 }
 .svc-visual-img { aspect-ratio: auto; min-height: 520px; }
 
-@media (max-width: 980px) {
-  .svc-row { grid-template-columns: 1fr; gap: 28px; }
-  .svc-row-section { padding: 48px 0; }
-}
 /* ============================================================
    Case Studies — 2x2 card grid with ministry-themed header bands
    ============================================================ */
@@ -1939,9 +1816,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .case-card-cta::after { content: "  \2192"; }
 .case-card-cta:hover { text-decoration: underline; }
-@media (max-width: 880px) {
-  .cases-grid { grid-template-columns: 1fr; }
-}
+
 /* ============================================================
    Sectors section — tabs, capability cards, reference project,
    partners grid (Main Frame mockup)
@@ -2162,14 +2037,6 @@ form { display: grid; gap: var(--space-4); }
   letter-spacing: 0.08em;
 }
 
-@media (max-width: 880px) {
-  .cap-grid { grid-template-columns: repeat(2, 1fr); }
-  .partners-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 540px) {
-  .cap-grid { grid-template-columns: 1fr; }
-  .sector-tab { padding: 12px 14px; font-size: 13px; }
-}
 /* ============================================================
    Credentials sections (Main Frame mockup)
    ============================================================ */
@@ -2413,19 +2280,6 @@ form { display: grid; gap: var(--space-4); }
   margin: 0;
 }
 
-@media (max-width: 980px) {
-  .cert-seals-row { grid-template-columns: repeat(3, 1fr); }
-  .reg-grid { grid-template-columns: repeat(2, 1fr); }
-  .std-grid { grid-template-columns: repeat(2, 1fr); }
-  .sec-split { grid-template-columns: 1fr; }
-  .sec-img-stack .sec-img.small { margin: -36px auto 0; max-width: 70%; }
-}
-@media (max-width: 600px) {
-  .cert-seals-row { grid-template-columns: repeat(2, 1fr); }
-  .reg-grid, .std-grid { grid-template-columns: 1fr; }
-  .sec-check-grid { grid-template-columns: 1fr; }
-  .cert-seal-img-wrap { aspect-ratio: 5 / 3; }
-}
 /* ============================================================
    About-page sections (Main Frame mockup)
    ============================================================ */
@@ -2595,16 +2449,6 @@ form { display: grid; gap: var(--space-4); }
   max-width: 720px;
 }
 
-@media (max-width: 880px) {
-  .story-split { grid-template-columns: 1fr; }
-  .proc-grid { grid-template-columns: repeat(2, 1fr); }
-  .timeline-row { grid-template-columns: 80px 1fr; column-gap: 18px; }
-  .timeline-rail { left: 92px; }
-  .timeline-row::before { left: 84px; }
-}
-@media (max-width: 540px) {
-  .proc-grid { grid-template-columns: 1fr; }
-}
 /* ============================================================
    Portfolio page — government + enterprise logo grids
    ============================================================ */
@@ -2779,39 +2623,8 @@ form { display: grid; gap: var(--space-4); }
   letter-spacing: -0.01em;
 }
 
-@media (max-width: 880px) {
-  .gov-logo-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .gov-logo-grid { grid-template-columns: 1fr; }
-}
-
 /* Enterprise / "Trusted by…" grid — responsive steps from our-clients */
-@media (max-width: 1400px) {
-  .ent-logo-card { height: 220px; }
-  .ent-logo-image img { height: 110px; }
-}
-@media (max-width: 1200px) {
-  .ent-logo-grid { grid-template-columns: repeat(3, 1fr); }
-  .ent-logo-card { height: 200px; padding: 15px; }
-  .ent-logo-image img { height: 100px; }
-  .ent-logo-image { font-size: 20px; }
-  .ent-logo-name { font-size: 14px; }
-}
-@media (max-width: 991px) {
-  .ent-logo-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .ent-logo-card { height: 180px; padding: 12px; }
-  .ent-logo-image img { height: 90px; }
-  .ent-logo-image { font-size: 18px; }
-  .ent-logo-name { font-size: 13px; }
-}
-@media (max-width: 575px) {
-  .ent-logo-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
-  .ent-logo-card { height: 160px; padding: 10px; }
-  .ent-logo-image img { height: 70px; }
-  .ent-logo-image { font-size: 16px; }
-  .ent-logo-name { font-size: 12px; }
-}
+
 /* ============================================================
    Contact page — Direct Contact + Send an Enquiry split, plus
    dark Download Company Profile CTA (Main Frame mockup)
@@ -3055,13 +2868,6 @@ form { display: grid; gap: var(--space-4); }
   align-self: center;
 }
 
-@media (max-width: 880px) {
-  .contact-split { grid-template-columns: 1fr; }
-  .direct-contact-card { min-height: 0; }
-  .enquiry-form .row-2 { grid-template-columns: 1fr; }
-  .download-cta { padding: 64px 22px; }
-  .download-cta-checks { gap: 16px 22px; }
-}
 /* ============================================================
    NEW GLOBAL FOOTER (Main Frame mockup)
    Dark navy/purple gradient, 5-column top, two promo cards,
@@ -3348,20 +3154,6 @@ form { display: grid; gap: var(--space-4); }
 .site-footer.wg-footer .footer-top,
 .site-footer.wg-footer .footer-bottom { display: none; }
 
-@media (max-width: 1100px) {
-  .wg-footer-top { grid-template-columns: 1fr 1fr 1fr; }
-  .wg-foot-brand { grid-column: 1 / -1; }
-}
-@media (max-width: 720px) {
-  .wg-footer-top { grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 36px; }
-  .wg-foot-brand { grid-column: 1 / -1; }
-  .wg-foot-promos { grid-template-columns: 1fr; }
-  .wg-footer .wg-inner { padding: 56px 22px 22px; }
-}
-@media (max-width: 480px) {
-  .wg-footer-top { grid-template-columns: 1fr; }
-  .wg-foot-bottom { flex-direction: column; align-items: flex-start; }
-}
 /* ============================================================
    HERO v3 — full-bleed Ashoka lions on the right (matches the
    newer Main Frame mockup). Overrides earlier .hero-v2-* rules.
@@ -3413,18 +3205,6 @@ form { display: grid; gap: var(--space-4); }
   min-height: 600px;
 }
 
-@media (max-width: 880px) {
-  .hero-v2 { min-height: 0; padding-top: 36px; }
-  .hero-v2-grid { grid-template-columns: 1fr; min-height: 0; }
-  .hero-v2-image-wrap { order: -1; margin: 0; min-height: 0; height: 320px; }
-  .hero-v2-image {
-    position: static;
-    width: 100%;
-    height: 320px;
-    object-position: center center;
-  }
-  .hero-v2-content { padding: 24px 0 56px; }
-}
 /* ============================================================
    HERO v4 — properly crop the lions photo
    Original image: 1024x615, orange wash on LEFT, lions on RIGHT.
@@ -3449,16 +3229,6 @@ form { display: grid; gap: var(--space-4); }
   top: 0;
 }
 
-@media (max-width: 880px) {
-  .hero-v2-image-wrap { margin: 0; height: 340px; min-height: 0; overflow: hidden; }
-  .hero-v2-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-position: 65% center;
-  }
-}
 /* ============================================================
    HERO v5 — image is the full hero background (matches mockup
    exactly: watercolour wash flows across, lions on the right,
@@ -3525,16 +3295,6 @@ form { display: grid; gap: var(--space-4); }
 
 .hero-v2-image-placeholder { display: none !important; }
 
-@media (max-width: 880px) {
-  .hero-v2 { min-height: 0; padding-top: 36px; }
-  .hero-v2-grid { grid-template-columns: 1fr; }
-  .hero-v2-image-wrap { position: relative !important; height: 320px; }
-  .hero-v2-image { object-position: center right; }
-  .hero-v2-image-wrap::after {
-    background: linear-gradient(180deg, transparent 0%, rgba(255,252,245,0.6) 100%);
-  }
-  .hero-v2-content { padding: 28px 0 48px; }
-}
 /* ============================================================
    HERO v5 — Ashoka photo as the FULL hero background
    The supplied image already contains the saffron/white/green
@@ -3587,12 +3347,6 @@ form { display: grid; gap: var(--space-4); }
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
-@media (max-width: 880px) {
-  .hero-v2 { min-height: 560px; padding: 40px 0; }
-  .hero-v2::before { background-position: 70% center; }
-  .hero-v2::after { background: linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.10) 100%); }
-  .hero-v2-grid { grid-template-columns: 1fr; min-height: 0; }
-}
 /* ============================================================
    PORTFOLIO v2 — 3x3 grid of ministry cards with logo + 2-line text
    Replaces the simpler text-tile portfolio used earlier.
@@ -3682,12 +3436,6 @@ form { display: grid; gap: var(--space-4); }
   letter-spacing: 0.14em;
 }
 
-@media (max-width: 980px) {
-  .portfolio-v2-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-  .portfolio-v2-grid { grid-template-columns: 1fr; }
-}
 /* ============================================================
    Public Sector Portfolio v2 (Main Frame mockup)
    3-column horizontal cards: logo on left, ministry name + entity beneath
@@ -3771,13 +3519,6 @@ form { display: grid; gap: var(--space-4); }
 .psp-cta-row { text-align: center; }
 .psp-cta-row .btn-pill { display: inline-flex; align-self: center; }
 
-@media (max-width: 980px) {
-  .psp-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .psp-grid { grid-template-columns: 1fr; }
-  .psp-footnote { font-size: 16px; }
-}
 /* ============================================================
    Public Sector Portfolio v2 — class names match the HTML
    (3-column horizontal ministry cards, italic footnote, CTA)
@@ -3870,10 +3611,3 @@ form { display: grid; gap: var(--space-4); }
   padding: 16px 32px;
 }
 
-@media (max-width: 980px) {
-  .portfolio-v2-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .portfolio-v2-grid { grid-template-columns: 1fr; }
-  .portfolio-footnote-v2 { font-size: 16px; }
-}
