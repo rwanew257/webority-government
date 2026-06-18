@@ -311,8 +311,8 @@ body.sectors-page .site-header.has-open-megamenu {
 }
 
 /* Case-study feature card on the right */
-.megamenu-col--feature .megamenu-eyebrow { margin-bottom: 24px; }
-.megamenu-col:not(:has(> .megamenu-eyebrow)) { padding-top: 44px; }
+.megamenu-col--feature .megamenu-eyebrow { display: none; }
+.megamenu-col:not(:has(> .megamenu-eyebrow)) { padding-top: 0; }
 .megamenu-feature {
   display: block;
   position: relative;
@@ -2399,37 +2399,56 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 
 .creds-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  align-items: end;          /* every tile's bottom edge sits on the row's bottom line */
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-end;
+  gap: 24px;
 }
-.creds-grid > .cert-tile { grid-column: span 1; }
-.creds-grid > .cert-tile--wide { grid-column: span 2; }
+.creds-grid > .cert-tile {
+  flex: 0 0 calc((100% - 3 * 24px) / 4);
+  max-width: calc((100% - 3 * 24px) / 4);
+}
+.creds-grid > .cert-tile--wide {
+  /* Width derived so the landscape (31:20) cert renders at the same HEIGHT as
+     a portrait (3:4) tile in the same row: width = portrait_width × 31/15. */
+  flex: 0 0 calc((100% - 3 * 24px) * 31 / 60);
+  max-width: calc((100% - 3 * 24px) * 31 / 60);
+  aspect-ratio: 31 / 20;
+}
 @media (max-width: 1100px) {
-  .creds-grid { grid-template-columns: repeat(3, 1fr); }
-  .creds-grid > .cert-tile--wide { grid-column: span 1; }
+  .creds-grid > .cert-tile {
+    flex: 0 0 calc((100% - 2 * 24px) / 3);
+    max-width: calc((100% - 2 * 24px) / 3);
+  }
+  .creds-grid > .cert-tile--wide {
+    flex: 0 0 calc((100% - 2 * 24px) * 31 / 45);
+    max-width: calc((100% - 2 * 24px) * 31 / 45);
+  }
 }
 @media (max-width: 720px) {
-  .creds-grid { grid-template-columns: repeat(2, 1fr); }
+  .creds-grid > .cert-tile,
+  .creds-grid > .cert-tile--wide {
+    flex: 0 0 calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+  }
 }
 @media (max-width: 480px) {
-  .creds-grid { grid-template-columns: 1fr; }
+  .creds-grid > .cert-tile,
+  .creds-grid > .cert-tile--wide {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 .cert-tile {
   position: relative;
   margin: 0;
   aspect-ratio: 3 / 4;          /* portrait certificate ratio */
-  padding: 8px;
+  padding: 0;
   border-radius: 6px;
-  background:
-    linear-gradient(135deg, #d4a85a 0%, #f5d98b 25%, #b9892f 50%, #f5d98b 75%, #c2933a 100%);
-  box-shadow:
-    0 1px 2px rgba(0,0,0,.08),
-    0 12px 24px -10px rgba(98,0,238,.18),
-    inset 0 0 0 1px rgba(255,255,255,.35);
+  background: transparent;
+  box-shadow: none;
   transition: none;
 }
 /* Startup India landscape cert — aspect-ratio tuned so its height equals
@@ -2437,18 +2456,15 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 .cert-tile--wide { aspect-ratio: 31 / 20; align-self: end; }
 .cert-tile:hover {
   transform: none;
-  box-shadow:
-    0 1px 2px rgba(0,0,0,.08),
-    0 12px 24px -10px rgba(98,0,238,.18),
-    inset 0 0 0 1px rgba(255,255,255,.35);
+  box-shadow: none;
 }
 
 .cert-tile > img {
   display: block;
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 3px;
-  background: #fff;
+  background: transparent;
   position: relative;
   z-index: 2;
 }
