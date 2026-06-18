@@ -2185,7 +2185,7 @@ form { display: grid; gap: var(--space-4); }
   background: transparent;
   border: 0;
   border-radius: 18px;
-  padding: 28px 20px 22px;
+  padding: 28px 0 22px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -2206,6 +2206,7 @@ form { display: grid; gap: var(--space-4); }
   overflow: hidden;
   border-radius: 10px;
   background: #fff;
+  border: 0;
 }
 .cert-seal-img {
   width: 100%;

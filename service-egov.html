@@ -122,9 +122,11 @@
     }
     .egov-ref-panel .egov-eyebrow {
       color: #4B5675;
-      font-size: 16px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      font-weight: 600;
     }
-    .egov-ref-list { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 24px; }
+    .egov-ref-list { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 28px; }
     .egov-ref-item { display: flex; align-items: center; gap: 16px; }
     .egov-ref-logo {
       flex-shrink: 0;
@@ -180,21 +182,33 @@
       display: flex;
       flex-direction: column;
       gap: 0;
-      transition: border-color 300ms ease;
+      transition: border-color 300ms ease, transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 300ms ease;
     }
-    .egov-build-card:hover { border-color: #eceff4; }
+    .egov-build-card:hover {
+      border-color: #eceff4;
+      transform: translateY(-4px);
+      box-shadow: none;
+    }
+    .egov-build-card h3 { transition: color 300ms ease; }
+    .egov-build-card:hover h3 { color: var(--primary, #6a3df0); }
+    .egov-build-ic { transition: background 300ms ease, transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1); }
+    .egov-build-card:hover .egov-build-ic {
+      background: var(--primary, #6a3df0);
+      color: #ffffff;
+      transform: scale(1.05);
+    }
     .egov-build-ic {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
       background: rgba(106, 61, 240, 0.10);
       color: var(--primary, #6a3df0);
       display: inline-grid;
       place-items: center;
       margin-bottom: 20px;
     }
-    .egov-build-ic .iconsax-ic { width: 28px; height: 28px; }
-    .egov-build-ic img { width: 28px; height: 28px; object-fit: contain; display: block; }
+    .egov-build-ic .iconsax-ic { width: 20px; height: 20px; }
+    .egov-build-ic img { width: 20px; height: 20px; object-fit: contain; display: block; }
     .egov-build-card h3 {
       font-family: var(--font-heading, 'Josefin Sans', sans-serif);
       font-weight: 500;
@@ -241,7 +255,7 @@
     }
     .egov-faq .faq-item {
       background: #ffffff !important;
-      border: 1px solid #eceff4 !important;
+      border: 0 !important;
       border-radius: 16px !important;
       box-shadow: none !important;
     }
@@ -249,7 +263,7 @@
     /* ---------- CTA strip ---------- */
     .egov-cta {
       padding: 80px 0;
-      background: linear-gradient(135deg, #0e1640 0%, #2a1a6e 60%, #4e00be 100%);
+      background: url('images/logos/gov/CTA Background.png') center / cover no-repeat;
       text-align: center;
     }
     .egov-cta h2 {
@@ -476,7 +490,7 @@
               </span>
             </li>
             <li class="egov-ref-item">
-              <span class="egov-ref-logo"><img src="images/logos/gov/qci.png" alt="Quality Council of India" loading="lazy" /></span>
+              <span class="egov-ref-logo"><img src="images/logos/gov/Case Study Detail logo QCI .svg" alt="Quality Council of India" loading="lazy" /></span>
               <span>
                 <p class="egov-ref-name">Quality Council of India</p>
                 <p class="egov-ref-proj">SAMAR Certification Platform</p>
