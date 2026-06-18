@@ -35,6 +35,85 @@
     onScroll();
   }
 
+  // Shared megamenu markup — single source of truth. index.html / services.html
+  // ship this markup statically; every other page is missing it, so we inject
+  // the IDENTICAL markup here (nav data-attributes + both panels) before the
+  // binding logic below runs. Result: the exact same Services + Case Studies
+  // megamenu renders on every page. Guarded so static pages are left untouched.
+  (function injectMegamenu() {
+    var headerEl = document.getElementById('siteHeader');
+    var navMenuEl = document.getElementById('navMenu');
+    if (!headerEl || !navMenuEl || document.querySelector('.megamenu')) return;
+
+    // Promote the Services and Case Studies nav items to megamenu triggers.
+    [['services.html', 'services'], ['case-studies.html', 'case-studies']].forEach(function (pair) {
+      var a = navMenuEl.querySelector('a[href="' + pair[0] + '"]');
+      if (!a) return;
+      var li = a.closest('li');
+      if (!li) return;
+      li.classList.add('has-megamenu');
+      li.setAttribute('data-megamenu', pair[1]);
+      a.setAttribute('aria-haspopup', 'true');
+      a.setAttribute('aria-expanded', 'false');
+    });
+
+    var panels = document.createElement('div');
+    panels.innerHTML = [
+      '<div class="megamenu" id="megamenu-services" data-megamenu-panel="services" aria-hidden="true">',
+        '<div class="container"><div class="megamenu-grid">',
+          '<div class="megamenu-col">',
+            '<span class="megamenu-eyebrow">Services</span>',
+            '<ul class="megamenu-list" role="list">',
+              '<li><a href="services.html#egov"><h5>e-Governance &amp; Custom Software</h5><p>NIC-compatible platforms, G2C/G2G/G2B</p></a></li>',
+              '<li><a href="services.html#staff"><h5>IT Staff Augmentation</h5><p>Vetted engineers for ministries &amp; PSUs</p></a></li>',
+              '<li class="is-active"><a href="services.html#mobile"><h5>Citizen Mobile &amp; Web Apps</h5><p>High-capacity floor units</p></a></li>',
+              '<li><a href="services.html#consulting"><h5>Digital Transformation Consulting</h5><p>Roadmaps, RFP support, PMU</p></a></li>',
+            '</ul>',
+          '</div>',
+          '<div class="megamenu-col">',
+            '<ul class="megamenu-list" role="list">',
+              '<li><a href="services.html#ai"><h5>AI &amp; Data Analytics</h5><p>Dashboard, NLP, fraud detection, MLOps</p></a></li>',
+              '<li><a href="services.html#security"><h5>Cybersecurity &amp; VAPT</h5><p>CERT-In, ISO 27001, DPDP compliance</p></a></li>',
+              '<li><a href="services.html#legacy"><h5>Legacy System Modernisation</h5><p>Migration without disrupting operations</p></a></li>',
+              '<li><a href="services.html#cloud"><h5>Cloud &amp; Managed Services</h5><p>MeghRaj, NIC hosting, AMC, 24x7</p></a></li>',
+            '</ul>',
+          '</div>',
+          '<div class="megamenu-col megamenu-col--feature">',
+            '<span class="megamenu-eyebrow">New Case Study</span>',
+            '<a class="megamenu-feature" href="case-studies.html">',
+              '<div class="megamenu-feature-img" aria-hidden="true"><img src="images/logos/gov/Menu card Bee Design.png" alt="" loading="lazy" /></div>',
+              '<div class="megamenu-feature-body"><h5>Bee Star Label mobile app</h5><p>National appliance compliance platform &mdash; offline field inspection app for SDA officers, real-time central.</p><span class="megamenu-feature-cta">Explore Full Case Study &rsaquo;</span></div>',
+            '</a>',
+          '</div>',
+        '</div></div>',
+      '</div>',
+      '<div class="megamenu" id="megamenu-case-studies" data-megamenu-panel="case-studies" aria-hidden="true">',
+        '<div class="container">',
+          '<div class="csmenu-head"><span class="megamenu-eyebrow">Case Studies</span><span class="megamenu-eyebrow csmenu-head-feature">New Case Study</span></div>',
+          '<div class="csmenu-layout">',
+            '<ul class="csmenu-list">',
+              '<li><a class="csmenu-link" href="case-bee.html" data-csimg="images/logos/gov/BEE Case Study image.png" data-cstitle="Bureau of Energy Efficiency" data-cssub="Ministry of Power"><span class="csmenu-link-title">Bureau of Energy Efficiency</span><span class="csmenu-link-sub">Ministry of Power</span></a></li>',
+              '<li><a class="csmenu-link" href="case-parliament.html" data-csimg="images/logos/gov/Parilament Case Study image.png" data-cstitle="Sansad Cafeteria" data-cssub="Ministry of Parliamentary Affairs"><span class="csmenu-link-title">Sansad Cafeteria</span><span class="csmenu-link-sub">Ministry of Parliamentary Affairs</span></a></li>',
+              '<li><a class="csmenu-link" href="case-manthan.html" data-csimg="images/logos/gov/Manthan Case Study image.png" data-cstitle="Manthan Application" data-cssub="Ministry of Defence"><span class="csmenu-link-title">Manthan Application</span><span class="csmenu-link-sub">Ministry of Defence</span></a></li>',
+              '<li><a class="csmenu-link" href="case-nbt.html" data-csimg="images/logos/gov/NBT Case Study image.png" data-cstitle="National Book Trust E-commerce" data-cssub="Ministry of Education"><span class="csmenu-link-title">National Book Trust E-commerce</span><span class="csmenu-link-sub">Ministry of Education</span></a></li>',
+            '</ul>',
+            '<ul class="csmenu-list">',
+              '<li><a class="csmenu-link" href="case-mota.html" data-csimg="images/logos/gov/Sickle Scan Case Study image.png" data-cstitle="Sickle Scan — Health Screening" data-cssub="Ministry of Tribal Affairs"><span class="csmenu-link-title">Sickle Scan — Health Screening</span><span class="csmenu-link-sub">Ministry of Tribal Affairs</span></a></li>',
+              '<li><a class="csmenu-link" href="case-ssb.html" data-csimg="images/logos/gov/SSB Case Study image.png" data-cstitle="Sashastra Seema Bal" data-cssub="Ministry of Home Affairs"><span class="csmenu-link-title">Sashastra Seema Bal</span><span class="csmenu-link-sub">Ministry of Home Affairs</span></a></li>',
+              '<li><a class="csmenu-link" href="case-qci.html" data-csimg="images/logos/gov/Samar Case Study image.png" data-cstitle="SAMAR — Certification &amp; Assessment" data-cssub="Ministry of Commerce &amp; Industry"><span class="csmenu-link-title">SAMAR — Certification &amp; Assessment</span><span class="csmenu-link-sub">Ministry of Commerce &amp; Industry</span></a></li>',
+              '<li><a class="csmenu-link" href="case-safdarjung.html" data-csimg="images/logos/gov/Sarfdarnjan Case Study image.png" data-cstitle="Safdarjung Hospital" data-cssub="Ministry of Health &amp; Family Welfare"><span class="csmenu-link-title">Safdarjung Hospital</span><span class="csmenu-link-sub">Ministry of Health &amp; Family Welfare</span></a></li>',
+            '</ul>',
+            '<div class="csmenu-preview">',
+              '<div class="csmenu-preview-frame"><img class="csmenu-preview-img" src="" alt="" /><span class="csmenu-preview-empty">Hover a case study to preview</span></div>',
+              '<div class="csmenu-preview-cap"><span class="csmenu-preview-title"></span><span class="csmenu-preview-sub"></span></div>',
+            '</div>',
+          '</div>',
+        '</div>',
+      '</div>'
+    ].join('');
+    while (panels.firstChild) { headerEl.appendChild(panels.firstChild); }
+  })();
+
   // Services megamenu — open on hover/focus/click, close on outside click,
   // pointer-leave (with grace delay so user can move onto the panel), or Esc.
   // The panel is a sibling of the nav (not inside the trigger li) so CSS
@@ -454,108 +533,7 @@
     });
   }
 
-  // Shared services mega-menu — injected on every page. Opens on hover of
-  // the nav links: Services, Case Studies, Sectors. (Credentials and About Us
-  // are excluded.) Clicking any of those links still navigates normally.
-  // Menu is attached to .site-header so position:absolute spans the full width.
-  var siteHeaderEl = document.getElementById('siteHeader');
-  var megamenuTargets = [
-    'services.html',
-    'case-studies.html',
-    'sectors.html'
-  ];
-  var megamenuTriggerLis = megamenuTargets
-    .map(function (href) {
-      var link = document.querySelector('.nav-menu a[href="' + href + '"]');
-      return link ? link.closest('li') : null;
-    })
-    .filter(function (li) { return li; });
-
-  if (siteHeaderEl && megamenuTriggerLis.length && !document.querySelector('.megamenu')) {
-    var megamenu = document.createElement('div');
-    megamenu.className = 'megamenu';
-    megamenu.setAttribute('aria-hidden', 'true');
-    megamenu.innerHTML =
-      '<div class="megamenu-inner">' +
-        '<div class="megamenu-col">' +
-          '<span class="megamenu-eyebrow">Services</span>' +
-          '<a class="megamenu-link" href="services.html#egov">' +
-            '<span class="megamenu-title">e-Governance &amp; Custom Software</span>' +
-            '<span class="megamenu-desc">NIC-compatible platforms, G2C / G2G / G2B</span>' +
-          '</a>' +
-          '<a class="megamenu-link" href="services.html#staffing">' +
-            '<span class="megamenu-title">IT Staff Augmentation</span>' +
-            '<span class="megamenu-desc">Vetted engineers for ministries &amp; PSUs</span>' +
-          '</a>' +
-          '<a class="megamenu-link" href="services.html#mobile">' +
-            '<span class="megamenu-title">Citizen Mobile &amp; Web Apps</span>' +
-            '<span class="megamenu-desc">Field-officer apps &amp; citizen portals</span>' +
-          '</a>' +
-          '<a class="megamenu-link" href="services.html#consulting">' +
-            '<span class="megamenu-title">Digital Transformation Consulting</span>' +
-            '<span class="megamenu-desc">Roadmaps, RFP support, PMU</span>' +
-          '</a>' +
-        '</div>' +
-        '<div class="megamenu-col">' +
-          '<a class="megamenu-link" href="services.html#ai">' +
-            '<span class="megamenu-title">AI &amp; Data Analytics</span>' +
-            '<span class="megamenu-desc">Dashboards, NLP, fraud detection, MLOps</span>' +
-          '</a>' +
-          '<a class="megamenu-link" href="services.html#security">' +
-            '<span class="megamenu-title">Cybersecurity &amp; VAPT</span>' +
-            '<span class="megamenu-desc">CERT-In, ISO 27001, DPDP compliance</span>' +
-          '</a>' +
-          '<a class="megamenu-link" href="services.html#modernization">' +
-            '<span class="megamenu-title">Legacy System Modernisation</span>' +
-            '<span class="megamenu-desc">Migration without disrupting operations</span>' +
-          '</a>' +
-          '<a class="megamenu-link" href="services.html#cloud">' +
-            '<span class="megamenu-title">Cloud &amp; Managed Services</span>' +
-            '<span class="megamenu-desc">MeghRaj, NIC hosting, AMC, 24&times;7</span>' +
-          '</a>' +
-        '</div>' +
-        '<div class="megamenu-feature">' +
-          '<span class="megamenu-eyebrow">New Case Study</span>' +
-          '<a class="megamenu-feature-card" href="case-studies.html">' +
-            '<div class="megamenu-feature-img"></div>' +
-            '<div class="megamenu-feature-meta">' +
-              '<h4>BEE Star Label mobile app</h4>' +
-              '<p>National appliance compliance platform &mdash; offline field inspection app for SDA officers, real-time central sync.</p>' +
-              '<span class="megamenu-feature-cta">Explore Full Case Study &rsaquo;</span>' +
-            '</div>' +
-          '</a>' +
-        '</div>' +
-      '</div>';
-    siteHeaderEl.appendChild(megamenu);
-
-    var closeTimer = null;
-    var openMenu = function (li) {
-      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-      megamenu.classList.add('is-open');
-      if (li) {
-        megamenuTriggerLis.forEach(function (other) { other.classList.remove('megamenu-open'); });
-        li.classList.add('megamenu-open');
-      }
-      siteHeaderEl.classList.add('has-open-megamenu');
-      megamenu.setAttribute('aria-hidden', 'false');
-    };
-    var closeMenu = function () {
-      closeTimer = setTimeout(function () {
-        megamenu.classList.remove('is-open');
-        megamenuTriggerLis.forEach(function (other) { other.classList.remove('megamenu-open'); });
-        siteHeaderEl.classList.remove('has-open-megamenu');
-        megamenu.setAttribute('aria-hidden', 'true');
-      }, 150);
-    };
-
-    megamenuTriggerLis.forEach(function (li) {
-      li.classList.add('has-megamenu');
-      li.addEventListener('mouseenter', function () { openMenu(li); });
-      li.addEventListener('mouseleave', closeMenu);
-    });
-    megamenu.addEventListener('mouseenter', function () { openMenu(null); });
-    megamenu.addEventListener('mouseleave', closeMenu);
-  }
+  // (Shared megamenu is injected near the top of this file — see injectMegamenu.)
 
   // Scroll-driven timeline animation (about page)
   // — vertical rail "draws" from top to bottom as the section scrolls into view
