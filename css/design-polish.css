@@ -7874,8 +7874,15 @@ img, svg, video { max-width: 100%; }
 }
 .csmenu-preview-frame.is-active + .csmenu-preview-cap,
 .csmenu-preview-frame.is-active ~ .csmenu-preview-cap { opacity: 1; }
-.csmenu-preview-title { display: block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight: 600; font-size: 16px; color: #ffffff; }
-.csmenu-preview-sub { display: block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-size: 12.5px; color: rgba(255,255,255,0.78); margin-top: 4px; }
+.csmenu-preview-title { display: block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight: 700; font-size: 18px; color: #ffffff; }
+.csmenu-preview-sub { display: block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 6px; line-height: 1.45; }
+.csmenu-preview-cta { display: inline-block; margin-top: 10px; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight: 600; font-size: 12px; letter-spacing: 0.04em; color: #ffffff; text-decoration: none; }
+.csmenu-preview-cta:hover { text-decoration: underline; }
+.csmenu-preview-empty { display: none !important; }
+/* Force the preview overlay + caption to always render (static, not hover-gated) */
+.csmenu-preview-frame::after { opacity: 1 !important; }
+.csmenu-preview-cap { opacity: 1 !important; pointer-events: auto !important; }
+.csmenu-preview-frame .csmenu-preview-img { opacity: 1 !important; }
 
 /* ==========================================================================
    "Delivering Where It Matters Most" — final lock-in.

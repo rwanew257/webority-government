@@ -180,21 +180,10 @@
     var links = panel.querySelectorAll('.csmenu-link');
     if (!frame || !img || !links.length) return;
 
-    links.forEach(function (a) {
-      a.addEventListener('mouseenter', function () {
-        var src = a.getAttribute('data-csimg');
-        if (!src) return;
-        img.setAttribute('src', src);
-        img.setAttribute('alt', a.getAttribute('data-cstitle') || '');
-        if (titleEl) titleEl.textContent = a.getAttribute('data-cstitle') || '';
-        if (subEl) subEl.textContent = a.getAttribute('data-cssub') || '';
-        frame.classList.add('is-active');
-      });
-    });
-    // Clear the preview when the pointer leaves the whole panel.
-    panel.addEventListener('mouseleave', function () {
-      frame.classList.remove('is-active');
-    });
+    // Static preview — show Bee menu card image, never swap on hover.
+    img.setAttribute('src', 'images/logos/gov/Bee Menu card image.png');
+    img.setAttribute('alt', 'BEE Star Label mobile app');
+    frame.classList.add('is-active');
   })();
 
   // Sectors v2 accordion — click a row to expand its body, close others,
