@@ -311,7 +311,6 @@ body.sectors-page .site-header.has-open-megamenu {
 }
 
 /* Case-study feature card on the right */
-.megamenu-col--feature .megamenu-eyebrow { display: none; }
 .megamenu-col:not(:has(> .megamenu-eyebrow)) { padding-top: 0; }
 .megamenu-feature {
   display: block;
@@ -8325,16 +8324,58 @@ img, svg, video { max-width: 100%; }
 .csmenu-link-title { display:block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight:600; font-size:15px; line-height:1.3; color:#0e1640; }
 .csmenu-link:hover .csmenu-link-title { color: var(--primary,#6a3df0); }
 .csmenu-link-sub { display:block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-size:12.5px; line-height:1.35; color:#6b7385; margin-top:2px; }
-.csmenu-preview { position:sticky; top:0; }
-.csmenu-preview-frame { position:relative; width:100%; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:#f3f0fb; border:1px solid #eceff4; display:grid; place-items:center; }
+.csmenu-preview { position:sticky; top:0; display:flex; flex-direction:column; }
+.csmenu-preview::before {
+  content: "New Case Study";
+  display: block;
+  margin-bottom: 20px;
+  color: var(--primary, #6200ee);
+  font-family: var(--font-heading, 'Josefin Sans', sans-serif);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.csmenu-preview-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1f4d3a 0%, #0e1640 100%);
+  border: 1px solid #eceff4;
+  display: grid;
+  place-items: center;
+}
 .csmenu-preview-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .3s ease; }
 .csmenu-preview-frame.is-active .csmenu-preview-img { opacity:1; }
-.csmenu-preview-empty { font-family: var(--font-heading,'Josefin Sans',sans-serif); font-size:13px; color:#9aa1b2; padding:0 16px; text-align:center; transition:opacity .2s ease; }
+.csmenu-preview-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.78) 100%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.csmenu-preview-frame.is-active::after { opacity: 1; }
+.csmenu-preview-empty { font-family: var(--font-heading,'Josefin Sans',sans-serif); font-size:13px; color:#cfd3df; padding:0 16px; text-align:center; transition:opacity .2s ease; position: relative; z-index: 1; }
 .csmenu-preview-frame.is-active .csmenu-preview-empty { opacity:0; }
-.csmenu-preview-cap { margin-top:14px; min-height:40px; opacity:0; transition:opacity .3s ease; }
-.csmenu-preview-frame.is-active ~ .csmenu-preview-cap { opacity:1; }
-.csmenu-preview-title { display:block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight:600; font-size:15px; color:#0e1640; }
-.csmenu-preview-sub { display:block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-size:12.5px; color:#6b7385; margin-top:2px; }
+.csmenu-preview-cap {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  z-index: 2;
+  min-height: 40px;
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.csmenu-preview-frame.is-active + .csmenu-preview-cap,
+.csmenu-preview-frame.is-active ~ .csmenu-preview-cap { opacity: 1; }
+.csmenu-preview-title { display: block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight: 600; font-size: 16px; color: #ffffff; }
+.csmenu-preview-sub { display: block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-size: 12.5px; color: rgba(255,255,255,0.78); margin-top: 4px; }
 @media (max-width:980px){ .csmenu-layout { grid-template-columns: 1fr 1fr; } .csmenu-preview { display:none; } }
 @media (max-width:560px){ .csmenu-layout { grid-template-columns: 1fr; } .csmenu-head{ flex-direction:column; align-items:flex-start; gap:8px; } }
 
