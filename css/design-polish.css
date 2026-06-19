@@ -122,7 +122,6 @@ section .eyebrow {
 }
 /* Nav link typography — 16px / 500 weight */
 .site-header .nav-menu a:not(.btn) {
-  font-size: clamp(14px, 13.217px + 0.217vw, 16px);
   font-weight: 500;
   transition: color .2s ease;
 }
