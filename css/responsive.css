@@ -214,8 +214,14 @@
 
   .creds-grid { grid-template-columns: repeat(2, 1fr); }
   /* wide tile spans both columns -> its own full-width row, so it needs its
-     natural landscape ratio to set its height (no portrait sibling to match). */
-  .creds-grid > .cert-tile--wide { aspect-ratio: 31 / 20; }
+     natural landscape ratio to set its height (no portrait sibling to match).
+     order:1 pushes it past the other tiles so ISO 27001 fills the 6th slot and
+     the full-width Startup India cert sits last (no lone tile + gap). */
+  .creds-grid > .cert-tile--wide { aspect-ratio: 31 / 20; order: 1; }
+  .cert-tile > img {
+    width: 100%;
+    height: 100%;
+}
 
   .leader-grid { grid-template-columns: 1fr; gap: 40px; max-width: 480px; margin-inline: auto; }
 
@@ -475,7 +481,7 @@
 
  .svc-grid { grid-template-columns: 1fr; }
 
- .svc-grid-v2 { grid-template-columns: 1fr; }
+ .svc-grid-v2 { grid-template-columns: 1fr;  gap:12px }
 
   .ai-cards { grid-template-columns: 1fr; }
   .ai-col--offset { margin-top: 0; }
@@ -634,9 +640,7 @@
     --container-padding: var(--space-6);
     --nav-height: 4rem;
     --nav-font-size: var(--fs-18-tablet);
-    --btn-padding-y: var(--space-4-tablet);
-    --btn-padding-x: var(--space-8-tablet);
-    --btn-font-size: var(--fs-18-tablet);
+    /* button sizing is a single fluid clamp in :root — no per-breakpoint override */
   }
 
  .container { max-width: 720px;  }
@@ -658,9 +662,7 @@
     --container-padding: var(--space-8);
     --nav-height: 4.5rem;
     --nav-font-size: var(--fs-18-desktop);
-    --btn-padding-y: var(--space-5-desktop);
-    --btn-padding-x: var(--space-10-desktop);
-    --btn-font-size: var(--fs-18-desktop);
+    /* button sizing is a single fluid clamp in :root — no per-breakpoint override */
   }
 
  .container { max-width: 960px;  }

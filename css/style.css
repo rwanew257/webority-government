@@ -184,9 +184,12 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --container-padding: var(--space-4);
   --nav-height: 3.5rem;
   --nav-font-size: var(--fs-16-mobile);
-  --btn-padding-y: var(--space-3-mobile);
-  --btn-padding-x: var(--space-6-mobile);
-  --btn-font-size: var(--fs-16-mobile);
+  /* Fluid button sizing — scales smoothly mobile -> tablet -> desktop in one
+     clamp(), so buttons stay tappable on phones and proportionate on desktop.
+     (Replaces undefined --*-mobile/-tablet/-desktop token refs.) */
+  --btn-padding-y: clamp(12px, 0.5rem + 0.55vw, 16px);
+  --btn-padding-x: clamp(20px, 0.8rem + 1.5vw, 34px);
+  --btn-font-size: clamp(13px, 0.75rem + 0.25vw, 15px);
 }
 
 /* Tablet — verbatim mapping from core.min.css */
