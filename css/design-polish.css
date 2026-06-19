@@ -3289,7 +3289,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 .svc-hero .container { position: relative; z-index: 1; }
 .svc-hero h1 { font-size: clamp(2.2rem, 2rem + 2vw, 3.4rem); letter-spacing: -.025em; }
-.svc-hero p { font-size: clamp(1rem, 1.05rem + .25vw, 1.18rem); color: var(--text-1); max-width: 780px; margin-top: 18px; }
+.svc-hero p { font-size: clamp(1rem, 1.05rem + .25vw, 1.18rem); color: var(--text-1); max-width: 780px;}
 
 /* ---------- Hero: watercolor variant (mint → cream → peach) ---------- */
 .svc-hero--watercolor {
