@@ -77,7 +77,7 @@
   .partners-grid { grid-template-columns: 1fr; }
 
   .cert-seals-row { grid-template-columns: repeat(3, 1fr); }
-  .reg-grid { grid-template-columns: repeat(2, 1fr); }
+  .reg-grid { grid-template-columns: repeat(2, 1fr); gap:12px }
   .std-grid { grid-template-columns: repeat(2, 1fr); }
   .sec-split { grid-template-columns: 1fr; }
   .sec-img-stack .sec-img.small { margin: -36px auto 0; max-width: 70%; }
