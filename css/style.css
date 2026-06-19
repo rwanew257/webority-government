@@ -309,9 +309,7 @@ ul, ol { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1320px;
-  margin: 0 auto;
-  /* padding: var(--space-4) var(--container-padding); */
+  padding: 2rem;
   min-height: var(--nav-height);
 }
 .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; }
@@ -1434,7 +1432,6 @@ form { display: grid; gap: var(--space-4); }
   background: var(--white);
   border: 1px solid var(--outline);
   border-radius: 10px;
-  margin-bottom: 12px;
   overflow: hidden;
 }
 .faq-q {

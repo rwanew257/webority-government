@@ -3,24 +3,57 @@
 (function () {
   'use strict';
 
-  // Mobile nav toggle
+  // Mobile nav — offcanvas-style drawer (slides from top) with dimmed backdrop
+  // and accordion submenus, mirroring webority-os-web's mobile navigation.
   const toggle = document.getElementById('navToggle');
   const menu = document.getElementById('navMenu');
+  const backdrop = document.getElementById('navBackdrop');
+  // The backdrop is injected inside the sticky header (its own stacking
+  // context), so it would paint over the header and dim it. Relocate it to
+  // <body> so the header stays a solid white bar above the backdrop.
+  if (backdrop && backdrop.parentElement !== document.body) {
+    document.body.appendChild(backdrop);
+  }
   if (toggle && menu) {
-    toggle.addEventListener('click', function () {
-      const open = menu.classList.toggle('open');
+    function setMenu(open) {
+      menu.classList.toggle('open', open);
       toggle.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (backdrop) backdrop.classList.toggle('show', open);
+      document.body.classList.toggle('nav-open', open);
+      if (!open) {
+        // collapse any open accordion when the menu closes
+        menu.querySelectorAll('li.submenu-open').forEach(function (li) {
+          li.classList.remove('submenu-open');
+          var b = li.querySelector('.nav-acc-toggle');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+      }
+    }
+
+    toggle.addEventListener('click', function () {
+      setMenu(!menu.classList.contains('open'));
+    });
+    if (backdrop) backdrop.addEventListener('click', function () { setMenu(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false);
     });
 
-    // Close menu when clicking a link (mobile)
+    // Accordion: chevron expands/collapses a parent item's submenu (mobile)
+    menu.querySelectorAll('.nav-acc-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var li = btn.closest('li');
+        var expanded = li.classList.toggle('submenu-open');
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      });
+    });
+
+    // Tapping an actual link closes the drawer (mobile)
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        if (window.innerWidth <= 960) {
-          menu.classList.remove('open');
-          toggle.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
+        if (window.innerWidth <= 991) setMenu(false);
       });
     });
   }
