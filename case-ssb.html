@@ -714,34 +714,7 @@
   </style>
 </head>
 <body class="case-detail-page">
-  <a class="skip-nav-link" href="#main-content">Skip to main content</a>
-
-  <header class="site-header" id="siteHeader">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand brand--logo" href="index.html" aria-label="Webority Technologies - Government practice home">
-        <img class="brand-logo-img" src="images/logos/gov/Company logo.svg" alt="Webority Technologies" />
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-        <li><a href="case-studies.html" class="active" data-i18n="nav.case-studies">Case Studies</a></li>
-        <li><a href="sectors.html" data-i18n="nav.sectors">Sectors</a></li>
-        <li><a href="credentials.html">Credentials</a></li>
-        <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
-        <li class="nav-cta-group">
-          <div class="nav-lang" role="group" aria-label="Language switcher (placeholder - Hindi copy not yet wired)">
-            <button type="button" class="gov-lang-toggle" data-lang="en" aria-pressed="true" aria-label="Switch to English">EN</button>
-            <button type="button" class="gov-lang-toggle" data-lang="hi" aria-pressed="false" aria-label="Switch to Hindi" lang="hi">&#2361;&#2367;&#2306;&#2342;&#2368;</button>
-          </div>
-          <a class="btn btn-primary" href="contact.html" data-i18n="nav.contact-cta">Contact Us</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <a id="main-content" tabindex="-1"></a>
-
+  <div id="site-header-mount"></div>
   <section class="cs-hero" style="background: url('images/logos/gov/SSB Case Study Hero section.png') center / cover no-repeat;">
     <div class="container">
       <div class="cs-hero-content">
@@ -984,95 +957,7 @@
         <button type="button" class="op-dot" aria-label="Page 6"></button>
       </div>
     </div>
-  </section>
-
-  <footer class="site-footer wg-footer wg-footer-v2" role="contentinfo">
-    <div class="wg-inner">
-
-      <div class="wg-footer-top wg-footer-top-v2">
-
-        <div class="wg-foot-brand">
-          <a class="wg-wordmark" href="index.html">
-            <strong>Webority</strong>
-            <span>Technologies</span>
-          </a>
-          <p data-i18n="footer.tagline">We specialize in three core services: Product Development, Team Augmentation, and Technology Consulting.</p>
-          <p class="follow-label" data-i18n="footer.follow">Follow Us</p>
-          <div class="wg-social">
-            <a href="https://www.linkedin.com/company/webority-technologies" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M9.1 21.5v-7.6H6.4V10.5h2.7V8.1c0-2.7 1.6-4.2 4.1-4.2 1.2 0 2.4.2 2.4.2v2.6h-1.3c-1.3 0-1.7.8-1.7 1.7v2.1h2.9l-.5 3.4h-2.4v7.6"/></svg>
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-            </a>
-            <a href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="wg-foot-col">
-          <h5 data-i18n="footer.services">Core Services</h5>
-          <ul>
-            <li><a href="services.html#egov">e-Governance</a></li>
-            <li><a href="services.html#ai">AI &amp; Data Analytics</a></li>
-            <li><a href="services.html#security">Cybersecurity &amp; VAPT</a></li>
-            <li><a href="services.html#cloud">MeghRaj Cloud</a></li>
-            <li><a href="services.html#modernization">Legacy Modernisation</a></li>
-            <li><a href="services.html#consulting">Consulting</a></li>
-            <li><a href="services.html#staffing">IT Staff Augmentation</a></li>
-          </ul>
-        </div>
-
-        <div class="wg-foot-col">
-          <h5 data-i18n="footer.industries">Industries</h5>
-          <ul>
-            <li><a href="portfolio.html">Parliament of India</a></li>
-            <li><a href="portfolio.html">Bureau of Energy Efficiency</a></li>
-            <li><a href="portfolio.html">Ministry of Tribal Affairs</a></li>
-            <li><a href="portfolio.html">Sashastra Seema Bal</a></li>
-            <li><a href="portfolio.html">Quality Council of India</a></li>
-            <li><a href="portfolio.html">National Book Trust India</a></li>
-          </ul>
-        </div>
-
-        <div class="wg-foot-col wg-foot-contact">
-          <div class="contact-block">
-            <h5 data-i18n="footer.sayhello">Say Hello!</h5>
-            <a href="tel:+919599006518">(+91) 959-900-6518</a>
-            <a href="mailto:contact@webority.com">contact@webority.com</a>
-          </div>
-          <div class="contact-block">
-            <h5 data-i18n="footer.office">Office</h5>
-            <p>629 - 634, Sixth Floor, Vipul Trade Centre,<br />Sohna - Gurgaon Rd, Sector 48, Gurugram,<br />Haryana 122018</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="wg-foot-bottom">
-        <div class="wg-foot-bottom-left">
-          <div>Copyright &copy; <span id="year">2026</span> Webority Technologies Private Limited. All Rights Reserved.</div>
-          <div>CMMI Level 5 &amp; ISO 27001:2022 Certified Company</div>
-        </div>
-        <div class="wg-foot-bottom-right">
-          <a href="design-system.html">Design System</a>
-          <span class="sep">|</span>
-          <a href="#" data-todo="WG: create privacy-policy.html">Privacy Policy</a>
-          <span class="sep">|</span>
-          <a href="#" data-todo="WG: create terms-conditions.html">Terms &amp; Conditions</a>
-        </div>
-      </div>
-
-      <div class="wg-foot-mega" aria-hidden="true">Webority Technologies</div>
-
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+  </section><div id="site-footer-mount"></div><script src="js/layout.js"></script><script src="js/main.js"></script>
   <script src="js/i18n-dict.js" defer></script>
   <script src="js/lang-toggle.js" defer></script>
 
