@@ -2045,14 +2045,12 @@ form { display: grid; gap: var(--space-4); }
 .cert-seals-row {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  margin-top: 40px;
+  gap: 24px;
 }
 .cert-seal-card {
   background: transparent;
   border: 0;
   border-radius: 18px;
-  padding: 28px 0 22px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -2065,11 +2063,9 @@ form { display: grid; gap: var(--space-4); }
 }
 .cert-seal-img-wrap {
   width: 100%;
-  aspect-ratio: 5 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
   overflow: hidden;
   border-radius: 10px;
   background: #fff;

@@ -1213,7 +1213,7 @@ body.about-page .timeline-row.is-in .timeline-year::after {
 }
 
 /* About page — stats row matches homepage's clean .stats-v2 (no card, hairline divider only) */
-body.about-page .sect-story-light .stats-v2 {
+.stats-v2 {
   background: transparent !important;
   border: 0 !important;
   border-top: 0 !important;
@@ -1223,30 +1223,30 @@ body.about-page .sect-story-light .stats-v2 {
   margin-top: 64px !important;
   overflow: visible !important;
 }
-body.about-page .sect-story-light .stats-v2::before {
+.stats-v2::before {
   display: none !important;
   content: none !important;
 }
-body.about-page .sect-story-light .stats-v2 > div {
+ .stats-v2 > div {
   padding: 12px 24px !important;
 }
-body.about-page .sect-story-light .stats-v2 > div:not(:last-child)::after {
+ .stats-v2 > div:not(:last-child)::after {
   background: var(--outline) !important;
   top: 18% !important;
   bottom: 18% !important;
 }
-body.about-page .sect-story-light .stats-v2 .num {
+ .stats-v2 .num {
   font-family: var(--font-heading) !important;
   font-style: normal !important;
   font-weight: 600 !important;
   font-size: clamp(32.5px, 23.304px + 2.554vw, 56px) !important;
   color: var(--heading) !important;
 }
-body.about-page .sect-story-light .stats-v2 .num .plus {
+ .stats-v2 .num .plus {
   color: var(--primary) !important;
   font-weight: 500 !important;
 }
-body.about-page .sect-story-light .stats-v2 .lbl {
+.stats-v2 .lbl {
   font-size: clamp(11px, 10.609px + 0.109vw, 12px) !important;
   margin-top: 8px !important;
   color: var(--text-2) !important;
@@ -1854,7 +1854,6 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   gap: 0;
   transition: transform .3s ease, border-color .3s ease;
   position: relative;
-  min-height: 320px;
 }
 .ai-card:hover {
   transform: translateY(-4px);

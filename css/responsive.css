@@ -307,6 +307,7 @@
   .case-card-visual-img {
     border-radius: 12px;
     margin-bottom: 20px;
+    margin-top: 12px;
   }
   .case-impact-grid {
     grid-template-columns: 1fr 1fr;
@@ -489,6 +490,33 @@
     border-bottom: 0 !important;
   }
 
+  /* Same clean 2x2 for the plain stats blocks (index, case-studies, sectors —
+     all inside .sect-tight) so they match the About page exactly. */
+  .sect-tight .stats-v2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+  }
+  .sect-tight .stats-v2 > div {
+    padding: 16px 10px !important;
+    margin-bottom: 0 !important;
+  }
+  .sect-tight .stats-v2 > div::after { display: none !important; }
+  .sect-tight .stats-v2 > div:nth-child(odd)::after {
+    display: block !important;
+    top: 16% !important;
+    bottom: 16% !important;
+  }
+  .sect-tight .stats-v2 > div:nth-child(1),
+  .sect-tight .stats-v2 > div:nth-child(2) {
+    border-bottom: 1px solid var(--outline) !important;
+  }
+  .sect-tight .stats-v2 > div:nth-child(3),
+  .sect-tight .stats-v2 > div:nth-child(4) {
+    border-bottom: 0 !important;
+  }
+  .cert-seals-row {
+  gap: 12px;
+}
 }
 
 @media (max-width: 768px) {
@@ -655,7 +683,6 @@
   .cert-seals-row { grid-template-columns: repeat(2, 1fr); }
   .reg-grid, .std-grid { grid-template-columns: 1fr; }
   .sec-check-grid { grid-template-columns: 1fr; }
-  .cert-seal-img-wrap { aspect-ratio: 5 / 3; }
 
   .proc-grid { grid-template-columns: 1fr; }
 
@@ -798,7 +825,7 @@
 
   /* Large stat numbers — scale down so they don't dominate a phone column. */
   .stats-v2 .num,
-  body.about-page .sect-story-light .stats-v2 .num { font-size: 40px !important; }
+ .stats-v2 .num { font-size: 40px !important; }
 
   /* Services rows — further reduce the oversized number on small phones. */
   .svc-row-section .num { font-size: 34px !important; }
