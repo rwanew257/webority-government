@@ -363,10 +363,38 @@
 
  .timeline-rail { left: 28px; width: 3px; }
 
- .timeline-row { grid-template-columns: 32px 1fr; gap: 24px; margin-bottom: 40px; }
+ .timeline-row { grid-template-columns: 32px 1fr; gap: 12px; margin-bottom: 40px; }
 
   .timeline-year { text-align: left; padding-left: 0; font-size: 1.8rem; }
   .timeline-year::after { right: auto; left: 20px; top: 18px; width: 16px; height: 16px; border-width: 3px; }
+
+  /* About-page timeline below 768: the desktop !important rules (120px year
+     column + 116px content padding) cramp it on phones, so override them to a
+     clean stacked layout — year above its text, thin rail on the left, dot on
+     the rail. Must use body.about-page + !important to beat those rules. */
+  body.about-page .timeline-rail { left: 6px !important; width: 3px !important; }
+  body.about-page .timeline-row {
+    grid-template-columns: 1fr !important;
+    column-gap: 0 !important;
+    margin-bottom: 0px !important;
+    padding-left: 28px !important;
+  }
+  body.about-page .timeline-year {
+    position: static !important;            /* anchor the dot to .timeline-row */
+    text-align: left !important;
+    padding-top: 0 !important;
+    margin-bottom: 6px !important;
+    font-size: clamp(20px, 6vw, 26px) !important;
+  }
+  body.about-page .timeline-year::after {
+    left: 0 !important; right: auto !important;   /* 15px dot, centred on the 3px rail at x=7.5 */
+    top: 16px !important;
+    width: 15px !important; height: 15px !important;
+    border-width: 3px !important;
+  }
+  body.about-page .timeline-content { padding-left: 0 !important; }
+  body.about-page .timeline-content h3 { font-size: clamp(18px, 5vw, 22px) !important; }
+  body.about-page .timeline-content p { font-size: clamp(13px, 3.2vw, 15px) !important; }
 
  .cases-grid-v3 { grid-template-columns: 1fr; }
 
@@ -404,6 +432,7 @@
   .case-card-nav {
      top: 10px;
 }
+.proc-grid { gap: 12px; }
 }
 
 @media (max-width: 575px) {

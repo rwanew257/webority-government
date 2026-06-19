@@ -89,14 +89,14 @@ section .eyebrow {
    space-4 up to space-16 on large screens) with a real Bootstrap container:
    a small fixed 0.75rem gutter on every screen + stepped responsive
    max-widths. No additional side padding at any breakpoint. */
-.container {
+/* .container {
   width: 100%;
   max-width: 100%;
   margin-right: auto;
   margin-left: auto;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
-}
+} */
 
 /* ---------- Header ---------- */
 .site-header { border-bottom: 1px solid transparent; background: transparent; backdrop-filter: none; transition: background .2s ease, border-color .2s ease; }
@@ -2223,6 +2223,27 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   line-height: 1.15;
   letter-spacing: -.02em;
   color: var(--heading);
+}
+
+/* about.html "Our Journey" milestones header — moved from inline styles.
+   (color + letter-spacing come from the base .eyebrow !important rule.) */
+.journey-head { max-width: 900px; margin-bottom: 50px; }
+.journey-head .eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(10px, 9.6px + 0.11vw, 11px);
+}
+.journey-title {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 1.3rem + 1.9vw, 2.375rem);
+  line-height: 1.15;
+  color: var(--heading);
+  margin: 0;
 }
 
 /* 4-column grid. The landscape "Certificate of Recognition" tile spans 2
