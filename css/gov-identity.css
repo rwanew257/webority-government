@@ -34,7 +34,7 @@
     background: linear-gradient(90deg, #0B2545 0%, #13315C 100%);
     color: #fff;
     font-family: var(--font-heading, 'Josefin Sans', sans-serif);
-    font-size: 13px;
+    font-size: clamp(11px, 10.217px + 0.217vw, 13px);
     line-height: 1;
     border-bottom: 2px solid #FF9933; /* saffron accent — decorative only */
 }
@@ -60,7 +60,7 @@
     text-transform: uppercase;
     padding: 4px 10px;
     border-radius: 3px;
-    font-size: 11px;
+    font-size: clamp(10px, 9.609px + 0.109vw, 11px);
 }
 .gov-badge::before {
     /* Decorative chakra-style mark — CSS-only, NOT the national emblem */
@@ -81,7 +81,7 @@
 .gov-topbar-links a {
     color: #fff;
     text-decoration: none;
-    font-size: 12px;
+    font-size: clamp(11px, 10.609px + 0.109vw, 12px);
     opacity: 0.9;
 }
 .gov-topbar-links a:hover,
@@ -102,7 +102,7 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
     color: #fff;
     font-family: inherit;
-    font-size: 12px;
+    font-size: clamp(11px, 10.609px + 0.109vw, 12px);
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 3px;

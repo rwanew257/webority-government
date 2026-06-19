@@ -338,7 +338,7 @@ ul, ol { list-style: none; }
 .nav-menu a {
   padding: var(--space-2) var(--space-4);
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   font-weight: var(--fw-400);
   color: var(--heading);
   border-radius: var(--radius-md);
@@ -999,7 +999,7 @@ form { display: grid; gap: var(--space-4); }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   font-weight: 700;
   /* Scalloped edge — same trick as the mockup green seal */
   -webkit-mask:
@@ -1072,7 +1072,7 @@ form { display: grid; gap: var(--space-4); }
 .brand--mockup .brand-name strong {
   font-family: var(--font-heading);
   font-weight: var(--fw-700);
-  font-size: 22px;
+  font-size: clamp(17.5px, 15.739px + 0.489vw, 22px);
   letter-spacing: 0.02em;
   color: var(--primary);
   text-transform: uppercase;
@@ -1160,11 +1160,11 @@ form { display: grid; gap: var(--space-4); }
   justify-content: center;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   flex-shrink: 0;
 }
-.portfolio-card-text { font-family: var(--font-heading); font-size: 14px; color: var(--heading); font-weight: 500; line-height: 1.3; }
-.portfolio-footnote { text-align: center; font-family: var(--font-heading); font-size: 14px; color: var(--text-2); margin-top: 24px; }
+.portfolio-card-text { font-family: var(--font-heading); font-size: clamp(12px, 11.217px + 0.217vw, 14px); color: var(--heading); font-weight: 500; line-height: 1.3; }
+.portfolio-footnote { text-align: center; font-family: var(--font-heading); font-size: clamp(12px, 11.217px + 0.217vw, 14px); color: var(--text-2); margin-top: 24px; }
 
 /* ---------- Stats v2 ---------- */
 .stats-v2 {
@@ -1192,7 +1192,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .stats-v2 .lbl {
   font-family: var(--font-heading);
-  font-size: 13px;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   color: var(--text-1);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1214,7 +1214,7 @@ form { display: grid; gap: var(--space-4); }
   background: linear-gradient(135deg, var(--primary-10), var(--orange-10));
   border: 1px solid var(--outline);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-heading); color: var(--text-2); font-size: 13px;
+  font-family: var(--font-heading); color: var(--text-2); font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   margin-top: 24px;
 }
 .feature-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -1232,10 +1232,10 @@ form { display: grid; gap: var(--space-4); }
   width: 36px; height: 36px; border-radius: 8px;
   background: var(--primary-10); color: var(--primary);
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 16px; flex-shrink: 0;
+  font-size: clamp(14px, 13.217px + 0.217vw, 16px); flex-shrink: 0;
 }
-.feature-card h4 { font-family: var(--font-heading); font-weight: 600; font-size: 15px; color: var(--heading); margin: 0 0 6px; line-height: 1.3; }
-.feature-card p { font-family: var(--font-heading); font-size: 13px; color: var(--text-1); line-height: 1.5; margin: 0; }
+.feature-card h4 { font-family: var(--font-heading); font-weight: 600; font-size: clamp(13px, 12.217px + 0.217vw, 15px); color: var(--heading); margin: 0 0 6px; line-height: 1.3; }
+.feature-card p { font-family: var(--font-heading); font-size: clamp(11px, 10.217px + 0.217vw, 13px); color: var(--text-1); line-height: 1.5; margin: 0; }
 
 /* ---------- Tech services v2 (6 cards) ---------- */
 .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -1253,12 +1253,12 @@ form { display: grid; gap: var(--space-4); }
   background: var(--primary-10); color: var(--primary);
   border-radius: 10px;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 18px;
+  font-size: clamp(14.5px, 13.13px + 0.38vw, 18px);
   margin-bottom: 16px;
 }
-.svc-card h3 { font-family: var(--font-heading); font-weight: 700; font-size: 17px; color: var(--heading); margin: 0 0 10px; line-height: 1.3; }
-.svc-card p { font-family: var(--font-heading); font-size: 14px; color: var(--text-1); line-height: 1.55; margin: 0 0 16px; }
-.svc-card a { font-family: var(--font-heading); font-size: 13px; color: var(--primary); font-weight: 600; text-decoration: none; }
+.svc-card h3 { font-family: var(--font-heading); font-weight: 700; font-size: clamp(13.5px, 12.13px + 0.38vw, 17px); color: var(--heading); margin: 0 0 10px; line-height: 1.3; }
+.svc-card p { font-family: var(--font-heading); font-size: clamp(12px, 11.217px + 0.217vw, 14px); color: var(--text-1); line-height: 1.55; margin: 0 0 16px; }
+.svc-card a { font-family: var(--font-heading); font-size: clamp(11px, 10.217px + 0.217vw, 13px); color: var(--primary); font-weight: 600; text-decoration: none; }
 .svc-card a::after { content: " \2192"; }
 
 /* ---------- Case showcase (Delivering Where It Matters Most) ---------- */
@@ -1277,7 +1277,7 @@ form { display: grid; gap: var(--space-4); }
   background: rgba(255,255,255,0.12);
   color: var(--white);
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 5px 12px;
@@ -1289,18 +1289,18 @@ form { display: grid; gap: var(--space-4); }
   font-size: clamp(1.4rem, 2.4vw, 2rem);
   margin: 0 0 14px;
 }
-.case-showcase p { font-family: var(--font-heading); color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.6; margin: 0 0 24px; }
+.case-showcase p { font-family: var(--font-heading); color: rgba(255,255,255,0.85); font-size: clamp(13px, 12.217px + 0.217vw, 15px); line-height: 1.6; margin: 0 0 24px; }
 .case-showcase .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .case-showcase .metrics div { border-left: 2px solid var(--primary); padding-left: 12px; }
-.case-showcase .metrics strong { display: block; font-family: var(--font-body); font-style: italic; font-size: 22px; }
-.case-showcase .metrics span { font-family: var(--font-heading); font-size: 11px; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.1em; }
+.case-showcase .metrics strong { display: block; font-family: var(--font-body); font-style: italic; font-size: clamp(17.5px, 15.739px + 0.489vw, 22px); }
+.case-showcase .metrics span { font-family: var(--font-heading); font-size: clamp(10px, 9.609px + 0.109vw, 11px); color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 0.1em; }
 .case-mock {
   width: 100%; aspect-ratio: 3 / 4;
   background: linear-gradient(135deg, var(--primary), var(--primary-80));
   border-radius: 22px;
   display: flex; align-items: center; justify-content: center;
   color: rgba(255,255,255,0.75);
-  font-family: var(--font-heading); font-size: 12px;
+  font-family: var(--font-heading); font-size: clamp(11px, 10.609px + 0.109vw, 12px);
 }
 
 /* ---------- Sectors v2 (6 large cards) ---------- */
@@ -1317,11 +1317,11 @@ form { display: grid; gap: var(--space-4); }
   width: 100%; aspect-ratio: 16 / 9;
   background: linear-gradient(135deg, var(--primary-10) 0%, var(--orange-10) 50%, var(--success-10) 100%);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-heading); color: var(--text-2); font-size: 12px;
+  font-family: var(--font-heading); color: var(--text-2); font-size: clamp(11px, 10.609px + 0.109vw, 12px);
 }
 .sect-card-body { padding: 18px 20px; }
-.sect-card-body h4 { font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--heading); margin: 0 0 8px; line-height: 1.3; }
-.sect-card-body p { font-family: var(--font-heading); font-size: 13px; color: var(--text-1); line-height: 1.5; margin: 0; }
+.sect-card-body h4 { font-family: var(--font-heading); font-weight: 700; font-size: clamp(14px, 13.217px + 0.217vw, 16px); color: var(--heading); margin: 0 0 8px; line-height: 1.3; }
+.sect-card-body p { font-family: var(--font-heading); font-size: clamp(11px, 10.217px + 0.217vw, 13px); color: var(--text-1); line-height: 1.5; margin: 0; }
 
 /* ---------- Solutions for Your Department ---------- */
 .solutions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -1342,11 +1342,11 @@ form { display: grid; gap: var(--space-4); }
   content: "image placeholder";
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.6); font-family: var(--font-heading); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6); font-family: var(--font-heading); font-size: clamp(10px, 9.609px + 0.109vw, 11px); letter-spacing: 0.1em; text-transform: uppercase;
 }
 .solution-card-body { padding: 20px; }
-.solution-card-body h4 { font-family: var(--font-heading); font-weight: 700; font-size: 16px; color: var(--heading); margin: 0 0 8px; line-height: 1.3; }
-.solution-card-body p { font-family: var(--font-heading); font-size: 13px; color: var(--text-1); line-height: 1.55; margin: 0; }
+.solution-card-body h4 { font-family: var(--font-heading); font-weight: 700; font-size: clamp(14px, 13.217px + 0.217vw, 16px); color: var(--heading); margin: 0 0 8px; line-height: 1.3; }
+.solution-card-body p { font-family: var(--font-heading); font-size: clamp(11px, 10.217px + 0.217vw, 13px); color: var(--text-1); line-height: 1.55; margin: 0; }
 
 /* ---------- Credentials at a Glance ---------- */
 .creds-row {
@@ -1373,11 +1373,11 @@ form { display: grid; gap: var(--space-4); }
   background: var(--primary-10);
   color: var(--primary);
   display: inline-flex; align-items: center; justify-content: center;
-  font-family: var(--font-body); font-style: italic; font-size: 22px;
+  font-family: var(--font-body); font-style: italic; font-size: clamp(17.5px, 15.739px + 0.489vw, 22px);
   margin-bottom: 14px;
 }
-.cred-card strong { font-family: var(--font-heading); font-size: 13px; color: var(--heading); margin-bottom: 4px; }
-.cred-card span { font-family: var(--font-heading); font-size: 11px; color: var(--text-2); }
+.cred-card strong { font-family: var(--font-heading); font-size: clamp(11px, 10.217px + 0.217vw, 13px); color: var(--heading); margin-bottom: 4px; }
+.cred-card span { font-family: var(--font-heading); font-size: clamp(10px, 9.609px + 0.109vw, 11px); color: var(--text-2); }
 
 /* ---------- Leadership Team ---------- */
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
@@ -1396,12 +1396,12 @@ form { display: grid; gap: var(--space-4); }
   background: linear-gradient(135deg, var(--primary), var(--primary-80));
   color: var(--white);
   display: inline-flex; align-items: center; justify-content: center;
-  font-family: var(--font-body); font-style: italic; font-size: 32px;
+  font-family: var(--font-body); font-style: italic; font-size: clamp(23px, 19.478px + 0.978vw, 32px);
   margin: 0 auto 16px;
 }
-.team-card strong { font-family: var(--font-heading); font-weight: 700; font-size: 18px; color: var(--heading); display: block; margin-bottom: 4px; }
-.team-card .role { font-family: var(--font-heading); font-size: 13px; color: var(--primary); margin-bottom: 12px; display: block; }
-.team-card p { font-family: var(--font-heading); font-size: 13px; color: var(--text-1); line-height: 1.5; margin: 0; }
+.team-card strong { font-family: var(--font-heading); font-weight: 700; font-size: clamp(14.5px, 13.13px + 0.38vw, 18px); color: var(--heading); display: block; margin-bottom: 4px; }
+.team-card .role { font-family: var(--font-heading); font-size: clamp(11px, 10.217px + 0.217vw, 13px); color: var(--primary); margin-bottom: 12px; display: block; }
+.team-card p { font-family: var(--font-heading); font-size: clamp(11px, 10.217px + 0.217vw, 13px); color: var(--text-1); line-height: 1.5; margin: 0; }
 
 /* ---------- Why Trust (split, two-column with green check list on right) ---------- */
 .trust-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
@@ -1419,11 +1419,11 @@ form { display: grid; gap: var(--space-4); }
   background: var(--success);
   color: var(--white);
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 700;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px); font-weight: 700;
   flex-shrink: 0;
 }
-.trust-list h5 { font-family: var(--font-heading); font-weight: 600; font-size: 15px; color: var(--heading); margin: 0 0 4px; }
-.trust-list p { font-family: var(--font-heading); font-size: 13px; color: var(--text-1); line-height: 1.5; margin: 0; }
+.trust-list h5 { font-family: var(--font-heading); font-weight: 600; font-size: clamp(13px, 12.217px + 0.217vw, 15px); color: var(--heading); margin: 0 0 4px; }
+.trust-list p { font-family: var(--font-heading); font-size: clamp(11px, 10.217px + 0.217vw, 13px); color: var(--text-1); line-height: 1.5; margin: 0; }
 
 /* ---------- FAQ accordion ---------- */
 .faq-wrap { max-width: 800px; margin: 0 auto; }
@@ -1441,7 +1441,7 @@ form { display: grid; gap: var(--space-4); }
   padding: 18px 22px;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   color: var(--heading);
   cursor: pointer;
   display: flex; align-items: center; justify-content: space-between;
@@ -1449,7 +1449,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .faq-q::after {
   content: "+";
-  font-size: 22px; line-height: 1;
+  font-size: clamp(17.5px, 15.739px + 0.489vw, 22px); line-height: 1;
   color: var(--primary);
   transition: transform 0.2s;
 }
@@ -1460,7 +1460,7 @@ form { display: grid; gap: var(--space-4); }
   transition: max-height 0.25s ease, padding 0.25s ease;
 }
 .faq-item.open .faq-a { max-height: 400px; padding: 0 22px 18px; }
-.faq-a p { font-family: var(--font-heading); font-size: 14px; color: var(--text-1); line-height: 1.6; margin: 0; }
+.faq-a p { font-family: var(--font-heading); font-size: clamp(12px, 11.217px + 0.217vw, 14px); color: var(--text-1); line-height: 1.6; margin: 0; }
 
 /* ---------- Final CTA banner ---------- */
 .final-cta {
@@ -1476,7 +1476,7 @@ form { display: grid; gap: var(--space-4); }
   margin: 0 0 12px;
   color: var(--white);
 }
-.final-cta p { font-family: var(--font-heading); color: rgba(255,255,255,0.85); font-size: 16px; max-width: 560px; margin: 0 auto 28px; }
+.final-cta p { font-family: var(--font-heading); color: rgba(255,255,255,0.85); font-size: clamp(14px, 13.217px + 0.217vw, 16px); max-width: 560px; margin: 0 auto 28px; }
 .final-cta-actions {
   display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
 }
@@ -1550,7 +1550,7 @@ form { display: grid; gap: var(--space-4); }
   font-style: italic;
   font-weight: 400;
   color: #C4CADA;
-  font-size: 28px;
+  font-size: clamp(20px, 16.87px + 0.87vw, 28px);
   letter-spacing: 0.02em;
   margin-bottom: 12px;
   display: block;
@@ -1568,7 +1568,7 @@ form { display: grid; gap: var(--space-4); }
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 400;
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   line-height: 1.4;
   color: var(--text-2);
   margin: 0 0 20px;
@@ -1576,7 +1576,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .svc-row .copy {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   line-height: 1.65;
   color: var(--text-1);
   margin: 0 0 22px;
@@ -1592,7 +1592,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .svc-pills li {
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   color: var(--heading);
   border: 1px solid var(--outline);
   background: var(--white);
@@ -1643,7 +1643,7 @@ form { display: grid; gap: var(--space-4); }
 .svc-visual-img .placeholder-note {
   color: rgba(255,255,255,0.55);
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -1663,7 +1663,7 @@ form { display: grid; gap: var(--space-4); }
   font-family: var(--font-heading);
   font-weight: 700;
   font-style: normal;
-  font-size: 22px;
+  font-size: clamp(17.5px, 15.739px + 0.489vw, 22px);
   color: #ffffff;
   margin: 0 0 20px;
   line-height: 1.25;
@@ -1686,7 +1686,7 @@ form { display: grid; gap: var(--space-4); }
 .svc-kpi strong {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 20px;
+  font-size: clamp(16px, 14.435px + 0.435vw, 20px);
   color: #ffffff;
   display: block;
   margin-bottom: 6px;
@@ -1694,7 +1694,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .svc-kpi span {
   font-family: var(--font-heading);
-  font-size: 13px;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.35;
@@ -1752,7 +1752,7 @@ form { display: grid; gap: var(--space-4); }
 .case-card-placeholder {
   color: rgba(255,255,255,0.55);
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -1775,14 +1775,14 @@ form { display: grid; gap: var(--space-4); }
 .case-card-title h3 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 18px;
+  font-size: clamp(14.5px, 13.13px + 0.38vw, 18px);
   color: var(--heading);
   margin: 0;
   line-height: 1.3;
 }
 .case-card-body p {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   line-height: 1.55;
   color: var(--text-1);
   margin: 0 0 18px;
@@ -1797,7 +1797,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .case-pills li {
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   color: var(--heading);
   background: var(--bg-light);
   border: 1px solid var(--outline);
@@ -1808,7 +1808,7 @@ form { display: grid; gap: var(--space-4); }
   margin-top: auto;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--primary);
@@ -1836,7 +1836,7 @@ form { display: grid; gap: var(--space-4); }
   background: transparent;
   border: 0;
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   color: var(--text-1);
   padding: 14px 22px;
   cursor: pointer;
@@ -1886,14 +1886,14 @@ form { display: grid; gap: var(--space-4); }
 .cap-card h3 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 18px;
+  font-size: clamp(14.5px, 13.13px + 0.38vw, 18px);
   color: var(--heading);
   margin: 0 0 8px;
   line-height: 1.3;
 }
 .cap-card p {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   line-height: 1.6;
   color: var(--text-2);
   margin: 0;
@@ -1928,7 +1928,7 @@ form { display: grid; gap: var(--space-4); }
 .ref-project-img .placeholder-note {
   color: rgba(255,255,255,0.55);
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -1942,7 +1942,7 @@ form { display: grid; gap: var(--space-4); }
   color: var(--primary);
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -1957,7 +1957,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .ref-project-body p {
   font-family: var(--font-heading);
-  font-size: 14.5px;
+  font-size: clamp(12.5px, 11.717px + 0.217vw, 14.5px);
   line-height: 1.6;
   color: var(--text-1);
   margin: 0 0 22px;
@@ -1966,7 +1966,7 @@ form { display: grid; gap: var(--space-4); }
 .ref-project-cta {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--primary);
@@ -1999,7 +1999,7 @@ form { display: grid; gap: var(--space-4); }
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   color: var(--text-2);
   letter-spacing: 0.05em;
   overflow: hidden;
@@ -2031,7 +2031,7 @@ form { display: grid; gap: var(--space-4); }
 .partner-card-name {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   color: var(--heading);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -2085,7 +2085,7 @@ form { display: grid; gap: var(--space-4); }
   display: none;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   color: var(--text-2);
   margin-top: 4px;
   letter-spacing: 0.06em;
@@ -2136,7 +2136,7 @@ form { display: grid; gap: var(--space-4); }
   border-radius: 10px;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   color: var(--primary);
   text-align: center;
   letter-spacing: 0.04em;
@@ -2148,14 +2148,14 @@ form { display: grid; gap: var(--space-4); }
 .reg-card h3 {
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: 24px;
+  font-size: clamp(17.5px, 14.957px + 0.707vw, 24px);
   color: var(--heading);
   margin: 0 0 16px;
   letter-spacing: -0.005em;
 }
 .reg-card p {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: clamp(14px, 13.217px + 0.217vw, 16px);
   font-weight: 400;
   line-height: 1.6;
   color: var(--text-1);
@@ -2167,7 +2167,7 @@ form { display: grid; gap: var(--space-4); }
   background: var(--primary-10);
   color: var(--primary);
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   font-weight: 600;
   padding: 6px 12px;
   border-radius: 999px;
@@ -2198,26 +2198,26 @@ form { display: grid; gap: var(--space-4); }
   background: var(--white);
   border-radius: 8px;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 16px;
+  font-size: clamp(14px, 13.217px + 0.217vw, 16px);
   color: var(--primary);
   margin-bottom: 14px;
 }
 .std-card h3 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 16px;
+  font-size: clamp(14px, 13.217px + 0.217vw, 16px);
   color: var(--heading);
   margin: 0 0 6px;
 }
 .std-card .std-sub {
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   color: var(--text-2);
   margin: 0 0 12px;
 }
 .std-card p {
   font-family: var(--font-heading);
-  font-size: 13px;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   line-height: 1.5;
   color: var(--text-1);
   margin: 0;
@@ -2240,7 +2240,7 @@ form { display: grid; gap: var(--space-4); }
   display: flex; align-items: center; justify-content: center;
   color: rgba(255,255,255,0.55);
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -2262,19 +2262,19 @@ form { display: grid; gap: var(--space-4); }
   background: var(--success);
   color: var(--white);
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 700;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px); font-weight: 700;
   margin-bottom: 12px;
 }
 .sec-check-card h4 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   color: var(--heading);
   margin: 0 0 6px;
 }
 .sec-check-card p {
   font-family: var(--font-heading);
-  font-size: 12.5px;
+  font-size: clamp(10.5px, 9.717px + 0.217vw, 12.5px);
   line-height: 1.5;
   color: var(--text-1);
   margin: 0;
@@ -2301,7 +2301,7 @@ form { display: grid; gap: var(--space-4); }
   justify-content: center;
   color: rgba(255,255,255,0.55);
   font-family: var(--font-heading);
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   box-shadow: var(--shadow-md);
@@ -2317,7 +2317,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .story-copy p {
   font-family: var(--font-heading);
-  font-size: 14.5px;
+  font-size: clamp(12.5px, 11.717px + 0.217vw, 14.5px);
   line-height: 1.65;
   color: var(--text-1);
   margin: 0 0 14px;
@@ -2342,21 +2342,21 @@ form { display: grid; gap: var(--space-4); }
   background: rgba(98,0,238,0.08);
   border-radius: 9px;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 18px;
+  font-size: clamp(14.5px, 13.13px + 0.38vw, 18px);
   color: var(--primary);
   margin-bottom: 16px;
 }
 .proc-card h3 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   color: var(--heading);
   margin: 0 0 8px;
   line-height: 1.3;
 }
 .proc-card p {
   font-family: var(--font-heading);
-  font-size: 13px;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   line-height: 1.55;
   color: var(--text-1);
   margin: 0;
@@ -2426,7 +2426,7 @@ form { display: grid; gap: var(--space-4); }
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 400;
-  font-size: 22px;
+  font-size: clamp(17.5px, 15.739px + 0.489vw, 22px);
   color: var(--heading);
   text-align: right;
   padding-right: 18px;
@@ -2436,13 +2436,13 @@ form { display: grid; gap: var(--space-4); }
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 400;
-  font-size: 22px;
+  font-size: clamp(17.5px, 15.739px + 0.489vw, 22px);
   color: var(--heading);
   margin: 0 0 10px;
 }
 .timeline-content p {
   font-family: var(--font-heading);
-  font-size: 13.5px;
+  font-size: clamp(11.5px, 10.717px + 0.217vw, 13.5px);
   line-height: 1.6;
   color: var(--text-1);
   margin: 0;
@@ -2489,7 +2489,7 @@ form { display: grid; gap: var(--space-4); }
 .gov-logo-ministry {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--primary);
@@ -2503,7 +2503,7 @@ form { display: grid; gap: var(--space-4); }
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 13px;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   color: var(--text-2);
   margin-bottom: 0;
   letter-spacing: 0.04em;
@@ -2523,7 +2523,7 @@ form { display: grid; gap: var(--space-4); }
 .gov-logo-name {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 16px;
+  font-size: clamp(14px, 13.217px + 0.217vw, 16px);
   color: var(--heading);
   line-height: 1.4;
 }
@@ -2588,7 +2588,7 @@ form { display: grid; gap: var(--space-4); }
   /* text fallback styling (cards with no logo file) */
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 22px;
+  font-size: clamp(17.5px, 15.739px + 0.489vw, 22px);
   letter-spacing: 0.02em;
   color: var(--text-2);
   text-align: center;
@@ -2603,7 +2603,7 @@ form { display: grid; gap: var(--space-4); }
 .ent-logo-name {
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: 16px;
+  font-size: clamp(14px, 13.217px + 0.217vw, 16px);
   color: #171A21;
   line-height: 1.3;
   margin: 0;
@@ -2678,7 +2678,7 @@ form { display: grid; gap: var(--space-4); }
   align-items: center;
   gap: 18px;
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: clamp(14.5px, 13.13px + 0.38vw, 18px);
   font-weight: 500;
   color: #0e1640;
 }
@@ -2723,7 +2723,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .enquiry-card .enq-intro {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   color: var(--text-1);
   margin: 0 0 28px;
   line-height: 1.55;
@@ -2734,7 +2734,7 @@ form { display: grid; gap: var(--space-4); }
 .field-line { display: flex; flex-direction: column; gap: 0; }
 .field-line label {
   font-family: var(--font-heading);
-  font-size: 12.5px;
+  font-size: clamp(10.5px, 9.717px + 0.217vw, 12.5px);
   line-height: 1;
   color: var(--text-2);
   letter-spacing: 0.02em;
@@ -2744,7 +2744,7 @@ form { display: grid; gap: var(--space-4); }
 .field-line input,
 .field-line textarea {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   line-height: 1;
   color: var(--heading);
   background: transparent;
@@ -2787,7 +2787,7 @@ form { display: grid; gap: var(--space-4); }
 .enquiry-form .submit-row .privacy-note {
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 24px;
+  font-size: clamp(17.5px, 14.957px + 0.707vw, 24px);
   line-height: 24px;
   color: #78829D;
   margin: 0;
@@ -2799,7 +2799,7 @@ form { display: grid; gap: var(--space-4); }
   border: 0;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 13px;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 14px 28px;
@@ -2849,7 +2849,7 @@ form { display: grid; gap: var(--space-4); }
   gap: 10px;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 13.5px;
+  font-size: clamp(11.5px, 10.717px + 0.217vw, 13.5px);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white);
@@ -2860,7 +2860,7 @@ form { display: grid; gap: var(--space-4); }
   background: var(--white);
   color: var(--primary);
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   font-weight: 700;
 }
 .download-cta .btn-pill {
@@ -2924,7 +2924,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .wg-foot-brand p {
   font-family: var(--font-heading);
-  font-size: 13.5px;
+  font-size: clamp(11.5px, 10.717px + 0.217vw, 13.5px);
   line-height: 1.65;
   color: rgba(255,255,255,0.72);
   margin: 0 0 32px;
@@ -2933,7 +2933,7 @@ form { display: grid; gap: var(--space-4); }
 .wg-foot-brand .follow-label {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.78);
@@ -2954,7 +2954,7 @@ form { display: grid; gap: var(--space-4); }
   text-decoration: none;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 13px;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   transition: background 0.2s, border-color 0.2s;
 }
 .wg-social a:hover, .wg-social a:focus {
@@ -2966,7 +2966,7 @@ form { display: grid; gap: var(--space-4); }
 .wg-foot-col h5 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 12.5px;
+  font-size: clamp(10.5px, 9.717px + 0.217vw, 12.5px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #fff;
@@ -2982,7 +2982,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .wg-foot-col li, .wg-foot-col a {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   color: rgba(255,255,255,0.78);
   text-decoration: none;
   line-height: 1.4;
@@ -2995,7 +2995,7 @@ form { display: grid; gap: var(--space-4); }
 .wg-foot-contact h5 {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 12.5px;
+  font-size: clamp(10.5px, 9.717px + 0.217vw, 12.5px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #fff;
@@ -3004,7 +3004,7 @@ form { display: grid; gap: var(--space-4); }
 .wg-foot-contact .contact-block p,
 .wg-foot-contact .contact-block a {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: clamp(12px, 11.217px + 0.217vw, 14px);
   color: rgba(255,255,255,0.78);
   margin: 0;
   text-decoration: none;
@@ -3075,7 +3075,7 @@ form { display: grid; gap: var(--space-4); }
 }
 .wg-promo-cta-text {
   font-family: var(--font-heading);
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   letter-spacing: 0.04em;
   color: rgba(255,255,255,0.72);
 }
@@ -3083,7 +3083,7 @@ form { display: grid; gap: var(--space-4); }
   display: block;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   color: rgba(255,255,255,0.55);
   margin-bottom: 2px;
 }
@@ -3099,7 +3099,7 @@ form { display: grid; gap: var(--space-4); }
   background: #fff;
   color: #1a103f;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 16px;
+  font-size: clamp(14px, 13.217px + 0.217vw, 16px);
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -3114,7 +3114,7 @@ form { display: grid; gap: var(--space-4); }
   justify-content: space-between;
   gap: 16px;
   font-family: var(--font-heading);
-  font-size: 12.5px;
+  font-size: clamp(10.5px, 9.717px + 0.217vw, 12.5px);
   color: rgba(255,255,255,0.7);
   line-height: 1.6;
 }
@@ -3382,7 +3382,7 @@ form { display: grid; gap: var(--space-4); }
   justify-content: center;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   color: var(--text-2);
   letter-spacing: 0.04em;
   flex-shrink: 0;
@@ -3399,14 +3399,14 @@ form { display: grid; gap: var(--space-4); }
   font-family: var(--font-body);
   font-style: italic;
   font-weight: 400;
-  font-size: 17px;
+  font-size: clamp(13.5px, 12.13px + 0.38vw, 17px);
   color: var(--heading);
   line-height: 1.2;
 }
 .portfolio-v2-text span {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-2);
@@ -3432,7 +3432,7 @@ form { display: grid; gap: var(--space-4); }
 .portfolio-cta-row .btn {
   padding: 14px 32px;
   border-radius: 999px;
-  font-size: 13px;
+  font-size: clamp(11px, 10.217px + 0.217vw, 13px);
   letter-spacing: 0.14em;
 }
 
@@ -3472,7 +3472,7 @@ form { display: grid; gap: var(--space-4); }
   overflow: hidden;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   color: var(--primary);
   letter-spacing: 0.04em;
   text-align: center;
@@ -3487,7 +3487,7 @@ form { display: grid; gap: var(--space-4); }
 .psp-card-name {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   color: var(--heading);
   line-height: 1.3;
   margin: 0 0 4px;
@@ -3495,7 +3495,7 @@ form { display: grid; gap: var(--space-4); }
 .psp-card-entity {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-2);
@@ -3507,7 +3507,7 @@ form { display: grid; gap: var(--space-4); }
   text-align: center;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 18px;
+  font-size: clamp(14.5px, 13.13px + 0.38vw, 18px);
   color: var(--heading);
   margin: 56px 0 24px;
 }
@@ -3555,7 +3555,7 @@ form { display: grid; gap: var(--space-4); }
   overflow: hidden;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   color: var(--primary);
   letter-spacing: 0.04em;
   text-align: center;
@@ -3571,7 +3571,7 @@ form { display: grid; gap: var(--space-4); }
   display: block;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 15px;
+  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
   color: var(--heading);
   line-height: 1.3;
   margin: 0 0 4px;
@@ -3580,7 +3580,7 @@ form { display: grid; gap: var(--space-4); }
   display: block;
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 11px;
+  font-size: clamp(10px, 9.609px + 0.109vw, 11px);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-2);
@@ -3591,7 +3591,7 @@ form { display: grid; gap: var(--space-4); }
   text-align: center;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 28px;
+  font-size: clamp(20px, 16.87px + 0.87vw, 28px);
   color: #252F4A;
   margin: 56px 0 24px;
   line-height: 1.4;
@@ -3607,7 +3607,7 @@ form { display: grid; gap: var(--space-4); }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 12px;
+  font-size: clamp(11px, 10.609px + 0.109vw, 12px);
   padding: 16px 32px;
 }
 
