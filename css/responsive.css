@@ -325,7 +325,29 @@
 }
 
 @media (max-width: 768px) {
-  .svc-hero { padding: 60px 0 80px; }
+  .svc-hero { padding: 48px 0 40px; }
+
+  /* Inner-page hero (all pages) — scale heading/text down, stop the heading &
+     paragraph from overflowing the viewport, and drop the tall 427-500px
+     min-heights so the hero fits its content on phones. The header-overlap
+     padding-top stays intact. */
+  .svc-hero h1 { font-size: clamp(1.75rem, 1rem + 3.4vw, 2.6rem); line-height: 1.14; }
+  .svc-hero p { font-size: clamp(0.95rem, 0.9rem + 0.5vw, 1.08rem); margin-top: 14px; }
+  .svc-hero--v2 .svc-hero-content h1 { font-size: clamp(1.75rem, 1rem + 3.4vw, 2.6rem); }
+  .svc-hero--v2 .svc-hero-content p { font-size: clamp(0.95rem, 0.9rem + 0.5vw, 1.08rem); }
+  .svc-hero h1, .svc-hero p,
+  .svc-hero-content h1, .svc-hero-content p { overflow-wrap: break-word; }
+  .svc-hero .container, .svc-hero-content { min-width: 0; max-width: 100%; }
+  body.about-page .svc-hero,
+  body.sectors-page .svc-hero,
+  body.credentials-page .svc-hero,
+  body.portfolio-page .svc-hero,
+  body.case-studies-page .svc-hero,
+  body.contact-page .svc-hero,
+  body.services-page .svc-hero--v2 {
+    min-height: 340px !important;
+    padding-bottom: 40px !important;
+  }
 
   .wg-footer-top { grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 36px; }
   .wg-foot-brand { grid-column: 1 / -1; }
