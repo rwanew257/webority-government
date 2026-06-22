@@ -1,33 +1,33 @@
 ﻿/* ============================================================
-   Webority Government â€” Design polish layer
-   Loads AFTER style.css and gov-identity.css.
-   Surgical overrides: palette, cards, hero, buttons, stats, footer.
-   ============================================================ */
+Webority Government â€” Design polish layer
+Loads AFTER style.css and gov-identity.css.
+Surgical overrides: palette, cards, hero, buttons, stats, footer.
+============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
 
 /* ---------- Position-sticky enabler ----------
-   style.css line 265 sets `body { overflow-x: hidden }` which turns body into
-   a scroll container and breaks position: sticky for any descendant.
-   Override: keep horizontal clipping but move it to <html> using `clip`
-   (which doesn't establish a scroll context). Body stays a non-scrolling
-   parent so sticky works as expected.
+style.css line 265 sets `body { overflow-x: hidden }` which turns body into
+a scroll container and breaks position: sticky for any descendant.
+Override: keep horizontal clipping but move it to <html> using `clip`
+(which doesn't establish a scroll context). Body stays a non-scrolling
+parent so sticky works as expected.
 */
 html { overflow-x: clip; }
 body { overflow-x: visible !important; overflow-y: visible !important; }
 
 :root {
   /* Brand: Webority purple primary (restored from style.css verbatim).
-     Navy retained only for heading text + footer dark surface.
-     Green retained only for verification check semantics.
-     Saffron/orange REMOVED per brand direction. */
+  Navy retained only for heading text + footer dark surface.
+  Green retained only for verification check semantics.
+  Saffron/orange REMOVED per brand direction. */
   --primary:        #6200ee;
   --primary-80:     #4e00be;
   --primary-50:     #b180f7;
   --primary-30:     #cba6fa;
   --primary-20:     #e0ccfd;
   --primary-10:     #f0e6fe;
-
+  
   /* Saffron tokens aliased to purple so any leftover .saffron-* class uses purple */
   --saffron-50:     #f0e6fe;
   --saffron-100:    #e0ccfd;
@@ -37,12 +37,12 @@ body { overflow-x: visible !important; overflow-y: visible !important; }
   --saffron-500:    #6200ee;
   --saffron-600:    #4e00be;
   --saffron-700:    #380088;
-
+  
   /* Accent aliases also mapped to purple â€” kills lingering orange */
   --accent:         #6200ee;
   --accent-80:      #4e00be;
   --accent-10:      #f0e6fe;
-
+  
   /* Green retained for "verified / check" semantics only */
   --green-50:       #E6F4E5;
   --green-100:      #C8E8C5;
@@ -51,24 +51,24 @@ body { overflow-x: visible !important; overflow-y: visible !important; }
   --green-600:      #0E6E06;
   --india-green:    #138808;
   --india-green-10: #e6f4e5;
-
+  
   /* Navy ramp kept ONLY for headings + footer (dark text / dark surface) */
   --navy-50:        #EAF0F8;
   --navy-100:       #D4E0EE;
   --navy-700:       #13315C;
   --navy-800:       #0B2545;
   --navy-900:       #06172E;
-
+  
   --heading:        #1a0b3a;     /* deep purple-tinted near-black */
   --text-1:         #2c2540;
   --text-2:         #5b5470;
   --outline:        #eceff4;     /* subtle purple-tinted hairline */
-
+  
   --shadow-card:    0 1px 2px rgba(98, 0, 238, .06),
-                    0 8px 24px -8px rgba(98, 0, 238, .12);
+  0 8px 24px -8px rgba(98, 0, 238, .12);
   --shadow-card-h:  0 4px 10px rgba(98, 0, 238, .08),
-                    0 24px 48px -12px rgba(98, 0, 238, .22);
-
+  0 24px 48px -12px rgba(98, 0, 238, .22);
+  
   --r-card:         16px;
   --r-pill:         44px;
 }
@@ -85,25 +85,25 @@ section .eyebrow {
 }
 
 /* ---------- Container — proper Bootstrap-5 behaviour ----------
-   Replaces the site's custom fluid `--container-padding` (which grew from
-   space-4 up to space-16 on large screens) with a real Bootstrap container:
-   a small fixed 0.75rem gutter on every screen + stepped responsive
-   max-widths. No additional side padding at any breakpoint. */
+Replaces the site's custom fluid `--container-padding` (which grew from
+space-4 up to space-16 on large screens) with a real Bootstrap container:
+a small fixed 0.75rem gutter on every screen + stepped responsive
+max-widths. No additional side padding at any breakpoint. */
 /* .container {
-  width: 100%;
-  max-width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
+width: 100%;
+max-width: 100%;
+margin-right: auto;
+margin-left: auto;
+padding-right: 0.75rem;
+padding-left: 0.75rem;
 } */
 
 /* ---------- Header ---------- */
 .site-header { border-bottom: 1px solid transparent; background: transparent; backdrop-filter: none; transition: background .2s ease, border-color .2s ease; }
 .site-header.scrolled { background: #ffffff; border-bottom-color: var(--outline); backdrop-filter: none; box-shadow: none; }
 /* When the Services megamenu is open, force the header to solid white on every
-   page — `!important` beats every per-body-class `body.<page> .site-header
-   { background: transparent }` rule (specificity 0,2,1) below. */
+page — `!important` beats every per-body-class `body.<page> .site-header
+{ background: transparent }` rule (specificity 0,2,1) below. */
 .site-header.has-open-megamenu {
   background: #ffffff !important;
   border-bottom-color: var(--outline) !important;
@@ -149,7 +149,7 @@ section .eyebrow {
 .nav-menu a { font-weight: 400; background: transparent; }
 
 /* Mobile-only accordion + offcanvas backdrop — hidden on desktop, activated in
-   the <=991 block of responsive.css (mirrors webority-os-web's mobile nav). */
+the <=991 block of responsive.css (mirrors webority-os-web's mobile nav). */
 .nav-acc-toggle { display: none; }
 .nav-submenu { display: none; }
 .nav-backdrop {
@@ -180,7 +180,7 @@ section .eyebrow {
 }
 
 /* Homepage CTA buttons sit at 14px in every section. Hero CTA keeps its own
-   size via .hero-v2-actions .btn in style.css (higher specificity wins). */
+size via .hero-v2-actions .btn in style.css (higher specificity wins). */
 .btn { font-size: clamp(12px, 11.217px + 0.217vw, 14px); }
 .nav-menu a.btn.btn-primary:hover,
 .nav-menu .btn.btn-primary:hover {
@@ -191,9 +191,9 @@ section .eyebrow {
 }
 
 /* ---------- Services megamenu ----------
-   Full-width panel hanging off the bottom edge of the sticky header.
-   Closed: translated up + faded, pointer events disabled.
-   Open  (parent <li> hovered/focused OR .is-open via JS): slides down. */
+Full-width panel hanging off the bottom edge of the sticky header.
+Closed: translated up + faded, pointer events disabled.
+Open  (parent <li> hovered/focused OR .is-open via JS): slides down. */
 .has-megamenu { position: static; }
 .site-header { position: sticky; }
 .megamenu {
@@ -222,7 +222,7 @@ section .eyebrow {
 }
 
 /* Megamenu inner layout: 3 columns — 2 service columns + 1 case-study feature.
-   Vertical dividers between columns with 56px breathing room on each side. */
+Vertical dividers between columns with 56px breathing room on each side. */
 .megamenu-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1.3fr;
@@ -236,8 +236,8 @@ section .eyebrow {
   padding-right: 56px;
 }
 /* Divider lines — col 1's divider starts 42px down to skip the "Services"
-   eyebrow and align with the first service item. Col 2's divider starts at
-   the top so it aligns with the "New Case Study" eyebrow in col 3. */
+eyebrow and align with the first service item. Col 2's divider starts at
+the top so it aligns with the "New Case Study" eyebrow in col 3. */
 .megamenu-grid > .megamenu-col:not(:last-child)::after {
   content: "";
   position: absolute;
@@ -249,7 +249,7 @@ section .eyebrow {
 .megamenu-grid > .megamenu-col:nth-child(1)::after { top: 44px; }
 .megamenu-grid > .megamenu-col:nth-child(2)::after { top: 0; }
 /* Middle column has no eyebrow above its list — push its content down so its
-   first item aligns with the left column's first service item. */
+first item aligns with the left column's first service item. */
 .megamenu-grid > .megamenu-col:nth-child(2) {
   padding-top: 44px;
 }
@@ -304,7 +304,7 @@ section .eyebrow {
   margin: 0 !important;
 }
 /* Only the heading turns primary on hover/active — the description (p) keeps
-   its default colour. !important beats the base h5 colour above. */
+its default colour. !important beats the base h5 colour above. */
 .megamenu-list li.is-active h5,
 .megamenu-list a:hover h5,
 .megamenu-list a:focus-visible h5 {
@@ -394,11 +394,11 @@ section .eyebrow {
 .btn-ghost:hover { background: var(--primary-10); border-color: var(--primary-20); color: var(--primary); }
 
 /* ============================================================
-   HERO â€” FULL-BLEED ASHOKA BACKGROUND
-   The Lion Capital image fills the entire hero as ::before.
-   A left-to-right white wash keeps text readable on the left half.
-   The inline <img> tag in the HTML is hidden â€” the picture renders via CSS.
-   ============================================================ */
+HERO â€” FULL-BLEED ASHOKA BACKGROUND
+The Lion Capital image fills the entire hero as ::before.
+A left-to-right white wash keeps text readable on the left half.
+The inline <img> tag in the HTML is hidden â€” the picture renders via CSS.
+============================================================ */
 .hero-v2 {
   position: relative;
   min-height: 620px;
@@ -414,7 +414,7 @@ section .eyebrow {
   background-image: url('../images/hero-public-sector.jpg');
   background-size: cover;
   /* Nudge the Lion Capital symbol slightly lower so the heading text clears it,
-     using a percentage so the image still fully covers (no gap / hard crop). */
+  using a percentage so the image still fully covers (no gap / hard crop). */
   background-position: right 35%;
   background-repeat: no-repeat;
   z-index: -2;
@@ -423,10 +423,10 @@ section .eyebrow {
   content: "";
   position: absolute; inset: 0;
   background: linear-gradient(90deg,
-    rgba(255,255,255,0.92) 0%,
-    rgba(255,255,255,0.78) 30%,
-    rgba(255,255,255,0.30) 55%,
-    rgba(255,255,255,0) 70%);
+  rgba(255,255,255,0.92) 0%,
+  rgba(255,255,255,0.78) 30%,
+  rgba(255,255,255,0.30) 55%,
+  rgba(255,255,255,0) 70%);
   z-index: -1;
   pointer-events: none;
 }
@@ -478,10 +478,10 @@ section .eyebrow {
 }
 
 /* ============================================================
-   CASE-CARD â€” "Delivering Where It Matters Most" section
-   Layout: large rounded card; title row with prev/next arrows;
-   2-col body (copy left, phone-mockup visual right).
-   ============================================================ */
+CASE-CARD â€” "Delivering Where It Matters Most" section
+Layout: large rounded card; title row with prev/next arrows;
+2-col body (copy left, phone-mockup visual right).
+============================================================ */
 .case-section-title {
   font-family: var(--font-heading);
   font-style: italic;
@@ -493,18 +493,18 @@ section .eyebrow {
 }
 
 /* ------------------------------------------------------------------
-   Ported 1:1 from webority-os-web "Product Success Stories"
-   (Webority.Web/wwwroot/css/site.css + responsive.css) so the section
-   renders identically on desktop, tablet and mobile. Reference class
-   names are mapped onto this site's existing .case-* markup/JS:
-     .success-carousel-container -> .case-card
-     .success-card-title         -> .case-card-title
-     .section-label              -> .case-block h4
-     .section-text               -> .case-block p
-     .impact-grid/-item/-value/-label -> .case-impact-grid/-tile/-num/-lbl
-     .success-card-image(/img)   -> .case-card-visual(/-img)
-     .carousel-nav-btn           -> .case-nav-btn
-   ------------------------------------------------------------------ */
+Ported 1:1 from webority-os-web "Product Success Stories"
+(Webority.Web/wwwroot/css/site.css + responsive.css) so the section
+renders identically on desktop, tablet and mobile. Reference class
+names are mapped onto this site's existing .case-* markup/JS:
+.success-carousel-container -> .case-card
+.success-card-title         -> .case-card-title
+.section-label              -> .case-block h4
+.section-text               -> .case-block p
+.impact-grid/-item/-value/-label -> .case-impact-grid/-tile/-num/-lbl
+.success-card-image(/img)   -> .case-card-visual(/-img)
+.carousel-nav-btn           -> .case-nav-btn
+------------------------------------------------------------------ */
 .case-card {
   position: relative;
   overflow: hidden;
@@ -682,8 +682,8 @@ section .eyebrow {
 .sect.sect-soft, .sect.sect-tinted.sect-soft, .sect.sect-white.sect-soft { background: #f9fafb; }
 .sect.ready-cta-section {
   background:
-    url('../images/logos/gov/CTA%20Background.png') center / cover no-repeat,
-    #f9fafb;
+  url('../images/logos/gov/CTA%20Background.png') center / cover no-repeat,
+  #f9fafb;
 }
 body.contact-page,
 body.contact-page .svc-hero,
@@ -691,9 +691,9 @@ body.contact-page .sect,
 body.contact-page .download-cta { background: #f9fafb; }
 
 /* ============================================================
-   Download Profile modal — two-column dialog with testimonial
-   on the left and an email-capture form on the right.
-   ============================================================ */
+Download Profile modal — two-column dialog with testimonial
+on the left and an email-capture form on the right.
+============================================================ */
 .profile-modal-overlay {
   position: fixed;
   inset: 0;
@@ -864,9 +864,9 @@ body.contact-page .download-cta { background: #f9fafb; }
 }
 
 /* Case Studies — VIEW CASE STUDY buttons start as a tertiary (text-only)
-   pill and smoothly fill to the primary purple gradient when the parent
-   card is hovered. The fill animates from bottom to top so the colour
-   swap reads as a considered reveal rather than an instant snap. */
+pill and smoothly fill to the primary purple gradient when the parent
+card is hovered. The fill animates from bottom to top so the colour
+swap reads as a considered reveal rather than an instant snap. */
 .case-card-cta.btn,
 .case-card-cta.btn.btn-primary,
 .case-card-cta.btn.btn-primary.btn-glow,
@@ -892,9 +892,9 @@ body.contact-page .download-cta { background: #f9fafb; }
   letter-spacing: .04em !important;
   text-decoration: none !important;
   transition:
-    padding .35s cubic-bezier(0.22, 0.61, 0.36, 1),
-    background-size .55s cubic-bezier(0.22, 0.61, 0.36, 1),
-    color .35s ease !important;
+  padding .35s cubic-bezier(0.22, 0.61, 0.36, 1),
+  background-size .55s cubic-bezier(0.22, 0.61, 0.36, 1),
+  color .35s ease !important;
 }
 .case-card-v3:hover .case-card-cta.btn,
 .case-card-v3:focus-within .case-card-cta.btn,
@@ -1052,8 +1052,8 @@ body.contact-page .download-cta { background: #f9fafb; }
 }
 
 /* Thank-you state — replaces the form on submit. The [hidden] override
-   keeps the block invisible until JS un-hides it (display: flex would
-   otherwise win over the HTML hidden attribute). */
+keeps the block invisible until JS un-hides it (display: flex would
+otherwise win over the HTML hidden attribute). */
 .profile-modal-state-thanks[hidden],
 .profile-modal-state-form[hidden] { display: none !important; }
 .profile-modal-state-thanks {
@@ -1099,7 +1099,7 @@ body.contact-page .download-cta { background: #f9fafb; }
 .profile-modal-thanks-sub a:hover { text-decoration: underline; }
 
 /* Sectors page — 500px hero, transparent header overlay on the watercolor.
-   Pull the hero up by the header height so the watercolor shows through the (transparent) header. */
+Pull the hero up by the header height so the watercolor shows through the (transparent) header. */
 body.sectors-page .svc-hero {
   min-height: 427px;
   display: flex;
@@ -1149,7 +1149,7 @@ body.about-page .timeline-content h3 {
 }
 
 /* About page timeline — 42px gap between year text, vertical rail, and right text;
-   right-side content fills the available width. */
+right-side content fills the available width. */
 body.about-page .timeline-row {
   grid-template-columns: 120px 1fr !important;
   column-gap: 0 !important;
@@ -1192,8 +1192,8 @@ body.about-page .timeline-row {
   opacity: 0;
   transform: translateY(28px);
   transition:
-    opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
+  transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
   will-change: opacity, transform;
 }
 body.about-page .timeline-row.is-in {
@@ -1204,8 +1204,8 @@ body.about-page .timeline-year::after {
   transform: translateY(-50%) scale(0.4) !important;
   opacity: 0;
   transition:
-    transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms,
-    opacity 500ms ease 200ms !important;
+  transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms,
+  opacity 500ms ease 200ms !important;
 }
 body.about-page .timeline-row.is-in .timeline-year::after {
   transform: translateY(-50%) scale(1) !important;
@@ -1227,22 +1227,22 @@ body.about-page .timeline-row.is-in .timeline-year::after {
   display: none !important;
   content: none !important;
 }
- .stats-v2 > div {
+.stats-v2 > div {
   padding: 12px 24px !important;
 }
- .stats-v2 > div:not(:last-child)::after {
+.stats-v2 > div:not(:last-child)::after {
   background: var(--outline) !important;
   top: 18% !important;
   bottom: 18% !important;
 }
- .stats-v2 .num {
+.stats-v2 .num {
   font-family: var(--font-heading) !important;
   font-style: normal !important;
   font-weight: 600 !important;
   font-size: clamp(32.5px, 23.304px + 2.554vw, 56px) !important;
   color: var(--heading) !important;
 }
- .stats-v2 .num .plus {
+.stats-v2 .num .plus {
   color: var(--primary) !important;
   font-weight: 500 !important;
 }
@@ -1343,7 +1343,7 @@ body.case-studies-page .site-header.scrolled {
 /* Contact page — 500px hero with the same transparent-header treatment, Pages Banner background */
 body.contact-page .svc-hero {
   background:
-    url('../images/logos/gov/Pages%20Banner.png') center / cover no-repeat !important;
+  url('../images/logos/gov/Pages%20Banner.png') center / cover no-repeat !important;
   min-height: 500px !important;
   display: flex !important;
   align-items: center !important;
@@ -1365,7 +1365,7 @@ body.contact-page .site-header.scrolled {
   box-shadow: none !important;
 }
 /* Sectors page: header transparent only at the very top of the page;
-   once the user scrolls (the JS toggles .scrolled), it becomes solid white. */
+once the user scrolls (the JS toggles .scrolled), it becomes solid white. */
 body.sectors-page .site-header {
   background: transparent;
   backdrop-filter: none;
@@ -1439,9 +1439,9 @@ body.sectors-page .sect-tight .stats-v2 {
 }
 
 /* Merge the Portfolio (logos + CTA) section with the Success Matrix (stats)
-   section visually: drop the inter-section padding so the stats-v2 element's
-   own 64px margin-top + 64px padding-top supply the 64px-each-side breathing
-   room around the divider line that sits at the top of stats-v2. */
+section visually: drop the inter-section padding so the stats-v2 element's
+own 64px margin-top + 64px padding-top supply the 64px-each-side breathing
+room around the divider line that sits at the top of stats-v2. */
 .sect.sect-white:has(.portfolio-cta-row) { padding-bottom: 0; }
 .sect-tight.sect-white { padding-top: 0; padding-bottom: 100px; }
 
@@ -1556,8 +1556,8 @@ body.sectors-page .sect-tight .stats-v2 {
 .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 
 /* ============================================================
-   WHAT WE DO â€” v2 service cards (tinted background, no border)
-   ============================================================ */
+WHAT WE DO â€” v2 service cards (tinted background, no border)
+============================================================ */
 .svc-section-title {
   font-family: var(--font-heading);
   font-style: italic;
@@ -1591,8 +1591,8 @@ body.sectors-page .sect-tight .stats-v2 {
   width: 110px; height: 110px;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 65% 65%, rgba(255, 138, 30, .55), transparent 65%),
-    radial-gradient(circle at 35% 35%, rgba(34, 176, 78, .50), transparent 65%);
+  radial-gradient(circle at 65% 65%, rgba(255, 138, 30, .55), transparent 65%),
+  radial-gradient(circle at 35% 35%, rgba(34, 176, 78, .50), transparent 65%);
   filter: blur(200px);
   opacity: 0;
   transition: opacity .35s ease;
@@ -1606,7 +1606,7 @@ body.sectors-page .sect-tight .stats-v2 {
 .svc-card-v2:hover::before { opacity: 1; }
 
 /* Rotating conic-gradient border on hover — same treatment as .ai-card.
-   Reuses --ai-card-angle and ai-card-border-spin keyframes defined earlier. */
+Reuses --ai-card-angle and ai-card-border-spin keyframes defined earlier. */
 .svc-card-v2::after {
   content: "";
   position: absolute; inset: 0;
@@ -1614,10 +1614,10 @@ body.sectors-page .sect-tight .stats-v2 {
   padding: 2px;
   background: conic-gradient(from var(--ai-card-angle), #5800D6, #A13ADF, #559EF2, #E0CCFF, #5800D6);
   -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  linear-gradient(#fff 0 0) content-box,
+  linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   pointer-events: none;
   opacity: 0;
   transition: opacity .3s ease;
@@ -1721,21 +1721,21 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 .feature-card-grid .feature-card { height: 100%; }
 
 /* ============================================================
-   AI-POWERED SOLUTIONS â€” v2 layout (staggered zig-zag)
-   Left col: heading + lead + CTA
-   Right side: 2-col grid with the right column offset vertically
-   First card gets a saffron-gradient ring to emphasise relevance.
-   ============================================================ */
+AI-POWERED SOLUTIONS â€” v2 layout (staggered zig-zag)
+Left col: heading + lead + CTA
+Right side: 2-col grid with the right column offset vertically
+First card gets a saffron-gradient ring to emphasise relevance.
+============================================================ */
 .ai-split-v2 {
   display: flex;
   flex-direction: column;
   gap: 48px;
 }
 /* When .ai-split-v2 also has .ai-split applied (HTML uses both classes),
-   ensure the left column aligns to the TOP of the right card grid. */
+ensure the left column aligns to the TOP of the right card grid. */
 .ai-split.ai-split-v2 { align-items: start; }
 /* Below 1080px the ~684px-wide right card grid no longer fits beside the
-   left pitch column and overlaps it — stack the section instead. */
+left pitch column and overlaps it — stack the section instead. */
 
 .ai-split-v2 .ai-pitch {
   display: flex;
@@ -1749,8 +1749,8 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   align-self: start;
 }
 /* Tighten the spacing between the AI-Powered Solutions eyebrow and the
-   "AI Built for India's Public Sector" heading to 8px. The parent has a
-   20px flex gap, so a -12px margin on the heading collapses it to 8px. */
+"AI Built for India's Public Sector" heading to 8px. The parent has a
+20px flex gap, so a -12px margin on the heading collapses it to 8px. */
 .ai-split-v2 .ai-pitch > .eyebrow + .ai-section-title {
   margin-top: -12px;
 }
@@ -1774,9 +1774,9 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 .ai-cta { margin-top: 8px; }
 
 /* ==========================================================================
-   Universal button marquee — every .btn label slides up on hover, with a
-   duplicate sliding in from below. JS auto-wraps button text on page load.
-   ========================================================================== */
+Universal button marquee — every .btn label slides up on hover, with a
+duplicate sliding in from below. JS auto-wraps button text on page load.
+========================================================================== */
 .btn .btn-marquee {
   display: inline-flex;
   flex-direction: column;
@@ -1861,7 +1861,7 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 
 /* Rotating gradient border on hover. @property lets the conic angle animate;
-   mask-composite carves out the inner area so only a ring of gradient shows. */
+mask-composite carves out the inner area so only a ring of gradient shows. */
 @property --ai-card-angle {
   syntax: '<angle>';
   initial-value: 0deg;
@@ -1874,10 +1874,10 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   padding: 2px;
   background: conic-gradient(from var(--ai-card-angle), #5800D6, #A13ADF, #559EF2, #E0CCFF, #5800D6);
   -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  linear-gradient(#fff 0 0) content-box,
+  linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   pointer-events: none;
   opacity: 0;
   transition: opacity .3s ease;
@@ -1914,18 +1914,18 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 .ai-card-ic .iconsax-ic { width: 20px; height: 20px; }
 
 /* Iconsax icons rendered via CSS mask so they inherit currentColor.
-   Source SVGs hosted on jsdelivr from the lusaxweb/iconsax repo. */
+Source SVGs hosted on jsdelivr from the lusaxweb/iconsax repo. */
 .iconsax-ic {
   display: inline-block;
   background-color: currentColor;
   -webkit-mask-image: var(--ic-url);
-          mask-image: var(--ic-url);
+  mask-image: var(--ic-url);
   -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
   -webkit-mask-position: center;
-          mask-position: center;
+  mask-position: center;
   -webkit-mask-size: contain;
-          mask-size: contain;
+  mask-size: contain;
 }
 /* Iconsax icon inside a button — trailing 18px square that inherits text colour */
 .btn .btn-iconsax-icon {
@@ -2003,9 +2003,9 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   min-height: 200px;
   display: grid; place-items: center;
   background:
-    radial-gradient(circle at 20% 20%, rgba(98,0,238,.2), transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(98,0,238,.15), transparent 60%),
-    linear-gradient(135deg, #fff, #f1f4f9);
+  radial-gradient(circle at 20% 20%, rgba(98,0,238,.2), transparent 60%),
+  radial-gradient(circle at 80% 80%, rgba(98,0,238,.15), transparent 60%),
+  linear-gradient(135deg, #fff, #f1f4f9);
   border: 1px dashed var(--outline);
   color: var(--text-2); font-family: var(--font-heading);
 }
@@ -2042,14 +2042,14 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 .sect-card-img::after {
   /* Neutral dark fade ONLY at the bottom so labels stay readable;
-     photo colours come through naturally in the top half. */
+  photo colours come through naturally in the top half. */
   content: ""; position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 55%;
   background: linear-gradient(180deg,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,.30) 55%,
-    rgba(0,0,0,.65) 100%);
+  rgba(0,0,0,0) 0%,
+  rgba(0,0,0,.30) 55%,
+  rgba(0,0,0,.65) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -2073,9 +2073,9 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 .sect-card-body p { color: var(--text-2); font-size: clamp(12.5px, 11.717px + 0.217vw, 14.5px); margin: 0; }
 
 /* ============================================================
-   OUR CAPABILITIES â€” "Solutions We Can Deliver for Your Department"
-   Layout: large photo left, 2x3 numbered card grid right with dividers.
-   ============================================================ */
+OUR CAPABILITIES â€” "Solutions We Can Deliver for Your Department"
+Layout: large photo left, 2x3 numbered card grid right with dividers.
+============================================================ */
 .cap-section-title {
   font-family: var(--font-heading);
   font-style: italic;
@@ -2203,7 +2203,7 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   content: "";
   position: absolute; inset: 0;
   background-image: linear-gradient(45deg, rgba(98,0,238,.05) 25%, transparent 25%, transparent 75%, rgba(98,0,238,.05) 75%),
-                    linear-gradient(45deg, rgba(98,0,238,.05) 25%, transparent 25%, transparent 75%, rgba(98,0,238,.05) 75%);
+  linear-gradient(45deg, rgba(98,0,238,.05) 25%, transparent 25%, transparent 75%, rgba(98,0,238,.05) 75%);
   background-size: 18px 18px;
   background-position: 0 0, 9px 9px;
   opacity: .5;
@@ -2218,11 +2218,11 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 
 /* ============================================================
-   CREDENTIALS â€” Cert tiles (4 + 3 framed certificate grid)
-   Each tile shows a real cert scan when present in images/credentials/
-   Falls back to a stylized placeholder (matching cert type's color)
-   when the image is missing.
-   ============================================================ */
+CREDENTIALS â€” Cert tiles (4 + 3 framed certificate grid)
+Each tile shows a real cert scan when present in images/credentials/
+Falls back to a stylized placeholder (matching cert type's color)
+when the image is missing.
+============================================================ */
 .creds-section-title {
   font-family: var(--font-heading);
   font-style: italic;
@@ -2234,7 +2234,7 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 
 /* about.html "Our Journey" milestones header — moved from inline styles.
-   (color + letter-spacing come from the base .eyebrow !important rule.) */
+(color + letter-spacing come from the base .eyebrow !important rule.) */
 .journey-head { max-width: 900px; margin-bottom: 50px; }
 .journey-head .eyebrow {
   display: inline-block;
@@ -2255,10 +2255,10 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 
 /* 4-column grid. The landscape "Certificate of Recognition" tile spans 2
-   columns, so it sits centred in row 2 (portrait | recognition×2 | portrait)
-   and fills the row exactly. `dense` backfills any gap a span-2 tile leaves at
-   narrower breakpoints. Row height is set by the portrait tiles' 3:4 ratio, and
-   the wide tile stretches to match — keeping every cert the same height. */
+columns, so it sits centred in row 2 (portrait | recognition×2 | portrait)
+and fills the row exactly. `dense` backfills any gap a span-2 tile leaves at
+narrower breakpoints. Row height is set by the portrait tiles' 3:4 ratio, and
+the wide tile stretches to match — keeping every cert the same height. */
 .creds-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2267,8 +2267,8 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 .creds-grid > .cert-tile--wide { grid-column: span 2; }
 
 /* Startup India landscape cert — no fixed aspect-ratio; it stretches to the
-   grid row height (set by the portrait tiles) and its image is centred inside
-   via object-fit, so all certs in the row share the same height. */
+grid row height (set by the portrait tiles) and its image is centred inside
+via object-fit, so all certs in the row share the same height. */
 .cert-tile--wide { aspect-ratio: auto; align-self: stretch; }
 .cert-tile:hover {
   transform: none;
@@ -2411,9 +2411,9 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   border-radius: 18px;
   display: grid; place-items: center;
   background:
-    radial-gradient(circle at 30% 30%, rgba(98,0,238,.18), transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(98,0,238,.15), transparent 60%),
-    linear-gradient(135deg, #f5f7fb, #ebeef3);
+  radial-gradient(circle at 30% 30%, rgba(98,0,238,.18), transparent 60%),
+  radial-gradient(circle at 70% 70%, rgba(98,0,238,.15), transparent 60%),
+  linear-gradient(135deg, #f5f7fb, #ebeef3);
   color: var(--text-2); font-family: var(--font-heading);
   border: 1px dashed var(--outline);
 }
@@ -2422,8 +2422,8 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 
 /* ============================================================
-   LEADERSHIP â€” new card layout (large photo + accent bar + bullets)
-   ============================================================ */
+LEADERSHIP â€” new card layout (large photo + accent bar + bullets)
+============================================================ */
 .leader-section-title {
   font-family: var(--font-heading);
   font-style: italic;
@@ -2642,9 +2642,9 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 
 /* ============================================================
-   CONTACT CTA â€” homepage final block (new design)
-   Two-column dark panel: persuasive copy left, direct channels right.
-   ============================================================ */
+CONTACT CTA â€” homepage final block (new design)
+Two-column dark panel: persuasive copy left, direct channels right.
+============================================================ */
 .contact-cta {
   position: relative;
   border-radius: 28px;
@@ -2652,17 +2652,17 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   padding: clamp(32px, 4vw, 56px);
   color: #fff;
   background:
-    radial-gradient(60% 80% at 100% 0%, rgba(98,0,238,.18), transparent 60%),
-    radial-gradient(50% 70% at 0% 100%, rgba(19,136,8,.14), transparent 60%),
-    linear-gradient(135deg, #6200ee 0%, #4e00be 60%, #380088 100%);
+  radial-gradient(60% 80% at 100% 0%, rgba(98,0,238,.18), transparent 60%),
+  radial-gradient(50% 70% at 0% 100%, rgba(19,136,8,.14), transparent 60%),
+  linear-gradient(135deg, #6200ee 0%, #4e00be 60%, #380088 100%);
   box-shadow: 0 30px 60px -24px rgba(98,0,238,.55);
   isolation: isolate;
 }
 .contact-cta::before {
   content: ""; position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse at 30% 30%, #000 30%, transparent 75%);
   z-index: -1;
@@ -2719,7 +2719,7 @@ body.sectors-page .cap-card p { margin: 0 !important; }
   display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px;
 }
 /* Match the navigation Contact Us pill: navy gradient on white text,
-   darken-and-lift on hover. */
+darken-and-lift on hover. */
 .contact-cta-primary {
   background: linear-gradient(135deg, #6200ee 0%, #4e00be 100%) !important;
   color: #fff !important;
@@ -2824,10 +2824,10 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 
 /* ============================================================
-   WHY CHOOSE WEBORITY â€” split layout
-   Left: heading + lead + 2 stacked overlapping photos with saffron blob
-   Right: 6 cards in staggered zig-zag with green check pills
-   ============================================================ */
+WHY CHOOSE WEBORITY â€” split layout
+Left: heading + lead + 2 stacked overlapping photos with saffron blob
+Right: 6 cards in staggered zig-zag with green check pills
+============================================================ */
 .why-split {
   display: grid;
   grid-template-columns: minmax(280px, 420px) 1fr;
@@ -2961,9 +2961,9 @@ body.sectors-page .cap-card p { margin: 0 !important; }
 }
 
 /* ============================================================
-   READY-CTA â€” second-to-last section (centered, white)
-   Trust badges row + primary pill + secondary text link
-   ============================================================ */
+READY-CTA â€” second-to-last section (centered, white)
+Trust badges row + primary pill + secondary text link
+============================================================ */
 .ready-cta {
   text-align: center;
   display: flex; flex-direction: column;
@@ -2979,7 +2979,7 @@ section .ready-cta-eyebrow,
   letter-spacing: .22em;
   text-transform: uppercase;
   /* Combined with the parent .ready-cta flex `gap: 14px`, this -10px margin
-     leaves a 4px visible gap between the eyebrow and the title below. */
+  leaves a 4px visible gap between the eyebrow and the title below. */
   margin-bottom: -10px;
 }
 .ready-cta-title {
@@ -3047,9 +3047,9 @@ section .ready-cta-eyebrow,
   gap: 12px;
 }
 /* Suppress the auto-injected `::after` arrow on this button — it already
-   has an inline SVG, so the pseudo-element creates a duplicate that pushes
-   the content off-centre. Selector needs equal-or-higher specificity than
-   `.btn.btn-primary:not(.btn-glow):not(.btn-outline)::after` (which is 0,4,1). */
+has an inline SVG, so the pseudo-element creates a duplicate that pushes
+the content off-centre. Selector needs equal-or-higher specificity than
+`.btn.btn-primary:not(.btn-glow):not(.btn-outline)::after` (which is 0,4,1). */
 a.btn.btn-primary.ready-cta-primary::after,
 .btn.btn-primary.ready-cta-primary::after,
 a.btn.btn-primary.view-clients-cta::after,
@@ -3064,7 +3064,7 @@ a.btn.btn-primary.view-clients-cta::after,
 .view-clients-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
 .view-clients-cta .view-clients-arrow { flex-shrink: 0; }
 /* Secondary CTA — design-system btn-outline rendered in white (white text,
-   white border, 36px side padding) against the dark Ready-CTA background. */
+white border, 36px side padding) against the dark Ready-CTA background. */
 html body .ready-cta-secondary,
 html body a.ready-cta-secondary,
 html body a.ready-cta-secondary.btn,
@@ -3103,9 +3103,9 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   padding: 56px 32px;
   border-radius: 26px;
   background:
-    radial-gradient(circle at 20% 20%, rgba(98,0,238,.25), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(19,136,8,.18), transparent 55%),
-    linear-gradient(135deg, var(--primary) 0%, var(--primary-80) 100%);
+  radial-gradient(circle at 20% 20%, rgba(98,0,238,.25), transparent 55%),
+  radial-gradient(circle at 80% 80%, rgba(19,136,8,.18), transparent 55%),
+  linear-gradient(135deg, var(--primary) 0%, var(--primary-80) 100%);
   color: #fff;
   box-shadow: 0 30px 60px -20px rgba(98,0,238,.5);
   position: relative; overflow: hidden;
@@ -3130,9 +3130,9 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   border-radius: 20px;
   display: grid; place-items: center;
   background:
-    radial-gradient(circle at 20% 30%, rgba(98,0,238,.25), transparent 55%),
-    radial-gradient(circle at 80% 70%, rgba(19,136,8,.2), transparent 55%),
-    linear-gradient(135deg, var(--primary) 0%, var(--primary-80) 100%);
+  radial-gradient(circle at 20% 30%, rgba(98,0,238,.25), transparent 55%),
+  radial-gradient(circle at 80% 70%, rgba(19,136,8,.2), transparent 55%),
+  linear-gradient(135deg, var(--primary) 0%, var(--primary-80) 100%);
   color: rgba(255,255,255,.8);
   font-family: var(--font-heading);
   box-shadow: 0 24px 48px -16px rgba(98,0,238,.45);
@@ -3158,8 +3158,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   width: 110px; height: 110px;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 65% 65%, rgba(255, 138, 30, .55), transparent 65%),
-    radial-gradient(circle at 35% 35%, rgba(34, 176, 78, .50), transparent 65%);
+  radial-gradient(circle at 65% 65%, rgba(255, 138, 30, .55), transparent 65%),
+  radial-gradient(circle at 35% 35%, rgba(34, 176, 78, .50), transparent 65%);
   filter: blur(200px);
   opacity: 0;
   transition: opacity .35s ease;
@@ -3280,17 +3280,17 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 .svc-hero {
   padding: 80px 0 60px;
   background:
-    radial-gradient(60% 80% at 90% 0%,  rgba(98,0,238,.10), transparent 60%),
-    radial-gradient(50% 70% at 0% 100%, rgba(98,0,238,.06), transparent 60%),
-    linear-gradient(180deg, #fdfcf9 0%, #f6f8fb 100%);
+  radial-gradient(60% 80% at 90% 0%,  rgba(98,0,238,.10), transparent 60%),
+  radial-gradient(50% 70% at 0% 100%, rgba(98,0,238,.06), transparent 60%),
+  linear-gradient(180deg, #fdfcf9 0%, #f6f8fb 100%);
   position: relative;
   overflow: hidden;
 }
 .svc-hero::before {
   content: ""; position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(98,0,238,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(98,0,238,.04) 1px, transparent 1px);
+  linear-gradient(rgba(98,0,238,.04) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(98,0,238,.04) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at 60% 50%, #000 30%, transparent 75%);
   pointer-events: none;
@@ -3302,18 +3302,18 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 /* ---------- Hero: watercolor variant (mint → cream → peach) ---------- */
 .svc-hero--watercolor {
   background:
-    radial-gradient(70% 90% at 8% 75%,  rgba(127, 214, 182, .55), transparent 60%),
-    radial-gradient(60% 80% at 35% 30%, rgba(201, 229, 138, .45), transparent 65%),
-    radial-gradient(55% 75% at 78% 18%, rgba(244, 183, 114, .55), transparent 60%),
-    radial-gradient(50% 70% at 95% 85%, rgba(241, 224, 138, .45), transparent 60%),
-    linear-gradient(120deg, #e8f4ec 0%, #f6f1d9 55%, #f8e0c0 100%);
+  radial-gradient(70% 90% at 8% 75%,  rgba(127, 214, 182, .55), transparent 60%),
+  radial-gradient(60% 80% at 35% 30%, rgba(201, 229, 138, .45), transparent 65%),
+  radial-gradient(55% 75% at 78% 18%, rgba(244, 183, 114, .55), transparent 60%),
+  radial-gradient(50% 70% at 95% 85%, rgba(241, 224, 138, .45), transparent 60%),
+  linear-gradient(120deg, #e8f4ec 0%, #f6f1d9 55%, #f8e0c0 100%);
   padding: 96px 0 84px;
 }
 .svc-hero--watercolor::before {
   background-image: none;
   background:
-    radial-gradient(40% 50% at 20% 90%, rgba(255,255,255,.55), transparent 60%),
-    radial-gradient(35% 45% at 85% 10%, rgba(255,255,255,.45), transparent 60%);
+  radial-gradient(40% 50% at 20% 90%, rgba(255,255,255,.55), transparent 60%),
+  radial-gradient(35% 45% at 85% 10%, rgba(255,255,255,.45), transparent 60%);
   mask-image: none;
 }
 .svc-hero--watercolor h1 {
@@ -3328,10 +3328,10 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ============================================================
-   CASE STUDIES — card grid v3 (mockup-matched)
-   Each card: full-bleed image banner (with ministry chip baked in)
-   + white body with logo + title + description + tags + CTA.
-   ============================================================ */
+CASE STUDIES — card grid v3 (mockup-matched)
+Each card: full-bleed image banner (with ministry chip baked in)
++ white body with logo + title + description + tags + CTA.
+============================================================ */
 .cases-grid-v3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3371,7 +3371,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* Banner — pre-cropped to just the colored top portion (ministry pill + phones).
-   PNGs in images/case-studies/ are ~1272×640 (2:1 ratio) after server-side crop. */
+PNGs in images/case-studies/ are ~1272×640 (2:1 ratio) after server-side crop. */
 .case-card-banner {
   position: relative;
   width: calc(100% - 32px);
@@ -3433,8 +3433,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   background: #0e0e16;
   border-radius: 14px;
   box-shadow:
-    0 18px 28px -10px rgba(0,0,0,.55),
-    inset 0 0 0 2px rgba(255,255,255,.06);
+  0 18px 28px -10px rgba(0,0,0,.55),
+  inset 0 0 0 2px rgba(255,255,255,.06);
   position: relative;
   padding: 4px;
   box-sizing: border-box;
@@ -3461,8 +3461,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 /* BEE phone screens — green theme with bulb + star-label motif */
 .case-phone-screen--bee-left {
   background:
-    radial-gradient(circle at 50% 50%, #f4e8c4 0 18%, transparent 18%),
-    linear-gradient(180deg, #2c8d63 0%, #14633f 100%);
+  radial-gradient(circle at 50% 50%, #f4e8c4 0 18%, transparent 18%),
+  linear-gradient(180deg, #2c8d63 0%, #14633f 100%);
 }
 .case-phone-screen--bee-left::before {
   content: ""; position: absolute;
@@ -3490,8 +3490,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   content: ""; position: absolute;
   top: 16%; left: 18%; right: 18%; height: 30%;
   background:
-    radial-gradient(circle at 25% 50%, #c93131 0 22%, transparent 22%),
-    linear-gradient(180deg, #fffbe6, #fff);
+  radial-gradient(circle at 25% 50%, #c93131 0 22%, transparent 22%),
+  linear-gradient(180deg, #fffbe6, #fff);
   border-radius: 6px;
   border: 1px solid #e6e3d4;
 }
@@ -3587,7 +3587,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   content: ""; position: absolute;
   top: 18%; left: 8%; right: 8%; height: 32%;
   background:
-    linear-gradient(90deg, #c41e4e 0 32%, transparent 32% 36%, #f5b7c4 36% 68%, transparent 68% 72%, #c41e4e 72% 100%);
+  linear-gradient(90deg, #c41e4e 0 32%, transparent 32% 36%, #f5b7c4 36% 68%, transparent 68% 72%, #c41e4e 72% 100%);
   border-radius: 4px;
 }
 .case-phone-screen--nbt-center::after {
@@ -3721,26 +3721,26 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ============================================================
-   SERVICES PAGE — themed hero (v2)
-   Dramatic purple gradient + grid + India outline + Ashoka chakra
-   + floating service-icon glyphs.
-   ============================================================ */
+SERVICES PAGE — themed hero (v2)
+Dramatic purple gradient + grid + India outline + Ashoka chakra
++ floating service-icon glyphs.
+============================================================ */
 .svc-hero--v2 {
   position: relative;
   overflow: hidden;
   isolation: isolate;
   padding: clamp(72px, 10vw, 140px) 0 clamp(80px, 8vw, 120px);
   background:
-    url('../images/logos/gov/Pages%20Banner.png') center / cover no-repeat,
-    linear-gradient(180deg, #1a0b3a 0%, #2a0d6e 50%, #1f0a4d 100%);
+  url('../images/logos/gov/Pages%20Banner.png') center / cover no-repeat,
+  linear-gradient(180deg, #1a0b3a 0%, #2a0d6e 50%, #1f0a4d 100%);
   color: #fff;
 }
 /* Grid mesh overlay */
 .svc-hero--v2::before {
   content: ""; position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
   z-index: -1;
@@ -3910,8 +3910,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ============================================================
-   CASE STUDIES — photo-backed case cards (overrides placeholder gradient)
-   ============================================================ */
+CASE STUDIES — photo-backed case cards (overrides placeholder gradient)
+============================================================ */
 .case-card-img > img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -3939,8 +3939,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ============================================================
-   SERVICES PAGE — subheadings + photo visuals
-   ============================================================ */
+SERVICES PAGE — subheadings + photo visuals
+============================================================ */
 .svc-subhead {
   font-family: var(--font-display, var(--font-heading));
   font-size: clamp(11px, 10.609px + 0.109vw, 12px);
@@ -3968,9 +3968,9 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 .svc-visual-img.has-photo::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg,
-    rgba(0,0,0,.20) 0%,
-    rgba(0,0,0,.05) 40%,
-    rgba(0,0,0,.55) 100%);
+  rgba(0,0,0,.20) 0%,
+  rgba(0,0,0,.05) 40%,
+  rgba(0,0,0,.55) 100%);
   pointer-events: none;
 }
 .svc-visual-img.has-photo .tag {
@@ -3990,10 +3990,10 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ============================================================
-   SERVICES PAGE — auto-scrolling certification strip below the hero
-   The .cert-strip-track wraps two duplicate .cert-strip-list rows so
-   the translate animation loops seamlessly.
-   ============================================================ */
+SERVICES PAGE — auto-scrolling certification strip below the hero
+The .cert-strip-track wraps two duplicate .cert-strip-list rows so
+the translate animation loops seamlessly.
+============================================================ */
 .cert-strip {
   background: var(--primary);
   color: #ffffff;
@@ -4052,15 +4052,15 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   box-shadow: 0 0 0 5px rgba(23, 198, 83, 0.25);
 }
 /* Marquee: items move from left → right (track starts shifted left,
-   slides back to 0; with the duplicated list the loop is seamless). */
+slides back to 0; with the duplicated list the loop is seamless). */
 @keyframes cert-strip-marquee {
   from { transform: translateX(-50%); }
   to   { transform: translateX(0); }
 }
 
 /* ============================================================
-   SERVICES PAGE — sticky tab navigation
-   ============================================================ */
+SERVICES PAGE — sticky tab navigation
+============================================================ */
 .svc-tabs {
   position: sticky;
   top: 64px;                /* clears the sticky site header */
@@ -4180,8 +4180,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ============================================================
-   FOOTER v2 — navy-blue base with purple highlights + light band
-   ============================================================ */
+FOOTER v2 — navy-blue base with purple highlights + light band
+============================================================ */
 .wg-footer,
 .wg-footer-v2 {
   position: relative;
@@ -4264,7 +4264,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   overflow: hidden;
   isolation: isolate;
   -webkit-backdrop-filter: blur(100px);
-          backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
   transition: border-color .35s ease;
   margin: 0;
 }
@@ -4350,7 +4350,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   text-decoration: none;
   isolation: isolate;
   -webkit-backdrop-filter: blur(100px);
-          backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
   transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 .wg-promo:hover {
@@ -4479,16 +4479,16 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   font-weight: 700;                    /* loaded weight — 900 was triggering wider faux-bold */
   text-align: center;
   /* "WEBORITY TECHNOLOGIES" = 21 chars incl. space.
-     At bold weight + tight letter-spacing, ~7vw font-size makes the wordmark
-     fit ~96% of viewport with breathing room. Capped at 8rem on huge screens. */
+  At bold weight + tight letter-spacing, ~7vw font-size makes the wordmark
+  fit ~96% of viewport with breathing room. Capped at 8rem on huge screens. */
   font-size: clamp(1.5rem, 7vw, 8rem);
   letter-spacing: -.045em;             /* tight enough to fit, still readable */
   background: linear-gradient(180deg,
-    rgba(255,255,255,.92) 0%,
-    rgba(220,225,240,.88) 25%,
-    rgba(170,180,210,.65) 55%,
-    rgba(100,110,150,.30) 78%,
-    rgba(60,40,140,0) 100%);
+  rgba(255,255,255,.92) 0%,
+  rgba(220,225,240,.88) 25%,
+  rgba(170,180,210,.65) 55%,
+  rgba(100,110,150,.30) 78%,
+  rgba(60,40,140,0) 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 12px;
@@ -4525,10 +4525,10 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 .sect-tight { padding: 28px 0; }
 
 /* ============================================================
-   Our Story — light variant (about page)
-   Lavender-tinted canvas, italic dark-navy headline,
-   Ashoka emblem photo on the left, stats strip below.
-   ============================================================ */
+Our Story — light variant (about page)
+Lavender-tinted canvas, italic dark-navy headline,
+Ashoka emblem photo on the left, stats strip below.
+============================================================ */
 .sect-story-light {
   position: relative;
   background: #ffffff;
@@ -4554,8 +4554,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   overflow: hidden;
   background: #fff;
   box-shadow:
-    0 24px 50px -22px rgba(20,16,60,.28),
-    0 0 0 1px rgba(98,0,238,.08);
+  0 24px 50px -22px rgba(20,16,60,.28),
+  0 0 0 1px rgba(98,0,238,.08);
 }
 .sect-story-light .story-img-photo {
   width: 100%;
@@ -4655,10 +4655,10 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ============================================================
-   Our Security Practices — light variant (credentials page)
-   Lavender-tinted canvas, italic dark-navy headline,
-   staggered 2-column white cards on the right.
-   ============================================================ */
+Our Security Practices — light variant (credentials page)
+Lavender-tinted canvas, italic dark-navy headline,
+staggered 2-column white cards on the right.
+============================================================ */
 .sect-security-light {
   position: relative;
   background: #f6f3fb;
@@ -4672,8 +4672,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   left: -120px; bottom: -160px;
   width: 520px; height: 520px;
   background:
-    radial-gradient(circle at 30% 70%, rgba(124,77,255,.28), transparent 60%),
-    radial-gradient(circle at 60% 40%, rgba(98,0,238,.18), transparent 65%);
+  radial-gradient(circle at 30% 70%, rgba(124,77,255,.28), transparent 60%),
+  radial-gradient(circle at 60% 40%, rgba(98,0,238,.18), transparent 65%);
   filter: blur(20px);
   pointer-events: none;
   z-index: 1;
@@ -4721,7 +4721,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   border-radius: 16px;
   display: grid; place-items: center;
   background:
-    linear-gradient(135deg, #2b3142 0%, #0e1220 100%);
+  linear-gradient(135deg, #2b3142 0%, #0e1220 100%);
   color: rgba(255,255,255,.6);
   font-family: var(--font-heading);
   font-size: clamp(10px, 9.609px + 0.109vw, 11px);
@@ -4749,9 +4749,9 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 .sect-security-light .sec-img-stack .sec-img.small::before {
   background:
-    radial-gradient(circle at 30% 40%, rgba(124,77,255,.45), transparent 55%),
-    radial-gradient(circle at 70% 70%, rgba(0,200,180,.32), transparent 55%),
-    linear-gradient(135deg, rgba(18,20,38,.72) 0%, rgba(30,28,72,.82) 100%);
+  radial-gradient(circle at 30% 40%, rgba(124,77,255,.45), transparent 55%),
+  radial-gradient(circle at 70% 70%, rgba(0,200,180,.32), transparent 55%),
+  linear-gradient(135deg, rgba(18,20,38,.72) 0%, rgba(30,28,72,.82) 100%);
 }
 .sect-security-light .sec-img-stack .sec-img > .sec-img-tag,
 .sect-security-light .sec-img-stack .sec-img > .sec-img-label {
@@ -4788,9 +4788,9 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   border-radius: 14px;
   border: 6px solid #f6f3fb;
   background:
-    radial-gradient(circle at 30% 40%, rgba(124,77,255,.35), transparent 55%),
-    radial-gradient(circle at 70% 70%, rgba(0,200,180,.25), transparent 55%),
-    linear-gradient(135deg, #1d2030 0%, #2a2f48 100%);
+  radial-gradient(circle at 30% 40%, rgba(124,77,255,.35), transparent 55%),
+  radial-gradient(circle at 70% 70%, rgba(0,200,180,.25), transparent 55%),
+  linear-gradient(135deg, #1d2030 0%, #2a2f48 100%);
   box-shadow: 0 24px 50px -20px rgba(20,16,60,.35);
   z-index: 2;
 }
@@ -4855,13 +4855,13 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ============================================================
-   Interactive CTA button with cursor-tracked glow
-   Usage: <a class="btn btn-primary btn-glow" href="…">
-            <span class="btn-glow-label">Label</span>
-            <svg class="btn-glow-arrow" …>arrow</svg>
-          </a>
-   JS in main.js updates --mx / --my on mousemove.
-   ============================================================ */
+Interactive CTA button with cursor-tracked glow
+Usage: <a class="btn btn-primary btn-glow" href="…">
+<span class="btn-glow-label">Label</span>
+<svg class="btn-glow-arrow" …>arrow</svg>
+</a>
+JS in main.js updates --mx / --my on mousemove.
+============================================================ */
 .btn-glow {
   --mx: 50%;
   --my: 50%;
@@ -4893,9 +4893,9 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 .btn-glow > * { position: relative; z-index: 1; }
 
 /* ==========================================================================
-   Universal cursor-tracked glow — apply the .btn-glow hover effect to every
-   .btn on the site. JS in main.js updates --mx / --my per pointer move.
-   ========================================================================== */
+Universal cursor-tracked glow — apply the .btn-glow hover effect to every
+.btn on the site. JS in main.js updates --mx / --my per pointer move.
+========================================================================== */
 .btn:not(.btn-glow) {
   --mx: 50%;
   --my: 50%;
@@ -4937,7 +4937,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   height: 24px;
 }
 /* The marquee text-slide already provides hover feedback — the redundant
-   arrow shift was clipping the icon against `overflow: hidden`. */
+arrow shift was clipping the icon against `overflow: hidden`. */
 .btn-glow:hover .btn-glow-arrow { transform: none; }
 
 /* Light-bg variant — for use over white/tinted sections; glow is purple-tinted */
@@ -4946,8 +4946,8 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ==========================================================================
-   Government IT Services & Consulting — staggered split section
-   ========================================================================== */
+Government IT Services & Consulting — staggered split section
+========================================================================== */
 .svc-grid-section {
   background: #ffffff;
   padding: 100px 0;
@@ -5081,10 +5081,10 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ==========================================================================
-   Remove hover shadow from every card-style element site-wide.
-   Lift transforms and colour transitions are preserved — only the drop shadow
-   and any inset/ring shadows on :hover / :focus-visible are stripped.
-   ========================================================================== */
+Remove hover shadow from every card-style element site-wide.
+Lift transforms and colour transitions are preserved — only the drop shadow
+and any inset/ring shadows on :hover / :focus-visible are stripped.
+========================================================================== */
 [class*="-card"]:hover,
 [class*="-card"]:focus-visible,
 [class*="-tile"]:hover,
@@ -5103,10 +5103,10 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
 }
 
 /* ==========================================================================
-   Unified card typography — site-wide
-   Every card title (h3/h4/h5 inside a *-card or *-tile) renders at 20px.
-   Every card description (p) renders at 16px.
-   ========================================================================== */
+Unified card typography — site-wide
+Every card title (h3/h4/h5 inside a *-card or *-tile) renders at 20px.
+Every card description (p) renders at 16px.
+========================================================================== */
 [class*="-card"] h3,
 [class*="-card"] h4,
 [class*="-card"] h5,
@@ -5127,7 +5127,7 @@ html body a.ready-cta-secondary.btn.btn-outline:hover {
   color: var(--primary) !important;
 }
 /* Leader-card-v3 expand panel name — explicit black with weight 500,
-   beats any generic purple-on-hover catch-all. */
+beats any generic purple-on-hover catch-all. */
 html .leader-card-v3 .leader-card-v3-expand-name,
 html .leader-card-v3:hover .leader-card-v3-expand-name,
 html .leader-card-v3:focus-within .leader-card-v3-expand-name {
@@ -5135,12 +5135,12 @@ html .leader-card-v3:focus-within .leader-card-v3-expand-name {
   font-weight: 500 !important;
 }
 /* Case-card headings — fully static. Title sits in dark heading colour,
-   block headings (Challenge/Solution/Impact) stay in their primary-purple
-   default. No colour change on hover, no transition. */
+block headings (Challenge/Solution/Impact) stay in their primary-purple
+default. No colour change on hover, no transition. */
 /* Lock case-card headings to black on every interaction state. The repeated
-   `.case-card` raises specificity above any other rule that might try to
-   tint these on hover; transitions are killed so no color fade can occur. */
-html .case-card .case-card-title,
+`.case-card` raises specificity above any other rule that might try to
+tint these on hover; transitions are killed so no color fade can occur. */
+/* html .case-card .case-card-title,
 html .case-card .case-card-title:hover,
 html .case-card.case-card .case-card-title,
 html .case-card:hover .case-card-title,
@@ -5149,9 +5149,9 @@ html .case-card:active .case-card-title,
 html .case-card h3,
 html .case-card:hover h3,
 html .case-card:focus-visible h3 {
-  color: #000000 !important;
-  transition: none !important;
-}
+color: #000000 !important;
+transition: none !important;
+} */
 html .case-card .case-block h4,
 html .case-card .case-block h4:hover,
 html .case-card.case-card .case-block h4,
@@ -5173,11 +5173,11 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Section headings — Times New Roman site-wide
-   Covers every section title pattern: named `*-section-title` classes,
-   the new `.svc-grid-heading`, generic `.sect-head h2` / `.sect h2`,
-   and the hero heading.
-   ========================================================================== */
+Section headings — Times New Roman site-wide
+Covers every section title pattern: named `*-section-title` classes,
+the new `.svc-grid-heading`, generic `.sect-head h2` / `.sect h2`,
+and the hero heading.
+========================================================================== */
 [class*="section-title"],
 .svc-grid-heading,
 .sect-head h2,
@@ -5190,10 +5190,10 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Unified card icon style — site-wide
-   Every icon tile inside a card renders as a 40×40 lavender square with
-   primary purple icon. On parent-card hover, fills with #6200EE / white.
-   ========================================================================== */
+Unified card icon style — site-wide
+Every icon tile inside a card renders as a 40×40 lavender square with
+primary purple icon. On parent-card hover, fills with #6200EE / white.
+========================================================================== */
 [class*="-card"] [class*="card-ic"],
 [class*="-tile"] [class*="card-ic"] {
   width: 40px !important;
@@ -5236,8 +5236,8 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Sectors v3 — centered header + 4x2 image-card grid + centered CTA
-   ========================================================================== */
+Sectors v3 — centered header + 4x2 image-card grid + centered CTA
+========================================================================== */
 .sectors-v3-section .sect-head { display: none; }
 .sectors-v3-head {
   text-align: center;
@@ -5345,8 +5345,8 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Sectors v2 — split header + image-left/accordion-right (legacy)
-   ========================================================================== */
+Sectors v2 — split header + image-left/accordion-right (legacy)
+========================================================================== */
 .sectors-v2-section { background: #FCFAFD !important; }
 .sectors-v2-section .sect-head { display: none; }
 
@@ -5532,9 +5532,9 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Sectors we serve — image-left + numbered-list-right with hover swap
-   (legacy — kept in case other pages reuse the classes)
-   ========================================================================== */
+Sectors we serve — image-left + numbered-list-right with hover swap
+(legacy — kept in case other pages reuse the classes)
+========================================================================== */
 .sectors-split {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -5598,7 +5598,7 @@ html .case-card:focus-visible h4 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   /* row-gap: 16px keeps content-to-line distance; column-gap: 0 so adjacent
-     borders meet to form a single continuous horizontal divider. */
+  borders meet to form a single continuous horizontal divider. */
   gap: 16px 0;
   list-style: none;
   padding: 0;
@@ -5616,9 +5616,9 @@ html .case-card:focus-visible h4 {
   transition: color .25s ease;
 }
 /* Horizontal divider between rows: every item except the last two carries a
-   bottom border + 16px bottom padding so the line sits 16px below content
-   and 16px above the next row. Left/right item borders touch (column-gap 0)
-   to look like one continuous line spanning both columns. */
+bottom border + 16px bottom padding so the line sits 16px below content
+and 16px above the next row. Left/right item borders touch (column-gap 0)
+to look like one continuous line spanning both columns. */
 .sectors-list > .sectors-item:not(:nth-last-child(-n+2)) {
   border-bottom: 1px solid var(--outline);
   padding-bottom: 16px;
@@ -5648,10 +5648,10 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Services mega menu — full-width dropdown opened on hover of nav "Services"
-   Injected as a child of .site-header (sibling of .nav) so position:absolute
-   with top:100% spans the full header width reliably.
-   ========================================================================== */
+Services mega menu — full-width dropdown opened on hover of nav "Services"
+Injected as a child of .site-header (sibling of .nav) so position:absolute
+with top:100% spans the full header width reliably.
+========================================================================== */
 .has-megamenu { position: static; }
 .site-header { position: sticky; }
 .megamenu {
@@ -5747,7 +5747,7 @@ html .case-card:focus-visible h4 {
   background: #EBEDF3;
 }
 /* Hide the "NEW CASE STUDY" eyebrow inside the feature column so the card
-   top aligns with the top of the left/middle column text. */
+top aligns with the top of the left/middle column text. */
 .megamenu-feature > .megamenu-eyebrow { display: none; }
 .megamenu-feature-card {
   display: flex;
@@ -5815,8 +5815,8 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Our Capabilities — 2-column card grid (image left, body right + badge)
-   ========================================================================== */
+Our Capabilities — 2-column card grid (image left, body right + badge)
+========================================================================== */
 .cap-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -5937,8 +5937,8 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Our Capabilities v2 — image + accordion split (mirrors sectors-v2)
-   ========================================================================== */
+Our Capabilities v2 — image + accordion split (mirrors sectors-v2)
+========================================================================== */
 .caps-v2-section .sect-head { display: none; }
 .caps-v2-head {
   display: flex;
@@ -5988,17 +5988,17 @@ html .case-card:focus-visible h4 {
   align-items: start;
 }
 /* Let the 1fr tracks actually shrink — without this the columns refuse to go
-   below their content's min-content width and the grid overflows the row. */
+below their content's min-content width and the grid overflows the row. */
 .caps-v2-visual,
 .caps-v2-accordion-col { min-width: 0; }
 /* Swap order: accordion sits on the LEFT (aligned with "Our Capabilities"
-   heading), image on the right. */
+heading), image on the right. */
 .caps-v2-visual { order: 1; }
 .caps-v2-accordion-col { order: 2; }
 
 /* Image stretches to match the accordion column height — top of image
-   aligns with the first row, bottom aligns with "Department ERP".
-   No transition on the image so any reflow on open/close is instant. */
+aligns with the first row, bottom aligns with "Department ERP".
+No transition on the image so any reflow on open/close is instant. */
 .caps-v2-visual {
   display: block;
   position: relative;
@@ -6165,18 +6165,18 @@ html .case-card:focus-visible h4 {
 .caps-v2-cta { display: none !important; }
 
 /* ----------------------------------------------------------------------
-   Tablet / mobile (matches webority-os-web industry-accordion behaviour):
-   as the layout stacks, drop the left-side image and instead reveal each
-   capability's own image INSIDE its open/hovered accordion panel.
-   ---------------------------------------------------------------------- */
+Tablet / mobile (matches webority-os-web industry-accordion behaviour):
+as the layout stacks, drop the left-side image and instead reveal each
+capability's own image INSIDE its open/hovered accordion panel.
+---------------------------------------------------------------------- */
 
 /* ==========================================================================
-   Leadership v3 — image card with hover-expand white panel
-   Default: grayscale photo, black-to-transparent gradient at bottom, name +
-   role overlaid in white, "+" plus button at bottom-right.
-   Hover: white panel slides up from the bottom covering half the card, with
-   the name, role, LinkedIn icon, and bullet points becoming visible.
-   ========================================================================== */
+Leadership v3 — image card with hover-expand white panel
+Default: grayscale photo, black-to-transparent gradient at bottom, name +
+role overlaid in white, "+" plus button at bottom-right.
+Hover: white panel slides up from the bottom covering half the card, with
+the name, role, LinkedIn icon, and bullet points becoming visible.
+========================================================================== */
 .leader-grid-v3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -6208,9 +6208,9 @@ html .case-card:focus-visible h4 {
   transform: translateZ(0);
   backface-visibility: hidden;
   transition:
-    bottom 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    filter 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  bottom 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
+  filter 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
+  opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 /* On hover: image shrinks to the top portion above the white panel (45%) */
 .leader-card-v3:hover .leader-card-v3-img {
@@ -6220,8 +6220,8 @@ html .case-card:focus-visible h4 {
 }
 
 /* Paired-image variant — uses TWO pre-rendered images and cross-fades on hover
-   (Profile 1.png as the default shot, Profile 2.png as the hover shot).
-   Both images move upward together as a single unit. */
+(Profile 1.png as the default shot, Profile 2.png as the hover shot).
+Both images move upward together as a single unit. */
 .leader-card-v3:has(.leader-card-v3-img--default) .leader-card-v3-img--default,
 .leader-card-v3:has(.leader-card-v3-img--default) .leader-card-v3-img--hover {
   filter: none;
@@ -6289,8 +6289,8 @@ html .case-card:focus-visible h4 {
 .leader-card-v3:hover .leader-card-v3-plus svg { transform: rotate(45deg); }
 
 /* The white expansion panel — circular reveal from the "+" button (bottom-right).
-   The circle starts at radius 0 anchored to the button's centre and grows to
-   cover the full panel area for a clean, premium reveal. */
+The circle starts at radius 0 anchored to the button's centre and grows to
+cover the full panel area for a clean, premium reveal. */
 .leader-card-v3-expand {
   position: absolute;
   left: 0;
@@ -6308,9 +6308,9 @@ html .case-card:focus-visible h4 {
   /* Leave (hover-out) — collapses fast so the white circle doesn't linger. */
   opacity: 0;
   transition:
-    clip-path 400ms cubic-bezier(0.4, 0, 1, 1),
-    -webkit-clip-path 400ms cubic-bezier(0.4, 0, 1, 1),
-    opacity 250ms cubic-bezier(0.4, 0, 1, 1) 150ms;
+  clip-path 400ms cubic-bezier(0.4, 0, 1, 1),
+  -webkit-clip-path 400ms cubic-bezier(0.4, 0, 1, 1),
+  opacity 250ms cubic-bezier(0.4, 0, 1, 1) 150ms;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -6322,24 +6322,24 @@ html .case-card:focus-visible h4 {
   opacity: 1;
   /* Enter — slow, considered reveal. */
   transition:
-    clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    -webkit-clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    opacity 1ms;
+  clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
+  -webkit-clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
+  opacity 1ms;
 }
 .leader-card-v3-expand > * {
   opacity: 0;
   transform: translateY(8px);
   /* No delay on the default (leave) state — content fades out IMMEDIATELY
-     while the clip-path closes, eliminating the lingering text artefacts. */
+  while the clip-path closes, eliminating the lingering text artefacts. */
   transition:
-    opacity 350ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  opacity 350ms cubic-bezier(0.22, 0.61, 0.36, 1),
+  transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .leader-card-v3:hover .leader-card-v3-expand > * {
   opacity: 1;
   transform: translateY(0);
   /* Delay only applies to the hover-in transition. On hover-out the
-     transition above (no delay) takes effect, so content disappears first. */
+  transition above (no delay) takes effect, so content disappears first. */
   transition-delay: 480ms;
 }
 .leader-card-v3:hover .leader-card-v3-expand > *:nth-child(2) { transition-delay: 620ms; }
@@ -6349,8 +6349,8 @@ html .case-card:focus-visible h4 {
 }
 .leader-card-v3-front {
   transition:
-    opacity 600ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 800ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  opacity 600ms cubic-bezier(0.22, 0.61, 0.36, 1),
+  transform 800ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .leader-card-v3:hover .leader-card-v3-shade {
   opacity: 0;
@@ -6444,26 +6444,26 @@ html .case-card:focus-visible h4 {
 }
 
 /* ==========================================================================
-   Why Choose Webority v3 — image with client logos + glass testimonial on left,
-   6 separate tick-mark cards on the right.
-   ========================================================================== */
+Why Choose Webority v3 — image with client logos + glass testimonial on left,
+6 separate tick-mark cards on the right.
+========================================================================== */
 .why-v3 {
   display: grid;
   /* Left column floored at 0 (was minmax(420px, …)). The right column holds two
-     fixed 320px cards (+24px gap = 664px); with the old 420px floor the row
-     needed 420+80+664 = 1164px and overflowed the 1280px container down to the
-     768px collapse. Letting the left shrink keeps the row inside its container
-     at every width while the cards keep their 320px design above 1100px. */
+  fixed 320px cards (+24px gap = 664px); with the old 420px floor the row
+  needed 420+80+664 = 1164px and overflowed the 1280px container down to the
+  768px collapse. Letting the left shrink keeps the row inside its container
+  at every width while the cards keep their 320px design above 1100px. */
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 80px;
   margin-top: 0;
   align-items: stretch;
 }
 /* Below 1200px the left column + 664px-wide staggered cards no longer fit
-   comfortably, so stack the section: left content on top, cards below. */
+comfortably, so stack the section: left content on top, cards below. */
 
 /* Left column: heading on top, image below. Image stretches to fill the
-   remaining height so its bottom aligns with the bottom of the right cards. */
+remaining height so its bottom aligns with the bottom of the right cards. */
 .why-v3-left {
   display: flex;
   flex-direction: column;
@@ -6493,7 +6493,7 @@ html .case-card:focus-visible h4 {
 }
 
 /* LEFT: visual — stretches to fill the remaining space in the left column
-   so its bottom aligns with the bottom of the right-side card grid. */
+so its bottom aligns with the bottom of the right-side card grid. */
 .why-v3-visual {
   position: relative;
   border-radius: 16px;
@@ -6543,13 +6543,13 @@ html .case-card:focus-visible h4 {
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-          backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
   box-shadow: 0 4px 18px -8px rgba(0, 0, 0, 0.45);
 }
 
 /* BEE seal variant — the image (bee-testimonals.png) already includes the
-   green spotlit background. Fill the container edge-to-edge with no extra
-   padding, filters, or pseudo-element overlays. */
+green spotlit background. Fill the container edge-to-edge with no extra
+padding, filters, or pseudo-element overlays. */
 .why-v3-visual--bee { background: #0a3d2c !important; }
 .why-v3-visual--bee .why-v3-img {
   position: absolute;
@@ -6572,7 +6572,7 @@ html .case-card:focus-visible h4 {
   padding: 8px;
   background: rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
-          backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
 }
@@ -6609,7 +6609,7 @@ html .case-card:focus-visible h4 {
   padding: 20px 22px;
   background: rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
-          backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
   border: 0.5px solid rgba(255, 255, 255, 0.35);
   border-radius: 16px;
   color: #ffffff;
@@ -6703,7 +6703,7 @@ html .case-card:focus-visible h4 {
 }
 .why-v3-col--offset { margin-top: 60px; }
 /* Tablet: drop the stagger and lay the two card columns out as an even
-   2-up grid beneath the left content. */
+2-up grid beneath the left content. */
 
 /* Mobile: single column of cards. */
 
@@ -6754,17 +6754,17 @@ html .case-card:focus-visible h4 {
 }
 .why-v3-card:hover h3 { color: var(--heading) !important; }
 /* 3-column desktop: strip right-border off the last column (every 3rd item)
-   and bottom-border off the last row (last 3 items). */
+and bottom-border off the last row (last 3 items). */
 
 /* 2-column tablet: strip right-border off every 2nd item; last 2 lose bottom-border. */
 
 /* 1-column mobile: no vertical dividers; only horizontal between items. */
 
 /* ==========================================================================
-   Global card outline — every section card gets a #eceff4 outline, no shadow.
-   Excludes plural containers (-cards, -tiles) and special-purpose card types
-   that intentionally have transparent or no border (glass cards, hero overlays).
-   ========================================================================== */
+Global card outline — every section card gets a #eceff4 outline, no shadow.
+Excludes plural containers (-cards, -tiles) and special-purpose card types
+that intentionally have transparent or no border (glass cards, hero overlays).
+========================================================================== */
 .svc-card-v2,
 .svc-card,
 .ai-card,
@@ -7038,10 +7038,10 @@ html .case-card:focus-visible h4 {
   line-height: 1 !important;
 }
 /* Left text column 610px, right visual card 636px, 50px gap between them.
-   minmax(0, …) lets both tracks cap at the intended desktop width yet shrink
-   to fit narrower containers — the fixed `610px 636px` summed to 1296px (wider
-   than the 1280px container) and overflowed horizontally at every desktop width
-   between the 980px collapse and ~1340px. */
+minmax(0, …) lets both tracks cap at the intended desktop width yet shrink
+to fit narrower containers — the fixed `610px 636px` summed to 1296px (wider
+than the 1280px container) and overflowed horizontally at every desktop width
+between the 980px collapse and ~1340px. */
 .svc-row-section .svc-row {
   grid-template-columns: minmax(0, 610px) minmax(0, 636px) !important;
   gap: 50px !important;
@@ -7070,7 +7070,7 @@ html .case-card:focus-visible h4 {
 }
 
 /* Government Registrations cards (credentials page) — spacing + typography lock,
-   pill anchored top-right (image stays top-left). */
+pill anchored top-right (image stays top-left). */
 .reg-card {
   position: relative !important;
 }
@@ -7098,7 +7098,7 @@ html .case-card:focus-visible h4 {
 }
 
 /* Standards We Work To — middle text (.std-sub) renders in Times New Roman regular,
-   with a 12px gap before the description below. */
+with a 12px gap before the description below. */
 .svc-card-v2 .std-sub {
   font-family: 'Times New Roman', Times, serif !important;
   font-style: normal !important;
@@ -7124,36 +7124,36 @@ html .case-card:focus-visible h4 {
   max-height: 460px;
   padding: 48px 56px;
   background:
-    url('../images/logos/gov/Showcasing image background.png') center / cover no-repeat,
-    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+  url('../images/logos/gov/Showcasing image background.png') center / cover no-repeat,
+  linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
   border: 1px solid #eceff4 !important;
   border-radius: 24px !important;
   overflow: hidden;
 }
 .ref-project.ref-project--v2.ref-project--sickle {
   background:
-    url('../images/logos/gov/Sickal Scan Showcasing Banner.png') center / cover no-repeat,
-    linear-gradient(120deg, #fdf4f4 0%, #f9e6e6 60%, #f4d8d8 100%) !important;
+  url('../images/logos/gov/Sickal Scan Showcasing Banner.png') center / cover no-repeat,
+  linear-gradient(120deg, #fdf4f4 0%, #f9e6e6 60%, #f4d8d8 100%) !important;
 }
 .ref-project.ref-project--v2.ref-project--manthan {
   background:
-    url('../images/logos/gov/Manthan Application Showcasing Banner.png') center / cover no-repeat,
-    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+  url('../images/logos/gov/Manthan Application Showcasing Banner.png') center / cover no-repeat,
+  linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
 }
 .ref-project.ref-project--v2.ref-project--parliament {
   background:
-    url('../images/logos/gov/Parliament of India Showcasing Banner.png') center / cover no-repeat,
-    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+  url('../images/logos/gov/Parliament of India Showcasing Banner.png') center / cover no-repeat,
+  linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
 }
 .ref-project.ref-project--v2.ref-project--nbt {
   background:
-    url('../images/logos/gov/NBT Showcasing impact background.png') center / cover no-repeat,
-    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+  url('../images/logos/gov/NBT Showcasing impact background.png') center / cover no-repeat,
+  linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
 }
 .ref-project.ref-project--v2.ref-project--samar {
   background:
-    url('../images/logos/gov/Samar Showcasing impact background.png') center / cover no-repeat,
-    linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+  url('../images/logos/gov/Samar Showcasing impact background.png') center / cover no-repeat,
+  linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
 }
 .ref-project--v2 .ref-project-content { padding: 0; }
 .ref-project--v2 .ref-project-brand {
@@ -7347,7 +7347,7 @@ html .case-card:focus-visible h4 {
 }
 
 /* Sectors-page tabs — mirror the .svc-tabs treatment from the services page.
-   The white strip is full-bleed (edge-to-edge) and sits flush below the stats row. */
+The white strip is full-bleed (edge-to-edge) and sits flush below the stats row. */
 .sect:has(> .container > .sector-tabs) {
   padding: 0 !important;
   background: transparent !important;
@@ -7357,14 +7357,14 @@ html .case-card:focus-visible h4 {
   width: 100% !important;
 }
 /* Re-constrain each sector-panel's content to 1280px total. The
-   :nth-child(odd)::before band still spans 100vw for the alternating
-   background; only the inner content (sect-head + cards) is capped. */
+:nth-child(odd)::before band still spans 100vw for the alternating
+background; only the inner content (sect-head + cards) is capped. */
 .sect > .container:has(.sector-tabs) > .sector-panel {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   /* Restore a side gutter so cards don't run edge-to-edge below 1280px.
-     box-sizing:border-box keeps the content cap at 1280px total width. */
+  box-sizing:border-box keeps the content cap at 1280px total width. */
   box-sizing: border-box;
 }
 /* Stats row directly above the tabs strip — drop its bottom padding so the gap is 0 */
@@ -7372,9 +7372,9 @@ html .case-card:focus-visible h4 {
   padding-bottom: 0 !important;
 }
 /* Mirrors the services page (.svc-tabs): the bar is a full-bleed sticky white
-   strip; a centred .container caps the content to 1280px; .sector-tabs-scroll
-   is the horizontally-scrollable row inside it — so the tabs scroll within the
-   container exactly like the services tabs. */
+strip; a centred .container caps the content to 1280px; .sector-tabs-scroll
+is the horizontally-scrollable row inside it — so the tabs scroll within the
+container exactly like the services tabs. */
 .sector-tabs {
   display: block !important;
   overflow: visible !important;
@@ -7445,7 +7445,7 @@ html .case-card:focus-visible h4 {
 .download-cta,
 body.contact-page .download-cta {
   background:
-    url('../images/logos/gov/CTA%20Background.png') center / cover no-repeat !important;
+  url('../images/logos/gov/CTA%20Background.png') center / cover no-repeat !important;
 }
 .download-cta h2 {
   font-family: 'Times New Roman', Times, serif !important;
@@ -7481,7 +7481,7 @@ body.contact-page .download-cta {
   gap: 10px !important;
 }
 /* Visible gap between every form field — pad each field at the bottom so the
-   gap is obvious even though the inputs themselves render at height: 0. */
+gap is obvious even though the inputs themselves render at height: 0. */
 .enquiry-form {
   gap: 36px !important;
 }
@@ -7530,11 +7530,11 @@ button.profile-modal-submit.btn.btn-primary.btn-glow {
 }
 
 /* Inner-page hero — Pages Banner background + Times New Roman italic heading.
-   The --v2 (services) and --watercolor variants set their own backgrounds and win via order. */
+The --v2 (services) and --watercolor variants set their own backgrounds and win via order. */
 .svc-hero {
   background:
-    url('../images/logos/gov/Pages%20Banner.png') center / cover no-repeat,
-    linear-gradient(180deg, #fdfcf9 0%, #f6f8fb 100%) !important;
+  url('../images/logos/gov/Pages%20Banner.png') center / cover no-repeat,
+  linear-gradient(180deg, #fdfcf9 0%, #f6f8fb 100%) !important;
 }
 .svc-hero::before {
   display: none !important;
@@ -7663,7 +7663,7 @@ html .why-v3-card:focus-visible [class*="card-ic"] {
 }
 
 /* Leader card v3 — lock BOTH the expand-name AND the expand-role to dark/black
-   so no rule (purple-on-hover catchall, --primary var, etc.) can tint them. */
+so no rule (purple-on-hover catchall, --primary var, etc.) can tint them. */
 html body .leader-card-v3 .leader-card-v3-expand-name,
 html body .leader-card-v3 .leader-card-v3-expand .leader-card-v3-expand-name,
 html body .leader-card-v3:hover .leader-card-v3-expand-name,
@@ -7682,10 +7682,10 @@ html body span.leader-card-v3-expand-role {
 }
 
 /* ==========================================================================
-   Language dropdown — globe-icon trigger + flag-prefixed menu (EN / Hindi).
-   The original .gov-lang-toggle buttons are hidden offscreen by JS so
-   screenreaders still see them; the dropdown options call .click() on them.
-   ========================================================================== */
+Language dropdown — globe-icon trigger + flag-prefixed menu (EN / Hindi).
+The original .gov-lang-toggle buttons are hidden offscreen by JS so
+screenreaders still see them; the dropdown options call .click() on them.
+========================================================================== */
 .nav-lang.lang-dropdown {
   position: relative;
   display: inline-block;
@@ -7788,26 +7788,26 @@ html body span.leader-card-v3-expand-role {
 }
 
 /* ============================================================
-   RESPONSIVE REFINEMENT LAYER  (tablet ≤820px, phone ≤560/480px)
-   Appended last so it wins specificity ties with the rules above.
-   Closes the gaps left by per-component breakpoints: grids that
-   never reached a single column, type that never scaled down, and
-   absolute timeline offsets that assumed desktop width. Marquees
-   (.cert-strip, .btn-marquee, wordmark) intentionally keep nowrap.
-   ============================================================ */
+RESPONSIVE REFINEMENT LAYER  (tablet ≤820px, phone ≤560/480px)
+Appended last so it wins specificity ties with the rules above.
+Closes the gaps left by per-component breakpoints: grids that
+never reached a single column, type that never scaled down, and
+absolute timeline offsets that assumed desktop width. Marquees
+(.cert-strip, .btn-marquee, wordmark) intentionally keep nowrap.
+============================================================ */
 
 /* --- Global guard: media never overflows its column --- */
 img, svg, video { max-width: 100%; }
 
 /* --- Overflow guard scoped to the responsive range: lets flex/grid
-   children shrink below their content size instead of forcing the row
-   wider than the viewport. Scoped to ≤960px to avoid touching the
-   desktop layout. 0-specificity, so any explicit min-width still wins. --- */
+children shrink below their content size instead of forcing the row
+wider than the viewport. Scoped to ≤960px to avoid touching the
+desktop layout. 0-specificity, so any explicit min-width still wins. --- */
 
 /* --- Hamburger range (≤960px): the nav collapses to the mobile dropdown
-   here (style.css), so suppress the desktop Services megamenu panel — it is
-   an absolutely-positioned 3-column overlay that would otherwise hang over
-   the open dropdown. Services / Case Studies remain tappable links. --- */
+here (style.css), so suppress the desktop Services megamenu panel — it is
+an absolutely-positioned 3-column overlay that would otherwise hang over
+the open dropdown. Services / Case Studies remain tappable links. --- */
 
 /* --- Tablet (≤820px) --- */
 
@@ -7833,14 +7833,14 @@ img, svg, video { max-width: 100%; }
 .csmenu-link { display:block; padding:10px 12px; border-radius:10px; text-decoration:none; transition: background .2s ease; }
 .csmenu-link:hover { background: transparent; }
 /* Title + subtitle typography matches the Services megamenu (.megamenu-list
-   h5 / p) so both menus read identically: heading 16px/500, sub 14px/400. */
+h5 / p) so both menus read identically: heading 16px/500, sub 14px/400. */
 .csmenu-link-title { display:block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight:500; font-size: clamp(14px, 13.217px + 0.217vw, 16px); line-height:1.25; letter-spacing:-.005em; color: var(--heading); }
 .csmenu-link:hover .csmenu-link-title { color: var(--primary,#6a3df0); }
 .csmenu-link-sub { display:block; font-family: var(--font-heading,'Josefin Sans',sans-serif); font-weight:400; font-size: clamp(12px, 11.217px + 0.217vw, 14px); line-height:1.4; color: var(--text-2, #2c3344); margin-top:8px; }
 .csmenu-preview { position:sticky; top:0; display:flex; flex-direction:column; }
 .csmenu-preview::before { content: none; }
 /* Right-side "New Case Study" eyebrow sits over the preview column,
-   aligned horizontally with the left-side "Case Studies" eyebrow. */
+aligned horizontally with the left-side "Case Studies" eyebrow. */
 .csmenu-head { align-items: center; }
 .csmenu-head-feature {
   margin-bottom: 0 !important;
@@ -7897,22 +7897,22 @@ img, svg, video { max-width: 100%; }
 .csmenu-preview-frame .csmenu-preview-img { opacity: 1 !important; }
 
 /* ==========================================================================
-   "Delivering Where It Matters Most" — final lock-in.
-   Beats the generic [class*="-card"] / [class*="-tile"] !important catch-alls
-   above so the section matches webority-os-web Product Success Stories exactly
-   across desktop / tablet / mobile.
-   ========================================================================== */
-html .case-card .case-card-title,
+"Delivering Where It Matters Most" — final lock-in.
+Beats the generic [class*="-card"] / [class*="-tile"] !important catch-alls
+above so the section matches webority-os-web Product Success Stories exactly
+across desktop / tablet / mobile.
+========================================================================== */
+/* html .case-card .case-card-title,
 html .case-card:hover .case-card-title,
 html .case-card h3,
 html .case-card:hover h3 {
-  font-family: 'Times New Roman', Times, serif !important;
-  font-style: italic !important;
-  font-weight: 400 !important;
-  font-size: clamp(23px, 19.478px + 0.978vw, 32px) !important;
-  line-height: 1.2 !important;
-  color: #1a1a2e !important;
-}
+font-family: 'Times New Roman', Times, serif !important;
+font-style: italic !important;
+font-weight: 400 !important;
+font-size: clamp(23px, 19.478px + 0.978vw, 32px) !important;
+line-height: 1.2 !important;
+color: #1a1a2e !important;
+} */
 html .case-card .case-block h4,
 html .case-card:hover .case-block h4,
 html .case-card h4,
@@ -7931,11 +7931,11 @@ html .case-card .case-block p {
 }
 
 /* ============================================================
-   Formal Certifications — full certificate-scan gallery
-   4-column grid; the landscape Startup India "Certificate of
-   Recognition" spans the two middle columns so it fills the
-   same width as the two portrait certificates above it.
-   ============================================================ */
+Formal Certifications — full certificate-scan gallery
+4-column grid; the landscape Startup India "Certificate of
+Recognition" spans the two middle columns so it fills the
+same width as the two portrait certificates above it.
+============================================================ */
 .cert-docs-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

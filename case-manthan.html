@@ -521,6 +521,16 @@
       height: 100%;
       object-fit: cover;
     }
+    @media (max-width: 991px) {
+      .cs-feature-image {
+        height: auto;
+        min-height: 0;
+      }
+      .cs-feature-image img {
+        height: auto;
+        object-fit: contain;
+      }
+    }
     html, body { overflow-x: hidden; }
 
     /* ---------- Scope of Work v2 — left intro + right timeline list ---------- */
@@ -771,7 +781,10 @@
     </div>
 
     <div class="cs-block cs-feature-image" style="background-color:#0e1640;">
-      <img src="images/logos/gov/Manthan Banner image.png" alt="Manthan employee engagement platform &mdash; mobile app and web portal screens" loading="lazy" />
+      <picture>
+        <source media="(max-width: 991px)" srcset="images/case-studies/casestudy-Manthan.png" />
+        <img src="images/logos/gov/Manthan Banner image.png" alt="Manthan employee engagement platform &mdash; mobile app and web portal screens" loading="lazy" />
+      </picture>
     </div>
 
     <div class="container">
