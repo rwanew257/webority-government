@@ -17,21 +17,23 @@
     .cs-back:hover { color: var(--heading); }
     .cs-back-ic { width: 18px; height: 18px; vertical-align: middle; }
     .cs-breadcrumb { display: flex; align-items: center; gap: 8px; width: max-content; font-family: var(--font-heading); font-size: 13px; margin-bottom: 50px; }
+    @media (max-width: 991px) { .cs-breadcrumb { margin-bottom: 25px; } }
     .cs-breadcrumb a { color: var(--text-2); text-decoration: none; transition: color .2s ease; }
     .cs-breadcrumb a:hover { color: var(--primary); }
     .cs-breadcrumb .cs-breadcrumb-sep { color: var(--text-2); }
     .cs-breadcrumb .cs-breadcrumb-current { color: var(--heading); font-weight: 500; }
     .cs-hero { color: var(--heading); padding: 64px 0 56px; min-height: 550px; height: 550px; display: flex; align-items: center; margin-top: calc(-1 * var(--nav-height, 64px)); padding-top: calc(var(--nav-height, 64px) + 40px); }
+    @media (max-width: 991px) { .cs-hero { align-items: flex-start; } }
     .cs-hero-mota { background: url('images/logos/gov/Sickle Scan Case Study Hero section.png') center / cover no-repeat; }
     @media (max-width: 991px) {
       .cs-hero-mota {
-        height: auto;
+        /* height: auto; */
         min-height: 0;
         background-image: url('images/case-studies/casestudy-sickle-hero-mobile.png');
       }
     }
     .cs-hero .cs-hero-content { max-width: 768px; }
-    .cs-hero h1 { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 400; color: var(--heading); font-size: var(--fs-42); line-height: 1.15; margin: 8px 0 12px; letter-spacing: -0.01em; }
+    .cs-hero h1 { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 400; color: var(--heading); font-size: var(--fs-32); line-height: 1.15; margin: 8px 0 12px; letter-spacing: -0.01em; }
     .cs-hero p.client { color: var(--text-1); font-family: var(--font-heading); margin: 0; }
     .cs-hero .cs-eyebrow-light { display: inline-block; color: var(--primary); font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
     .cs-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0; margin-top: 32px; padding-top: 0; border-top: 0; }
@@ -40,6 +42,7 @@
       content: none;
     }
     .cs-meta-item .v { font-family: var(--font-heading); font-weight: 500; color: var(--heading); font-size: 42px; display: block; line-height: 1.1; }
+    @media (max-width: 991px) { .cs-meta-item .v { font-size: 28px; } }
     .cs-meta-item .cs-meta-pct { font-size: 32px; color: var(--primary, #6a3df0); font-weight: 500; }
     .cs-meta-item .l { font-family: var(--font-heading); color: var(--text-2); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-top: 6px; display: block; }
     .cs-two-col { display: grid; grid-template-columns: 1fr 360px; gap: 76px; align-items: start; justify-content: center; }
@@ -51,6 +54,7 @@
     .cs-block { margin-bottom: 36px; }
     /* 100px gap below the Project Overview block; flush to the top of the section */
     .cs-two-col > div > .cs-block:first-child { margin-top: 0; margin-bottom: 100px; }
+    @media (max-width: 991px) { .cs-two-col > div > .cs-block:first-child { margin-bottom: 0; } }
     /* Bottom single-column area below the full-bleed image */
     .cs-single-col { display: block; margin-top: 48px; }
     .cs-single-col > div { max-width: 100%; }
@@ -685,7 +689,7 @@
       font-family: 'Times New Roman', Times, serif;
       font-style: italic;
       font-weight: 400;
-      font-size: 14px;
+      font-size: 24px;
       color: #9ca3af;
       letter-spacing: 0;
       margin: 0 0 4px;
