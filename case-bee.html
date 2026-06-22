@@ -43,7 +43,7 @@
     .cs-meta-item .cs-meta-pct { font-size: 32px; color: var(--primary, #6a3df0); font-weight: 500; }
     .cs-meta-item .l { font-family: var(--font-heading); color: var(--text-2); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-top: 6px; display: block; }
     .cs-two-col { display: grid; grid-template-columns: 1fr 360px; gap: 76px; align-items: start; justify-content: center; }
-    @media (max-width: 1300px) { .cs-two-col { grid-template-columns: minmax(0, 769px) 416px; } }
+    @media (max-width: 1300px) { .cs-two-col { grid-template-columns: minmax(0, 769px) 201px; } }
     @media (max-width: 880px) { .cs-two-col { grid-template-columns: 1fr; gap: 48px; } }
     .cs-eyebrow { display: inline-block; color: var(--primary); font-family: var(--font-heading); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 11px; }
     .cs-h2 { font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 400; color: var(--heading); font-size: var(--fs-32); margin: 8px 0 16px; letter-spacing: -0.01em; }
@@ -432,14 +432,19 @@
     }
     
     @media (max-width: 1100px) {
-      .other-projects-track { grid-auto-columns: minmax(0, calc((100% - 24px) / 2)); }
+      .other-projects .container { display: flex; flex-direction: column; }
+      .other-projects-head { display: contents; }
+      .other-projects-heading { order: 1; margin-bottom: 48px; }
+      .other-projects-track { grid-auto-columns: calc((100% - 48px) / 2); order: 2; min-width: 0; }
+      .other-projects-dots { order: 3; }
+      .other-projects-nav { order: 4; justify-content: center; margin-top: 24px; }
       .op-card { height: auto; min-height: 520px; }
     }
-    @media (max-width: 720px) {
+    @media (max-width: 768px) {
       .other-projects { padding: 64px 0 80px; }
       .other-projects-head { flex-direction: column; align-items: flex-start; }
       .other-projects-heading { font-size: 32px; }
-      .other-projects-track { grid-auto-columns: minmax(0, 88%); gap: 16px; }
+      .other-projects-track {     grid-auto-columns: calc((100% - 0px) / 1); gap: 16px; }
       .op-card { height: auto; min-height: 480px; }
     }
     
