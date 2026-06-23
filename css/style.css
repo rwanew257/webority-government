@@ -1,9 +1,9 @@
 /* ============================================
-   Webority Government — Stylesheet
-   Every CSS variable below is copied verbatim from
-   webority.com/css/bundles/core.min.css :root blocks.
-   No invented tokens. Component rules use only these.
-   ============================================ */
+Webority Government — Stylesheet
+Every CSS variable below is copied verbatim from
+webority.com/css/bundles/core.min.css :root blocks.
+No invented tokens. Component rules use only these.
+============================================ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -16,13 +16,13 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --primary-30: #cba6fa;
   --primary-20: #e0ccfd;
   --primary-10: #f0e6fe;
-
+  
   --orange: #f40;
   --orange-50: #ffa17f;
   --orange-30: #ffc7b3;
   --orange-20: #ffdacc;
   --orange-10: #ffede6;
-
+  
   --secondary: #171a21;
   --secondary-80: #141414;
   --secondary-50: #8a8c8f;
@@ -30,35 +30,35 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --secondary-20: #d1d1d3;
   --secondary-10: #e8e8e9;
   --black: #000;
-
+  
   --informative: #1b84ff;
   --informative-50: #8dc1ff;
   --informative-40: #a4ceff;
   --informative-30: #bbd4ff;
   --informative-20: #d1e6ff;
   --informative-10: #e8f3ff;
-
+  
   --success: #17c653;
   --success-50: #8be3a9;
   --success-40: #a2e8ba;
   --success-30: #b9eccb;
   --success-20: #d1f4dd;
   --success-10: #e8f9ee;
-
+  
   --alert: #eb2646;
   --alert-50: #f593a3;
   --alert-40: #f6a8b5;
   --alert-30: #f8bec7;
   --alert-20: #fdd1d1;
   --alert-10: #fde9ec;
-
+  
   --warning: #feb100;
   --warning-50: #fed880;
   --warning-40: #fee099;
   --warning-30: #fee8b3;
   --warning-20: #fefccc;
   --warning-10: #fef7e5;
-
+  
   --heading: #071437;
   --text-1: #3f4254;
   --text-2: #84859a;
@@ -75,11 +75,11 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --bg-dark: var(--secondary);
   --bg-black: var(--black);
   --outline: #e8edf3;
-
+  
   --font-heading: 'Josefin Sans', system-ui, -apple-system, sans-serif;
   --font-body: 'Josefin Sans', system-ui, -apple-system, sans-serif;
   --font-decorative: 'Josefin Sans', system-ui, -apple-system, sans-serif;
-
+  
   --fs-12: clamp(.85rem, .8rem + .2vw, .875rem);
   --fs-14: clamp(.875rem, .75rem + .625vw, 1rem);
   --fs-16: clamp(1rem, .85rem + .75vw, 1.125rem);
@@ -101,7 +101,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --fs-90: clamp(5.625rem, 4.375rem + 6.25vw, 7.25rem);
   --fs-110: clamp(6.875rem, 5.375rem + 7.5vw, 8.75rem);
   --fs-120: clamp(7.5rem, 5.9rem + 8vw, 9.5rem);
-
+  
   --fs-xs: var(--fs-12);
   --fs-sm: var(--fs-14);
   --fs-base: var(--fs-16);
@@ -113,7 +113,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --fs-5xl: var(--fs-48);
   --fs-6xl: var(--fs-62);
   --fs-7xl: var(--fs-72);
-
+  
   --fw-100: 100;
   --fw-200: 200;
   --fw-300: 300;
@@ -121,7 +121,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --fw-600: 600;
   --fw-700: 700;
   --fw-800: 800;
-
+  
   --lh-small: 1.25;
   --lh-medium: 1.375;
   --lh-base: 1.5;
@@ -129,7 +129,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --lh-xlarge: 2;
   --lh-none: none;
   --lh-normal: 1.35;
-
+  
   --space-1: clamp(.125rem, .1rem + .125vw, .25rem);
   --space-2: clamp(.25rem, .2rem + .25vw, .5rem);
   --space-3: clamp(.375rem, .3rem + .375vw, .75rem);
@@ -147,24 +147,24 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --space-48: clamp(6rem, 4.8rem + 6vw, 12rem);
   --space-64: clamp(8rem, 6.4rem + 8vw, 16rem);
   --space-0: 0;
-
+  
   --radius-none: 0;
   --radius-sm: .125rem;
   --radius-md: .375rem;
   --radius-lg: .5rem;
   --radius-xl: .75rem;
-
+  
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0/.05);
   --shadow-base: 0 1px 3px 0 rgb(0 0 0/.1), 0 1px 2px -1px rgb(0 0 0/.1);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0/.1), 0 2px 4px -2px rgb(0 0 0/.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0/.1), 0 4px 6px -4px rgb(0 0 0/.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0/.1), 0 8px 10px -6px rgb(0 0 0/.1);
   --shadow-2xl: 0 25px 50px -12px rgb(0 0 0/.25);
-
+  
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
-
+  
   --z-dropdown: 1000;
   --z-sticky: 1020;
   --z-fixed: 1030;
@@ -172,7 +172,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --z-modal: 1050;
   --z-popover: 1060;
   --z-tooltip: 1070;
-
+  
   /* Semantic tokens — mobile defaults (verbatim mapping from core.min.css) */
   --hero-title: var(--fs-42-mobile);
   --hero-subtitle: var(--fs-18-mobile);
@@ -185,8 +185,8 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   --nav-height: 3.5rem;
   --nav-font-size: var(--fs-16-mobile);
   /* Fluid button sizing — scales smoothly mobile -> tablet -> desktop in one
-     clamp(), so buttons stay tappable on phones and proportionate on desktop.
-     (Replaces undefined --*-mobile/-tablet/-desktop token refs.) */
+  clamp(), so buttons stay tappable on phones and proportionate on desktop.
+  (Replaces undefined --*-mobile/-tablet/-desktop token refs.) */
   --btn-padding-y: clamp(12px, 0.5rem + 0.55vw, 16px);
   --btn-padding-x: clamp(20px, 0.8rem + 1.5vw, 34px);
   --btn-font-size: clamp(13px, 0.75rem + 0.25vw, 15px);
@@ -375,9 +375,9 @@ ul, ol { list-style: none; }
   inset: -10%;
   z-index: -2;
   background:
-    radial-gradient(40% 50% at 18% 28%, var(--primary-10), transparent 70%),
-    radial-gradient(35% 45% at 82% 72%, var(--orange-10), transparent 70%),
-    radial-gradient(30% 40% at 50% 110%, var(--primary-10), transparent 70%);
+  radial-gradient(40% 50% at 18% 28%, var(--primary-10), transparent 70%),
+  radial-gradient(35% 45% at 82% 72%, var(--orange-10), transparent 70%),
+  radial-gradient(30% 40% at 50% 110%, var(--primary-10), transparent 70%);
 }
 .hero-content { position: relative; z-index: 1; max-width: 64rem; margin: 0 auto; }
 .hero-eyebrow {
@@ -900,18 +900,18 @@ form { display: grid; gap: var(--space-4); }
 /* ---------- Responsive ---------- */
 
 /* ============================================================
-   v2 — Public-sector landing hero (matches Main Frame mockup)
-   Additive: does not override the original .hero rules above.
-   ============================================================ */
+v2 — Public-sector landing hero (matches Main Frame mockup)
+Additive: does not override the original .hero rules above.
+============================================================ */
 .hero-v2 {
   position: relative;
   margin-top: calc(-1 * (var(--nav-height) + 2 * var(--space-4)));
   padding: calc(var(--nav-height) + 2 * var(--space-4) + 100px) 0 var(--space-14);
   background:
-    radial-gradient(60% 55% at 78% 25%, rgba(254, 177, 0, 0.18), transparent 65%),
-    radial-gradient(40% 35% at 90% 100%, rgba(23, 198, 83, 0.10), transparent 70%),
-    radial-gradient(35% 30% at 8% 5%, rgba(254, 153, 51, 0.12), transparent 70%),
-    var(--white);
+  radial-gradient(60% 55% at 78% 25%, rgba(254, 177, 0, 0.18), transparent 65%),
+  radial-gradient(40% 35% at 90% 100%, rgba(23, 198, 83, 0.10), transparent 70%),
+  radial-gradient(35% 30% at 8% 5%, rgba(254, 153, 51, 0.12), transparent 70%),
+  var(--white);
   overflow: hidden;
   isolation: isolate;
 }
@@ -1004,27 +1004,27 @@ form { display: grid; gap: var(--space-4); }
   font-weight: 700;
   /* Scalloped edge — same trick as the mockup green seal */
   -webkit-mask:
-    radial-gradient(circle 4px at 50% 0%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 100% 50%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 50% 100%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 0% 50%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 14.6% 14.6%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 85.4% 14.6%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 85.4% 85.4%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 14.6% 85.4%, transparent 98%, #000 100%),
-    linear-gradient(#000, #000);
+  radial-gradient(circle 4px at 50% 0%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 100% 50%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 50% 100%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 0% 50%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 14.6% 14.6%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 85.4% 14.6%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 85.4% 85.4%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 14.6% 85.4%, transparent 98%, #000 100%),
+  linear-gradient(#000, #000);
   -webkit-mask-composite: source-out;
-          mask:
-    radial-gradient(circle 4px at 50% 0%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 100% 50%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 50% 100%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 0% 50%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 14.6% 14.6%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 85.4% 14.6%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 85.4% 85.4%, transparent 98%, #000 100%),
-    radial-gradient(circle 4px at 14.6% 85.4%, transparent 98%, #000 100%),
-    linear-gradient(#000, #000);
-          mask-composite: subtract;
+  mask:
+  radial-gradient(circle 4px at 50% 0%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 100% 50%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 50% 100%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 0% 50%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 14.6% 14.6%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 85.4% 14.6%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 85.4% 85.4%, transparent 98%, #000 100%),
+  radial-gradient(circle 4px at 14.6% 85.4%, transparent 98%, #000 100%),
+  linear-gradient(#000, #000);
+  mask-composite: subtract;
 }
 .trust-badge-mark::after {
   content: "";
@@ -1104,9 +1104,9 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   FULL-PAGE LAYOUT v2 — sections from the "Main Frame" full mockup
-   All additive. None of the original rules above are overridden.
-   ============================================================ */
+FULL-PAGE LAYOUT v2 — sections from the "Main Frame" full mockup
+All additive. None of the original rules above are overridden.
+============================================================ */
 
 /* ---------- shared section header ---------- */
 .sect { padding: 80px 0; position: relative; }
@@ -1492,18 +1492,18 @@ form { display: grid; gap: var(--space-4); }
 /* ---------- Responsive collapses ---------- */
 
 /* ============================================================
-   Services-page hero (Main Frame mockup variant)
-   Full-width, watercolor gradient (green left, saffron right),
-   italic-serif headline, no image.
-   ============================================================ */
+Services-page hero (Main Frame mockup variant)
+Full-width, watercolor gradient (green left, saffron right),
+italic-serif headline, no image.
+============================================================ */
 .svc-hero {
   position: relative;
   padding: 92px 0 120px;
   background:
-    radial-gradient(60% 70% at 8% 60%, rgba(23, 198, 83, 0.22), transparent 70%),
-    radial-gradient(55% 65% at 92% 20%, rgba(254, 153, 51, 0.28), transparent 70%),
-    radial-gradient(40% 50% at 50% 100%, rgba(23, 198, 83, 0.16), transparent 70%),
-    var(--white);
+  radial-gradient(60% 70% at 8% 60%, rgba(23, 198, 83, 0.22), transparent 70%),
+  radial-gradient(55% 65% at 92% 20%, rgba(254, 153, 51, 0.28), transparent 70%),
+  radial-gradient(40% 50% at 50% 100%, rgba(23, 198, 83, 0.16), transparent 70%),
+  var(--white);
   overflow: hidden;
   isolation: isolate;
 }
@@ -1529,9 +1529,9 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   Services-page rows (Main Frame mockup)
-   Alternating two-column: numbered text + visual card with KPI strip.
-   ============================================================ */
+Services-page rows (Main Frame mockup)
+Alternating two-column: numbered text + visual card with KPI strip.
+============================================================ */
 .svc-row-section {
   padding: 64px 0;
   border-top: 0;
@@ -1648,7 +1648,7 @@ form { display: grid; gap: var(--space-4); }
   text-transform: uppercase;
 }
 /* Body sits over the image at the bottom with a black gradient that fades
-   from 100% opacity at the bottom to 0% at the top. */
+from 100% opacity at the bottom to 0% at the top. */
 .svc-visual-body {
   position: absolute;
   left: 0;
@@ -1702,8 +1702,8 @@ form { display: grid; gap: var(--space-4); }
 .svc-visual-img { aspect-ratio: auto; min-height: 520px; }
 
 /* ============================================================
-   Case Studies — 2x2 card grid with ministry-themed header bands
-   ============================================================ */
+Case Studies — 2x2 card grid with ministry-themed header bands
+============================================================ */
 .cases-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1818,9 +1818,9 @@ form { display: grid; gap: var(--space-4); }
 .case-card-cta:hover { text-decoration: underline; }
 
 /* ============================================================
-   Sectors section — tabs, capability cards, reference project,
-   partners grid (Main Frame mockup)
-   ============================================================ */
+Sectors section — tabs, capability cards, reference project,
+partners grid (Main Frame mockup)
+============================================================ */
 .sector-tabs {
   display: flex;
   flex-wrap: nowrap;
@@ -1934,7 +1934,7 @@ form { display: grid; gap: var(--space-4); }
 }
 /* Inline variant: when .ref-project is dropped inside a panel (no section wrap) */
 .ref-project--inline {
-  margin: 100px auto 0;
+  margin: 60px auto 0;
 }
 .ref-project-body { padding: 30px 36px 36px; }
 .ref-project-body .eyebrow {
@@ -2038,8 +2038,8 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   Credentials sections (Main Frame mockup)
-   ============================================================ */
+Credentials sections (Main Frame mockup)
+============================================================ */
 
 /* Formal Certifications — row of 5 badge cards (real seal artwork) */
 .cert-seals-row {
@@ -2277,8 +2277,8 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   About-page sections (Main Frame mockup)
-   ============================================================ */
+About-page sections (Main Frame mockup)
+============================================================ */
 
 /* Our Story — image left, copy right */
 .story-split {
@@ -2391,12 +2391,12 @@ form { display: grid; gap: var(--space-4); }
   top: 0;
   height: calc(var(--timeline-progress, 0) * 100%);
   background: linear-gradient(
-    180deg,
-    #4e00be 0%,
-    #6a3df0 30%,
-    #8c5cff 75%,
-    #b180f7 95%,
-    rgba(177, 128, 247, 0) 100%
+  180deg,
+  #4e00be 0%,
+  #6a3df0 30%,
+  #8c5cff 75%,
+  #b180f7 95%,
+  rgba(177, 128, 247, 0) 100%
   );
   border-radius: 4px;
   transition: height 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -2446,8 +2446,8 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   Portfolio page — government + enterprise logo grids
-   ============================================================ */
+Portfolio page — government + enterprise logo grids
+============================================================ */
 
 .portfolio-section { padding: 100px 0; }
 
@@ -2525,8 +2525,8 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* Enterprise & MNC — "Trusted by Leading Brands & Growing Startups".
-   Ported from webority-os-web our-clients grid (.clients-grid / .client-grid-cell):
-   bordered cards with rotating soft tints, centred logo + name. No hover. */
+Ported from webority-os-web our-clients grid (.clients-grid / .client-grid-cell):
+bordered cards with rotating soft tints, centred logo + name. No hover. */
 .ent-logo-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -2551,7 +2551,7 @@ form { display: grid; gap: var(--space-4); }
 .ent-logo-card:nth-child(20n+1)  { background: #F2F7FA; }
 .ent-logo-card:nth-child(20n+2)  { background: #FCFAF2; }
 .ent-logo-card:nth-child(20n+3) {
-    background: #fff6e9;
+  background: #fff6e9;
 }
 .ent-logo-card:nth-child(20n+4)  { background: #FEF9F4; }
 .ent-logo-card:nth-child(20n+5)  { background: #FDF4F3; }
@@ -2622,9 +2622,9 @@ form { display: grid; gap: var(--space-4); }
 /* Enterprise / "Trusted by…" grid — responsive steps from our-clients */
 
 /* ============================================================
-   Contact page — Direct Contact + Send an Enquiry split, plus
-   dark Download Company Profile CTA (Main Frame mockup)
-   ============================================================ */
+Contact page — Direct Contact + Send an Enquiry split, plus
+dark Download Company Profile CTA (Main Frame mockup)
+============================================================ */
 
 .contact-split {
   display: grid;
@@ -2636,8 +2636,8 @@ form { display: grid; gap: var(--space-4); }
 /* Direct Contact card */
 .direct-contact-card {
   background-image:
-    linear-gradient(150deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 32%, rgba(255,255,255,0.15) 55%, rgba(255,255,255,0) 70%),
-    url("../images/logos/gov/Direct Contact.jpg");
+  linear-gradient(150deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 32%, rgba(255,255,255,0.15) 55%, rgba(255,255,255,0) 70%),
+  url("../images/logos/gov/Direct Contact.jpg");
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
@@ -2812,9 +2812,9 @@ form { display: grid; gap: var(--space-4); }
 /* Download Company Profile — dark CTA section */
 .download-cta {
   background:
-    radial-gradient(60% 80% at 100% 60%, rgba(186, 100, 255, 0.55), transparent 60%),
-    radial-gradient(40% 50% at 95% 90%, rgba(255, 170, 220, 0.50), transparent 60%),
-    linear-gradient(135deg, #0e0b2a, #1a0e3c 70%);
+  radial-gradient(60% 80% at 100% 60%, rgba(186, 100, 255, 0.55), transparent 60%),
+  radial-gradient(40% 50% at 95% 90%, rgba(255, 170, 220, 0.50), transparent 60%),
+  linear-gradient(135deg, #0e0b2a, #1a0e3c 70%);
   color: var(--white);
   padding: 88px 32px;
   text-align: center;
@@ -2865,11 +2865,11 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   NEW GLOBAL FOOTER (Main Frame mockup)
-   Dark navy/purple gradient, 5-column top, two promo cards,
-   bottom legal bar, giant "WEBORITY TECHNOLOGIES" wordmark.
-   .wg-footer overrides the old .site-footer that wraps it.
-   ============================================================ */
+NEW GLOBAL FOOTER (Main Frame mockup)
+Dark navy/purple gradient, 5-column top, two promo cards,
+bottom legal bar, giant "WEBORITY TECHNOLOGIES" wordmark.
+.wg-footer overrides the old .site-footer that wraps it.
+============================================================ */
 
 .site-footer.wg-footer {
   background: url('../images/logos/gov/Footer Background.jpg') center / cover no-repeat;
@@ -3137,7 +3137,7 @@ form { display: grid; gap: var(--space-4); }
   line-height: 0.95;
   background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.08) 80%);
   -webkit-background-clip: text;
-          background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   user-select: none;
   pointer-events: none;
@@ -3146,22 +3146,22 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* Hide the older .footer-top / .footer-bottom structures inside .wg-footer
-   so legacy markup doesn't double-render alongside new markup */
+so legacy markup doesn't double-render alongside new markup */
 .site-footer.wg-footer .footer-top,
 .site-footer.wg-footer .footer-bottom { display: none; }
 
 /* ============================================================
-   HERO v3 — full-bleed Ashoka lions on the right (matches the
-   newer Main Frame mockup). Overrides earlier .hero-v2-* rules.
-   ============================================================ */
+HERO v3 — full-bleed Ashoka lions on the right (matches the
+newer Main Frame mockup). Overrides earlier .hero-v2-* rules.
+============================================================ */
 .hero-v2 {
   padding: 56px 0 0;
   min-height: 660px;
   background:
-    radial-gradient(72% 80% at 80% 30%, rgba(254, 153, 51, 0.32), transparent 65%),
-    radial-gradient(45% 60% at 25% 70%, rgba(254, 200, 100, 0.18), transparent 70%),
-    radial-gradient(45% 55% at 90% 95%, rgba(120, 180, 90, 0.14), transparent 70%),
-    linear-gradient(180deg, #fff 0%, #fff8ec 60%, #f4f8e8 100%);
+  radial-gradient(72% 80% at 80% 30%, rgba(254, 153, 51, 0.32), transparent 65%),
+  radial-gradient(45% 60% at 25% 70%, rgba(254, 200, 100, 0.18), transparent 70%),
+  radial-gradient(45% 55% at 90% 95%, rgba(120, 180, 90, 0.14), transparent 70%),
+  linear-gradient(180deg, #fff 0%, #fff8ec 60%, #f4f8e8 100%);
   overflow: hidden;
   position: relative;
 }
@@ -3202,10 +3202,10 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   HERO v4 — properly crop the lions photo
-   Original image: 1024x615, orange wash on LEFT, lions on RIGHT.
-   We want the lions visible (right side of the photo), full bleed.
-   ============================================================ */
+HERO v4 — properly crop the lions photo
+Original image: 1024x615, orange wash on LEFT, lions on RIGHT.
+We want the lions visible (right side of the photo), full bleed.
+============================================================ */
 .hero-v2-image-wrap {
   position: relative;
   margin: 0 -48px 0 -32px;        /* bleed both sides so image meets edges */
@@ -3226,10 +3226,10 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   HERO v5 — image is the full hero background (matches mockup
-   exactly: watercolour wash flows across, lions on the right,
-   text floats on the left over the wash).
-   ============================================================ */
+HERO v5 — image is the full hero background (matches mockup
+exactly: watercolour wash flows across, lions on the right,
+text floats on the left over the wash).
+============================================================ */
 .hero-v2 {
   position: relative;
   min-height: 700px;
@@ -3278,13 +3278,13 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* Soft fade on the left so the headline always has a readable backdrop
-   without hiding the watercolour. */
+without hiding the watercolour. */
 .hero-v2-image-wrap::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(255, 252, 245, 0.92) 0%, rgba(255, 252, 245, 0.55) 28%, transparent 50%);
+  linear-gradient(90deg, rgba(255, 252, 245, 0.92) 0%, rgba(255, 252, 245, 0.55) 28%, transparent 50%);
   z-index: 2;
   pointer-events: none;
 }
@@ -3292,11 +3292,11 @@ form { display: grid; gap: var(--space-4); }
 .hero-v2-image-placeholder { display: none !important; }
 
 /* ============================================================
-   HERO v5 — Ashoka photo as the FULL hero background
-   The supplied image already contains the saffron/white/green
-   watercolour wash on the left + lions on the right, so it can
-   serve as the whole hero background. Text overlays the wash side.
-   ============================================================ */
+HERO v5 — Ashoka photo as the FULL hero background
+The supplied image already contains the saffron/white/green
+watercolour wash on the left + lions on the right, so it can
+serve as the whole hero background. Text overlays the wash side.
+============================================================ */
 .hero-v2 {
   position: relative;
   min-height: 720px;
@@ -3344,9 +3344,9 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   PORTFOLIO v2 — 3x3 grid of ministry cards with logo + 2-line text
-   Replaces the simpler text-tile portfolio used earlier.
-   ============================================================ */
+PORTFOLIO v2 — 3x3 grid of ministry cards with logo + 2-line text
+Replaces the simpler text-tile portfolio used earlier.
+============================================================ */
 .portfolio-v2-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3433,9 +3433,9 @@ form { display: grid; gap: var(--space-4); }
 }
 
 /* ============================================================
-   Public Sector Portfolio v2 (Main Frame mockup)
-   3-column horizontal cards: logo on left, ministry name + entity beneath
-   ============================================================ */
+Public Sector Portfolio v2 (Main Frame mockup)
+3-column horizontal cards: logo on left, ministry name + entity beneath
+============================================================ */
 .psp-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3516,9 +3516,9 @@ form { display: grid; gap: var(--space-4); }
 .psp-cta-row .btn-pill { display: inline-flex; align-self: center; }
 
 /* ============================================================
-   Public Sector Portfolio v2 — class names match the HTML
-   (3-column horizontal ministry cards, italic footnote, CTA)
-   ============================================================ */
+Public Sector Portfolio v2 — class names match the HTML
+(3-column horizontal ministry cards, italic footnote, CTA)
+============================================================ */
 .portfolio-v2-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

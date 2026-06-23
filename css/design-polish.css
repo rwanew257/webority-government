@@ -7135,6 +7135,8 @@ with a 12px gap before the description below. */
   url('../images/logos/gov/Sickal Scan Showcasing Banner.png') center / cover no-repeat,
   linear-gradient(120deg, #fdf4f4 0%, #f9e6e6 60%, #f4d8d8 100%) !important;
 }
+
+
 .ref-project.ref-project--v2.ref-project--manthan {
   background:
   url('../images/logos/gov/Manthan Application Showcasing Banner.png') center / cover no-repeat,
@@ -7154,6 +7156,10 @@ with a 12px gap before the description below. */
   background:
   url('../images/logos/gov/Samar Showcasing impact background.png') center / cover no-repeat,
   linear-gradient(120deg, #f6fbf8 0%, #eaf5ee 60%, #ddeee3 100%) !important;
+}
+.ref-project.ref-project--v2.ref-project--vasudha {
+  background:
+  url('../images/logos/gov/Vasudha Foundation  Showcasing impact background.png') center / cover no-repeat !important;
 }
 .ref-project--v2 .ref-project-content { padding: 0; }
 .ref-project--v2 .ref-project-brand {

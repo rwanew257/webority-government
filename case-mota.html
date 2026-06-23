@@ -42,6 +42,7 @@
       content: none;
     }
     .cs-meta-item .v { font-family: var(--font-heading); font-weight: 500; color: var(--heading); font-size: 42px; display: block; line-height: 1.1; }
+    @media (max-width: 1200px) { .cs-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } .cs-meta-item { text-align: center; } .cs-meta-item .v, .cs-meta-item .l { overflow-wrap: break-word; } }
     @media (max-width: 991px) { .cs-meta-item .v { font-size: 28px; } }
     .cs-meta-item .cs-meta-pct { font-size: 32px; color: var(--primary, #6a3df0); font-weight: 500; }
     .cs-meta-item .l { font-family: var(--font-heading); color: var(--text-2); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; margin-top: 6px; display: block; }
@@ -74,11 +75,11 @@
       left: 61px;
       width: 2px;
       background: linear-gradient(
-        180deg,
-        #6a3df0 0,
-        #6a3df0 var(--timeline-fill, 0px),
-        #e5e7eb var(--timeline-fill, 0px),
-        #e5e7eb 100%
+      180deg,
+      #6a3df0 0,
+      #6a3df0 var(--timeline-fill, 0px),
+      #e5e7eb var(--timeline-fill, 0px),
+      #e5e7eb 100%
       );
       border-radius: 0;
       z-index: 1;
@@ -126,9 +127,9 @@
       border: 2px solid #e5e7eb;
       z-index: 3;
       transition:
-        border-color 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
-        border-width 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
-        background 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      border-color 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      border-width 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      background 420ms cubic-bezier(0.22, 0.61, 0.36, 1);
     }
     .cs-scope-list li.is-in::after {
       border-color: #6a3df0;
@@ -149,8 +150,8 @@
       opacity: 0;
       transform: translateY(28px);
       transition:
-        opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
-        transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
       will-change: opacity, transform;
     }
     .cs-scope-list li.is-in {
@@ -175,7 +176,7 @@
     }
     .cs-tech-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
     .cs-outcomes { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; margin: 0 0 32px; padding: 28px 24px; background: var(--bg-light); border-radius: var(--radius-lg); }
-
+    
     /* ---------- Impact Metrics — centered heading + 3-column card row ---------- */
     .impact-metrics {
       margin: 50px 0 0;
@@ -209,6 +210,7 @@
       gap: 24px;
     }
     @media (max-width: 820px) {
+      .impact-metrics { padding: 30px 0 0; }
       .impact-metrics-grid { grid-template-columns: 1fr; }
     }
     .impact-metric-card {
@@ -226,6 +228,7 @@
       box-shadow: none;
       overflow: hidden;
     }
+    @media (max-width: 768px) { .impact-metric-card { padding: 22px 0px; } }
     .impact-metric-card::before { content: none; }
     .impact-metric-num {
       font-family: var(--font-heading, 'Josefin Sans', sans-serif);
@@ -240,6 +243,7 @@
       border-bottom: 0;
       margin-bottom: 0;
     }
+    @media (max-width: 768px) { .impact-metric-num { font-size: 30px; } }
     .impact-metric-num span {
       font-family: inherit;
       font-style: normal;
@@ -263,6 +267,7 @@
       color: #4b5675;
       line-height: 1.4;
     }
+    @media (max-width: 768px) { .impact-metric-lbl { font-size: 11px; } }
     .impact-metrics-cta {
       display: flex;
       justify-content: center;
@@ -285,7 +290,7 @@
     .cs-outcome .v { font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: var(--fs-32); display: block; line-height: 1.1; }
     .cs-outcome .v span { font-size: 0.55em; }
     .cs-outcome .l { font-family: var(--font-heading); color: var(--text-2); font-size: 16px; text-transform: uppercase; letter-spacing: .08em; margin-top: 6px; display: block; }
-
+    
     /* ---------- Other Government Projects — horizontal carousel ---------- */
     .other-projects { padding: 100px 0 120px; background: #f9fafb; overflow: hidden; }
     .other-projects-head {
@@ -328,7 +333,7 @@
     .other-projects-arrow:active { transform: scale(0.96); }
     .other-projects-arrow:disabled { opacity: .4; cursor: not-allowed; }
     .other-projects-arrow:disabled:hover { background: transparent; color: #6a3df0; }
-
+    
     .other-projects-track {
       display: grid;
       grid-auto-flow: column;
@@ -342,7 +347,7 @@
       -ms-overflow-style: none;
     }
     .other-projects-track::-webkit-scrollbar { display: none; }
-
+    
     .op-card {
       scroll-snap-align: start;
       background: #ffffff;
@@ -355,7 +360,7 @@
       transition: transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
     }
     .op-card:hover { transform: translateY(-4px); }
-
+    
     .op-card-banner {
       display: block;
       position: relative;
@@ -380,7 +385,7 @@
     .op-card--blue    .op-card-banner { background: #dde6f5; }
     .op-card--red     .op-card-banner { background: #f8d9d3; }
     .op-card--violet  .op-card-banner { background: #e8e0f7; }
-
+    
     .op-card-body {
       padding: 6px 28px 24px;
       display: flex;
@@ -405,7 +410,7 @@
       color: #4b5675;
       margin: 0;
     }
-
+    
     .other-projects-dots {
       display: flex;
       justify-content: center;
@@ -427,7 +432,7 @@
       width: 24px;
       border-radius: 4px;
     }
-
+    
     @media (max-width: 1100px) {
       .other-projects .container { display: flex; flex-direction: column; }
       .other-projects-head { display: contents; }
@@ -444,14 +449,14 @@
       .other-projects-track {     grid-auto-columns: calc((100% - 0px) / 1); gap: 16px; }
       .op-card { height: auto; min-height: 480px; }
     }
-
+    
     .cs-info-card { background: var(--secondary); color: rgba(255,255,255,0.85); padding: 28px 24px; border-radius: var(--radius-lg); position: sticky; top: 96px; font-family: var(--font-heading); font-size: 14px; }
     .cs-info-card .cs-info-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: rgba(255,255,255,0.5); margin-top: 16px; margin-bottom: 4px; font-weight: 700; }
     .cs-info-card .cs-info-lbl:first-child { margin-top: 0; }
     .cs-info-card .cs-info-item { color: var(--white); margin-bottom: 4px; line-height: 1.4; }
     .cs-info-divider { margin: 20px 0 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
     .cs-info-card a.btn { width: 100%; justify-content: center; font-size: 13px; }
-
+    
     /* ---------- Project Info card v2 — light, minimalist, with serif italic labels ---------- */
     .cs-info-card--v2 {
       background: transparent;
@@ -510,7 +515,7 @@
       display: block;
     }
     /* Full-bleed feature image — uses a real <img> with object-fit: fill so it
-       stretches to fully cover the section regardless of its aspect ratio. */
+    stretches to fully cover the section regardless of its aspect ratio. */
     .cs-feature-image {
       position: relative;
       width: 100vw;
@@ -542,7 +547,7 @@
       }
     }
     html, body { overflow-x: hidden; }
-
+    
     /* ---------- Scope of Work v2 — left intro + right timeline list ---------- */
     .scope-v2 {
       display: grid;
@@ -554,7 +559,7 @@
       padding-bottom: 100px;
     }
     @media (max-width: 1280px) { .scope-v2 { grid-template-columns: minmax(0, 480px) minmax(0, 636px); } }
-    @media (max-width: 980px) { .scope-v2 { grid-template-columns: 1fr; gap: 48px; } }
+    @media (max-width: 980px) { .scope-v2 { grid-template-columns: 1fr; gap: 48px; padding-top: 20px; padding-bottom: 20px; } }
     .scope-v2-intro { position: sticky; top: 96px; }
     @media (max-width: 980px) { .scope-v2-intro { position: static; } }
     .scope-v2-eyebrow {
@@ -611,12 +616,12 @@
       width: 6px;
       height: calc(var(--timeline-progress, 0) * 100%);
       background: linear-gradient(
-        180deg,
-        #4e00be 0%,
-        #6a3df0 30%,
-        #8c5cff 75%,
-        #b180f7 95%,
-        rgba(177, 128, 247, 0) 100%
+      180deg,
+      #4e00be 0%,
+      #6a3df0 30%,
+      #8c5cff 75%,
+      #b180f7 95%,
+      rgba(177, 128, 247, 0) 100%
       );
       border-radius: 6px;
       transition: height 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -635,8 +640,8 @@
       opacity: 0;
       transform: translateY(28px);
       transition:
-        opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
-        transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+      opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
       will-change: opacity, transform;
     }
     .scope-v2-item.is-in {
@@ -660,8 +665,8 @@
       transform: scale(0.4);
       opacity: 0;
       transition:
-        transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms,
-        opacity 500ms ease 200ms;
+      transform 600ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms,
+      opacity 500ms ease 200ms;
     }
     .scope-v2-item.is-in::before {
       transform: scale(1);
@@ -683,6 +688,7 @@
     @media (max-width: 980px) {
       .scope-v2-timeline::before,
       .scope-v2-timeline::after { display: none; }
+      .scope-v2-item { padding: 0 0 40px; }
       .scope-v2-item::before { display: none; }
     }
     .scope-v2-num {
@@ -748,7 +754,7 @@
       </div>
     </div>
   </section>
-
+  
   <section class="sect" style="background:#ffffff;">
     <div class="container">
       <div class="cs-two-col">
@@ -760,7 +766,7 @@
             <p class="cs-p">The most critical design constraint: the platform had to work in districts with no reliable internet connectivity &mdash; including areas where smartphones have never had a stable data connection. Every feature was designed offline-first.</p>
           </div>
         </div>
-
+        
         <aside class="cs-info-card cs-info-card--v2 cs-info-card--top">
           <div class="cs-info-row">
             <div class="cs-info-lbl">Client</div>
@@ -794,11 +800,11 @@
         </aside>
       </div>
     </div>
-
+    
     <div class="cs-block cs-feature-image">
       <img src="images/case-studies/casestudy-sickle.png" alt="Sickle Scan national health screening platform" loading="lazy" />
     </div>
-
+    
     <div class="container">
       <div class="cs-single-col">
         <div>
@@ -859,7 +865,7 @@
               </li>
             </ol>
           </div>
-
+          
           <section class="impact-metrics">
             <h2 class="impact-metrics-heading">Impact Metrics</h2>
             <p class="impact-metrics-lead">Real results from companies that have scaled with our dedicated mobile development teams.</p>
@@ -885,7 +891,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Other Government Projects — horizontal carousel -->
   <section class="other-projects">
     <div class="container">
@@ -900,7 +906,7 @@
           </button>
         </div>
       </div>
-
+      
       <div class="other-projects-track" id="otherProjectsTrack">
         <article class="op-card op-card--green">
           <a href="case-bee.html" class="op-card-banner" aria-label="BEE Star Label Compliance">
@@ -911,7 +917,7 @@
             <p class="op-card-desc">National platform replacing manual appliance compliance inspections with offline-first field officer app and real-time dashboards for State Designated Agencies.</p>
           </div>
         </article>
-
+        
         <article class="op-card op-card--peach">
           <a href="case-parliament.html" class="op-card-banner" aria-label="Sansad Cafeteria Food Ordering System">
             <img src="images/logos/gov/Parilament Other project (1).png" alt="" loading="lazy" />
@@ -921,7 +927,7 @@
             <p class="op-card-desc">Multi-outlet facility management system deployed across Parliament premises, serving Members of Parliament in one of India&rsquo;s highest-security environments.</p>
           </div>
         </article>
-
+        
         <article class="op-card op-card--blue">
           <a href="case-manthan.html" class="op-card-banner" aria-label="Manthan — Defence PSU Platform">
             <img src="images/logos/gov/Manthan Other project.png" alt="" loading="lazy" />
@@ -931,7 +937,7 @@
             <p class="op-card-desc">Enterprise technology platform for Munitions India Limited &mdash; secure, compliant digital infrastructure supporting a Defence Public Sector Undertaking.</p>
           </div>
         </article>
-
+        
         <article class="op-card op-card--red">
           <a href="case-nbt.html" class="op-card-banner" aria-label="NBT India E-commerce">
             <img src="images/logos/gov/NBT Other project.png.png" alt="" loading="lazy" />
@@ -941,7 +947,7 @@
             <p class="op-card-desc">Multilingual e-commerce platform for the Ministry of Education&rsquo;s National Book Trust &mdash; catalogue, payments and fulfilment for India&rsquo;s flagship publisher.</p>
           </div>
         </article>
-
+        
         <article class="op-card op-card--violet">
           <a href="case-ssb.html" class="op-card-banner" aria-label="Sashastra Seema Bal Platform">
             <img src="images/case-studies/parliamentary-affairs.png" alt="" loading="lazy" />
@@ -951,7 +957,7 @@
             <p class="op-card-desc">Secure digital platform for Sashastra Seema Bal &mdash; supporting operational workflows and personnel management across India&rsquo;s border guarding force.</p>
           </div>
         </article>
-
+        
         <article class="op-card op-card--mint">
           <a href="case-qci.html" class="op-card-banner" aria-label="Quality Council of India">
             <img src="images/case-studies/ministry-of-power.png" alt="" loading="lazy" />
@@ -962,7 +968,7 @@
           </div>
         </article>
       </div>
-
+      
       <div class="other-projects-dots" id="otherProjectsDots" role="tablist" aria-label="Carousel pages">
         <button type="button" class="op-dot is-active" aria-label="Page 1"></button>
         <button type="button" class="op-dot" aria-label="Page 2"></button>
@@ -975,7 +981,7 @@
   </section><div id="site-footer-mount"></div><script src="js/layout.js"></script><script src="js/main.js"></script>
   <script src="js/i18n-dict.js" defer></script>
   <script src="js/lang-toggle.js" defer></script>
-
+  
   <script>
     // Other Government Projects — carousel: arrows + dots
     (function () {
@@ -987,7 +993,7 @@
       var cards = track.querySelectorAll('.op-card');
       var dots = dotsRoot ? dotsRoot.querySelectorAll('.op-dot') : [];
       if (!cards.length) return;
-
+      
       function cardStep() {
         if (cards.length < 2) return cards[0].offsetWidth;
         return cards[1].offsetLeft - cards[0].offsetLeft;
@@ -1019,14 +1025,14 @@
         if (prev) prev.disabled = activeIndex() <= 0;
         if (next) next.disabled = activeIndex() >= pageCount() - 1;
       }
-
+      
       if (prev) prev.addEventListener('click', function () {
         track.scrollBy({ left: -cardStep(), behavior: 'smooth' });
       });
       if (next) next.addEventListener('click', function () {
         track.scrollBy({ left: cardStep(), behavior: 'smooth' });
       });
-
+      
       dots.forEach(function (dot, i) {
         dot.addEventListener('click', function () {
           var pages = pageCount();
@@ -1034,7 +1040,7 @@
           track.scrollTo({ left: targetIdx * cardStep(), behavior: 'smooth' });
         });
       });
-
+      
       var ticking = false;
       track.addEventListener('scroll', function () {
         if (!ticking) {
@@ -1046,18 +1052,18 @@
           ticking = true;
         }
       }, { passive: true });
-
+      
       syncDots();
       syncArrows();
       window.addEventListener('resize', function () { syncDots(); syncArrows(); });
     })();
-
+    
     // Scope-of-work timeline — IntersectionObserver-driven reveal + progress fill
     (function () {
       var items = document.querySelectorAll('.scope-v2-item, .cs-scope-list li');
       var timeline = document.querySelector('.scope-v2-timeline');
       if (!items.length) return;
-
+      
       if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
@@ -1070,7 +1076,7 @@
       } else {
         items.forEach(function (it) { it.classList.add('is-in'); });
       }
-
+      
       if (timeline) {
         function updateProgress() {
           var rect = timeline.getBoundingClientRect();
