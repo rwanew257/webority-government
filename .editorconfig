@@ -1,0 +1,13 @@
+root = true
+
+[*.cs]
+# ASP.NET Core app: public types (Razor PageModels, Startup, Program) are bound by the
+# framework via reflection, not consumed as a public library API.
+dotnet_diagnostic.CA1515.severity = none
+dotnet_diagnostic.CA1052.severity = none
+
+# No synchronization context in ASP.NET Core — ConfigureAwait(false) adds noise, not value.
+dotnet_diagnostic.CA2007.severity = none
+
+# URL paths are intentionally normalised to lowercase for routing/comparison.
+dotnet_diagnostic.CA1308.severity = none

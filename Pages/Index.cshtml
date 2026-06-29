@@ -1,0 +1,1375 @@
+@page
+@model Webority.Web.GovIndia.Pages.IndexModel
+@{
+    ViewData["Title"] = "Technology Partner for Indian Public Sector";
+    ViewData["Description"] = "Webority Government is the public-sector practice of Webority Technologies — a CMMI Level 5 partner delivering secure, scalable digital solutions for Indian Government ministries, departments, and PSUs.";
+}
+<!-- Hero (v2 â€” matches Main Frame mockup) -->
+  <section class="hero-v2">
+    <div class="container">
+      <div class="hero-v2-grid">
+        <div class="hero-v2-content">
+          <h1 class="hero-v2-heading">
+            <span data-i18n="hero.heading.line1">Trusted Technology Partner</span><br />
+            <span data-i18n="hero.heading.line2">for India&rsquo;s Public Sector</span>
+          </h1>
+          <p class="hero-v2-lead" data-i18n="hero.lead">
+            From Parliament of India to Ministry-level deployments &mdash; we design, develop, and deliver secure, scalable digital solutions for India&rsquo;s public sector.
+          </p>
+          <div class="hero-v2-actions">
+            <a asp-page="/Contact" class="btn btn-primary btn-glow" data-i18n="hero.cta">
+              <span class="btn-glow-label">Request a Consultation</span>
+              <svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"/>
+                <path d="M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+          </div>
+          <!-- Iconsax "Verify" SVG symbol — referenced by each badge below -->
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+            <symbol id="ic-verify" viewBox="0 0 24 24">
+              <path fill="#22b04e" d="M21.56 10.74l-1.36-1.58c-.26-.3-.47-.86-.47-1.26V6.2c0-1.06-.87-1.93-1.93-1.93h-1.7c-.39 0-.96-.21-1.26-.46l-1.58-1.36c-.69-.59-1.82-.59-2.52 0L9.17 3.81c-.3.25-.86.46-1.26.46H6.17c-1.06 0-1.93.87-1.93 1.93v1.71c0 .39-.21.95-.46 1.25l-1.35 1.59c-.58.69-.58 1.81 0 2.5l1.35 1.59c.25.3.46.86.46 1.25v1.7c0 1.06.87 1.93 1.93 1.93h1.74c.39 0 .96.21 1.26.46l1.58 1.36c.69.59 1.82.59 2.52 0l1.58-1.36c.3-.25.86-.46 1.26-.46h1.7c1.06 0 1.93-.87 1.93-1.93v-1.7c0-.39.21-.96.46-1.26l1.36-1.58c.59-.68.59-1.81 0-2.51z"/>
+              <path fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 12l2.5 2.5L15.5 9.5"/>
+            </symbol>
+          </svg>
+          <ul class="trust-badges" aria-label="Credentials">
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.startup">Startup India &middot; DPIIT</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.cmmi">CMMI Level 5</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.iso">ISO Certified</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.gigw">GIGW Compliant</span></li>
+            <li class="trust-badge"><svg class="trust-badge-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#ic-verify"/></svg><span data-i18n="badge.gem">GeM Registered</span></li>
+          </ul>
+        </div>
+        <div class="hero-v2-image-wrap">
+          <!--
+            TODO-WG (LEGAL REVIEW REQUIRED):
+            This image depicts the Lion Capital of Ashoka (State Emblem of India).
+            Its use is regulated by the State Emblem of India (Prohibition of Improper Use) Act, 2005,
+            and typically requires written authorisation. Image was supplied via the Main Frame mockup â€”
+            confirm authorisation with counsel before publishing externally.
+          -->
+          <img
+            class="hero-v2-image"
+            src="/images/hero-public-sector.jpg"
+            alt="Lion Capital of Ashoka sculpture set against a saffron, white and green watercolour backdrop"
+            width="1024" height="615"
+            loading="eager"
+            fetchpriority="high"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="hero-v2-image-placeholder" style="display:none;" aria-hidden="true">
+            <span>Hero image missing<br /><small>(expected at images/hero-public-sector.jpg)</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Public Sector Portfolio (v2 â€” 3x3 ministry cards) -->
+  <section class="sect sect-white">
+    <div class="container">
+      <div class="sect-head">
+        <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Verified Public Sector Clients</span>
+        <h2>Our Public Sector Portfolio</h2>
+        <p>Verified public sector deployments across 10 institutions &mdash; every project live, documented and available for reference.</p>
+      </div>
+
+      <!-- TODO-WG: each card references a real public-sector entity. Confirm Webority's engagement and
+           obtain written approval to list each one publicly before pushing this page live. Replace the
+           initial-text logos with the real seal/logo files (drop into images/logos/gov/). -->
+      <div class="portfolio-v2-grid">
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/parliament-cafeteria.png" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Parliamentary Affairs</strong>
+            <span>Parliament Cafeteria</span>
+          </div>
+        </div>
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/vmmc-safdarjung.png" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Health &amp; Family Welfare</strong>
+            <span>Safdarjung Hospital (VMMC)</span>
+          </div>
+        </div>
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/BEE logo.svg" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Power / Clasp NGO</strong>
+            <span>Bureau of Energy Efficiency</span>
+          </div>
+        </div>
+
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/munitions-india-ltd.png" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Defence</strong>
+            <span>Munitions India Limited</span>
+          </div>
+        </div>
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/qci.png" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Commerce &amp; Industry</strong>
+            <span>Quality Council of India (QCI)</span>
+          </div>
+        </div>
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/ssb.png" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Home Affairs</strong>
+            <span>Sashastra Seema Bal (SSB)</span>
+          </div>
+        </div>
+
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/textile-committee.png" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Textiles</strong>
+            <span>Textile Committee</span>
+          </div>
+        </div>
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/vasudha-foundation.png" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Climate Change</strong>
+            <span>Vasudha Foundation</span>
+          </div>
+        </div>
+        <div class="portfolio-v2-card">
+          <div class="portfolio-v2-logo" aria-hidden="true"><img src="/images/logos/gov/nbt-india.png" alt="" loading="lazy" /></div>
+          <div class="portfolio-v2-text">
+            <strong>Ministry of Human Resource Development</strong>
+            <span>National Book Trust India</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="portfolio-footnote-v2">Across public sector and enterprise, we have worked with <span class="accent">400+ customers</span> globally.</p>
+      <div class="portfolio-cta-row">
+        <a asp-page="/Portfolio" class="btn btn-primary view-clients-cta"><span class="btn-label">View Our Clients</span><svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats row -->
+  <section class="sect-tight sect-white">
+    <div class="container">
+    <div class="stats-v2">
+      <div>
+        <span class="num">10<span class="plus">+</span></span>
+        <span class="lbl">Years of Serving</span>
+      </div>
+      <div>
+        <span class="num">500<span class="plus">+</span></span>
+        <span class="lbl">Projects Delivered</span>
+      </div>
+      <div>
+        <span class="num">10<span class="plus">+</span></span>
+        <span class="lbl">Ministries Served</span>
+      </div>
+      <div>
+        <span class="num">80<span class="plus">+</span></span>
+        <span class="lbl">Professionals</span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- AI Built for India's Public Sector -->
+  <section class="sect sect-tinted sect-soft">
+    <div class="container">
+      <div class="ai-split ai-split-v2">
+        <div class="ai-pitch reveal">
+          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">AI-Powered Solutions</span>
+          <h2 class="ai-section-title">AI Built for India&rsquo;s Public Sector</h2>
+          <p class="ai-section-lead">Production-grade AI for citizen service delivery, compliance automation, and public sector data intelligence &mdash; DPDP Act 2023 compliant, NIC-hosted, MeitY AI Policy aligned.</p>
+          <!-- <a asp-page="/Services" asp-fragment="ai" class="btn btn-primary btn-md ai-cta" aria-label="Explore AI Solutions">
+            <span class="ai-cta-marquee" aria-hidden="true">
+              <span class="btn btn-primary btn-md">Explore AI Solutions <svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a> -->
+           <a class="btn btn-primary btn-md" asp-page="/Services" asp-fragment="ai" aria-label="Explore AI Solutions">
+            Explore AI Solutions
+            <svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="ai-cards">
+          <div class="ai-col">
+            <article class="ai-card ai-card--featured">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/document-text.svg');"></i>
+              </span>
+              <h3>Intelligent Document Processing</h3>
+              <p>AI classification, routing, and auto-response for citizen grievances. CPGRAMS integration. Every ministry has this mandate under DoPT. Very high relevance.</p>
+            </article>
+
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/search-status.svg');"></i>
+              </span>
+              <h3>DBT Fraud Detection &amp; Scheme Intelligence</h3>
+              <p>AI-powered identification of duplicate beneficiaries, ghost entries, and irregular disbursements in welfare databases &ndash; real-time alerts with audit-trail evidence for programme officers.</p>
+            </article>
+
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/document-favorite.svg');"></i>
+              </span>
+              <h3>AI-Powered Policy &amp; Regulatory Search</h3>
+              <p>LLM-powered search over circulars, notifications, and policy documents. Officers spend enormous time finding relevant orders. Emerging but fast-growing use case.</p>
+            </article>
+          </div>
+
+          <div class="ai-col ai-col--offset">
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/document-text-1.svg');"></i>
+              </span>
+              <h3>Field Officer Reporting Automation</h3>
+              <p>Auto-generate district/state reports from structured field data. Removes manual report writing. High demand in NHM, education, agriculture departments.</p>
+            </article>
+
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/chart-2.svg');"></i>
+              </span>
+              <h3>Predictive Analytics &amp; Decision Support</h3>
+              <p>ML models for scheme demand forecasting, resource optimisation, and anomaly detection &ndash; giving programme officers and ministry leadership proactive, data-driven decision support.</p>
+            </article>
+
+            <article class="ai-card">
+              <span class="ai-card-ic" aria-hidden="true">
+                <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/message-question.svg');"></i>
+              </span>
+              <h3>Intelligent Grievance &amp; RTI Management</h3>
+              <p>Auto-classification, routing, and draft-response generation for grievance and RTI workflows &ndash; with full audit trails compliant with DoPT RTI guidelines.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Services / What We Do -->
+  <section class="sect sect-soft">
+    <div class="container">
+      <div class="sect-head">
+        <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">What We Do</span>
+        <h2 class="svc-section-title">Technology Services Built for India&rsquo;s Public Sector</h2>
+        <p>From custom e-Governance platforms to on-demand IT professionals &mdash; we provide the full spectrum of technology services that government departments need.</p>
+      </div>
+
+      <div class="svc-grid svc-grid-v2">
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/building-3.svg');"></i>
+          </span>
+          <h3>e-Governance &amp; Custom Software</h3>
+          <p>Mission-critical platforms built for NIC standards, GIGW compliance, and citizen-scale delivery.</p>
+        </article>
+
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/graph.svg');"></i>
+          </span>
+          <h3>AI &amp; Data Analytics</h3>
+          <p>Intelligent decision-support, predictive dashboards, and AI automation for public administration.</p>
+        </article>
+
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/security-safe.svg');"></i>
+          </span>
+          <h3>Cybersecurity &amp; VAPT</h3>
+          <p>CERT-In aligned vulnerability assessments, penetration testing, and ISO 27001 security infrastructure.</p>
+        </article>
+
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/refresh-circle.svg');"></i>
+          </span>
+          <h3>Legacy System Modernisation</h3>
+          <p>Migration, re-engineering, and integration of outdated government systems without disrupting live operations.</p>
+        </article>
+
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/mobile-programming.svg');"></i>
+          </span>
+          <h3>Citizen Mobile &amp; Web Apps</h3>
+          <p>Field officer apps, citizen portals, and multilingual platforms aligned with Digital India and GIGW 3.0.</p>
+        </article>
+
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/cloud-connection.svg');"></i>
+          </span>
+          <h3>Cloud &amp; Managed Services</h3>
+          <p>MeghRaj-compatible hosting, 24&times;7 application monitoring, AMC, and SLA-backed managed services.</p>
+        </article>
+      </div>
+
+      <div class="svc-cta-row">
+        <a class="btn btn-primary btn-md" asp-page="/Services">Explore All Services
+            <svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Showcase: Delivering Where It Matters Most -->
+  <section class="sect sect-white">
+    <div class="container">
+      <div class="sect-head">
+        <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Our Work</span>
+        <h2 class="case-section-title">Delivering Where It Matters Most</h2>
+        <p>Real products. Real outcomes. Each was built across a different industry, healthcare, fintech, government, and e-commerce, with measurable results that speak for themselves.</p>
+      </div>
+
+      <!-- TODO-WG: case study carousel. All nine slides reference real public-sector engagements
+           (BEE, Sansad Cafeteria, Sickle Scan, SSB, SAMAR/QCI, NBT, Safdarjung, Manthan, Vasudha).
+           Confirm public listing approval for each before publishing. -->
+      <div class="case-carousel" id="caseCarousel">
+        <div class="case-carousel-track" id="caseCarouselTrack">
+
+        <!-- Slide 1 — BEE Star Label Platform -->
+        <article class="case-card reveal is-active" id="case-card" data-case-slide="0">
+          <header class="case-card-head">
+            <h3 class="case-card-title">BEE Star Label Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Manual inspection of Energy Star labels across India&rsquo;s appliance market was slow, error-prone, and lacked central visibility, making it hard for BEE to enforce compliance or for consumers to verify ratings.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built a mobile and web platform where surveyors validate ratings, capture geo-tagged evidence offline, and generate reports, while consumers browse certified appliances and raise complaints directly to BEE.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">36</span>
+                    <span class="case-impact-lbl">State Designated Agencies monitored on one dashboard</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Real-time</span>
+                    <span class="case-impact-lbl">inspection data capture, replacing all paper-based forms</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/BEE HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2 — Sansad Cafeteria / Parliament of India -->
+        <article class="case-card reveal" data-case-slide="1" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Sansad Cafeteria</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Food ordering within the Indian Parliament relied on traditional, manual processes &mdash; leading to long wait times, operational inefficiency, and logistical challenges in managing catering across a high-security environment.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We developed a mobile app for MPs and staff with real-time menus, QR-based pickup, in-room delivery, and digital payments, plus an ITDC admin portal to manage orders, menus, and reporting.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">One</span>
+                    <span class="case-impact-lbl">platform for ordering, payments, and ITDC reporting</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">QR</span>
+                    <span class="case-impact-lbl">contactless pickup and delivery across Parliament premises</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/Sansard HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3 — Sickle Scan / Ministry of Tribal Affairs -->
+        <article class="case-card reveal" data-case-slide="2" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Sickle Scan National Screening</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Sickle cell disease in India concentrates in tribal populations, and the 2023 National Mission committed to screening crores. Frontline screening ran on paper, unable to capture data offline in remote districts.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built an offline-first, multilingual mobile platform for ASHA workers to screen, capture, and sync data from remote districts, feeding a central dashboard for the Ministry to monitor the mission.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Offline-first</span>
+                    <span class="case-impact-lbl">data capture built for remote tribal districts</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">National</span>
+                    <span class="case-impact-lbl">screening infrastructure for the Sickle Cell Mission</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/Sickle Scan  HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 4 — SSB Cybersecurity / Ministry of Home Affairs -->
+        <article class="case-card reveal" data-case-slide="3" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Cybersecurity Assessment &amp; VAPT</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Sashastra Seema Bal, one of India&rsquo;s Central Armed Police Forces guarding sensitive borders, needed an independent, defensible assessment of its digital security posture, with every finding handled under strict classification.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We conducted a CERT-In-aligned vulnerability assessment and penetration testing engagement, with all findings, evidence, and remediation guidance classified and handled securely inside SSB&rsquo;s own security perimeter.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">CERT-In</span>
+                    <span class="case-impact-lbl">aligned assessment and reporting methodology</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Classified</span>
+                    <span class="case-impact-lbl">findings handled inside the security perimeter</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/SSB HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 5 — SAMAR / Quality Council of India -->
+        <article class="case-card reveal" data-case-slide="4" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">SAMAR Certification Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>The Quality Council of India runs national certification and accreditation manually, across applications, assessments, and multi-level committee approvals, causing delays and limited transparency across the certification lifecycle.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We are building SAMAR, the platform QCI uses to run national certification, with role-based workflows, automated scheduling, dashboards, and a full audit trail, phased in without disrupting operations.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">National</span>
+                    <span class="case-impact-lbl">certification and accreditation on one platform</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Audit-trailed</span>
+                    <span class="case-impact-lbl">every certification decision, fully traceable</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/Samar  HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 6 — National Book Trust / Ministry of Education -->
+        <article class="case-card reveal" data-case-slide="5" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">NBT Digital Publishing Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>The National Book Trust, India&rsquo;s largest educational and cultural publisher, needed a single digital infrastructure for catalogue, ordering, and distribution, built for accessibility and multilingual fidelity across India&rsquo;s diverse readership.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built a digital publishing and distribution platform unifying catalogue, ordering, and fulfilment, designed accessibility-first and multilingual, so NBT reaches readers across India through one system.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">One</span>
+                    <span class="case-impact-lbl">infrastructure for catalogue, ordering, and distribution</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Multilingual</span>
+                    <span class="case-impact-lbl">fidelity across India&rsquo;s readership</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/NBT HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 7 — Safdarjung Hospital -->
+        <article class="case-card reveal" data-case-slide="6" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">VMMC Brain Bank (Safdarjung Hospital)</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>The Examination Cell at Vardhman Mahavir Medical College, linked to Safdarjung Hospital, built exam papers by hand, with questions scattered across Word files and email and no way to track overuse.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built VMMC Brain Bank, a secure central library of exam questions with tools to assemble balanced papers and schedule exams, backed by two-stage approval and role-based OTP login.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">One</span>
+                    <span class="case-impact-lbl">central question bank, tagged by subject</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Zero</span>
+                    <span class="case-impact-lbl">question overuse, auto-retired after 3 uses</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/VMMC HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 8 — Manthan / Defence PSU -->
+        <article class="case-card reveal" data-case-slide="7" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Manthan Employee Engagement Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>A Government of India Public Sector Undertaking under the Ministry of Defence runs operations across 17 units, where announcements, compliance, grievances, and incidents ran on paper with no auditable trail.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We engineered Manthan, a bilingual mobile app for employees and a role-based web portal for administrators, bringing announcements, compliance, learning, and HR self-service onto one secure system of record.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">17</span>
+                    <span class="case-impact-lbl">units unified on one secure platform</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">100%</span>
+                    <span class="case-impact-lbl">audit-logged submissions and approvals</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/Manthan HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 9 — Environment & Sustainability / Vasudha Foundation -->
+        <article class="case-card reveal" data-case-slide="8" hidden>
+          <header class="case-card-head">
+            <h3 class="case-card-title">Environment &amp; Sustainability Platform</h3>
+            <div class="case-card-nav" role="group" aria-label="Browse case studies">
+              <button type="button" class="case-nav-btn" aria-label="Previous case study" data-case-nav="prev">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <button type="button" class="case-nav-btn" aria-label="Next case study" data-case-nav="next">
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="case-card-body">
+            <div class="case-card-copy">
+              <div class="case-block">
+                <h4>Challenge</h4>
+                <p>Environmental governance in Karnataka was data-hungry and data-starved at once, with air quality, forest cover, and programme data scattered across sources and no single geographic view for decision-makers.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Solution</h4>
+                <p>We built a platform that centralises environmental data with GIS visualisation, so air quality, forest, and programme data sit on one geographic layer for monitoring and decision-making across the state.</p>
+              </div>
+
+              <div class="case-block">
+                <h4>Impact</h4>
+                <div class="case-impact-grid">
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">GIS</span>
+                    <span class="case-impact-lbl">visualisation for geographic decision-making</span>
+                  </div>
+                  <div class="case-impact-tile">
+                    <span class="case-impact-num">Statewide</span>
+                    <span class="case-impact-lbl">programme monitoring on a single platform</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="case-card-visual" aria-hidden="true">
+              <img class="case-card-visual-img" src="/images/logos/gov/Vasuda HeroPage Case Study Image.png" alt="" loading="lazy" />
+            </div>
+          </div>
+        </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors: Built for Every Corner — 4x2 image-card grid -->
+  <section class="sect sectors-v3-section sect-soft">
+    <div class="container">
+      <div class="sectors-v3-head">
+        <span class="eyebrow sectors-v3-eyebrow">Sectors we serve</span>
+        <h2 class="sectors-v3-title">Built for Every Corner of India's Public Sector</h2>
+        <p class="sectors-v3-lead">These are solution types we have built, architected, or are actively developing &mdash; each fully customisable to your department's workflows, compliance requirements, and scale. Not a product catalogue. A capability showcase.</p>
+      </div>
+
+      <div class="sectors-v3-grid">
+        <article class="sectors-v3-card">
+          <div class="sectors-v3-card-img">
+            <img src="/images/logos/gov/Energy & Enviornment Image.png" alt="" loading="lazy" />
+          </div>
+          <div class="sectors-v3-card-body">
+            <h3>Energy &amp; Environment</h3>
+            <p>BEE, Star Labelling, SDA compliance, ECBC enforcement, pollution monitoring</p>
+          </div>
+        </article>
+
+        <article class="sectors-v3-card">
+          <div class="sectors-v3-card-img">
+            <img src="/images/logos/gov/Health & Welfare image.png" alt="" loading="lazy" />
+          </div>
+          <div class="sectors-v3-card-body">
+            <h3>Health &amp; Welfare</h3>
+            <p>NHM, Ayushman Bharat, tribal health missions, disease surveillance, ASHA tools</p>
+          </div>
+        </article>
+
+        <article class="sectors-v3-card">
+          <div class="sectors-v3-card-img">
+            <img src="/images/logos/gov/Education & Skilling image.png" alt="" loading="lazy" />
+          </div>
+          <div class="sectors-v3-card-body">
+            <h3>Education &amp; Skilling</h3>
+            <p>NEP 2020, eLearning, digital libraries, NBT, skill development tracking</p>
+          </div>
+        </article>
+
+        <article class="sectors-v3-card">
+          <div class="sectors-v3-card-img">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+          </div>
+          <div class="sectors-v3-card-body">
+            <h3>Finance, PSUs &amp; Revenue</h3>
+            <p>PSU billing, payment gateways, financial reporting, internal audit systems</p>
+          </div>
+        </article>
+
+        <article class="sectors-v3-card">
+          <div class="sectors-v3-card-img">
+            <img src="/images/logos/gov/Parliamentary & Legislative image.png" alt="" loading="lazy" />
+          </div>
+          <div class="sectors-v3-card-body">
+            <h3>Parliamentary &amp; Legislative</h3>
+            <p>Bill management, member services, committee workflows, digital chamber tooling</p>
+          </div>
+        </article>
+
+        <article class="sectors-v3-card">
+          <div class="sectors-v3-card-img">
+            <img src="/images/logos/gov/Defense & Internal image (1).png" alt="" loading="lazy" />
+          </div>
+          <div class="sectors-v3-card-body">
+            <h3>Defence &amp; Internal Security</h3>
+            <p>MHA, paramilitary IT, CERT-In security, classified infrastructure, VAPT</p>
+          </div>
+        </article>
+
+        <article class="sectors-v3-card">
+          <div class="sectors-v3-card-img">
+            <img src="/images/logos/gov/Smart City image.png" alt="" loading="lazy" />
+          </div>
+          <div class="sectors-v3-card-body">
+            <h3>Smart Cities &amp; Urban</h3>
+            <p>Smart Cities Mission, command centres, citizen portals, IoT monitoring</p>
+          </div>
+        </article>
+
+        <article class="sectors-v3-card">
+          <div class="sectors-v3-card-img">
+            <img src="/images/logos/gov/Standard Regulation image.png" alt="" loading="lazy" />
+          </div>
+          <div class="sectors-v3-card-body">
+            <h3>Standards &amp; Regulation</h3>
+            <p>QCI, BIS, NABL, certification lifecycle, assessment workflows, compliance platforms</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="sectors-v3-cta-row">
+        <a class="btn btn-primary sectors-v3-cta" asp-page="/Sectors">
+          Explore All Sectors
+          <svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Solutions / Our Capabilities -->
+  <section class="sect sect-white caps-v2-section sect-soft">
+    <div class="container">
+      <div class="sect-head">
+        <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Our Capabilities</span>
+        <h2 class="cap-section-title">Solutions We Can Deliver for Your Department</h2>
+        <p>These are solution types we have built, architected, or are actively developing &mdash; each fully customisable to your department&rsquo;s workflows, compliance requirements, and scale.</p>
+      </div>
+
+      <div class="caps-v2-head">
+        <div class="caps-v2-head-left">
+          <span class="eyebrow" style="display:inline-block; margin-bottom:14px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Our Capabilities</span>
+          <h2 class="caps-v2-title">Solutions <em>we can deliver</em> for your Department</h2>
+        </div>
+        <div class="caps-v2-head-right">
+          <p>Solution types we have built, architected, or are actively developing &mdash; each fully customisable to your department's workflows, compliance requirements, and scale.</p>
+        </div>
+      </div>
+
+      <div class="caps-v2-body">
+        <div class="caps-v2-visual">
+          <div class="caps-v2-frame">
+            <img class="caps-v2-img" src="/images/logos/gov/AI Helpdesk Homepage image.png" alt="" loading="lazy" />
+            <span class="caps-v2-tag">
+              <span class="caps-v2-tag-dot" aria-hidden="true"></span>
+              <span class="caps-v2-tag-label">AI Citizen Helpdesk</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="caps-v2-accordion-col">
+          <ul class="caps-v2-accordion" role="list">
+            <li class="caps-v2-acc-item is-open"
+                data-img="/images/logos/gov/AI Helpdesk Homepage image.png"
+                data-label="AI Citizen Helpdesk">
+              <button class="caps-v2-acc-head" type="button" aria-expanded="true">
+                <span class="caps-v2-acc-title">AI Citizen Helpdesk &ndash; Voice &amp; Chat</span>
+                <span class="caps-v2-acc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+              </button>
+              <div class="caps-v2-acc-body">
+                <div class="caps-v2-acc-text">
+                  <p>Multilingual conversational AI handling citizen queries via voice and text. Integrates with existing CRM and service portals. Supports 12+ Indian languages.</p>
+                  <div class="caps-v2-acc-tags">
+                    <span class="caps-tag">Any Ministry</span>
+                    <span class="caps-tag">Citizen Services</span>
+                  </div>
+                </div>
+                <div class="caps-v2-acc-thumb" aria-hidden="true">
+                  <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=900&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+                </div>
+              </div>
+            </li>
+
+            <li class="caps-v2-acc-item"
+                data-img="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1100&q=80&auto=format&fit=crop"
+                data-label="Compliance &amp; Inspection">
+              <button class="caps-v2-acc-head" type="button" aria-expanded="false">
+                <span class="caps-v2-acc-title">Compliance &amp; Inspection Management</span>
+                <span class="caps-v2-acc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+              </button>
+              <div class="caps-v2-acc-body">
+                <div class="caps-v2-acc-text">
+                  <p>Field officer mobile app + central dashboard for regulatory inspections, compliance data collection, and real-time reporting. Architecture proven at BEE.</p>
+                  <div class="caps-v2-acc-tags">
+                    <span class="caps-tag">Energy</span>
+                    <span class="caps-tag">Regulatory Bodies</span>
+                  </div>
+                </div>
+                <div class="caps-v2-acc-thumb" aria-hidden="true">
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+                </div>
+              </div>
+            </li>
+
+            <li class="caps-v2-acc-item"
+                data-img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1100&q=80&auto=format&fit=crop"
+                data-label="Programme Monitoring">
+              <button class="caps-v2-acc-head" type="button" aria-expanded="false">
+                <span class="caps-v2-acc-title">Scheme &amp; Programme Monitoring Dashboard</span>
+                <span class="caps-v2-acc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+              </button>
+              <div class="caps-v2-acc-body">
+                <div class="caps-v2-acc-text">
+                  <p>Real-time dashboards giving ministry and department leadership visibility into scheme progress, beneficiary data, and field execution.</p>
+                  <div class="caps-v2-acc-tags">
+                    <span class="caps-tag">All Ministries</span>
+                    <span class="caps-tag">State Governments</span>
+                  </div>
+                </div>
+                <div class="caps-v2-acc-thumb" aria-hidden="true">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+                </div>
+              </div>
+            </li>
+
+            <li class="caps-v2-acc-item"
+                data-img="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1100&q=80&auto=format&fit=crop"
+                data-label="Government HRMS">
+              <button class="caps-v2-acc-head" type="button" aria-expanded="false">
+                <span class="caps-v2-acc-title">Government HRMS</span>
+                <span class="caps-v2-acc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+              </button>
+              <div class="caps-v2-acc-body">
+                <div class="caps-v2-acc-text">
+                  <p>Human resource management pre-configured for government service rules &ndash; service book, payroll, leave (CCS rules), appraisals, transfers, and audit readiness.</p>
+                  <div class="caps-v2-acc-tags">
+                    <span class="caps-tag">PSUs</span>
+                    <span class="caps-tag">State Depts.</span>
+                  </div>
+                </div>
+                <div class="caps-v2-acc-thumb" aria-hidden="true">
+                  <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=900&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+                </div>
+              </div>
+            </li>
+
+            <li class="caps-v2-acc-item"
+                data-img="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1100&q=80&auto=format&fit=crop"
+                data-label="Field Health Worker">
+              <button class="caps-v2-acc-head" type="button" aria-expanded="false">
+                <span class="caps-v2-acc-title">Field Health Worker App</span>
+                <span class="caps-v2-acc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+              </button>
+              <div class="caps-v2-acc-body">
+                <div class="caps-v2-acc-text">
+                  <p>Offline-first mobile app for ASHA workers, field officers, and beneficiary outreach &ndash; with multilingual UI and sync when connectivity is restored. Proven in tribal deployments.</p>
+                  <div class="caps-v2-acc-tags">
+                    <span class="caps-tag">Tribal Welfare</span>
+                    <span class="caps-tag">Rural</span>
+                  </div>
+                </div>
+                <div class="caps-v2-acc-thumb" aria-hidden="true">
+                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+                </div>
+              </div>
+            </li>
+
+            <li class="caps-v2-acc-item"
+                data-img="https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=1100&q=80&auto=format&fit=crop"
+                data-label="Department ERP">
+              <button class="caps-v2-acc-head" type="button" aria-expanded="false">
+                <span class="caps-v2-acc-title">Department ERP</span>
+                <span class="caps-v2-acc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </span>
+              </button>
+              <div class="caps-v2-acc-body">
+                <div class="caps-v2-acc-text">
+                  <p>Modular enterprise platform covering budget tracking, GFR-aligned procurement, inventory, vendor management, and financial dashboards for departments and PSUs.</p>
+                  <div class="caps-v2-acc-tags">
+                    <span class="caps-tag">Central Depts.</span>
+                    <span class="caps-tag">PSUs</span>
+                    <span class="caps-tag">State Govts.</span>
+                  </div>
+                </div>
+                <div class="caps-v2-acc-thumb" aria-hidden="true">
+                  <img src="https://images.unsplash.com/photo-1454165205744-3b78555e5572?w=900&q=80&auto=format&fit=crop" alt="" loading="lazy" />
+                </div>
+              </div>
+            </li>
+          </ul>
+          <a class="btn btn-primary btn-md caps-v2-cta" asp-page="/Services">View All Capabilities</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credentials at a Glance -->
+  <section class="sect sect-soft">
+    <div class="container">
+      <div class="sect-head">
+        <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Documented proof</span>
+        <h2 class="creds-section-title">Our Credentials at a Glance</h2>
+        <p>Detailed certificates and appraisal letters are available to empanelment teams on request via your secure channel.</p>
+      </div>
+
+      <!-- TODO-WG: drop scanned certificate images into images/credentials/ with the filenames below. Each tile auto-displays its image; the gradient placeholder is a fallback when the file is missing. -->
+      <div class="creds-grid">
+        <figure class="cert-tile cert-tile--cmmi5">
+          <img src="/images/logos/gov/Cetificate 1.png" alt="CMMI Maturity Level 5 certificate" loading="lazy" />
+          <figcaption class="cert-tile-fallback">
+            <span class="cert-tile-label">CMMI<br/>LEVEL 5</span>
+            <span class="cert-tile-body">Certificate of Compliance<br/>Maturity Appraisal</span>
+          </figcaption>
+        </figure>
+
+        <figure class="cert-tile cert-tile--iso45001">
+          <img src="/images/logos/gov/Cetificate 2.png" alt="ISO 45001:2018 OH&amp;S certificate" loading="lazy" />
+          <figcaption class="cert-tile-fallback">
+            <span class="cert-tile-label">ISO<br/>45001:2018</span>
+            <span class="cert-tile-body">OH&amp;S Management<br/>System</span>
+          </figcaption>
+        </figure>
+
+        <figure class="cert-tile cert-tile--iso20000">
+          <img src="/images/logos/gov/Cetificate 3.png" alt="ISO 20000-1:2018 IT Service Management certificate" loading="lazy" />
+          <figcaption class="cert-tile-fallback">
+            <span class="cert-tile-label">ISO<br/>20000:2018</span>
+            <span class="cert-tile-body">IT Service<br/>Management</span>
+          </figcaption>
+        </figure>
+
+        <figure class="cert-tile cert-tile--iso9001">
+          <img src="/images/logos/gov/Cetificate 4.png" alt="ISO 9001:2015 Quality Management certificate" loading="lazy"/>
+          <figcaption class="cert-tile-fallback">
+            <span class="cert-tile-label">ISO<br/>9001:2015</span>
+            <span class="cert-tile-body">Quality Management<br/>System</span>
+          </figcaption>
+        </figure>
+
+        <figure class="cert-tile cert-tile--cmmi3">
+          <img src="/images/logos/gov/Cetificate 5.png" alt="CMMI Maturity Level 3 certificate" loading="lazy"/>
+          <figcaption class="cert-tile-fallback">
+            <span class="cert-tile-label">CMMI<br/>LEVEL 3</span>
+            <span class="cert-tile-body">Capability Maturity<br/>Model Integration</span>
+          </figcaption>
+        </figure>
+
+        <figure class="cert-tile cert-tile--startupindia cert-tile--wide">
+          <img src="/images/logos/gov/Startup certificate.png" alt="Startup India · DPIIT Certificate of Recognition" loading="lazy"/>
+          <figcaption class="cert-tile-fallback">
+            <span class="cert-tile-tricolor" aria-hidden="true"></span>
+            <span class="cert-tile-label">CERTIFICATE<br/>OF RECOGNITION</span>
+            <span class="cert-tile-body">Startup India &middot; DPIIT<br/>Government of India</span>
+          </figcaption>
+        </figure>
+
+        <figure class="cert-tile cert-tile--iso27001">
+          <img src="/images/logos/gov/Ceertificate 6.png" alt="ISO 27001:2022 Information Security certificate" loading="lazy"/>
+          <figcaption class="cert-tile-fallback">
+            <span class="cert-tile-label">ISO<br/>27001:2022</span>
+            <span class="cert-tile-body">Information Security<br/>Management</span>
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Leadership Team -->
+  <section class="sect sect-tinted sect-soft">
+    <div class="container">
+      <div class="sect-head">
+        <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Leadership</span>
+        <h2 class="leader-section-title">Our Leadership Team</h2>
+        <p>Leadership forged at Microsoft, athenahealth, MobiKwik, and IIM Ahmedabad &mdash; enterprise scale, public sector depth.</p>
+      </div>
+
+      <div class="leader-grid-v3">
+        <article class="leader-card-v3">
+          <img class="leader-card-v3-img leader-card-v3-img--default" src="/images/logos/gov/Profile 1.png" alt="Navneet Singh" loading="lazy" />
+          <img class="leader-card-v3-img leader-card-v3-img--hover" src="/images/logos/gov/Profile 2.png" alt="" aria-hidden="true" loading="lazy" />
+          <div class="leader-card-v3-shade" aria-hidden="true"></div>
+          <div class="leader-card-v3-front">
+            <h3 class="leader-card-v3-name">Navneet Singh</h3>
+            <span class="leader-card-v3-role">Founder &amp; CEO</span>
+          </div>
+          <button class="leader-card-v3-plus" type="button" aria-label="More about Navneet Singh">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="leader-card-v3-expand">
+            <div class="leader-card-v3-expand-head">
+              <div>
+                <h3 class="leader-card-v3-expand-name">Navneet Singh</h3>
+                <span class="leader-card-v3-expand-role">Founder &amp; CEO</span>
+              </div>
+              <a class="leader-card-v3-linkedin" href="#" aria-label="Navneet Singh on LinkedIn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </div>
+            <ul class="leader-card-v3-bullets">
+              <li>Ex-Microsoft Software Engineer</li>
+              <li>Delhi College of Engineering</li>
+              <li>Co-founded Chhotu.in (acquired by Paytm)</li>
+              <li>VP Strategy, MobiKwik</li>
+              <li>Built &amp; scaled enterprise software for 13+ years</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card-v3">
+          <img class="leader-card-v3-img leader-card-v3-img--default" src="/images/logos/gov/Team profile 2 (1).png" alt="Gurpreet Singh" loading="lazy" />
+          <img class="leader-card-v3-img leader-card-v3-img--hover" src="/images/logos/gov/Team profile 2.png" alt="" aria-hidden="true" loading="lazy" />
+          <div class="leader-card-v3-shade" aria-hidden="true"></div>
+          <div class="leader-card-v3-front">
+            <h3 class="leader-card-v3-name">Gurpreet Singh</h3>
+            <span class="leader-card-v3-role">Chief Technology Officer</span>
+          </div>
+          <button class="leader-card-v3-plus" type="button" aria-label="More about Gurpreet Singh">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="leader-card-v3-expand">
+            <div class="leader-card-v3-expand-head">
+              <div>
+                <h3 class="leader-card-v3-expand-name">Gurpreet Singh</h3>
+                <span class="leader-card-v3-expand-role">Chief Technology Officer</span>
+              </div>
+              <a class="leader-card-v3-linkedin" href="#" aria-label="Gurpreet Singh on LinkedIn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </div>
+            <ul class="leader-card-v3-bullets">
+              <li>athenahealth &ndash; US Healthcare Tech</li>
+              <li>IndiGo Transformation Head</li>
+              <li>DreamFolks &ndash; Chief Product &amp; Tech Officer</li>
+              <li>PMP &middot; SAFe Certified &middot; 20+ years</li>
+              <li>Deep healthcare product architecture</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="leader-card-v3">
+          <img class="leader-card-v3-img leader-card-v3-img--default" src="/images/logos/gov/Team profile 3 (1).png" alt="Ashraf Hussain" loading="lazy" />
+          <img class="leader-card-v3-img leader-card-v3-img--hover" src="/images/logos/gov/Team profile 3.png" alt="" aria-hidden="true" loading="lazy" />
+          <div class="leader-card-v3-shade" aria-hidden="true"></div>
+          <div class="leader-card-v3-front">
+            <h3 class="leader-card-v3-name">Ashraf Hussain</h3>
+            <span class="leader-card-v3-role">Chief Operating Officer</span>
+          </div>
+          <button class="leader-card-v3-plus" type="button" aria-label="More about Ashraf Hussain">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="leader-card-v3-expand">
+            <div class="leader-card-v3-expand-head">
+              <div>
+                <h3 class="leader-card-v3-expand-name">Ashraf Hussain</h3>
+                <span class="leader-card-v3-expand-role">Chief Operating Officer</span>
+              </div>
+              <a class="leader-card-v3-linkedin" href="#" aria-label="Ashraf Hussain on LinkedIn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+              </a>
+            </div>
+            <ul class="leader-card-v3-bullets">
+              <li>MobiKwik Business Head</li>
+              <li>IIM Ahmedabad EMBA</li>
+              <li>12+ years in enterprise operations at scale</li>
+              <li>P&amp;L management across verticals</li>
+              <li>Founding member of Webority</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Webority -->
+  <section class="sect sect-soft">
+    <div class="container">
+      <div class="why-v3 reveal">
+        <!-- LEFT: heading on top, image below -->
+        <div class="why-v3-left">
+          <div class="why-v3-head">
+            <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Why Choose Webority</span>
+            <h2 class="why-section-title">Why India&rsquo;s Public Sector Trusts Webority</h2>
+            <p class="why-section-lead">Since 2016, we have worked exclusively within the GIGW, DPDP Act 2023, and Digital India frameworks &ndash; not one that learns them on your budget.</p>
+          </div>
+
+          <div class="why-v3-visual" data-auto-rotate="3000">
+            <img class="why-v3-img why-v3-img--a is-active" src="/images/logos/gov/Vasudha Fundation.png" alt="" loading="lazy" />
+            <img class="why-v3-img why-v3-img--b" src="" alt="" aria-hidden="true" />
+            <span class="why-v3-badge">Serving India&rsquo;s Leading Institutions</span>
+
+            <div class="why-v3-dots" role="tablist" aria-label="Trusted clients">
+              <button class="why-v3-dot is-active" type="button" role="tab" aria-selected="true" aria-label="Slide 1" data-img="/images/logos/gov/Vasudha Fundation.png"></button>
+              <button class="why-v3-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 2" data-img="/images/logos/gov/bee-testimonals.png"></button>
+              <button class="why-v3-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 3" data-img="/images/logos/gov/Munition logo.png"></button>
+              <button class="why-v3-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 4" data-img="/images/logos/gov/Parliment testimonal logo.png"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: 6 separate cards, 2 staggered columns -->
+        <div class="why-v3-cards">
+          <div class="why-v3-col">
+            <article class="why-v3-card">
+              <span class="why-v3-tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <div class="why-v3-card-body">
+                <h3>Government Procurement Expertise</h3>
+                <p>We understand RFP structures, GeM processes, and ministry-level approval cycles &mdash; working within your timelines, not against them.</p>
+              </div>
+            </article>
+
+            <article class="why-v3-card">
+              <span class="why-v3-tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <div class="why-v3-card-body">
+                <h3>Security-First Development</h3>
+                <p>VAPT, secure code review, and CERT-In aligned security architecture are standard in every engagement &ndash; not optional add-ons.</p>
+              </div>
+            </article>
+
+            <article class="why-v3-card">
+              <span class="why-v3-tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <div class="why-v3-card-body">
+                <h3>AMC &amp; Long-Term Support</h3>
+                <p>Annual Maintenance Contracts, post-go-live SLA support, and dedicated government account management for every deployment.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="why-v3-col why-v3-col--offset">
+            <article class="why-v3-card">
+              <span class="why-v3-tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <div class="why-v3-card-body">
+                <h3>Data Sovereignty &amp; Localisation</h3>
+                <p>All solutions are designed for Indian-server deployment, fully compliant with the Digital Personal Data Protection (DPDP) Act 2023.</p>
+              </div>
+            </article>
+
+            <article class="why-v3-card">
+              <span class="why-v3-tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <div class="why-v3-card-body">
+                <h3>NIC &amp; MeghRaj Compatible</h3>
+                <p>All platforms are architected for deployment on NIC National Data Centres or MeghRaj GI Cloud &ndash; no foreign server dependency.</p>
+              </div>
+            </article>
+
+            <article class="why-v3-card">
+              <span class="why-v3-tick" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <div class="why-v3-card-body">
+                <h3>Accessibility &amp; GIGW Compliance</h3>
+                <p>All citizen-facing platforms meet GIGW 3.0 guidelines and WCAG 2.1 Level AA accessibility standards as a baseline requirement.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sect sect-white" style="background:#ffffff;">
+    <div class="container">
+      <div class="sect-head">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How Webority delivered projects for central government ministries</button>
+          <div class="faq-a"><p>We engage either as a direct empanelled vendor via GeM and CPP, or as part of a system-integrator consortium. Engagements are structured under the standard SOW / GFR framework with milestone-bound deliverables and CMMI Level 5 governance artefacts.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What certifications does Webority hold for government work?</button>
+          <div class="faq-a"><p>CMMI Level 5, ISO 9001:2015, ISO 27001:2022, Startup India / DPIIT recognition, and GeM seller registration. Detailed certificates and validity dates are available to empanelment teams on request.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">How does Webority handle data security and DPDP Act 2023 compliance?</button>
+          <div class="faq-a"><p>We apply data classification at design time, encrypt at rest and in transit, restrict access by role with audit logging, and align our processing with Digital Personal Data Protection Act 2023 obligations. Sovereign-cloud and on-prem deployments are supported for data classified Sensitive or above.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does Webority offer post-deployment maintenance and support?</button>
+          <div class="faq-a"><p>Yes &mdash; SLA-bound managed services covering corrective, adaptive and preventive maintenance, with response and resolution times defined per severity. Our NOC and SOC functions are 24&times;7 ready.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does Webority provide multi-vendor and multi-platform interoperability?</button>
+          <div class="faq-a"><p>We build on open standards (OpenAPI, OAuth 2.0, FHIR where relevant) and integrate with India Stack components (Aadhaar, DigiLocker, UMANG, ServicePlus, BharatKosh, PFMS) and existing departmental ERPs.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="sect ready-cta-section">
+    <div class="container">
+      <div class="ready-cta reveal">
+        <span class="eyebrow ready-cta-eyebrow">Ready When You Are</span>
+        <h2 class="ready-cta-title">Bring Your Department&rsquo;s Vision to Life</h2>
+        <p class="ready-cta-lead">From the first scoping conversation to live deployment &mdash; our public-sector desk replies within one business day. No-cost pre-bid advisory included.</p>
+
+        <ul class="ready-cta-badges" aria-label="Engagement commitments">
+          <li><span class="ready-cta-check" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Pre-Bid Advisory &middot; No Cost</li>
+          <li><span class="ready-cta-check" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>CMMI Level 5 Certified</li>
+          <li><span class="ready-cta-check" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>1-Day Response</li>
+          <li><span class="ready-cta-check" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>GeM Registered</li>
+        </ul>
+
+        <div class="ready-cta-actions">
+          <a class="btn btn-primary ready-cta-primary" asp-page="/Contact">
+            Request a Consultation
+            <svg class="btn-glow-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-outline btn-md ready-cta-secondary" asp-page="/Portfolio">View Government Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->

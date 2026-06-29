@@ -23,3 +23,21 @@ desktop.ini
 # Build artifacts
 dist/
 build/
+
+# .NET build output
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+publish/
+*.user
+*.suo
+*.userprefs
+
+# ASP.NET / Rider / VS
+.vs/
+*.binlog
+
+# Local secrets (never commit)
+appsettings.*.local.json
+secrets.json
