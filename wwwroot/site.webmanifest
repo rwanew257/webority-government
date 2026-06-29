@@ -1,0 +1,13 @@
+{
+  "name": "Webority for Government",
+  "short_name": "Webority Gov",
+  "description": "Secure, scalable digital solutions for India's government and public sector — e-governance, citizen apps, AI, cybersecurity and compliance-ready software.",
+  "icons": [
+    { "src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#6200ee",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
