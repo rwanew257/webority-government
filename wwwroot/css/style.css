@@ -2210,6 +2210,7 @@ Credentials sections (Main Frame mockup)
   right: 44px;
   transform: translateY(-50%);
   margin: 0;
+  padding-bottom: 3px;
 }
 
 /* Standards We Work To — 3x2 grid of standards */

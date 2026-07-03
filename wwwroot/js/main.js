@@ -879,4 +879,38 @@
 
     show(0);
   })();
+
+  // Leadership cards — the +/× button pins the expanded panel open. On touch
+  // devices the CSS :hover reveal is disabled (see design-polish.css), so this
+  // button is the sole open/close control; toggling .is-open drives the panel.
+  (function () {
+    var cards = document.querySelectorAll('.leader-card-v3');
+    if (!cards.length) return;
+
+    function closeAll(except) {
+      cards.forEach(function (card) {
+        if (card === except) return;
+        card.classList.remove('is-open');
+        var b = card.querySelector('.leader-card-v3-plus');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    cards.forEach(function (card) {
+      var btn = card.querySelector('.leader-card-v3-plus');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = card.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) closeAll(card);
+      });
+    });
+
+    // Tapping anywhere outside an open card closes it.
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.leader-card-v3')) return;
+      closeAll(null);
+    });
+  })();
 })();

@@ -32,7 +32,8 @@ max-width (desktop-first, largest -> smallest)
   .why-v3-col { width: 100%; }
   .why-v3-col--offset { margin-top: 0; }
   .why-v3-head { max-width: none; }
-  
+  .why-v3-head .why-section-lead { max-width: 100%; }
+
   .wg-footer .wg-foot-brand p,
   .wg-footer .wg-foot-col h5,
   .wg-footer .wg-foot-col li,
@@ -759,7 +760,8 @@ max-width (desktop-first, largest -> smallest)
   
   .leader-grid-v3 { grid-template-columns: 1fr; }
   
-  .why-v3-cards { grid-template-columns: 1fr;}
+  .why-v3-cards { grid-template-columns: 1fr; 
+    gap: 12px;}
   
   .why-v3-cards--grid3 > .why-v3-card--line {
     border-right: 0 !important;

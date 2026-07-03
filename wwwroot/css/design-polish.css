@@ -1148,12 +1148,22 @@ body.services-page .site-header.scrolled {
   box-shadow: none;
 }
 
-/* Homepage stats — hairline divider between the View Our Clients button and the stats row */
-.sect-tight.sect-white > .container > .stats-v2 {
-  border-top: 1px solid var(--outline) !important;
-  margin-top: 56px !important;
+/* Homepage stats — visible hairline separator at the section boundary between
+the portfolio and stats sections (both tinted, so they need an explicit line). */
+.sect-tight.sect-soft > .container {
+  border-top: 1px solid #dfe3ea !important;
   padding-top: 56px !important;
+}
+.sect-tight.sect-soft > .container > .stats-v2 {
   padding-bottom: 100px !important;
+}
+
+/* Reusable: a visible container-width hairline at the top of a section, for
+separating two adjacent same-coloured sections. Add `sect-divider-top` to the
+lower section. */
+.sect-divider-top > .container {
+  border-top: 1px solid #dfe3ea;
+  padding-top: 56px;
 }
 
 /* About page — Key Milestones timeline: year + heading in Times New Roman italic */
@@ -1458,7 +1468,7 @@ body.sectors-page .sect-tight .stats-v2 {
 section visually: drop the inter-section padding so the stats-v2 element's
 own 64px margin-top + 64px padding-top supply the 64px-each-side breathing
 room around the divider line that sits at the top of stats-v2. */
-.sect.sect-white:has(.portfolio-cta-row) { padding-bottom: 0; }
+/* .sect.sect-white:has(.portfolio-cta-row) { padding-bottom: 0; } */
 .sect-tight.sect-white { padding-top: 0; padding-bottom: 100px; }
 
 .sect-head h2 { letter-spacing: -.022em; }
@@ -6301,7 +6311,8 @@ Both images move upward together as a single unit. */
 }
 .leader-card-v3-plus:hover { background: #ffffff; transform: scale(1.05); }
 .leader-card-v3-plus svg { transition: transform .35s ease; }
-.leader-card-v3:hover .leader-card-v3-plus svg { transform: rotate(45deg); }
+.leader-card-v3:hover .leader-card-v3-plus svg,
+.leader-card-v3.is-open .leader-card-v3-plus svg { transform: rotate(45deg); }
 
 /* The white expansion panel — circular reveal from the "+" button (bottom-right).
 The circle starts at radius 0 anchored to the button's centre and grows to
@@ -6331,7 +6342,8 @@ cover the full panel area for a clean, premium reveal. */
   gap: 14px;
   will-change: clip-path, opacity;
 }
-.leader-card-v3:hover .leader-card-v3-expand {
+.leader-card-v3:hover .leader-card-v3-expand,
+.leader-card-v3.is-open .leader-card-v3-expand {
   clip-path: circle(150% at calc(100% - 40px) calc(100% - 40px));
   -webkit-clip-path: circle(150% at calc(100% - 40px) calc(100% - 40px));
   opacity: 1;
@@ -6350,7 +6362,8 @@ cover the full panel area for a clean, premium reveal. */
   opacity 350ms cubic-bezier(0.22, 0.61, 0.36, 1),
   transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.leader-card-v3:hover .leader-card-v3-expand > * {
+.leader-card-v3:hover .leader-card-v3-expand > *,
+.leader-card-v3.is-open .leader-card-v3-expand > * {
   opacity: 1;
   transform: translateY(0);
   /* Delay only applies to the hover-in transition. On hover-out the
@@ -6978,7 +6991,7 @@ that intentionally have transparent or no border (glass cards, hero overlays).
   position: static !important;
   background: transparent !important;
   color: inherit !important;
-  padding: 4px 8px 10px !important;
+  padding: 4px 16px 18px !important;
   z-index: auto !important;
 }
 .svc-row-section .svc-visual-title {
@@ -7022,7 +7035,8 @@ that intentionally have transparent or no border (glass cards, hero overlays).
   font-size: clamp(11px, 10.217px + 0.217vw, 13px) !important;
   font-weight: 500 !important;
   line-height: 1.2 !important;
-  display: inline-block !important;
+  display: block !important;
+  overflow-wrap: break-word !important;
 }
 /* NCP tag — dark pill overlay on the photo */
 .svc-row-section .svc-visual-img.has-photo .tag {
@@ -7994,5 +8008,17 @@ lacked box-shadow in their transition, so the shadow now eases in. */
   transform: translateY(-3px);
   box-shadow: var(--shadow-card-h);
   border-color: var(--primary-30);
+}
+
+.section-divider {
+  padding: 24px 0;
+  background: #f9fafb;
+}
+.section-divider hr {
+  border: 0;
+  height: 2px;
+  margin: 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(98,0,238,0.55), transparent);
 }
 
