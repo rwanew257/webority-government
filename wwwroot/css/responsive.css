@@ -28,8 +28,9 @@ max-width (desktop-first, largest -> smallest)
   
   .why-v3-visual { max-width: 100%; flex: 0 0 auto; height: 380px; min-height: 0; }
   
-  .why-v3-cards { grid-template-columns: repeat(2, 1fr); }
+  .why-v3-cards { grid-template-columns: repeat(2, 1fr); align-items: stretch; }
   .why-v3-col { width: 100%; }
+  .why-v3-col > .why-v3-card:last-child { flex-grow: 1; }
   .why-v3-col--offset { margin-top: 0; }
   .why-v3-head { max-width: none; }
   .why-v3-head .why-section-lead { max-width: 100%; }
@@ -165,7 +166,12 @@ max-width (desktop-first, largest -> smallest)
   .hero-v2-grid { grid-template-columns: 1fr; min-height: 0; }
   
   .portfolio-v2-grid { grid-template-columns: repeat(2, 1fr); }
-  
+  .portfolio-v2-grid > .portfolio-v2-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 9px);
+  }
+
   .psp-grid { grid-template-columns: repeat(2, 1fr); }
   
   .megamenu-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -510,7 +516,7 @@ max-width (desktop-first, largest -> smallest)
   .profile-modal-inner { grid-template-columns: 1fr; }
   
   .stats-v2 { grid-template-columns: repeat(2, 1fr); padding: 36px 0; }
-  .stats-v2 > div:nth-child(2)::after { display: none; }
+  .stats-v2 > div:nth-child(2)::after { display: none !important; }
   .stats-v2 > div:nth-child(1), .stats-v2 > div:nth-child(2) {
     padding-bottom: 28px; margin-bottom: 14px;
     border-bottom: 1px solid var(--outline);
@@ -667,7 +673,11 @@ max-width (desktop-first, largest -> smallest)
   .wg-footer .wg-foot-bottom { font-size: 12px; }
   
   .portfolio-v2-grid { grid-template-columns: 1fr; }
-  
+  .portfolio-v2-grid > .portfolio-v2-card:last-child:nth-child(odd) {
+    width: auto;
+    justify-self: stretch;
+  }
+
   .psp-grid { grid-template-columns: 1fr; }
   .psp-footnote { font-size: 16px; }
   
@@ -802,7 +812,7 @@ max-width (desktop-first, largest -> smallest)
   numbers never sit cramped side-by-side on the narrowest devices.
   Swap the vertical column dividers for horizontal row separators. */
   .stats-v2 { grid-template-columns: 1fr; }
-  .stats-v2 > div::after { display: none !important; }
+  .stats-v2 > div:not(:last-child)::after { display: none !important; }
   .stats-v2 > div:not(:last-child) {
     border-bottom: 1px solid var(--outline);
     padding-bottom: 22px;

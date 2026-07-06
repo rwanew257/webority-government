@@ -1860,12 +1860,15 @@ duplicate sliding in from below. JS auto-wraps button text on page load.
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 330px));
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
 }
 .ai-col {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+.ai-col > .ai-card:last-child {
+  flex-grow: 1;
 }
 /* Stagger only on true desktop, where the section is laid out side-by-side. */
 
@@ -6087,7 +6090,6 @@ No transition on the image so any reflow on open/close is instant. */
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 .caps-v2-acc-item {
   background: transparent;
@@ -6134,9 +6136,10 @@ No transition on the image so any reflow on open/close is instant. */
   letter-spacing: -.005em;
 }
 .caps-v2-acc-icon {
-  width: 18px; height: 18px;
+  width: 24px; height: 24px;
   flex-shrink: 0;
   display: inline-grid; place-items: center;
+  line-height: 0;
   background: transparent;
   color: var(--primary);
   border: 0;
@@ -6238,10 +6241,17 @@ the name, role, LinkedIn icon, and bullet points becoming visible.
   opacity 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 /* On hover: image shrinks to the top portion above the white panel (45%) */
-.leader-card-v3:hover .leader-card-v3-img {
+.leader-card-v3.is-open .leader-card-v3-img {
   bottom: 55%;
   height: auto;
   filter: grayscale(0);
+}
+@media (hover: hover) {
+  .leader-card-v3:hover .leader-card-v3-img {
+    bottom: 55%;
+    height: auto;
+    filter: grayscale(0);
+  }
 }
 
 /* Paired-image variant — uses TWO pre-rendered images and cross-fades on hover
@@ -6254,11 +6264,11 @@ Both images move upward together as a single unit. */
 .leader-card-v3 .leader-card-v3-img--hover {
   opacity: 0;
 }
-.leader-card-v3:hover .leader-card-v3-img--default {
-  opacity: 0;
-}
-.leader-card-v3:hover .leader-card-v3-img--hover {
-  opacity: 1;
+.leader-card-v3.is-open .leader-card-v3-img--default { opacity: 0; }
+.leader-card-v3.is-open .leader-card-v3-img--hover { opacity: 1; }
+@media (hover: hover) {
+  .leader-card-v3:hover .leader-card-v3-img--default { opacity: 0; }
+  .leader-card-v3:hover .leader-card-v3-img--hover { opacity: 1; }
 }
 .leader-card-v3-shade {
   position: absolute;
@@ -6311,8 +6321,10 @@ Both images move upward together as a single unit. */
 }
 .leader-card-v3-plus:hover { background: #ffffff; transform: scale(1.05); }
 .leader-card-v3-plus svg { transition: transform .35s ease; }
-.leader-card-v3:hover .leader-card-v3-plus svg,
 .leader-card-v3.is-open .leader-card-v3-plus svg { transform: rotate(45deg); }
+@media (hover: hover) {
+  .leader-card-v3:hover .leader-card-v3-plus svg { transform: rotate(45deg); }
+}
 
 /* The white expansion panel — circular reveal from the "+" button (bottom-right).
 The circle starts at radius 0 anchored to the button's centre and grows to
@@ -6342,7 +6354,6 @@ cover the full panel area for a clean, premium reveal. */
   gap: 14px;
   will-change: clip-path, opacity;
 }
-.leader-card-v3:hover .leader-card-v3-expand,
 .leader-card-v3.is-open .leader-card-v3-expand {
   clip-path: circle(150% at calc(100% - 40px) calc(100% - 40px));
   -webkit-clip-path: circle(150% at calc(100% - 40px) calc(100% - 40px));
@@ -6352,6 +6363,19 @@ cover the full panel area for a clean, premium reveal. */
   clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
   -webkit-clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
   opacity 1ms;
+}
+/* Hover-reveal only where a real pointer exists. On touch the panel is driven
+solely by .is-open (the +/× button), so a sticky :hover can't keep it open. */
+@media (hover: hover) {
+  .leader-card-v3:hover .leader-card-v3-expand {
+    clip-path: circle(150% at calc(100% - 40px) calc(100% - 40px));
+    -webkit-clip-path: circle(150% at calc(100% - 40px) calc(100% - 40px));
+    opacity: 1;
+    transition:
+    clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    -webkit-clip-path 1100ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 1ms;
+  }
 }
 .leader-card-v3-expand > * {
   opacity: 0;
@@ -6371,17 +6395,28 @@ cover the full panel area for a clean, premium reveal. */
   transition-delay: 480ms;
 }
 .leader-card-v3:hover .leader-card-v3-expand > *:nth-child(2) { transition-delay: 620ms; }
-.leader-card-v3:hover .leader-card-v3-front {
+.leader-card-v3.is-open .leader-card-v3-front {
   opacity: 0;
   transform: translateY(-12px);
+}
+@media (hover: hover) {
+  .leader-card-v3:hover .leader-card-v3-front {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
 }
 .leader-card-v3-front {
   transition:
   opacity 600ms cubic-bezier(0.22, 0.61, 0.36, 1),
   transform 800ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.leader-card-v3:hover .leader-card-v3-shade {
+.leader-card-v3.is-open .leader-card-v3-shade {
   opacity: 0;
+}
+@media (hover: hover) {
+  .leader-card-v3:hover .leader-card-v3-shade {
+    opacity: 0;
+  }
 }
 .leader-card-v3-shade {
   transition: opacity .5s cubic-bezier(.4, 0, .2, 1);
