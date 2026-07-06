@@ -6590,6 +6590,7 @@ so its bottom aligns with the bottom of the right-side card grid. */
   position: absolute;
   top: 20px;
   left: 20px;
+  max-width: calc(100% - 40px);
   z-index: 3;
   display: inline-flex;
   align-items: center;
@@ -8056,4 +8057,11 @@ lacked box-shadow in their transition, so the shadow now eases in. */
   border-radius: 2px;
   background: linear-gradient(90deg, transparent, rgba(98,0,238,0.55), transparent);
 }
+
+/* Mobile nav — top-level headings read larger than their sub-links so the
+hierarchy is clear (base .gov-mnav-sub a had no size and inherited larger). */
+.gov-mnav-link { font-size: 17px; }
+.gov-mnav-sub a { font-size: 14px; }
+
+.stats-v2--flush-top { margin-top: 0 !important; padding: 0 0 !important;}
 

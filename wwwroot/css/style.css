@@ -3014,9 +3014,9 @@ bottom legal bar, giant "WEBORITY TECHNOLOGIES" wordmark.
 }
 .wg-foot-col a:hover, .wg-foot-col a:focus { color: #fff; text-decoration: underline; }
 
-.wg-foot-contact .contact-block {
+/* .wg-foot-contact .contact-block {
   margin-bottom: 28px;
-}
+} */
 .wg-foot-contact h5 {
   font-family: var(--font-heading);
   font-weight: 700;

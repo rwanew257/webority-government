@@ -502,7 +502,7 @@ max-width (desktop-first, largest -> smallest)
   .wg-foot-contact { flex-direction: row; gap: 32px; }
   .wg-foot-contact .contact-block { flex: 1 1 0; min-width: 0; }
   .wg-foot-contact .contact-block a { overflow-wrap: anywhere; }
-  .wg-foot-promos { grid-template-columns: 1fr; }
+  .wg-foot-promos { grid-template-columns: 1fr; margin-top: 0px; }
   .wg-footer .wg-inner { padding: 56px 22px 22px; }
   
   .profile-modal {
@@ -770,9 +770,16 @@ max-width (desktop-first, largest -> smallest)
   
   .leader-grid-v3 { grid-template-columns: 1fr; }
   
-  .why-v3-cards { grid-template-columns: 1fr; 
+  .why-v3-cards { grid-template-columns: 1fr;
     gap: 12px;}
-  
+  .why-v3-badge {
+    top: 14px;
+    left: 14px;
+    max-width: calc(100% - 28px);
+    padding: 5px 10px;
+    letter-spacing: 0.04em;
+  }
+
   .why-v3-cards--grid3 > .why-v3-card--line {
     border-right: 0 !important;
   }
