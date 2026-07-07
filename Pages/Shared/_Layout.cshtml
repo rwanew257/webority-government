@@ -45,10 +45,22 @@
     
     <link rel="canonical" href="@canonical" />
     
-    @* Fonts — Josefin Sans (UI) + Caveat (cursive "design" wordmark). Self-host in a later pass. *@
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@@400;500;600;700&family=Caveat:wght@@600;700&display=swap" rel="stylesheet" />
+    @* Self-hosted fonts — Josefin Sans (UI) + Caveat (cursive "design" wordmark). No external font requests. *@
+    <link rel="preload" href="/fonts/josefin-sans/josefin-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+        @@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/josefin-sans/josefin-sans-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/josefin-sans/josefin-sans-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/josefin-sans/josefin-sans-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/josefin-sans/josefin-sans-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/josefin-sans/josefin-sans-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/josefin-sans/josefin-sans-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/josefin-sans/josefin-sans-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @@font-face{font-family:'Josefin Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/josefin-sans/josefin-sans-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @@font-face{font-family:'Caveat';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/caveat/caveat-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @@font-face{font-family:'Caveat';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/caveat/caveat-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+        @@font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/caveat/caveat-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+        @@font-face{font-family:'Caveat';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/caveat/caveat-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+    </style>
     
     <link rel="stylesheet" href="~/css/bundle.css?v=@assetV" />
     
@@ -102,7 +114,7 @@
                         <li><a asp-page="/CaseStudies/VmmcBrainBank">Safdarjung Hospital</a></li>
                     </ul>
                 </li>
-                <li><a asp-page="/CaseStudies" data-nav-key="sectors" data-i18n="nav.sectors" class="menu-opt@(activeNav == "sectors" ? " active" : null)">Sectors</a></li>
+                <li><a asp-page="/Sectors" data-nav-key="sectors" data-i18n="nav.sectors" class="menu-opt@(activeNav == "sectors" ? " active" : null)">Sectors</a></li>
                 <li><a asp-page="/Credentials" data-nav-key="credentials" data-i18n="nav.credentials" class="menu-opt@(activeNav == "credentials" ? " active" : null)">Credentials</a></li>
                 <li><a asp-page="/AboutUs" data-nav-key="about" data-i18n="nav.about" class="menu-opt@(activeNav == "about" ? " active" : null)">About Us</a></li>
                 <li class="nav-cta-group">
@@ -161,7 +173,7 @@
                             <li><a asp-page="/CaseStudies/VmmcBrainBank">Safdarjung Hospital</a></li>
                         </ul>
                     </li>
-                    <li class="gov-mnav-item"><a asp-page="/CaseStudies" class="gov-mnav-link@(activeNav == "sectors" ? " active" : null)">Sectors</a></li>
+                    <li class="gov-mnav-item"><a asp-page="/Sectors" class="gov-mnav-link@(activeNav == "sectors" ? " active" : null)">Sectors</a></li>
                     <li class="gov-mnav-item"><a asp-page="/Credentials" class="gov-mnav-link@(activeNav == "credentials" ? " active" : null)">Credentials</a></li>
                     <li class="gov-mnav-item"><a asp-page="/AboutUs" class="gov-mnav-link@(activeNav == "about" ? " active" : null)">About Us</a></li>
                     <li class="gov-mnav-cta">

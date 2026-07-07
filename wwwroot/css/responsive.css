@@ -417,11 +417,13 @@ max-width (desktop-first, largest -> smallest)
   columns, one horizontal divider between the rows, nothing stray. */
   .sect-story-light .stats-v2 {
     grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 1fr !important;
     gap: 0 !important;
   }
   .sect-story-light .stats-v2 > div {
     padding: 16px 10px !important;
     margin-bottom: 0 !important;
+    justify-content: flex-start !important;
   }
   .sect-story-light .stats-v2 > div::after { display: none !important; }
   .sect-story-light .stats-v2 > div:nth-child(odd)::after {
@@ -470,6 +472,28 @@ max-width (desktop-first, largest -> smallest)
 @media (max-width: 768px) {
   .hero-v2-actions .btn { padding: 16px 18px; }
   .svc-hero { padding: 48px 0 40px; }
+  /* Case-studies hero pulls up behind the transparent header (margin-top:
+  -nav-height), so visible top gap = padding-top - nav-height. Drop the
+  min-height/centering here and make that visible top gap equal the bottom. */
+  body.case-studies-page .svc-hero {
+    min-height: 0 !important;
+    align-items: flex-start !important;
+    margin-top: calc(-1 * var(--nav-height, 72px)) !important;
+    padding-top: calc(var(--nav-height, 72px) + 40px) !important;
+    padding-bottom: 40px !important;
+  }
+  /* Service sub-page hero (.egov-hero) is locked to height:500px in its page
+  CSS — drop the fixed height on mobile so it sizes to content with the same
+  header-clearing top gap and matching bottom gap as the case-studies hero.
+  !important: the per-page CSS loads after the bundle. */
+  .egov-hero {
+    height: auto !important;
+    min-height: 0 !important;
+    align-items: flex-start !important;
+    margin-top: calc(-1 * var(--nav-height, 72px)) !important;
+    padding-top: calc(var(--nav-height, 72px) + 40px) !important;
+    padding-bottom: 40px !important;
+  }
   
   /* Inner-page hero (all pages) — scale heading/text down, stop the heading &
   paragraph from overflowing the viewport, and drop the tall 427-500px
@@ -488,7 +512,6 @@ max-width (desktop-first, largest -> smallest)
   body.sectors-page .svc-hero,
   body.credentials-page .svc-hero,
   body.portfolio-page .svc-hero,
-  body.case-studies-page .svc-hero,
   body.contact-page .svc-hero,
   body.services-page .svc-hero--v2 {
     min-height: 340px !important;
@@ -798,7 +821,7 @@ max-width (desktop-first, largest -> smallest)
   
   /* Services KPI row — 3 narrow columns become unreadable; stack with a
   hairline divider between rows instead of the vertical rule. */
-  /* .svc-row-section .svc-kpis { grid-template-columns: 1fr !important; } */
+  .svc-row-section .svc-kpis { grid-template-columns: 1fr !important; }
   .svc-row-section .svc-kpi + .svc-kpi::before {
     left: 50% !important;
     top: 0 !important;
