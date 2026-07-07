@@ -3379,7 +3379,7 @@ Replaces the simpler text-tile portfolio used earlier.
 .portfolio-v2-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 12px;
   margin-top: 48px;
 }
 .portfolio-v2-card {

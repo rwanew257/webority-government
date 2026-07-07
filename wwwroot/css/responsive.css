@@ -538,7 +538,7 @@ max-width (desktop-first, largest -> smallest)
   .profile-modal-right { padding: 56px 28px 24px; }
   .profile-modal-inner { grid-template-columns: 1fr; }
   
-  .stats-v2 { grid-template-columns: repeat(2, 1fr); padding: 36px 0; }
+  .stats-v2 { grid-template-columns: repeat(2, 1fr); padding: 36px 0; margin-top: 24px !important; }
   .stats-v2 > div:nth-child(2)::after { display: none !important; }
   .stats-v2 > div:nth-child(1), .stats-v2 > div:nth-child(2) {
     padding-bottom: 28px; margin-bottom: 14px;
@@ -695,7 +695,7 @@ max-width (desktop-first, largest -> smallest)
   .wg-footer .wg-foot-contact .contact-block a,
   .wg-footer .wg-foot-bottom { font-size: 12px; }
   
-  .portfolio-v2-grid { grid-template-columns: 1fr; }
+  .portfolio-v2-grid { grid-template-columns: 1fr; gap: 12px; }
   .portfolio-v2-grid > .portfolio-v2-card:last-child:nth-child(odd) {
     width: auto;
     justify-self: stretch;
@@ -841,7 +841,7 @@ max-width (desktop-first, largest -> smallest)
   /* Homepage / about stats fall back to a single column so two big
   numbers never sit cramped side-by-side on the narrowest devices.
   Swap the vertical column dividers for horizontal row separators. */
-  .stats-v2 { grid-template-columns: 1fr; }
+  /* .stats-v2 { grid-template-columns: 1fr; } */
   .stats-v2 > div:not(:last-child)::after { display: none !important; }
   .stats-v2 > div:not(:last-child) {
     border-bottom: 1px solid var(--outline);

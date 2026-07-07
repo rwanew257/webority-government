@@ -1245,7 +1245,7 @@ body.about-page .timeline-row.is-in .timeline-year::after {
   border-top: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-  padding: 24px 0 !important;
+  padding: 0 0 !important;
   margin-top: 64px !important;
   overflow: visible !important;
 }
