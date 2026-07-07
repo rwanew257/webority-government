@@ -78,7 +78,7 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   
   --font-heading: 'Josefin Sans', system-ui, -apple-system, sans-serif;
   --font-body: 'Josefin Sans', system-ui, -apple-system, sans-serif;
-  --font-decorative: 'Josefin Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Josefin Sans', system-ui, -apple-system, sans-serif;
   
   --fs-12: clamp(.85rem, .8rem + .2vw, .875rem);
   --fs-14: clamp(.875rem, .75rem + .625vw, 1rem);

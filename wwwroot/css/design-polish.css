@@ -8065,3 +8065,18 @@ hierarchy is clear (base .gov-mnav-sub a had no size and inherited larger). */
 
 .stats-v2--flush-top { margin-top: 0 !important; padding: 0 0 !important;}
 
+/* Josefin Sans weight/style utility classes (mirrors Webority.Web.Gov usage) */
+.josefin-thin { font-family: 'Josefin Sans', serif; font-weight: 100; font-style: normal; }
+.josefin-light { font-family: 'Josefin Sans', serif; font-weight: 300; font-style: normal; }
+.josefin-regular { font-family: 'Josefin Sans', serif; font-weight: 400; font-style: normal; }
+.josefin-medium { font-family: 'Josefin Sans', serif; font-weight: 500; font-style: normal; }
+.josefin-semibold { font-family: 'Josefin Sans', serif; font-weight: 600; font-style: normal; }
+.josefin-bold { font-family: 'Josefin Sans', serif; font-weight: 700; font-style: normal; }
+.josefin-italic { font-family: 'Josefin Sans', serif; font-style: italic; }
+.josefin-thin-italic { font-family: 'Josefin Sans', serif; font-weight: 100; font-style: italic; }
+.josefin-light-italic { font-family: 'Josefin Sans', serif; font-weight: 300; font-style: italic; }
+.josefin-regular-italic { font-family: 'Josefin Sans', serif; font-weight: 400; font-style: italic; }
+.josefin-medium-italic { font-family: 'Josefin Sans', serif; font-weight: 500; font-style: italic; }
+.josefin-semibold-italic { font-family: 'Josefin Sans', serif; font-weight: 600; font-style: italic; }
+.josefin-bold-italic { font-family: 'Josefin Sans', serif; font-weight: 700; font-style: italic; }
+
