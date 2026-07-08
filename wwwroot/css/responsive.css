@@ -440,28 +440,41 @@ max-width (desktop-first, largest -> smallest)
     border-bottom: 0 !important;
   }
   
-  /* Same clean 2x2 for the plain stats blocks (index, case-studies, sectors —
-  all inside .sect-tight) so they match the About page exactly. */
-  .sect-tight .stats-v2 {
+  /* Same clean 2x2 for every plain stats block (index, case-studies, sectors) so
+  they match the About page exactly. `.sect .stats-v2` covers the .sect-wrapped
+  blocks (index, case-studies); `.sect-tight .stats-v2` covers sectors. Both
+  out-specify the ≤575 single-column plain-stats rules further down. The About
+  page (.sect-story-light .stats-v2) keeps its own equivalent rules. */
+  .sect-tight .stats-v2,
+  .sect .stats-v2 {
     grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 1fr !important;
     gap: 0 !important;
   }
-  .sect-tight .stats-v2 > div {
+  .sect-tight .stats-v2 > div,
+  .sect .stats-v2 > div {
     padding: 16px 10px !important;
     margin-bottom: 0 !important;
+    justify-content: flex-start !important;
   }
-  .sect-tight .stats-v2 > div::after { display: none !important; }
-  .sect-tight .stats-v2 > div:nth-child(odd)::after {
+  .sect-tight .stats-v2 > div::after,
+  .sect .stats-v2 > div::after { display: none !important; }
+  .sect-tight .stats-v2 > div:nth-child(odd)::after,
+  .sect .stats-v2 > div:nth-child(odd)::after {
     display: block !important;
     top: 16% !important;
     bottom: 16% !important;
   }
   .sect-tight .stats-v2 > div:nth-child(1),
-  .sect-tight .stats-v2 > div:nth-child(2) {
+  .sect-tight .stats-v2 > div:nth-child(2),
+  .sect .stats-v2 > div:nth-child(1),
+  .sect .stats-v2 > div:nth-child(2) {
     border-bottom: 1px solid var(--outline) !important;
   }
   .sect-tight .stats-v2 > div:nth-child(3),
-  .sect-tight .stats-v2 > div:nth-child(4) {
+  .sect-tight .stats-v2 > div:nth-child(4),
+  .sect .stats-v2 > div:nth-child(3),
+  .sect .stats-v2 > div:nth-child(4) {
     border-bottom: 0 !important;
   }
   .cert-seals-row {
