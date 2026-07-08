@@ -163,6 +163,10 @@ the <=991 block of responsive.css (mirrors webority-os-web's mobile nav). */
   font-weight: 600;
 }
 
+/* Header resizes on scroll — disable scroll anchoring so its height change
+   never nudges scrollY back across the trigger (would cause size oscillation). */
+html { overflow-anchor: none; }
+
 /* Desktop header — larger nav text, taller resting height that shrinks on scroll. */
 @media (min-width: 992px) {
   .site-header .nav-menu a:not(.btn) {
@@ -174,15 +178,15 @@ the <=991 block of responsive.css (mirrors webority-os-web's mobile nav). */
     transition: padding-top var(--transition-base), padding-bottom var(--transition-base);
   }
   .site-header.scrolled .nav {
-    padding-top: 1.15rem;
-    padding-bottom: 1.15rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
   .site-header .brand--logo .brand-logo-img {
     height: 40px;
     transition: height var(--transition-base);
   }
   .site-header.scrolled .brand--logo .brand-logo-img {
-    height: 32px;
+    height: 34px;
   }
 }
 
@@ -433,7 +437,7 @@ The inline <img> tag in the HTML is hidden â€” the picture renders via CSS.
   background-size: cover;
   /* Nudge the Lion Capital symbol slightly lower so the heading text clears it,
   using a percentage so the image still fully covers (no gap / hard crop). */
-  background-position: right 30%;
+  background-position: right 20%;
   background-repeat: no-repeat;
   z-index: -2;
 }

@@ -7,11 +7,19 @@
   // submenu accordions — open/close, backdrop, ESC, scroll-lock and the
   // accordions are all handled by Bootstrap; no custom JS needed here.
 
-  // Sticky header shadow on scroll
+  // Sticky header shrink/background on scroll. Shrinks past 20px, grows back
+  // below 8px (small hysteresis to avoid a hard flip right at the trigger).
+  // Scroll anchoring is disabled on <html> (see CSS) so the header's height
+  // change can't nudge scrollY back across the trigger and oscillate.
   const header = document.getElementById('siteHeader');
   if (header) {
     const onScroll = function () {
-      header.classList.toggle('scrolled', window.scrollY > 8);
+      const y = window.scrollY;
+      if (!header.classList.contains('scrolled')) {
+        if (y > 20) header.classList.add('scrolled');
+      } else if (y < 8) {
+        header.classList.remove('scrolled');
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -270,35 +278,61 @@
   const yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  // Stats counter animation — counts 0 → data-target when scrolled into view
-  const counters = document.querySelectorAll('.stats-number[data-target]');
-  if ('IntersectionObserver' in window && counters.length) {
-    const animate = function (el) {
-      const target = parseInt(el.getAttribute('data-target'), 10);
-      if (isNaN(target)) return;
-      const duration = 1400;
+  // Stats counter animation — counts 0 → value when scrolled into view.
+  // Targets the stat numbers (.stats-v2 .num, e.g. "500+"); the leading digits
+  // animate while any suffix (the .plus "+" span) is preserved. The "01." style
+  // .num labels in service rows are excluded (they aren't inside .stats-v2).
+  const counterNums = document.querySelectorAll('.stats-v2 .num');
+  if (counterNums.length) {
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // The digit text node inside a .num (skips the .plus child span).
+    const digitNode = function (num) {
+      for (let i = 0; i < num.childNodes.length; i++) {
+        const n = num.childNodes[i];
+        if (n.nodeType === 3 && /\d/.test(n.nodeValue)) return n;
+      }
+      return null;
+    };
+    const animate = function (num) {
+      const node = digitNode(num);
+      // Read the real target from the stored value, not the (reset) node text.
+      const target = parseInt(num.getAttribute('data-count-target'), 10);
+      if (!node || isNaN(target)) return;
+      const duration = 1600;
       const start = performance.now();
       const tick = function (now) {
         const t = Math.min(1, (now - start) / duration);
         const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = Math.floor(target * eased).toString();
+        node.nodeValue = String(Math.floor(target * eased));
         if (t < 1) requestAnimationFrame(tick);
-        else el.textContent = target.toString();
+        else node.nodeValue = String(target);
       };
       requestAnimationFrame(tick);
     };
-    const obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animate(entry.target);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.4 });
-    counters.forEach(function (c) {
-      c.textContent = '0';
-      obs.observe(c);
+    // Stash each target, then reset the visible digits to 0 (unless reduced motion).
+    counterNums.forEach(function (num) {
+      const node = digitNode(num);
+      if (!node) return;
+      const target = parseInt(node.nodeValue.replace(/\D/g, ''), 10);
+      if (isNaN(target)) return;
+      num.setAttribute('data-count-target', String(target));
+      if (!reduceMotion) node.nodeValue = '0';
     });
+    if (reduceMotion) {
+      // Nothing to animate; digits already show their final values.
+    } else if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animate(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      counterNums.forEach(function (num) { obs.observe(num); });
+    } else {
+      counterNums.forEach(animate);
+    }
   }
 
   // Services page — sticky tab nav, active state follows scroll position
