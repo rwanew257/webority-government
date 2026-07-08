@@ -1,0 +1,137 @@
+@page
+@model Webority.Web.GovIndia.Pages.Sectors.DefenceSecurityModel
+@{
+    ViewData["Title"] = "Defence & Security — Secure Government Systems";
+    ViewData["Description"] = "Secure systems for India's defence forces, paramilitary organisations and internal security infrastructure — VAPT-cleared, ISO 27001:2022 compliant platforms.";
+    ViewData["ActiveNav"] = "sectors";
+    ViewData["BodyClass"] = "sectors-page sector-detail-page";
+}
+<section class="svc-hero">
+    <div class="container">
+      <div class="svc-hero-content">
+        <nav class="sector-detail-crumbs" aria-label="Breadcrumb">
+          <a asp-page="/Sectors">Sectors</a> <span aria-hidden="true">&rsaquo;</span> <span>Defence &amp; Security</span>
+        </nav>
+        <span class="sector-detail-eyebrow">Government &amp; Public Sector</span>
+        <h1>Defence &amp; Internal Security Protocols</h1>
+        <p>Secure systems for India&rsquo;s defence forces, paramilitary organisations, and internal security infrastructure &mdash; VAPT-cleared, ISO 27001:2022 compliant platforms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect sect-soft">
+    <div class="container">
+      <div class="cap-grid">
+        <article class="cap-card">
+          <div class="cap-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 4l10 4v8c0 6-4 11-10 13-6-2-10-7-10-13V8z"/>
+              <path d="M11 14h10M11 18h6"/>
+            </svg>
+          </div>
+          <h3>Secure Communication</h3>
+          <p>End-to-end encrypted messaging and data transfer protocols for classified operations.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="12" r="3.5"/>
+              <circle cx="22" cy="12" r="3.5"/>
+              <path d="M4 25c0-3.5 3-6 7-6s7 2.5 7 6"/>
+              <path d="M18 25c0-3.5 3-6 6.5-6s5.5 2.5 5.5 6"/>
+            </svg>
+          </div>
+          <h3>Personnel Management</h3>
+          <p>Attendance, deployment, and HR systems for paramilitary and defence establishments.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="14" height="11" rx="1"/>
+              <path d="M17 14h6l3 4v4h-9"/>
+              <circle cx="9" cy="25" r="2"/>
+              <circle cx="22" cy="25" r="2"/>
+            </svg>
+          </div>
+          <h3>Logistics &amp; Supply Chain</h3>
+          <p>Real-time inventory tracking and procurement management for defence stores.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="14" width="16" height="14" rx="2"/>
+              <path d="M11 14v-4a5 5 0 0 1 10 0v4"/>
+              <circle cx="16" cy="21" r="2"/>
+            </svg>
+          </div>
+          <h3>Access Control Systems</h3>
+          <p>Biometric and multi-factor authentication for restricted area management.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 18a11 11 0 0 1 22 0"/>
+              <path d="M16 18l7-5"/>
+              <circle cx="16" cy="18" r="2"/>
+              <path d="M5 23h22"/>
+            </svg>
+          </div>
+          <h3>Operations Dashboards</h3>
+          <p>Mission-critical real-time monitoring and command-centre visualisations.</p>
+        </article>
+        <article class="cap-card">
+          <div class="cap-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="16" r="3.5"/>
+              <path d="M16 4v3M16 25v3M4 16h3M25 16h3M7.5 7.5l2 2M22.5 22.5l2 2M7.5 24.5l2-2M22.5 9.5l2-2"/>
+            </svg>
+          </div>
+          <h3>Asset Management</h3>
+          <p>Equipment lifecycle tracking, maintenance scheduling, and audit trails.</p>
+        </article>
+      </div>
+
+      <div class="ref-project ref-project--inline ref-project--v2 ref-project--manthan">
+        <div class="ref-project-content">
+          <div class="ref-project-brand">
+            <img class="ref-project-brand-logo" src="/images/logos/gov/Manthan New logo for showcasing impact cards.svg" alt="Manthan Application" loading="lazy" />
+          </div>
+          <span class="ref-project-eyebrow">Showcasing Impact</span>
+          <h3>Manthan Application</h3>
+          <p>End-to-end encrypted secure communication platform for DRDO with air-gapped deployment protocols &mdash; built for classified operations across defence research establishments.</p>
+          <!-- TODO-WG: this Manthan blurb (DRDO secure comms) does not match the Manthan case study (Defence PSU employee-engagement platform). Reconcile copy. -->
+          <a class="ref-project-cta" asp-page="/CaseStudies/Manthan">View Case Study</a>
+        </div>
+        <div class="ref-project-visual" aria-hidden="true"></div>
+      </div>
+
+      <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
+        <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="partner-card-logo">
+            <img src="/images/logos/gov/Home Affrais Logo 64px.svg" alt="Sashastra Seema Bal logo" loading="lazy" />
+          </div>
+          <div class="partner-card-name">Sashastra Seema Bal</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-card-logo">
+            <img src="/images/logos/gov/Manthan logo 64px.svg" alt="Munitions India Limited logo" loading="lazy" />
+          </div>
+          <div class="partner-card-name">Munitions India Limited</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-card-logo">
+            <img src="/images/logos/gov/Case Study Detail logo DRDO.svg" alt="DRDO logo" loading="lazy" />
+          </div>
+          <div class="partner-card-name">DRDO</div>
+        </div>
+      </div>
+
+      <div class="sector-detail-back">
+        <a asp-page="/Sectors" class="btn btn-outline btn-md">&larr; All Sectors</a>
+        <a asp-page="/Contact" class="btn btn-primary btn-md">Discuss Your Requirements</a>
+      </div>
+    </div>
+  </section>

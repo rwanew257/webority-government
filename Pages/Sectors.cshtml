@@ -18,943 +18,152 @@
   <!-- Stats Row -->
   <section class="sect">
     <div class="container">
-      <div class="stats-v2">
-        <div><span class="num">10<span class="plus">+</span></span><span class="lbl">Years of Serving</span></div>
-        <div><span class="num">500<span class="plus">+</span></span><span class="lbl">Projects Delivered</span></div>
-        <div><span class="num">10<span class="plus">+</span></span><span class="lbl">Ministries Served</span></div>
-        <div><span class="num">80<span class="plus">+</span></span><span class="lbl">Professionals</span></div>
+      <div class="stats-v2 sectors-stats-cards">
+        <div>
+          <span class="sectors-stat-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <span class="num">10<span class="plus">+</span></span>
+          <span class="lbl">Years of Serving</span>
+        </div>
+        <div>
+          <span class="sectors-stat-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg>
+          </span>
+          <span class="num">500<span class="plus">+</span></span>
+          <span class="lbl">Projects Delivered</span>
+        </div>
+        <div>
+          <span class="sectors-stat-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16"/><path d="M5 21V10M19 21V10M9 21V10M15 21V10"/><path d="M12 3L4 8h16z"/></svg>
+          </span>
+          <span class="num">10<span class="plus">+</span></span>
+          <span class="lbl">Ministries Served</span>
+        </div>
+        <div>
+          <span class="sectors-stat-ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M15 20c0-2.6 1.6-4.6 4-4.6s2 1 2 1"/></svg>
+          </span>
+          <span class="num">80<span class="plus">+</span></span>
+          <span class="lbl">Professionals</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Sector Tabs + Panels -->
+  <!-- Sector cards — each links to its own detail page -->
   <section class="sect sect-soft">
     <div class="container">
-      <div class="sector-tabs" role="tablist" aria-label="Sectors">
-        <div class="container">
-          <div class="sector-tabs-scroll">
-            <button class="sector-tab active" data-tab="energy" role="tab" aria-selected="true">Energy &amp; Environment</button>
-            <button class="sector-tab" data-tab="health" role="tab" aria-selected="false">Health &amp; Welfare</button>
-            <button class="sector-tab" data-tab="defence" role="tab" aria-selected="false">Defence &amp; Security</button>
-            <button class="sector-tab" data-tab="parliament" role="tab" aria-selected="false">Parliament &amp; Legislature</button>
-            <!-- WG: Finance, PSUs & Fintech sector temporarily hidden -->
-            <button class="sector-tab" data-tab="finance" role="tab" aria-selected="false" hidden style="display:none;">Finance, PSUs &amp; Fintech</button>
-            <button class="sector-tab" data-tab="quality" role="tab" aria-selected="false">Quality &amp; Standards</button>
-            <button class="sector-tab" data-tab="education" role="tab" aria-selected="false">Education &amp; Publishing</button>
-            <button class="sector-tab" data-tab="urban" role="tab" aria-selected="false">Smart Cities, Urban &amp; NGOs</button>
-          </div>
-        </div>
+      <div class="sect-head sect-head--centered">
+        <span class="eyebrow">Government &amp; Public Sector</span>
+        <h2>Explore Our Sectors</h2>
+        <p>Choose a sector to see the capabilities we build, the reference projects we have delivered, and the partners we work with.</p>
       </div>
 
-      <!-- Energy & Environment (active) -->
-      <div class="sect sector-panel active" id="panel-energy" role="tabpanel">
-        <div class="sect-head">
-          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
-          <h2>Energy &amp; Environment Architecture</h2>
-          <p>Digital compliance platforms for energy efficiency and environmental governance &mdash; from appliance rating systems to sustainability programme tracking at national and state level.</p>
-        </div>
+      <div class="sector-cards">
+        <a class="sector-card" asp-page="/Sectors/EnergyEnvironment">
+          <span class="sector-card-ic" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3L6 18h9l-1 11 12-16h-9z"/>
+            </svg>
+          </span>
+          <h3 class="sector-card-title">Energy &amp; Environment</h3>
+          <p class="sector-card-sub">Compliance platforms for energy efficiency and environmental governance &mdash; from appliance rating to sustainability tracking.</p>
+          <span class="sector-card-cta">Explore sector
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
 
-        <div class="svc-grid svc-grid-v2">
-          <article class="svc-card-v2 reveal">
-            <span class="svc-card-ic-v2" aria-hidden="true">
-              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/flash.svg');"></i>
-            </span>
-            <h3>Renewable Infrastructure</h3>
-            <p>Architecting decentralised power grids with energy storage solutions for renewable integration.</p>
-          </article>
-          <article class="svc-card-v2 reveal">
-            <span class="svc-card-ic-v2" aria-hidden="true">
-              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/chart-2.svg');"></i>
-            </span>
-            <h3>Carbon Analytics</h3>
-            <p>Real-time carbon footprint tracking with predictive environmental impact modelling.</p>
-          </article>
-          <article class="svc-card-v2 reveal">
-            <span class="svc-card-ic-v2" aria-hidden="true">
-              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/clipboard-tick.svg');"></i>
-            </span>
-            <h3>Compliance Engines</h3>
-            <p>Automated auditing tools designed to meet evolving ESG environment standards and legal requirements.</p>
-          </article>
-          <article class="svc-card-v2 reveal">
-            <span class="svc-card-ic-v2" aria-hidden="true">
-              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/box-2.svg');"></i>
-            </span>
-            <h3>Resource Management</h3>
-            <p>Advanced logistics platforms for tracking and optimisation of water, waste, and sustainable resources.</p>
-          </article>
-          <article class="svc-card-v2 reveal">
-            <span class="svc-card-ic-v2" aria-hidden="true">
-              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/cpu.svg');"></i>
-            </span>
-            <h3>Smart Grid Logic</h3>
-            <p>AI-driven load balancing and predictive maintenance protocols for intelligent energy network optimisation.</p>
-          </article>
-          <article class="svc-card-v2 reveal">
-            <span class="svc-card-ic-v2" aria-hidden="true">
-              <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/shield-tick.svg');"></i>
-            </span>
-            <h3>EcoSecurity</h3>
-            <p>Protection strategies for critical environmental infrastructure including air quality and physical threats.</p>
-          </article>
-        </div>
+        <a class="sector-card" asp-page="/Sectors/HealthWelfare">
+          <span class="sector-card-ic" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 27S5 20 5 12a6 6 0 0 1 11-3 6 6 0 0 1 11 3c0 8-11 15-11 15z"/>
+              <path d="M10 15h3l2-4 2 8 2-4h3"/>
+            </svg>
+          </span>
+          <h3 class="sector-card-title">Health &amp; Welfare</h3>
+          <p class="sector-card-sub">DPDP-compliant, offline-first health infrastructure for government hospitals and tribal field conditions.</p>
+          <span class="sector-card-cta">Explore sector
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
 
-        <!-- Reference Project -->
-        <div class="ref-project ref-project--inline ref-project--v2 ref-project--bee">
-          <div class="ref-project-content">
-            <div class="ref-project-brand">
-              <img class="ref-project-brand-logo" src="/images/logos/gov/BEE Logo.png" alt="Bureau of Energy Efficiency — Ministry of Power / CLASP NGO" loading="lazy" />
-            </div>
-            <span class="ref-project-eyebrow">Showcasing Impact</span>
-            <h3>BEE Star Label</h3>
-            <p>Star Labelling Compliance Platform for Bureau of Energy Efficiency &mdash; appliance manufacturer registration, energy rating database, and State Designated Agency field inspection workflows</p>
-            <a class="ref-project-cta" asp-page="/CaseStudies">View Case Study</a>
-          </div>
-          <div class="ref-project-visual" aria-hidden="true"></div>
-        </div>
+        <a class="sector-card" asp-page="/Sectors/DefenceSecurity">
+          <span class="sector-card-ic" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 3l11 4v8c0 7-4.6 12.4-11 14.5C9.6 27.4 5 22 5 15V7z"/>
+              <path d="M11 15l3.5 3.5L22 11"/>
+            </svg>
+          </span>
+          <h3 class="sector-card-title">Defence &amp; Security</h3>
+          <p class="sector-card-sub">VAPT-cleared, ISO 27001:2022 secure systems for defence forces, paramilitary and internal security.</p>
+          <span class="sector-card-cta">Explore sector
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
 
-        <!-- Global Partners & References -->
-        <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
-          <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
-        </div>
-        <div class="partners-grid">
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/BEE logo.svg" alt="Bureau of Energy Efficiency logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Bureau of Energy</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/vasudha-foundation.png" alt="Vasudha Foundation logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Vasudha Foundation</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/Urja Global.svg" alt="Urja Global logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Urja Global</div>
-          </div>
-        </div>
+        <a class="sector-card" asp-page="/Sectors/Parliament">
+          <span class="sector-card-ic" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 4L4 11h24z"/>
+              <path d="M3 11h26"/>
+              <path d="M6 11v14M11 11v14M16 11v14M21 11v14M26 11v14"/>
+              <path d="M4 28h24"/>
+            </svg>
+          </span>
+          <h3 class="sector-card-title">Parliament &amp; Legislature</h3>
+          <p class="sector-card-sub">Secure communication and collaboration infrastructure for India&rsquo;s parliamentary institutions.</p>
+          <span class="sector-card-cta">Explore sector
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+
+        @* WG: Finance, PSUs & Fintech sector temporarily hidden *@
+        @* <a class="sector-card" asp-page="/Sectors/FinancePsus"> ... Finance, PSUs & Fintech ... </a> *@
+
+        <a class="sector-card" asp-page="/Sectors/QualityStandards">
+          <span class="sector-card-ic" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 4l2.5 3 4-0.5 0.5 4 3.5 2-1.5 3.5 1.5 3.5-3.5 2-0.5 4-4-0.5L16 28l-2.5-3-4 0.5-0.5-4-3.5-2 1.5-3.5L5.5 12.5l3.5-2 0.5-4 4 0.5z"/>
+              <path d="M11 16l3 3 6-7"/>
+            </svg>
+          </span>
+          <h3 class="sector-card-title">Quality &amp; Standards</h3>
+          <p class="sector-card-sub">Certification, accreditation and quality-compliance systems for regulatory and standards bodies.</p>
+          <span class="sector-card-cta">Explore sector
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+
+        <a class="sector-card" asp-page="/Sectors/EducationPublishing">
+          <span class="sector-card-ic" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 9C13 6 8 6 4 7v18c4-1 9-1 12 2 3-3 8-3 12-2V7c-4-1-9-1-12 2z"/>
+              <path d="M16 9v22"/>
+            </svg>
+          </span>
+          <h3 class="sector-card-title">Education &amp; Publishing</h3>
+          <p class="sector-card-sub">Digital library platforms, e-book distribution and publishing workflow automation.</p>
+          <span class="sector-card-cta">Explore sector
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
+
+        <a class="sector-card" asp-page="/Sectors/SmartCitiesUrban">
+          <span class="sector-card-ic" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="14" width="9" height="14"/>
+              <rect x="16" y="6" width="11" height="22"/>
+              <path d="M7 18h3M7 22h3M19 11h5M19 15h5M19 19h5M19 23h5"/>
+              <path d="M4 28h24"/>
+            </svg>
+          </span>
+          <h3 class="sector-card-title">Smart Cities, Urban &amp; NGOs</h3>
+          <p class="sector-card-sub">Smart-city platforms, urban-governance systems and technology for mission-driven organisations.</p>
+          <span class="sector-card-cta">Explore sector
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </span>
+        </a>
       </div>
-
-      <!-- Health & Welfare (placeholder) -->
-      <div class="sect sector-panel" id="panel-health" role="tabpanel">
-        <div class="sect-head">
-          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
-          <h2>Health &amp; Welfare Infrastructure</h2>
-          <p>Digital health infrastructure for government hospitals, tribal health programmes, and medical records management &mdash; built for DPDP Act 2023 compliance with offline-first capabilities for zero-connectivity field conditions.</p>
-        </div>
-
-        <div class="cap-grid">
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 4h12l5 5v17a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
-                <path d="M19 4v5h5"/>
-                <path d="M14 14v8M10 18h8"/>
-              </svg>
-            </div>
-            <h3>Digital Health Records</h3>
-            <p>DPDP Act 2023 compliant EHR systems with end-to-end encryption for patient data sovereignty.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="9" y="3" width="14" height="26" rx="2"/>
-                <path d="M13 7h6M16 25h0.01"/>
-                <path d="M23 8l7 7M30 8l-7 7"/>
-              </svg>
-            </div>
-            <h3>Offline-First Mobile Apps</h3>
-            <p>Field apps designed for zero-connectivity tribal areas with automated sync protocols.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 26V8a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v10"/>
-                <path d="M8 19l4-4 4 4 4-6"/>
-                <circle cx="23" cy="22" r="5"/>
-                <path d="M27 26l3 3"/>
-              </svg>
-            </div>
-            <h3>Disease Surveillance</h3>
-            <p>Real-time epidemiological tracking with predictive outbreak modelling and alert systems.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 4l6 6"/>
-                <path d="M25 7L8 24l-3 4 4-3L26 8z"/>
-                <path d="M12 18l3 3"/>
-              </svg>
-            </div>
-            <h3>Immunisation Tracking</h3>
-            <p>Beneficiary-level vaccination status monitoring integrated with CoWIN and state health systems.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 4h8"/>
-                <path d="M14 4v9L7 24a3 3 0 0 0 3 4h12a3 3 0 0 0 3-4l-7-11V4"/>
-                <circle cx="13" cy="22" r="0.9" fill="currentColor"/>
-                <circle cx="18" cy="20" r="0.9" fill="currentColor"/>
-                <circle cx="16" cy="25" r="0.9" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Laboratory Information Systems</h3>
-            <p>Sample tracking, test result management, and quality control for govt diagnostic labs.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="8" width="18" height="14" rx="2"/>
-                <path d="M21 13l8-4v12l-8-4z"/>
-                <circle cx="12" cy="15" r="3"/>
-              </svg>
-            </div>
-            <h3>Telemedicine Platforms</h3>
-            <p>Secure video consultation infrastructure connecting rural health workers to specialist doctors.</p>
-          </article>
-        </div>
-
-        <!-- Reference Project -->
-        <div class="ref-project ref-project--inline ref-project--v2 ref-project--sickle">
-          <div class="ref-project-content">
-            <div class="ref-project-brand">
-              <img class="ref-project-brand-logo" src="/images/logos/gov/Sickal Scan Logo.svg" alt="Sickle Scan mobile screening app" loading="lazy" />
-            </div>
-            <span class="ref-project-eyebrow">Showcasing Impact</span>
-            <h3>Sickle Scan</h3>
-            <p>Mobile haemoglobin screening app for tribal health workers conducting sickle cell anemia surveys in zero-connectivity field conditions &mdash; built for the Ministry of Tribal Affairs.</p>
-            <a class="ref-project-cta" asp-page="/CaseStudies">View Case Study</a>
-          </div>
-          <div class="ref-project-visual" aria-hidden="true"></div>
-        </div>
-
-        <!-- Global Partners & References -->
-        <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
-          <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
-        </div>
-        <div class="partners-grid">
-          <div class="partner-card">
-            <div class="partner-card-logo">Ministry of Tribal Affairs</div>
-            <div class="partner-card-name">Ministry of Tribal Affairs</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/Safdarjan Logo 64px.svg" alt="Safdarjung Hospital logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Safdarjung Hospital</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/biomedomics.svg" alt="BioMedomics logo" loading="lazy" style="height:64px;width:auto;max-width:none;max-height:none;" />
-            </div>
-            <div class="partner-card-name">BioMedomics Inc.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Defence & Security (placeholder) -->
-      <div class="sect sector-panel" id="panel-defence" role="tabpanel">
-        <div class="sect-head">
-          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
-          <h2>Defence &amp; Internal Security Protocols</h2>
-          <p>Secure systems for India&rsquo;s defence forces, paramilitary organisations, and internal security infrastructure &mdash; VAPT-cleared, ISO 27001:2022 compliant platforms.</p>
-        </div>
-
-        <div class="cap-grid">
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 4l10 4v8c0 6-4 11-10 13-6-2-10-7-10-13V8z"/>
-                <path d="M11 14h10M11 18h6"/>
-              </svg>
-            </div>
-            <h3>Secure Communication</h3>
-            <p>End-to-end encrypted messaging and data transfer protocols for classified operations.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="12" r="3.5"/>
-                <circle cx="22" cy="12" r="3.5"/>
-                <path d="M4 25c0-3.5 3-6 7-6s7 2.5 7 6"/>
-                <path d="M18 25c0-3.5 3-6 6.5-6s5.5 2.5 5.5 6"/>
-              </svg>
-            </div>
-            <h3>Personnel Management</h3>
-            <p>Attendance, deployment, and HR systems for paramilitary and defence establishments.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="14" height="11" rx="1"/>
-                <path d="M17 14h6l3 4v4h-9"/>
-                <circle cx="9" cy="25" r="2"/>
-                <circle cx="22" cy="25" r="2"/>
-              </svg>
-            </div>
-            <h3>Logistics &amp; Supply Chain</h3>
-            <p>Real-time inventory tracking and procurement management for defence stores.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="8" y="14" width="16" height="14" rx="2"/>
-                <path d="M11 14v-4a5 5 0 0 1 10 0v4"/>
-                <circle cx="16" cy="21" r="2"/>
-              </svg>
-            </div>
-            <h3>Access Control Systems</h3>
-            <p>Biometric and multi-factor authentication for restricted area management.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 18a11 11 0 0 1 22 0"/>
-                <path d="M16 18l7-5"/>
-                <circle cx="16" cy="18" r="2"/>
-                <path d="M5 23h22"/>
-              </svg>
-            </div>
-            <h3>Operations Dashboards</h3>
-            <p>Mission-critical real-time monitoring and command-centre visualisations.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="16" cy="16" r="3.5"/>
-                <path d="M16 4v3M16 25v3M4 16h3M25 16h3M7.5 7.5l2 2M22.5 22.5l2 2M7.5 24.5l2-2M22.5 9.5l2-2"/>
-              </svg>
-            </div>
-            <h3>Asset Management</h3>
-            <p>Equipment lifecycle tracking, maintenance scheduling, and audit trails.</p>
-          </article>
-        </div>
-
-        <!-- Reference Project -->
-        <div class="ref-project ref-project--inline ref-project--v2 ref-project--manthan">
-          <div class="ref-project-content">
-            <div class="ref-project-brand">
-              <img class="ref-project-brand-logo" src="/images/logos/gov/Manthan New logo for showcasing impact cards.svg" alt="Manthan Application" loading="lazy" />
-            </div>
-            <span class="ref-project-eyebrow">Showcasing Impact</span>
-            <h3>Manthan Application</h3>
-            <p>End-to-end encrypted secure communication platform for DRDO with air-gapped deployment protocols &mdash; built for classified operations across defence research establishments.</p>
-            <!-- TODO-WG: this Manthan blurb (DRDO secure comms) does not match the Manthan case study (Defence PSU employee-engagement platform). Reconcile copy. -->
-            <a class="ref-project-cta" asp-page="/CaseStudies/Manthan">View Case Study</a>
-          </div>
-          <div class="ref-project-visual" aria-hidden="true"></div>
-        </div>
-
-        <!-- Global Partners & References -->
-        <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
-          <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
-        </div>
-        <div class="partners-grid">
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/Home Affrais Logo 64px.svg" alt="Sashastra Seema Bal logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Sashastra Seema Bal</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/Manthan logo 64px.svg" alt="Munitions India Limited logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Munitions India Limited</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/Case Study Detail logo DRDO.svg" alt="DRDO logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">DRDO</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Parliament & Legislature (placeholder) -->
-      <div class="sect sector-panel" id="panel-parliament" role="tabpanel">
-        <div class="sect-head">
-          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
-          <h2>Parliament &amp; Legislative Governance</h2>
-          <p>Secure communication and collaboration infrastructure for India&rsquo;s parliamentary institutions &mdash; video-conferencing systems with enterprise-grade authentication and concurrent user management.</p>
-        </div>
-
-        <div class="cap-grid">
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 28h24"/>
-                <path d="M6 28V14M11 28V14M16 28V14M21 28V14M26 28V14"/>
-                <path d="M3 14h26"/>
-                <path d="M16 4L4 11h24z"/>
-              </svg>
-            </div>
-            <h3>Legislative Workflow</h3>
-            <p>Question tracking, bill management, and parliamentary session coordination systems.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 8h8l3 3h13a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"/>
-                <path d="M11 19h12M11 23h8"/>
-              </svg>
-            </div>
-            <h3>Document Management</h3>
-            <p>Secure archival and retrieval of constitutional documents with version control.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="14" width="22" height="14" rx="1"/>
-                <path d="M11 14l5-10 5 10"/>
-                <path d="M9 20l2.5 2.5L17 17"/>
-              </svg>
-            </div>
-            <h3>Voting &amp; Attendance</h3>
-            <p>Electronic voting systems and member attendance tracking with audit trails.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="5" width="20" height="22" rx="2"/>
-                <path d="M10 5v22"/>
-                <path d="M14 11h8M14 16h6M14 21h7"/>
-                <circle cx="10" cy="11" r="1.2" fill="currentColor"/>
-                <circle cx="10" cy="16" r="1.2" fill="currentColor"/>
-                <circle cx="10" cy="21" r="1.2" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Committee Management</h3>
-            <p>Scheduling, minutes recording, and report generation for parliamentary committees.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 13v6l16 6V7z"/>
-                <path d="M20 12c2.2 0 4 1.8 4 4s-1.8 4-4 4"/>
-                <path d="M9 19v6h4l-2-6"/>
-              </svg>
-            </div>
-            <h3>Constituent Communication</h3>
-            <p>Member portals for managing constituency queries and feedback.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 27h24"/>
-                <rect x="8" y="15" width="3.5" height="12"/>
-                <rect x="14" y="11" width="3.5" height="16"/>
-                <rect x="20" y="19" width="3.5" height="8"/>
-                <path d="M8 7l6 4 6-6 6 4"/>
-              </svg>
-            </div>
-            <h3>Legislative Analytics</h3>
-            <p>Data-driven insights on bill progression, member participation, and session productivity.</p>
-          </article>
-        </div>
-
-        <!-- Reference Project -->
-        <div class="ref-project ref-project--inline ref-project--v2 ref-project--parliament">
-          <div class="ref-project-content">
-            <div class="ref-project-brand">
-              <img class="ref-project-brand-logo" src="/images/logos/gov/parliament-cafeteria.svg" alt="Parliament of India — Sansad Cafeteria" loading="lazy" />
-            </div>
-            <span class="ref-project-eyebrow">Showcasing Impact</span>
-            <h3>Video Conferencing Infrastructure for Parliament of India</h3>
-            <p>200+ room video-conferencing portal with Single Sign-On authentication, supporting 20,000+ concurrent users for parliamentary proceedings.</p>
-            <a class="ref-project-cta" asp-page="/CaseStudies">View Case Study</a>
-          </div>
-          <div class="ref-project-visual" aria-hidden="true"></div>
-        </div>
-
-        <!-- Global Partners & References -->
-        <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
-          <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
-        </div>
-        <div class="partners-grid">
-          <div class="partner-card partner-card--wide-logo">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/parliament-cafeteria.png" alt="Parliament of India logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Parliament of India</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">Lok Sabha</div>
-            <div class="partner-card-name">Lok Sabha Secretariat</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">Rajya Sabha</div>
-            <div class="partner-card-name">Rajya Sabha Secretariat</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Finance, PSUs & Fintech — WG: temporarily hidden -->
-      <div class="sect sector-panel" id="panel-finance" role="tabpanel" hidden style="display:none;">
-        <div class="sect-head">
-          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
-          <h2>Finance, PSUs &amp; Fintech Systems</h2>
-          <p>Banking platforms, payment gateways, financial compliance systems and enterprise resource management for Public Sector Undertakings and financial institutions &mdash; built to integrate with PFMS, GeM, GST and India Stack payment rails.</p>
-        </div>
-
-        <div class="cap-grid">
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="9" width="24" height="14" rx="2"/>
-                <path d="M4 14h24"/>
-                <path d="M8 19h5"/>
-                <path d="M22 25c1.4-2.1 3.6-2.1 5 0"/>
-                <path d="M24 27c0.8-1.2 1.7-1.2 2.5 0"/>
-              </svg>
-            </div>
-            <h3>Payment Gateways</h3>
-            <p>UPI, NEFT, RTGS integration with multi-bank reconciliation and settlement workflows for citizen-facing fee collection.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 5L4 11h24L16 5z"/>
-                <path d="M7 14v9M13 14v9M19 14v9M25 14v9"/>
-                <path d="M4 25h24"/>
-              </svg>
-            </div>
-            <h3>Core Banking Modules</h3>
-            <p>Deposit, loan and account-management systems with PFMS hooks and regulatory compliance baked in.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="6" width="24" height="20" rx="2"/>
-                <path d="M9 22V15M14 22V11M19 22V17M24 22V9"/>
-              </svg>
-            </div>
-            <h3>Financial Reporting</h3>
-            <p>RBI-compliant MIS, balance-sheet generation and statutory report automation aligned to CAG audit templates.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="14" cy="14" r="9"/>
-                <path d="M10.5 14l2.5 2.5 5-5"/>
-                <path d="M21 21l6 6"/>
-              </svg>
-            </div>
-            <h3>Fraud Detection</h3>
-            <p>AI-driven transaction monitoring and anomaly detection across high-volume payment and procurement flows.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 28V14l7 4V14l7 4V14l8 4v10z"/>
-                <rect x="20" y="6" width="5" height="14"/>
-                <path d="M7 24h2M14 24h2M21 24h2"/>
-              </svg>
-            </div>
-            <h3>ERP for PSUs</h3>
-            <p>Procurement, HR, inventory and finance modules tailored for Defence and industrial PSUs on hybrid MeghRaj/on-prem stacks.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 26h24"/>
-                <path d="M4 4v22"/>
-                <path d="M6 20l5-5 5 3 5-9 5 4"/>
-                <circle cx="11" cy="15" r="1.3" fill="currentColor"/>
-                <circle cx="21" cy="9" r="1.3" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Lending Platforms</h3>
-            <p>Loan origination, credit-scoring and recovery-management systems with India Stack-aligned KYC and consent flows.</p>
-          </article>
-        </div>
-
-        <!-- Reference Project -->
-        <div class="ref-project ref-project--inline ref-project--v2">
-          <div class="ref-project-content">
-            <div class="ref-project-brand">
-              <img class="ref-project-brand-logo" src="/images/logos/gov/Webiste logo.svg" alt="Webority Technologies" loading="lazy" />
-            </div>
-            <span class="ref-project-eyebrow">Showcasing Impact</span>
-            <h3>Digital Infrastructure for Defence PSU</h3>
-            <p>Secure procurement and inventory-management systems for a Defence Public Sector Undertaking &mdash; integrated with PFMS sanction flows and GeM procurement records. <em>(Project details confidential until deployment.)</em></p>
-            <a class="ref-project-cta" asp-page="/CaseStudies">View Case Study</a>
-          </div>
-          <div class="ref-project-visual" aria-hidden="true"></div>
-        </div>
-
-        <!-- Global Partners & References -->
-        <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
-          <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
-        </div>
-        <div class="partners-grid">
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/Manthan logo 64px.svg" alt="Munitions India Limited logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Munitions India Limited</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">PFMS</div>
-            <div class="partner-card-name">Public Financial Management System</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">DFS</div>
-            <div class="partner-card-name">Department of Financial Services</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quality & Standards (placeholder) -->
-      <div class="sect sector-panel" id="panel-quality" role="tabpanel">
-        <div class="sect-head">
-          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
-          <h2>Quality &amp; Standards Certification</h2>
-          <p>Certification, accreditation, and quality-compliance systems for India&rsquo;s regulatory and standards bodies &mdash; ISO-aligned digital frameworks.</p>
-        </div>
-
-        <div class="cap-grid">
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 4l2.5 3 4-0.5 0.5 4 3.5 2-1.5 3.5 1.5 3.5-3.5 2-0.5 4-4-0.5L16 28l-2.5-3-4 0.5-0.5-4-3.5-2 1.5-3.5L5.5 12.5l3.5-2 0.5-4 4 0.5z"/>
-                <path d="M11 16l3 3 6-7"/>
-              </svg>
-            </div>
-            <h3>Accreditation Management</h3>
-            <p>Laboratory and certification-body accreditation lifecycle tracking and renewal systems.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="6" width="22" height="22" rx="2"/>
-                <path d="M5 12h22M11 4v6M21 4v6"/>
-                <path d="M10 20l3 3 7-7"/>
-              </svg>
-            </div>
-            <h3>Audit Scheduling</h3>
-            <p>Automated audit planning, assessor assignment, and execution tracking platforms.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="6" width="24" height="20" rx="2"/>
-                <path d="M9 19l5-5 4 4 5-8"/>
-                <circle cx="14" cy="14" r="0.9" fill="currentColor"/>
-                <circle cx="18" cy="18" r="0.9" fill="currentColor"/>
-                <circle cx="23" cy="10" r="0.9" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Compliance Dashboards</h3>
-            <p>Real-time monitoring of quality metrics and regulatory adherence across stakeholders.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 5h16a3 3 0 0 1 3 3v18a3 3 0 0 0-3-3H6z"/>
-                <path d="M6 5v18"/>
-                <path d="M13 9v9l2-2 2 2V9z"/>
-              </svg>
-            </div>
-            <h3>Standards Repository</h3>
-            <p>Digital library of national and international standards with search and reference tools.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="6" width="22" height="16" rx="2"/>
-                <path d="M10 22v6l3-2 3 2v-6"/>
-                <path d="M9 12h10M9 16h7"/>
-                <circle cx="22" cy="14" r="2.2"/>
-              </svg>
-            </div>
-            <h3>Certification Lifecycle</h3>
-            <p>End-to-end tracking from application submission to certificate issuance and renewal.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M7 4h12l5 5v17a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
-                <path d="M19 4v5h5"/>
-                <path d="M11 19v4M15 15v8M19 17v6"/>
-              </svg>
-            </div>
-            <h3>Report Generation</h3>
-            <p>Automated audit-report creation with templates and regulatory compliance checks.</p>
-          </article>
-        </div>
-
-        <!-- Reference Project -->
-        <div class="ref-project ref-project--inline ref-project--v2 ref-project--samar">
-          <div class="ref-project-content">
-            <div class="ref-project-brand">
-              <img class="ref-project-brand-logo" src="/images/logos/gov/Case Study Detail logo QCI .svg" alt="Quality Council of India" loading="lazy" style="width:72px; height:72px;" />
-            </div>
-            <span class="ref-project-eyebrow" style="color:#034EB4;">Showcasing Impact</span>
-            <h3>Quality Management System for Bureau of Indian Standards</h3>
-            <p>ISO certification tracking and compliance monitoring platform for 10,000+ enterprises &mdash; accreditation lifecycle, audit scheduling, and standards-repository search across the regulatory stack.</p>
-            <a class="ref-project-cta" asp-page="/CaseStudies">View Case Study</a>
-          </div>
-          <div class="ref-project-visual" aria-hidden="true"></div>
-        </div>
-
-        <!-- Global Partners & References -->
-        <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
-          <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
-        </div>
-        <div class="partners-grid">
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/qci.png" alt="Quality Council of India logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Quality Council of India</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">NABL</div>
-            <div class="partner-card-name">National Accreditation Board</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">BIS</div>
-            <div class="partner-card-name">Bureau of Indian Standards</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Education & Publishing -->
-      <div class="sect sector-panel" id="panel-education" role="tabpanel">
-        <div class="sect-head">
-          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
-          <h2>Education &amp; Publishing Knowledge</h2>
-          <p>Digital library platforms, e-book distribution, and publishing workflow automation for India&rsquo;s national education and media organisations.</p>
-        </div>
-
-        <div class="cap-grid">
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="5" width="3.5" height="22"/>
-                <rect x="10" y="8" width="3.5" height="19"/>
-                <rect x="16" y="4" width="3.5" height="23"/>
-                <path d="M22 7l5 1-3 18-5-1z"/>
-              </svg>
-            </div>
-            <h3>Digital Library Systems</h3>
-            <p>E-book cataloguing, discovery, and distribution platforms with DRM and access control.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="7" y="3" width="18" height="26" rx="2"/>
-                <path d="M11 8h10M11 13h10M11 18h8M16 25h0.01"/>
-              </svg>
-            </div>
-            <h3>E-Reader Applications</h3>
-            <p>Multi-format reading apps supporting EPUB, PDF, and Mobi with offline capabilities.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 6h13v22H5z"/>
-                <path d="M9 13h6M9 18h4"/>
-                <path d="M21 9l5 5-12 12-5 1 1-5z"/>
-              </svg>
-            </div>
-            <h3>Publishing Workflow</h3>
-            <p>Manuscript management, editorial coordination, and production tracking systems.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M8 4h16v24l-8-5-8 5z"/>
-                <rect x="13" y="12" width="6" height="6" rx="1"/>
-                <path d="M14 12v-2a2 2 0 0 1 4 0v2"/>
-              </svg>
-            </div>
-            <h3>Rights Management</h3>
-            <p>Copyright tracking, licensing, and royalty calculation automation.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="16" cy="16" r="11"/>
-                <path d="M5 16h22"/>
-                <path d="M16 5c3.2 3.5 4.5 7 4.5 11s-1.3 7.5-4.5 11"/>
-                <path d="M16 5c-3.2 3.5-4.5 7-4.5 11s1.3 7.5 4.5 11"/>
-              </svg>
-            </div>
-            <h3>Multi-Lingual Support</h3>
-            <p>Content delivery in 22+ Indian languages with Unicode compliance.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 25h24"/>
-                <path d="M4 5v20"/>
-                <path d="M6 19l5-5 5 3 5-9 5 4"/>
-                <circle cx="11" cy="14" r="1.3" fill="currentColor"/>
-                <circle cx="21" cy="8" r="1.3" fill="currentColor"/>
-              </svg>
-            </div>
-            <h3>Usage Analytics</h3>
-            <p>Reading patterns, distribution metrics, and reader engagement insights.</p>
-          </article>
-        </div>
-
-        <!-- Reference Project -->
-        <div class="ref-project ref-project--inline ref-project--v2 ref-project--nbt">
-          <div class="ref-project-content">
-            <div class="ref-project-brand">
-              <img class="ref-project-brand-logo" src="/images/logos/gov/Nbt 120px logo.svg" alt="National Book Trust e-commerce platform" loading="lazy" />
-            </div>
-            <span class="ref-project-eyebrow">Showcasing Impact</span>
-            <h3>NBT E-Commerce Platform</h3>
-            <p>Digital storefront and rights-managed e-book distribution for the National Book Trust &mdash; multi-lingual catalogue across 22 Indian languages with secure payment workflows.</p>
-            <a class="ref-project-cta" asp-page="/CaseStudies">View Case Study</a>
-          </div>
-          <div class="ref-project-visual" aria-hidden="true"></div>
-        </div>
-
-        <!-- Global Partners & References -->
-        <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
-          <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
-        </div>
-        <div class="partners-grid">
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/nbt-india.png" alt="National Book Trust logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">National Book Trust</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">NCERT</div>
-            <div class="partner-card-name">NCERT</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">UGC</div>
-            <div class="partner-card-name">University Grants Commission</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Smart Cities & Urban (placeholder) -->
-      <div class="sect sector-panel" id="panel-urban" role="tabpanel">
-        <div class="sect-head">
-          <span class="eyebrow" style="display:inline-block; margin-bottom:8px; color:var(--primary); font-family:var(--font-heading); font-weight:700; letter-spacing:0.18em; text-transform:uppercase; font-size:11px;">Government &amp; Public Sector</span>
-          <h2>Smart Cities, Urban &amp; NGO Solutions</h2>
-          <p>Smart-city platforms, urban-governance systems, and technology for mission-driven organisations &mdash; designed for India&rsquo;s municipal and development sector.</p>
-        </div>
-
-        <div class="cap-grid">
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="5" y="14" width="9" height="14"/>
-                <rect x="17" y="6" width="10" height="22"/>
-                <path d="M8 18h3M8 22h3M20 12h4M20 16h4M20 20h4"/>
-                <path d="M3 5c2-2 5-2 7 0M5 8c1-1 2-1 3 0"/>
-              </svg>
-            </div>
-            <h3>Smart City Command Centres</h3>
-            <p>Integrated IoT dashboards for traffic, waste, energy, and water management.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 15L15 7l10 8v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/>
-                <circle cx="22" cy="22" r="4.5"/>
-                <path d="M22 19v6M20 22h4"/>
-              </svg>
-            </div>
-            <h3>Property Tax Systems</h3>
-            <p>GIS-based tax assessment, collection, and reconciliation for municipal corporations.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 6h20v16H14l-6 6v-6H6z"/>
-                <path d="M11 14l3 3 6-6"/>
-              </svg>
-            </div>
-            <h3>Citizen Grievance Portals</h3>
-            <p>311-style complaint management with SLA tracking and resolution workflows.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="14" height="11"/>
-                <path d="M17 14h6l3 4v4h-9"/>
-                <circle cx="8" cy="25" r="2"/>
-                <circle cx="22" cy="25" r="2"/>
-                <path d="M6 8h6M6 5h6"/>
-              </svg>
-            </div>
-            <h3>Waste Management</h3>
-            <p>Route optimisation, vehicle tracking, and collection scheduling for solid-waste services.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 22h10v3a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2z"/>
-                <path d="M11 22c-3-2-5-5-5-8a10 10 0 0 1 20 0c0 3-2 6-5 8"/>
-                <path d="M13 26h6"/>
-              </svg>
-            </div>
-            <h3>Energy Management</h3>
-            <p>Street-light monitoring, consumption analytics, and fault detection systems.</p>
-          </article>
-          <article class="cap-card">
-            <div class="cap-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 17l5-5 4 3 4-3 4 3 4-3 5 5"/>
-                <path d="M3 21l4 4M29 21l-4 4"/>
-                <path d="M12 18l4 4 4-4"/>
-              </svg>
-            </div>
-            <h3>NGO Programme Management</h3>
-            <p>Beneficiary tracking, fund utilisation, and impact-measurement platforms.</p>
-          </article>
-        </div>
-
-        <!-- Reference Project — Vasudha Foundation -->
-        <div class="ref-project ref-project--inline ref-project--v2 ref-project--vasudha">
-          <div class="ref-project-content">
-            <div class="ref-project-brand">
-              <img class="ref-project-brand-logo" src="/images/logos/gov/Case Study Detail logoVasudha.svg" alt="Vasudha Foundation" loading="lazy" style="width:96px; height:96px;" />
-            </div>
-            <span class="ref-project-eyebrow" style="color:#085938;">Showcasing Impact</span>
-            <h3>Environment &amp; Sustainability Platform</h3>
-            <p>A centralised environmental-data platform with GIS visualisation &mdash; bringing air quality, forest cover, and programme data onto a single geographic layer for statewide monitoring and decision-making.</p>
-            <a class="ref-project-cta" asp-page="/CaseStudies" style="display:none;">View Case Study</a>
-          </div>
-          <div class="ref-project-visual" aria-hidden="true"></div>
-        </div>
-
-        <!-- Global Partners & References -->
-        <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
-          <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
-        </div>
-        <div class="partners-grid">
-          <div class="partner-card">
-            <div class="partner-card-logo">MoHUA</div>
-            <div class="partner-card-name">Ministry of Housing &amp; Urban Affairs</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">Smart Cities</div>
-            <div class="partner-card-name">Smart Cities Mission</div>
-          </div>
-          <div class="partner-card">
-            <div class="partner-card-logo">
-              <img src="/images/logos/gov/vasudha-foundation.png" alt="Vasudha Foundation logo" loading="lazy" />
-            </div>
-            <div class="partner-card-name">Vasudha Foundation</div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>

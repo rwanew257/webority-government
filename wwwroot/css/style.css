@@ -1855,44 +1855,9 @@ Case Studies — 2x2 card grid with ministry-themed header bands
 .case-card-cta:hover { text-decoration: underline; }
 
 /* ============================================================
-Sectors section — tabs, capability cards, reference project,
+Sectors section — capability cards, reference project,
 partners grid (Main Frame mockup)
 ============================================================ */
-.sector-tabs {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 6px;
-  padding: 0 0 0;
-  border-bottom: 1px solid var(--outline);
-  margin: 0 0 56px;
-  scrollbar-width: thin;
-}
-.sector-tab {
-  appearance: none;
-  background: transparent;
-  border: 0;
-  font-family: var(--font-heading);
-  font-size: clamp(13px, 12.217px + 0.217vw, 15px);
-  color: var(--text-1);
-  padding: 14px 22px;
-  cursor: pointer;
-  white-space: nowrap;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -1px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.sector-tab:hover { color: var(--heading); }
-.sector-tab.active {
-  color: var(--primary);
-  border-bottom-color: var(--primary);
-  font-weight: 600;
-}
-.sector-tab:focus-visible { outline: 3px solid #FFD600; outline-offset: 2px; }
-
-.sector-panel { display: none; }
-.sector-panel.active { display: block; }
-
 .cap-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

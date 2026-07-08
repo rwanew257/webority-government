@@ -1,0 +1,111 @@
+@page
+@model Webority.Web.GovIndia.Pages.Sectors.EnergyEnvironmentModel
+@{
+    ViewData["Title"] = "Energy & Environment — Public Sector Digital Platforms";
+    ViewData["Description"] = "Digital compliance platforms for energy efficiency and environmental governance — appliance rating systems, carbon analytics and sustainability programme tracking at national and state level.";
+    ViewData["ActiveNav"] = "sectors";
+    ViewData["BodyClass"] = "sectors-page sector-detail-page";
+}
+<section class="svc-hero">
+    <div class="container">
+      <div class="svc-hero-content">
+        <nav class="sector-detail-crumbs" aria-label="Breadcrumb">
+          <a asp-page="/Sectors">Sectors</a> <span aria-hidden="true">&rsaquo;</span> <span>Energy &amp; Environment</span>
+        </nav>
+        <span class="sector-detail-eyebrow">Government &amp; Public Sector</span>
+        <h1>Energy &amp; Environment Architecture</h1>
+        <p>Digital compliance platforms for energy efficiency and environmental governance &mdash; from appliance rating systems to sustainability programme tracking at national and state level.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect sect-soft">
+    <div class="container">
+      <div class="svc-grid svc-grid-v2">
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/flash.svg');"></i>
+          </span>
+          <h3>Renewable Infrastructure</h3>
+          <p>Architecting decentralised power grids with energy storage solutions for renewable integration.</p>
+        </article>
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/chart-2.svg');"></i>
+          </span>
+          <h3>Carbon Analytics</h3>
+          <p>Real-time carbon footprint tracking with predictive environmental impact modelling.</p>
+        </article>
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/clipboard-tick.svg');"></i>
+          </span>
+          <h3>Compliance Engines</h3>
+          <p>Automated auditing tools designed to meet evolving ESG environment standards and legal requirements.</p>
+        </article>
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/box-2.svg');"></i>
+          </span>
+          <h3>Resource Management</h3>
+          <p>Advanced logistics platforms for tracking and optimisation of water, waste, and sustainable resources.</p>
+        </article>
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/cpu.svg');"></i>
+          </span>
+          <h3>Smart Grid Logic</h3>
+          <p>AI-driven load balancing and predictive maintenance protocols for intelligent energy network optimisation.</p>
+        </article>
+        <article class="svc-card-v2 reveal">
+          <span class="svc-card-ic-v2" aria-hidden="true">
+            <i class="iconsax-ic" style="--ic-url:url('https://cdn.jsdelivr.net/gh/lusaxweb/iconsax@@master/docs/Iconsax/Svg/All/linear/shield-tick.svg');"></i>
+          </span>
+          <h3>EcoSecurity</h3>
+          <p>Protection strategies for critical environmental infrastructure including air quality and physical threats.</p>
+        </article>
+      </div>
+
+      <div class="ref-project ref-project--inline ref-project--v2 ref-project--bee">
+        <div class="ref-project-content">
+          <div class="ref-project-brand">
+            <img class="ref-project-brand-logo" src="/images/logos/gov/BEE Logo.png" alt="Bureau of Energy Efficiency — Ministry of Power / CLASP NGO" loading="lazy" />
+          </div>
+          <span class="ref-project-eyebrow">Showcasing Impact</span>
+          <h3>BEE Star Label</h3>
+          <p>Star Labelling Compliance Platform for Bureau of Energy Efficiency &mdash; appliance manufacturer registration, energy rating database, and State Designated Agency field inspection workflows</p>
+          <a class="ref-project-cta" asp-page="/CaseStudies">View Case Study</a>
+        </div>
+        <div class="ref-project-visual" aria-hidden="true"></div>
+      </div>
+
+      <div class="sect-head sect-head--centered" style="margin-top:100px; margin-bottom:0;">
+        <h2 style="font-family:var(--font-body); font-style:italic; font-weight:400; font-size:clamp(1.6rem, 2.6vw, 2.1rem); color:var(--heading); margin:0; text-align:center;">Global Partners &amp; References</h2>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="partner-card-logo">
+            <img src="/images/logos/gov/BEE logo.svg" alt="Bureau of Energy Efficiency logo" loading="lazy" />
+          </div>
+          <div class="partner-card-name">Bureau of Energy</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-card-logo">
+            <img src="/images/logos/gov/vasudha-foundation.png" alt="Vasudha Foundation logo" loading="lazy" />
+          </div>
+          <div class="partner-card-name">Vasudha Foundation</div>
+        </div>
+        <div class="partner-card">
+          <div class="partner-card-logo">
+            <img src="/images/logos/gov/Urja Global.svg" alt="Urja Global logo" loading="lazy" />
+          </div>
+          <div class="partner-card-name">Urja Global</div>
+        </div>
+      </div>
+
+      <div class="sector-detail-back">
+        <a asp-page="/Sectors" class="btn btn-outline btn-md">&larr; All Sectors</a>
+        <a asp-page="/Contact" class="btn btn-primary btn-md">Discuss Your Requirements</a>
+      </div>
+    </div>
+  </section>

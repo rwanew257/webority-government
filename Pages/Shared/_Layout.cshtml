@@ -349,7 +349,49 @@
     </footer>
     
     <script src="~/js/bundle.js?v=@assetV" defer></script>
-    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var path = location.pathname.replace(/\/+$/,'').toLowerCase();
+                var key = null;
+                if (path === '' || path === '/' || path === '/index') { key = 'home'; }
+                else if (path.indexOf('/services') === 0) { key = 'services'; }
+                else if (path.indexOf('/case-studies') === 0 || path.indexOf('/casestudies') === 0) { key = 'case-studies'; }
+                else if (path.indexOf('/sectors') === 0) { key = 'sectors'; }
+                else if (path.indexOf('/credentials') === 0) { key = 'credentials'; }
+                else if (path.indexOf('/about-us') === 0 || path.indexOf('/aboutus') === 0) { key = 'about'; }
+
+                if (key) {
+                    var sel = '[data-nav-key="' + key + '"]';
+                    var el = document.querySelector(sel);
+                    if (el) {
+                        el.classList.add('active');
+                        el.setAttribute('aria-current', 'page');
+                    }
+
+                    // Also mark mobile nav item if present
+                    var mobile = document.querySelectorAll('.gov-mnav-link');
+                    mobile.forEach(function (a) {
+                        try {
+                            var href = a.getAttribute('href') || a.getAttribute('asp-page') || '';
+                            if (!href) return;
+                            var u = new URL(href, location.origin);
+                            var p = u.pathname.replace(/\/+$/,'').toLowerCase();
+                            if ((key === 'services' && p.indexOf('/services') === 0)
+                                || (key === 'case-studies' && p.indexOf('/case-studies') === 0)
+                                || (key === 'sectors' && p.indexOf('/sectors') === 0)
+                                || (key === 'credentials' && p.indexOf('/credentials') === 0)
+                                || (key === 'about' && (p.indexOf('/about-us') === 0 || p.indexOf('/aboutus') === 0))) {
+                                a.classList.add('active');
+                            }
+                        } catch (e) { /* ignore URL parse errors */ }
+                    });
+                }
+            } catch (e) { console.error(e); }
+        });
+    </script>
+
     @await RenderSectionAsync("BodyScripts", required: false)
 </body>
 

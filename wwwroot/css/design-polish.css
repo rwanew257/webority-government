@@ -157,6 +157,35 @@ the <=991 block of responsive.css (mirrors webority-os-web's mobile nav). */
 .nav-menu a:not(.btn):hover,
 .nav-menu a:not(.btn).active { background: transparent; color: var(--heading); font-weight: 500; }
 
+/* Current-page nav item — primary purple text (mirrors the open-megamenu state). */
+.site-header .nav-menu a:not(.btn).menu-opt.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Desktop header — larger nav text, taller resting height that shrinks on scroll. */
+@media (min-width: 992px) {
+  .site-header .nav-menu a:not(.btn) {
+    font-size: clamp(14px, 13.2px + 0.25vw, 16px);
+  }
+  .site-header .nav {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+    transition: padding-top var(--transition-base), padding-bottom var(--transition-base);
+  }
+  .site-header.scrolled .nav {
+    padding-top: 1.15rem;
+    padding-bottom: 1.15rem;
+  }
+  .site-header .brand--logo .brand-logo-img {
+    height: 40px;
+    transition: height var(--transition-base);
+  }
+  .site-header.scrolled .brand--logo .brand-logo-img {
+    height: 32px;
+  }
+}
+
 /* Contact Us pill — purple brand primary (vertical gradient, no shadow) */
 .nav-menu a.btn.btn-primary,
 .nav-menu .btn.btn-primary {
@@ -390,7 +419,7 @@ The inline <img> tag in the HTML is hidden â€” the picture renders via CSS.
 ============================================================ */
 .hero-v2 {
   position: relative;
-  min-height: 620px;
+  min-height: 800px;
   margin-top: calc(-1 * (2.5rem + 72px));   /* brand icon 40px + 36px top + 36px bottom */
   padding: calc(2.5rem + 72px + 100px) 0 64px;
   background: #fdfcf9;            /* fallback under the image */
@@ -404,7 +433,7 @@ The inline <img> tag in the HTML is hidden â€” the picture renders via CSS.
   background-size: cover;
   /* Nudge the Lion Capital symbol slightly lower so the heading text clears it,
   using a percentage so the image still fully covers (no gap / hard crop). */
-  background-position: right 35%;
+  background-position: right 30%;
   background-repeat: no-repeat;
   z-index: -2;
 }
@@ -2143,12 +2172,6 @@ Layout: large photo left, 2x3 numbered card grid right with dividers.
   object-fit: cover;
   object-position: center;
 }
-
-.sector-panel .sect-head h2 {
-  font-size: clamp(2rem, 3.4vw, 2.8rem);
-}
-.sector-panel .sect-head h2::after { display: none; }
-.sector-panel .sect-head { margin-bottom: 56px; }
 
 .cap-grid {
   display: grid;
@@ -4147,45 +4170,6 @@ SERVICES PAGE — sticky tab navigation
   height: auto;
   object-fit: contain;
   display: block;
-}
-
-/* Sectors page tabs — scroll-spy: sticky bar, all panels stacked, hide scrollbar */
-.sector-tabs {
-  scrollbar-width: none !important;          /* Firefox */
-  -ms-overflow-style: none !important;       /* Legacy Edge / IE */
-  position: sticky;
-  top: calc(var(--nav-height, 64px) + 16px);
-  z-index: 100;
-  background: #fff;
-  margin-bottom: 40px;
-  box-shadow: 0 6px 14px -10px rgba(7, 20, 55, .12);
-}
-.sector-tabs::-webkit-scrollbar { display: none !important; }  /* Chrome, Safari, modern Edge */
-
-/* All sector panels visible at once; scroll-spy highlights the matching tab. */
-.sector-panel { display: block; }
-.sector-panel { scroll-margin-top: calc(var(--nav-height, 64px) + 80px); }
-
-/* Alternating full-bleed bands (white → light purple → white → ...) as the user scrolls through sectors. */
-.sector-panel,
-#sector-finance {
-  position: relative;
-  isolation: isolate;
-  margin-top: 0;
-}
-.sector-panel + .sector-panel,
-.sector-panel + #sector-finance {
-  margin-top: 0;
-}
-.sector-panel:nth-child(odd)::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  background: #f9fafb;
-  z-index: -1;
 }
 
 .svc-tab {
@@ -7380,135 +7364,37 @@ with a 12px gap before the description below. */
   filter: none !important;
 }
 
-/* Sector-panel svc-card-v2 — kill the rotating conic-gradient outline on hover */
-.sector-panel .svc-card-v2::after,
-.sector-panel .svc-card-v2:hover::after,
-.sector-panel .svc-card-v2:focus-visible::after {
+/* Sector detail svc-card-v2 — kill the rotating conic-gradient outline on hover */
+body.sector-detail-page .svc-card-v2::after,
+body.sector-detail-page .svc-card-v2:hover::after,
+body.sector-detail-page .svc-card-v2:focus-visible::after {
   display: none !important;
   content: none !important;
   background: none !important;
   animation: none !important;
   opacity: 0 !important;
 }
-.sector-panel .svc-card-v2:hover,
-.sector-panel .svc-card-v2:focus-visible {
+body.sector-detail-page .svc-card-v2:hover,
+body.sector-detail-page .svc-card-v2:focus-visible {
   border-color: var(--outline) !important;
 }
 
-/* Sector-panel capability cards — pure white background, locked typography */
-.sector-panel .cap-card,
+/* Capability cards — pure white background, locked typography */
 .cap-grid .cap-card,
 .cap-card {
   background: #ffffff !important;
   border: 1px solid var(--outline) !important;
   box-shadow: none !important;
 }
-.sector-panel .cap-card h3,
 .cap-grid .cap-card h3,
 .cap-card h3 {
   font-size: clamp(16px, 14.435px + 0.435vw, 20px) !important;
   font-weight: 500 !important;
 }
-.sector-panel .cap-card p,
 .cap-grid .cap-card p,
 .cap-card p {
   font-size: clamp(14px, 13.217px + 0.217vw, 16px) !important;
   font-weight: 400 !important;
-}
-
-/* Sectors-page tabs — mirror the .svc-tabs treatment from the services page.
-The white strip is full-bleed (edge-to-edge) and sits flush below the stats row. */
-.sect:has(> .container > .sector-tabs) {
-  padding: 0 !important;
-  background: transparent !important;
-}
-.sect > .container:has(.sector-tabs) {
-  max-width: none !important;
-  width: 100% !important;
-}
-/* Re-constrain each sector-panel's content to 1280px total. The
-:nth-child(odd)::before band still spans 100vw for the alternating
-background; only the inner content (sect-head + cards) is capped. */
-.sect > .container:has(.sector-tabs) > .sector-panel {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  /* Restore a side gutter so cards don't run edge-to-edge below 1280px.
-  box-sizing:border-box keeps the content cap at 1280px total width. */
-  box-sizing: border-box;
-}
-/* Stats row directly above the tabs strip — drop its bottom padding so the gap is 0 */
-.sect-tight:has(.stats-v2) {
-  padding-bottom: 0 !important;
-}
-/* Mirrors the services page (.svc-tabs): the bar is a full-bleed sticky white
-strip; a centred .container caps the content to 1280px; .sector-tabs-scroll
-is the horizontally-scrollable row inside it — so the tabs scroll within the
-container exactly like the services tabs. */
-.sector-tabs {
-  display: block !important;
-  overflow: visible !important;
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 0 40px !important;
-  padding: 10px 0 0 !important;
-  background: #ffffff !important;
-  backdrop-filter: saturate(140%) blur(10px) !important;
-  -webkit-backdrop-filter: saturate(140%) blur(10px) !important;
-  border-top: 0 !important;
-  border-bottom: 0 !important;
-  box-shadow: none !important;
-  position: sticky !important;
-  top: var(--nav-height, 64px) !important;
-  z-index: 100 !important;
-  box-sizing: border-box !important;
-}
-/* Inner container aligns the tabs with the 1280px cards/panels below. */
-.sector-tabs > .container {
-  max-width: 1280px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-block: 0 !important;
-}
-.sector-tabs-scroll {
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  gap: 4px !important;
-  overflow-x: auto !important;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  justify-content: flex-start !important;
-  scrollbar-width: none !important;
-  -ms-overflow-style: none !important;
-}
-.sector-tabs-scroll::-webkit-scrollbar { display: none !important; }
-.sector-tab {
-  position: relative !important;
-  flex: 0 0 auto !important;
-  appearance: none !important;
-  background: transparent !important;
-  border: 0 !important;
-  padding: 18px 20px 16px !important;
-  margin: 0 !important;
-  font-family: var(--font-display, var(--font-heading)) !important;
-  font-size: clamp(12px, 11.217px + 0.217vw, 14px) !important;
-  font-weight: 600 !important;
-  letter-spacing: -.005em !important;
-  color: var(--text-2, #5b6479) !important;
-  white-space: nowrap !important;
-  text-decoration: none !important;
-  cursor: pointer !important;
-  border-bottom: 2px solid transparent !important;
-  transition: color .2s ease, border-color .2s ease !important;
-}
-.sector-tab:hover {
-  color: var(--primary, #6200ee) !important;
-}
-.sector-tab.active,
-.sector-tab[aria-selected="true"] {
-  color: var(--primary, #6200ee) !important;
-  border-bottom-color: var(--primary, #6200ee) !important;
-  font-weight: 600 !important;
 }
 
 /* Download Company Profile CTA — replace dark gradient with CTA Background.png */
@@ -8079,4 +7965,177 @@ hierarchy is clear (base .gov-mnav-sub a had no size and inherited larger). */
 .josefin-medium-italic { font-family: 'Josefin Sans', serif; font-weight: 500; font-style: italic; }
 .josefin-semibold-italic { font-family: 'Josefin Sans', serif; font-weight: 600; font-style: italic; }
 .josefin-bold-italic { font-family: 'Josefin Sans', serif; font-weight: 700; font-style: italic; }
+
+/* ============================================================
+Sectors landing — stat cards, sector cards grid (replaces the old
+tab strip) and sector detail pages (breadcrumb, eyebrow, back row)
+============================================================ */
+/* Stats: four individual cards with icons. The global .stats-v2
+   grid/divider/!important treatment is re-overridden per-card here. */
+body.sectors-page .sectors-stats-sect {
+  padding-top: 44px;
+  padding-bottom: 8px;
+}
+body.sectors-page .sectors-stats-cards {
+  gap: 22px !important;
+  border: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+body.sectors-page .sectors-stats-cards > div {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 30px 18px !important;
+  background: var(--white);
+  border: 1px solid var(--outline) !important;
+  border-right: 1px solid var(--outline) !important;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px -22px rgba(16, 24, 40, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+body.sectors-page .sectors-stats-cards > div::after { display: none !important; content: none !important; }
+body.sectors-page .sectors-stats-cards > div:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent) !important;
+  box-shadow: 0 20px 40px -24px rgba(98, 0, 238, 0.4);
+}
+body.sectors-page .sectors-stat-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--primary) 10%, #fff);
+  color: var(--primary);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+body.sectors-page .sectors-stat-ic svg { width: 24px; height: 24px; }
+body.sectors-page .sectors-stats-cards > div:hover .sectors-stat-ic {
+  background: var(--primary);
+  color: #fff;
+}
+
+.sector-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.sector-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 32px 30px;
+  background: var(--white);
+  border: 1px solid var(--outline);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.sector-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), #9a5cff);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.sector-card:hover,
+.sector-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: transparent;
+  box-shadow: 0 18px 40px -18px rgba(98, 0, 238, 0.35);
+}
+.sector-card:hover::before,
+.sector-card:focus-visible::before { transform: scaleX(1); }
+.sector-card:focus-visible { outline: 3px solid #FFD600; outline-offset: 3px; }
+
+.sector-card-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: rgba(98, 0, 238, 0.08);
+  color: var(--primary);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.sector-card-ic svg { width: 28px; height: 28px; }
+.sector-card:hover .sector-card-ic,
+.sector-card:focus-visible .sector-card-ic {
+  background: var(--primary);
+  color: var(--white);
+}
+.sector-card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.35rem);
+  font-weight: 700;
+  color: var(--heading);
+  margin: 0;
+  line-height: 1.25;
+}
+.sector-card-sub {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-1);
+  margin: 0;
+  flex: 1 1 auto;
+}
+.sector-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary);
+}
+.sector-card-cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+.sector-card:hover .sector-card-cta svg,
+.sector-card:focus-visible .sector-card-cta svg { transform: translateX(4px); }
+
+/* Sector detail pages */
+.sector-detail-crumbs {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+.sector-detail-crumbs a { color: inherit; text-decoration: none; opacity: 0.75; }
+.sector-detail-crumbs a:hover { opacity: 1; text-decoration: underline; }
+.sector-detail-crumbs span[aria-hidden] { margin: 0 8px; opacity: 0.5; }
+.sector-detail-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 11px;
+  opacity: 0.85;
+}
+.sector-detail-back {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 72px;
+}
 
