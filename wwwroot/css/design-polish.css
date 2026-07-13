@@ -169,25 +169,25 @@ html { overflow-anchor: none; }
 
 /* Desktop header — larger nav text, taller resting height that shrinks on scroll. */
 @media (min-width: 992px) {
-  .site-header .nav-menu a:not(.btn) {
+  /* .site-header .nav-menu a:not(.btn) {
     font-size: clamp(14px, 13.2px + 0.25vw, 16px);
-  }
-  .site-header .nav {
+  } */
+  /* .site-header .nav {
     padding-top: 2.25rem;
     padding-bottom: 2.25rem;
     transition: padding-top var(--transition-base), padding-bottom var(--transition-base);
-  }
-  .site-header.scrolled .nav {
+  } */
+  /* .site-header.scrolled .nav {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-  }
+  } */
   .site-header .brand--logo .brand-logo-img {
     height: 40px;
     transition: height var(--transition-base);
   }
-  .site-header.scrolled .brand--logo .brand-logo-img {
+  /* .site-header.scrolled .brand--logo .brand-logo-img {
     height: 34px;
-  }
+  } */
 }
 
 /* Contact Us pill — purple brand primary (vertical gradient, no shadow) */
